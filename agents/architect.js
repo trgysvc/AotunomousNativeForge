@@ -113,9 +113,29 @@ async function discoverNewProjects() {
                         const match = res.match(/\[[\s\S]*\]/);
                         if (!match) throw new Error("Geçerli bir görev listesi (JSON) üretilemedi.");
                         
+                        const projectConfigPath = path.join(__dirname, '..', 'src', project_id, 'config.json');
+                        let projectDocs = "";
+                        if (fs.existsSync(projectConfigPath)) {
+                            try {
+                                const pConfig = JSON.parse(fs.readFileSync(projectConfigPath, 'utf8'));
+                                if (pConfig.documentation_links) {
+                                    projectDocs = Array.isArray(pConfig.documentation_links) 
+                                        ? pConfig.documentation_links.join('\n') 
+                                        : pConfig.documentation_links;
+                                }
+                            } catch (err) {
+                                log(`⚠️ [${project_id}] Konfigürasyon okuma hatası: ${err.message}`);
+                            }
+                        }
+
                         const tasks = JSON.parse(match[0]);
                         tasks.forEach(t => {
-                            handleMessage({ type: 'TASK_READY', project_id, ...t });
+                            handleMessage({ 
+                                type: 'TASK_READY', 
+                                project_id, 
+                                doc_context: projectDocs,
+                                ...t 
+                            });
                         });
 
                         // Dökümanı mühürle (tekrar okunmasın)
