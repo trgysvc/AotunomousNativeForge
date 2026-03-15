@@ -1,0 +1,13 @@
+{
+    "example_project": {
+        "name": "project_name",
+        "github": {
+            "repo": "https://github.com/kullanici/repo-adi.git",
+            "token": "ghp_your_github_personal_access_token_here"
+        },
+        "supabase": {
+            "url": "https://your-project-id.supabase.co",
+            "anon_key": "your-supabase-anon-key-here"
+        }
+    }
+}
