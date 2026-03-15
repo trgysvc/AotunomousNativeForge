@@ -1,0 +1,29 @@
+# AI Software Engineer Agents - Gitignore
+
+# Core Secrets
+config/vault.json
+.env
+src/*/.env
+src/*/config.json
+
+# Queues & State
+queue/
+queue/inbox/
+queue/processing/
+queue/done/
+queue/error/
+
+# Logs
+logs/
+*.log
+
+# System & IDE
+.DS_Store
+.idea/
+.vscode/
+
+# Dependencies
+node_modules/
+
+# Temp
+/tmp/
