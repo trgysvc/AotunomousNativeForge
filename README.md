@@ -17,7 +17,7 @@
 
 ## What Is This?
 
-**ANF — Autonomous Native Forge** is a **cloud-free, self-healing software production pipeline** powered by **4 AI agents** (PM, Architect, Coder, Reviewer). Built entirely on Node.js native modules — no middleware, no external dependencies. 
+**Autonomous Native Forge** is a **cloud-free, fully local, 4-agent autonomous software production factory** built entirely on Node.js native capabilities — no middleware, no heavy frameworks, no vendor lock-in.
 
 Runs on local hardware: **NVIDIA GPU (Blackwell)**, **Apple Silicon (Unified Memory)**, and **NPU-accelerated devices**. Local LLM inference only.
 
@@ -118,6 +118,12 @@ This isn't dogma — it's a deliberate architectural choice:
 - **NVIDIA GPU**: Optimized for Blackwell GB10 (120GB VRAM) and CUDA-enabled architectures.
 - **Apple Silicon**: Fully compatible with M-series chips utilizing **Unified Memory** for large context windows.
 - **NPU Engines**: Support for local AI accelerators (NPU) in modern mobile/desktop workstations.
+- **Model:DeepSeek-R1-Distill-Qwen-32B (bfloat16 — ~64GB VRAM)
+
+### TEST SYSTEM
+Server:  vLLM OpenAI-compatible API (port 8000)
+Runtime: Node.js v22+
+OS:      Linux (aarch64)
 
 ### Why 32B and Not 70B?
 Simple math: 70B in bfloat16 requires ~132GB VRAM. GB10 has 120GB. The OOM Killer doesn't negotiate.  

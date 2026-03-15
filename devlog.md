@@ -232,6 +232,36 @@ System robust against common API errors and discovery overlaps. Ready for high-v
 
 ---
 
+### SESSION-008 | [MILESTONE] | Universal Native Forge Evolution
+**Date:** 2026-03-15  
+**Duration:** ~2 hours  
+**Operator:** Antigravity (AI)
+
+#### Objective
+Evolve ANF from a Node-only factory to a universal software production system supporting Apple Silicon (Unified Memory), NPU engines, and multi-language RAG.
+
+#### What Was Attempted
+1. Project rebranding to **ANF — Autonomous Native Forge**.
+2. Integration of hardware-agnostic documentation for Apple Silicon/NPU.
+3. Implementation of dynamic language detection and documentation link propagation (RAG-lite).
+
+#### What Happened
+🟢 INFO — Successfully pivoted the architecture. The system now recognizes and optimizes for Unified Memory and NPU devices. Coder agent can now produce code in any language (Swift, Python, SQL, etc.) by following official documentation context provided by the Architect.
+
+#### Fixes & Features Applied
+- **Identity**: Global rename to ANF. Update README.md and internal manifests.
+- **Hardware**: Added Unified Memory and NPU support descriptions in all technical docs.
+- **RAG-lite**: `architect.js` now harvests `documentation_links` from project configs.
+- **Polyglot Coder**: `coder.js` uses dynamic extension mapping and documentation-aware prompting.
+
+#### Learned
+Limiting an autonomous factory to a single language/hardware stack (Blackwell/Node) was an artificial ceiling. By treating "Native" as a platform-specific standard (e.g., SwiftUI is native on Apple), ANF becomes a truly universal production system.
+
+#### State After Session
+ANF is now a polyglot, hardware-aware autonomous forge. Ready for mobile (Swift), web (Next.js), and database (Postgres) production.
+
+---
+
 ## Pending Issues
 
 | ID | Description | Severity | Status |

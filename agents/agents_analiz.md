@@ -30,7 +30,7 @@ Sistemi ayağa kaldıran ana mekanizmadır.
 
 ### 2.3. Uzman Ajanlar
 1.  **Architect (Baş Mimar):** `docs/reference/` altındaki dökümanları tarar, DeepSeek-R1 ile iş planı çıkarır ve dökümanları önüne `_` koyarak mühürler. Onaylı kodları GitHub'a push eder.
-2.  **Coder (Geliştirici):** Architect'ten gelen görevleri alır, projenin mühürlü kimlik bilgilerini kullanarak saf Node.js kodu üretir.
+2.  **Coder (Geliştirici):** Architect'ten gelen görevleri ve döküman linklerini alır. Hedef platformun (Swift, SQL, Node vb.) "Native" standartlarını ve en güncel döküman patternlerini kullanarak kod üretir.
 3.  **Tester (Denetçi):** Üretilen kodu güvenlik ve bağımlılık taramasından geçirir. Hata varsa "Self-Healing" sürecini başlatır.
 4.  **Docs (Arşivci):** Başarılı süreçleri dökümante eder ve merkezi `DEVLOG.md` dosyasını günceller.
 
