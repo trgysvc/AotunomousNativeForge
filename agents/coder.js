@@ -1,12 +1,35 @@
 'use strict';
 const fs = require('node:fs');
 const path = require('node:path');
-const { ask, start, log, sendMessage } = require('./base-agent');
+const { ask, start, log, sendMessage, safeWriteFile } = require('./base-agent');
 
 const SRC = path.join(__dirname, '..', 'src');
 
+/**
+ * Path Authority: Ensures the file path is within the project directory
+ */
+function getAuthorizedPath(projectPath, requestedPath) {
+    const absolutePath = path.resolve(projectPath, requestedPath);
+    if (!absolutePath.startsWith(path.resolve(projectPath))) {
+        throw new Error(`🛡️ GÜVENLİK İHLALİ: Geçersiz dosya yolu (Dizin dışına çıkma denemesi): ${requestedPath}`);
+    }
+    return absolutePath;
+}
+
+/**
+ * Project Tree: Generates a simple directory map for the agent
+ */
+function getProjectTree(projectPath) {
+    try {
+        const files = fs.readdirSync(projectPath, { recursive: true });
+        return files.slice(0, 50).join('\n'); // İlk 50 dosyayı döndür
+    } catch (e) { return "Dizin okunamadı."; }
+}
+
 async function processTask(task) {
     const projectPath = path.join(SRC, task.project_id);
+    if (!fs.existsSync(projectPath)) fs.mkdirSync(projectPath, { recursive: true });
+
     const configPath = path.join(projectPath, 'config.json');
     
     // Proje bazlı anahtarları oku (Güvenlik için tokenları temizle)
@@ -14,7 +37,7 @@ async function processTask(task) {
     if (fs.existsSync(configPath)) {
         const config = JSON.parse(fs.readFileSync(configPath, 'utf8'));
         if (config.github) config.github.token = 'REDACTED';
-        if (config.supabase) config.supabase.key = 'REDACTED'; // Varsa temizle
+        if (config.supabase) config.supabase.key = 'REDACTED';
         configStr = JSON.stringify(config, null, 2);
     }
 
@@ -32,17 +55,25 @@ async function processTask(task) {
     };
     const targetLang = langMap[ext] || 'Source Code';
 
-    // Dökümantasyon Bağlamı (Architect'ten gelen linkler)
+    const projectTree = getProjectTree(projectPath);
+
+    // Dökümantasyon Bağlamı
     const docContextSection = task.doc_context ? `
     REFERANS DÖKÜMANTASYON STANDARTLARI:
-    ${task.doc_context}
-    Lütfen yukarıdaki resmi dökümanlardaki en güncel pattern ve özellikleri kullanarak kod üret.` : "";
+    ${task.doc_context}` : "";
+
+    const contextHeader = `
+    CURRENT WORKING DIRECTORY: ${projectPath}
+    PROJECT STRUCTURE:
+    ${projectTree}
+    `;
 
     let prompt = "";
     if (task.type === 'FIX_CODE') {
         log(`🔧 Hata Düzeltiliyor (${targetLang}): [${task.project_id}] ${task.task_id}`);
         const currentCode = fs.readFileSync(task.file_path, 'utf8');
         prompt = `
+        ${contextHeader}
         PROJE: ${task.project_id}
         DİL: ${targetLang}
         KİMLİK VERİLERİ: ${configStr}
@@ -52,13 +83,14 @@ async function processTask(task) {
         MEVCUT HATALI KOD:
         ${currentCode}
         
-        HATA RAPORU:
+        HATA RAPORU (OBSERVATION):
         ${task.description}
         
-        Lütfen hatayı düzelt ve sadece güncel ${targetLang} kodunu döndür. Markdown bloğu kullanma.`;
+        Lütfen sadece güncel ${targetLang} kodunu döndür. Markdown bloğu kullan.`;
     } else {
         log(`✍️ Kod Yazılıyor (${targetLang}): [${task.project_id}] ${task.title}`);
         prompt = `
+        ${contextHeader}
         PROJE: ${task.project_id}
         DİL: ${targetLang}
         KİMLİK VERİLERİ (Supabase/GitHub): ${configStr}
@@ -66,20 +98,23 @@ async function processTask(task) {
         BAŞLIK: ${task.title}
         ${docContextSection}
         
-        Lütfen sadece ${targetLang} kodunu döndür. Markdown bloğu kullanma.`;
+        Lütfen sadece ${targetLang} kodunu döndür. Markdown bloğu kullan.`;
     }
 
-    const code = await ask('CODER', prompt, __dirname);
-    
-    const filePath = task.file_path ? path.join(projectPath, task.file_path) : path.join(projectPath, `${task.task_id}${ext}`);
-    if (!fs.existsSync(path.dirname(filePath))) {
-        fs.mkdirSync(path.dirname(filePath), { recursive: true });
+    try {
+        const code = await ask('CODER', prompt, __dirname);
+        
+        // Path Authority Check
+        const targetPath = task.file_path || `${task.task_id}${ext}`;
+        const filePath = getAuthorizedPath(projectPath, targetPath);
+        
+        safeWriteFile(filePath, code);
+        
+        sendMessage('ARCHITECT', 'CODE_FINISHED', { ...task, file_path: filePath });
+    } catch (err) {
+        log(`❌ CODER HATASI: ${err.message}`);
+        throw err;
     }
-    
-    fs.writeFileSync(filePath, code, 'utf-8');
-    log(`💾 Kod Mühürlendi: ${filePath}`);
-    
-    sendMessage('ARCHITECT', 'CODE_FINISHED', { ...task, file_path: filePath });
 }
 
 start('CODER', processTask);
