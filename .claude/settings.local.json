@@ -9,7 +9,9 @@
       "Bash(node --check agents/coder.js)",
       "Bash(node --check agents/tester.js)",
       "Bash(node --check agents/bootstrap.js)",
-      "Bash(node *)"
+      "Bash(node *)",
+      "Bash(python3 -c ' *)",
+      "Bash(echo \"EXIT:$?\")"
     ]
   }
 }
