@@ -1,73 +1,73 @@
 # ANF — Autonomous Native Forge
 
-> *PRD dosyası bırak. Çalışan yazılım al. Arada ne olduğunu da göster.*
+> *Drop a PRD. Get working software. See what happens in between.*
 
 [![Node.js v22+](https://img.shields.io/badge/Node.js-v22%2B-green)](https://nodejs.org)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Hardware](https://img.shields.io/badge/Hardware-GB10%20Blackwell%20%7C%20ASUS%20Ascent-76B900)](https://www.nvidia.com)
 [![Status](https://img.shields.io/badge/Status-V4.5%20Active-brightgreen)]()
 
-**Autonomous Native Forge**, teknik dökümanları (PRD, Sprint, Spec) okuyup çalışan yazılım üreten, **tamamen yerel çalışan**, **sıfır npm bağımlılığı** olan 4-agent bir yazılım fabrikasıdır.
+**Autonomous Native Forge** is a 4-agent software factory that reads technical documents (PRD, Sprint, Spec) and produces working software. It runs **entirely locally** and has **zero npm dependencies**.
 
-- Bulut yok. Vendor lock-in yok. API anahtarı zorunluluğu yok.
-- Saf Node.js. Sadece `node:http`, `node:fs`, `node:path`, `node:events`.
-- Her LLM hatası, her retry, her steering kararı DEVLOG.md'ye yazılır.
+- No cloud. No vendor lock-in. No mandatory API keys.
+- Pure Node.js. Only `node:http`, `node:fs`, `node:path`, `node:events`.
+- Every LLM error, every retry, and every steering decision is recorded in `DEVLOG.md`.
 
 ---
 
-## Hızlı Başlangıç
+## Quick Start
 
 ```bash
-# 1. NIM/LLM bağlantısını doğrula
+# 1. Verify NIM/LLM connection
 npm run test-nim
 
-# 2. Fabrikayı başlat (tüm 4 agent spawn edilir)
+# 2. Start the factory (spawns all 4 agents)
 npm run forge
 
-# 3. Başka terminalde dashboard'u aç
+# 3. Open the dashboard in another terminal
 npm run dashboard
-# → http://localhost:3000  (5 saniyede bir otomatik güncellenir)
+# → http://localhost:3000 (auto-refreshes every 5 seconds)
 
-# 4. Projenin PRD'sini bırak → Architect otomatik keşfeder
-mkdir -p docs/reference/PROJE_ADINIZ
-# prd.md dosyasını oraya koyun
+# 4. Drop your project's PRD → Architect will discover it automatically
+mkdir -p docs/reference/YOUR_PROJECT_NAME
+# Place your prd.md file there
 
-# Alternatif: Harici dizinden okuma (vault.json > reference_dir)
-# "reference_dir": "/harici/yol/docs/reference"  ← bu satırı vault.json'a ekleyin
+# Alternative: Read from an external directory (vault.json > reference_dir)
+# Add this line to vault.json: "reference_dir": "/external/path/docs/reference"
 ```
 
 ---
 
-## Hangi LLM Çalışır?
+## Which LLM Works?
 
-ANF, **OpenAI-uyumlu** `/v1/chat/completions` API'sini kullanır. Thinking formatları otomatik temizlenir.
+ANF uses the **OpenAI-compatible** `/v1/chat/completions` API. Thinking formats are automatically cleaned.
 
-### GB10 (128GB) — Neden Nemotron?
+### GB10 (128GB) — Why Nemotron?
 
-| Metrik | Nemotron-3-Super-120B | GLM-4-32B | Llama-Nemotron-49B |
+| Metric | Nemotron-3-Super-120B | GLM-4-32B | Llama-Nemotron-49B |
 |---|---|---|---|
-| **PinchBench** (agentic kodlama) | **%85.6** | — | — |
-| SWE-bench | %60.5 | çok güçlü | güçlü |
-| Hız | **~329 tok/s** | ~200 tok/s | ~150 tok/s |
-| Aktif parametre (MoE) | **12B** | 32B (dense) | 49B (dense) |
-| Context window | **1M token** | 32K | 128K |
-| Reasoning budget kontrolü | **✅ per-call** | ✅ | ❌ |
-| 128GB kullanımı | ~60GB ağırlık + 68GB KV | ~64GB + 64GB | ~98GB + 30GB |
+| **PinchBench** (agentic coding) | **85.6%** | — | — |
+| SWE-bench | 60.5% | Very strong | Strong |
+| Speed | **~329 tok/s** | ~200 tok/s | ~150 tok/s |
+| Active parameters (MoE) | **12B** | 32B (dense) | 49B (dense) |
+| Context window | **1M tokens** | 32K | 128K |
+| Reasoning budget control | **✅ per-call** | ✅ | ❌ |
+| 128GB usage | ~60GB weights + 68GB KV | ~64GB + 64GB | ~98GB + 30GB |
 
-> **PinchBench vs SWE-bench farkı:** SWE-bench tek seferlik kod üretimini ölçer. PinchBench bir agent olarak oturup gerçek projeyi çözmeyi ölçer — ANF tam olarak bu ikincisini yapıyor.
+> **Difference between PinchBench vs SWE-bench:** SWE-bench measures one-time code generation. PinchBench measures the ability of an agent to sit down and solve a real project — which is exactly what ANF does.
 
-> **Reasoning budget:** Her agent çağrısında LLM'e kaç token "düşünmesi" gerektiğini söylüyoruz. Architect 16384, Coder 4096, Tester sadece 256. Hem kalite hem hız optimize edilmiş oluyor.
+> **Reasoning budget:** In every agent call, we tell the LLM how many tokens it should "think." Architect gets 16384, Coder 4096, and Tester only 256. This optimizes both quality and speed.
 
-### Diğer Platformlar
+### Other Platforms
 
 | Platform | Model | Port | Timeout |
 |---|---|---|---|
-| Ollama (macOS/Linux) | `deepseek-r1:7b`, `llama3.2`, `qwen2.5-coder:7b` | 11434 | 2dk |
-| LM Studio | herhangi | 1234 | 5dk |
-| NVIDIA NIM Cloud | `nvidia/nemotron-3-super-120b-a12b` | 443 (https) | 2dk |
-| OpenAI API | `gpt-4o` | 443 (https) | 2dk |
+| Ollama (macOS/Linux) | `deepseek-r1:7b`, `llama3.2`, `qwen2.5-coder:7b` | 11434 | 2min |
+| LM Studio | any | 1234 | 5min |
+| NVIDIA NIM Cloud | `nvidia/nemotron-3-super-120b-a12b` | 443 (https) | 2min |
+| OpenAI API | `gpt-4o` | 443 (https) | 2min |
 
-### Yapılandırma — `config/vault.json`
+### Configuration — `config/vault.json`
 
 ```json
 {
@@ -87,8 +87,8 @@ ANF, **OpenAI-uyumlu** `/v1/chat/completions` API'sini kullanır. Thinking forma
       "TESTER": 256,
       "DOCS": 1024
     },
-    "reference_dir": "/opsiyonel/harici/docs/reference",
-    "workspace_dir": "/opsiyonel/harici/src",
+    "reference_dir": "/optional/external/docs/reference",
+    "workspace_dir": "/optional/external/src",
     "researcher_enabled": true,
     "dashboard_port": 3000,
     "webhooks": {
@@ -105,20 +105,20 @@ ANF, **OpenAI-uyumlu** `/v1/chat/completions` API'sini kullanır. Thinking forma
 }
 ```
 
-| Alan | Açıklama |
+| Field | Description |
 |---|---|
-| `nim_enable_thinking` | `false` → thinking kapatılır (hızlı JSON modellerde kullanın) |
-| `reference_dir` | PRD'lerin okunacağı kök. Harici yol verilirse dosyalar salt okunur, manifest ile takip edilir |
-| `workspace_dir` | Üretilen kodun yazılacağı kök. Belirtilmezse `src/` |
-| `researcher_enabled` | `false` yapılırsa URL fetch atlanır (tam offline ortamlar için) |
-| `dashboard_port` | Web dashboard portu. `node dashboard/server.js` ile başlatın |
-| `webhooks.urls` | Boş bırakılırsa webhook devre dışı. Endpoint ekleyin → pipeline olaylarında POST alırsınız |
-| `webhooks.events` | `TASK_DONE`, `TASK_FAILED`, `SPRINT_COMPLETE`, `PR_OPENED` desteklenir |
-| `concurrency` | Her agent için eş zamanlı görev limiti. ARCHITECT=1 zorunlu |
+| `nim_enable_thinking` | `false` → disables thinking (use for fast JSON models) |
+| `reference_dir` | Root for reading PRDs. If an external path is given, files are read-only and tracked via manifest |
+| `workspace_dir` | Root for writing generated code. Defaults to `src/` |
+| `researcher_enabled` | Set to `false` to skip URL fetching (for fully offline environments) |
+| `dashboard_port` | Web dashboard port. Start with `node dashboard/server.js` |
+| `webhooks.urls` | If empty, webhooks are disabled. Add endpoints to receive POST requests on pipeline events |
+| `webhooks.events` | Supports `TASK_DONE`, `TASK_FAILED`, `SPRINT_COMPLETE`, `PR_OPENED` |
+| `concurrency` | Concurrent task limit for each agent. ARCHITECT=1 is required |
 
-### vLLM Serve Komutları
+### vLLM Serve Commands
 
-**Nemotron-3-Super-120B-NVFP4 (önerilen):**
+**Nemotron-3-Super-120B-NVFP4 (Recommended):**
 ```bash
 # GB10 128GB — NVFP4 (~60GB) + FP8 KV cache + 65K context
 vllm serve nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4 \
@@ -130,11 +130,11 @@ vllm serve nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4 \
   --enable-auto-tool-choice \
   --port 8000
 
-# 1M context için (deneysel, daha fazla KV cache gerekir):
+# For 1M context (experimental, requires more KV cache):
 # VLLM_ALLOW_LONG_MAX_MODEL_LEN=1 vllm serve ... --max-model-len 1048576
 ```
 
-**GLM-4-32B-0414 (alternatif, en hızlı küçük model):**
+**GLM-4-32B-0414 (Alternative, fastest small model):**
 ```bash
 vllm serve THUDM/GLM-4-32B-0414 \
   --dtype bfloat16 \
@@ -144,39 +144,39 @@ vllm serve THUDM/GLM-4-32B-0414 \
   --port 8000
 ```
 
-Tüm seçenekler için `config/vault.example.json` dosyasına bakın.
+Refer to `config/vault.example.json` for all options.
 
 ---
 
-## Pipeline — Ne Olur Adım Adım?
+## Pipeline — Step-by-Step
 
 ```
-docs/reference/{proje_id}/prd.md
+docs/reference/{project_id}/prd.md
           │
-          │  [Her 60 saniyede bir Architect tarar]
+          │  [Architect scans every 60 seconds]
           ▼
 ┌─────────────────────────────────────────────────────┐
-│  RESEARCHER  —  Dış Kaynak Tarayıcı (opsiyonel)     │
-│  1. PRD içindeki https:// URL'lerini çıkarır        │
-│  2. Hepsini paralel fetch eder (15s timeout)         │
-│  3. HTML strip → bağlam bloğu olarak döner           │
+│  RESEARCHER  —  External Resource Scanner (Optional)│
+│  1. Extracts https:// URLs from the PRD             │
+│  2. Fetches them all in parallel (15s timeout)      │
+│  3. HTML strip → returns as context block           │
 └──────────────────────────┬──────────────────────────┘
                            │ researchContext
                            ▼
 ┌─────────────────────────────────────────────────────┐
-│  ARCHITECT  —  Consensus Planlama                   │
+│  ARCHITECT  —  Consensus Planning                   │
 │  Phase 1: Multi-Doc Synthesis (combinedContent      │
 │           + researchContext → NIM → task JSON)      │
 │  Phase 2: Peer Review (Cost-Reviewer × Perf)        │
 │  Phase 3: Synthesis (performance-weighted plan)     │
 │  Phase 4: Stack Rules (PRD → manifest.stack_rules)  │
-│  → manifest.json oluşturur, sprint sırasına koyar   │
+│  → Creates manifest.json, queues for sprint         │
 └──────────────────────────┬──────────────────────────┘
-                           │ WRITE_CODE × N (paralel, vault.concurrency)
+                           │ WRITE_CODE × N (Parallel, vault.concurrency)
                     ┌──────┴──────┐
                     ▼             ▼
 ┌──────────────┐  ┌──────────────┐
-│  CODER  #1   │  │  CODER  #2   │   (max 3 eş zamanlı)
+│  CODER  #1   │  │  CODER  #2   │   (Max 3 concurrent)
 │ Active Recall│  │ Context Inj. │
 │ LANG_MAP     │  │ LANG_MAP     │
 └──────┬───────┘  └──────┬───────┘
@@ -184,129 +184,129 @@ docs/reference/{proje_id}/prd.md
                 │ CODE_FINISHED
                 ▼
 ┌─────────────────────────────────────────────────────┐
-│  TESTER  —  5 Katmanlı Kalite Kapısı                │
+│  TESTER  —  5-Layer Quality Gate                    │
 │  1. Native Syntax Check (node --check / tsc)        │
 │  2. Docker Sandbox (--network none, read-only mount)│
 │  3. Governance Guardrails (manifest.stack_rules)    │
 │  4. Shadow Tester (secret / eval() / ReDoS)         │
-│  5. AI Review (PRD uyumluluk denetimi)              │
+│  5. AI Review (PRD compliance check)                │
 └──────────────────────────┬──────────────────────────┘
                            │
-              ┌────────────┴────────────┐
-              │ TEST_PASSED             │ BUG_REPORT
-              ▼                         ▼
-  ┌───────────────────────┐   ┌───────────────────────┐
-  │  ensureBranch         │   │  ARCHITECT Steering   │
-  │  pushToGithub         │   │  Retry ≤ 3            │
-  │  (feature/sprint-sN)  │   │  3+ → FAILED + RCA.md │
-  │  DONE → DOCS          │   │  notify(TASK_FAILED)  │
-  │  checkSprintCompletion│   └───────────────────────┘
-  │  → PR açılır          │
-  │  notify(SPRINT/PR)    │
-  └──────────┬────────────┘
-             │
-             ▼
+               ┌────────────┴────────────┐
+               │ TEST_PASSED             │ BUG_REPORT
+               ▼                         ▼
+   ┌───────────────────────┐   ┌───────────────────────┐
+   │  ensureBranch         │   │  ARCHITECT Steering   │
+   │  pushToGithub         │   │  Retry ≤ 3            │
+   │  (feature/sprint-sN)  │   │  3+ → FAILED + RCA.md │
+   │  DONE → DOCS          │   │  notify(TASK_FAILED)  │
+   │  checkSprintCompletion│   └───────────────────────┘
+   │  → PR opened          │
+   │  notify(SPRINT/PR)    │
+   └──────────┬────────────┘
+              │
+              ▼
 ┌─────────────────────────────────────────────────────┐
-│  DOCS  —  Arşivci                                   │
-│  1. Modül teknik dökümanı üretir                    │
-│  2. DEVLOG.md'ye timestamped entry ekler            │
-│  3. SYSTEM_STATE.md günceller (technical debt)      │
+│  DOCS  —  Archivist                                 │
+│  1. Generates technical module documentation        │
+│  2. Adds timestamped entry to DEVLOG.md             │
+│  3. Updates SYSTEM_STATE.md (technical debt)        │
 └─────────────────────────────────────────────────────┘
 
-        [Her an] http://localhost:3000 — Web Dashboard
-                 (manifest.json + sys.log → 5s refresh)
+         [Anytime] http://localhost:3000 — Web Dashboard
+                  (manifest.json + sys.log → 5s refresh)
 ```
 
-**Mesajlaşma:** Her agent, `queue/inbox/{agent}/` klasöründe JSON dosyalarını 5 saniyede bir okur. Crash-safe: yetim görevler bootstrap ile kurtarılır. PROCESSING dosyaları `{agentName}-{file}` formatında — iki process aynı görevi alamaz.
+**Messaging:** Every agent reads JSON files in the `queue/inbox/{agent}/` folder every 5 seconds. Crash-safe: orphan tasks are recovered via bootstrap. PROCESSING files are in `{agentName}-{file}` format — ensuring no two processes take the same task.
 
 ---
 
-## V4.5 — Yeni Özellikler
+## V4.5 — New Features
 
-### Sprint Branch Workflow & Otonom PR
-Her görev test geçtikten sonra `feature/sprint-s0`, `feature/sprint-s1` gibi bir branch'a push edilir. Sprint'teki tüm görevler DONE olduğunda ANF otomatik olarak `main`'e PR açar. GitHub config opsiyoneldir — `src/{proje_id}/config.json` yoksa tüm Git işlemleri sessizce atlanır.
+### Sprint Branch Workflow & Autonomous PR
+After each task passes testing, it is pushed to a branch like `feature/sprint-s0`, `feature/sprint-s1`. When all tasks in a sprint are DONE, ANF automatically opens a PR to `main`. GitHub config is optional — if `src/{project_id}/config.json` is missing, all Git operations are silently skipped.
 
 ```json
-// src/{proje_id}/config.json  (gitignored)
+// src/{project_id}/config.json (gitignored)
 { "github": { "token": "ghp_...", "repo": "https://github.com/owner/repo.git" } }
 ```
 
-### Paralel Coder
-Bağımsız görevler artık eş zamanlı işlenir. `vault.concurrency.CODER = 3` → 3 NIM API çağrısı aynı anda uçar. ARCHITECT = 1 (manifest race condition önlenir). `fs.renameSync` atomic claim — iki process aynı görevi alamaz.
+### Parallel Coder
+Independent tasks are now processed concurrently. `vault.concurrency.CODER = 3` → 3 NIM API calls fly at the same time. ARCHITECT = 1 (to prevent manifest race conditions). `fs.renameSync` is used for atomic claims — no two processes can take the same task.
 
 ### Docker Sandbox
-Tester'ın Step 2'si: kod izole bir Alpine container'da çalıştırılır. `--network none` — test sırasında dış API çağrısı yapılamaz. Docker yoksa veya proje dili desteklenmiyorsa sessizce atlanır.
+Tester's Step 2: code is executed in an isolated Alpine container. `--network none` — no external API calls can be made during testing. If Docker is missing or the project language isn't supported, it is silently skipped.
 
-### Webhook Bildirimleri
-`vault.json > webhooks.urls`'ye endpoint ekleyin → pipeline olaylarında HTTP POST alırsınız:
+### Webhook Notifications
+Add an endpoint to `vault.json > webhooks.urls` → receive HTTP POST requests on pipeline events:
 
-| Event | Ne Zaman |
+| Event | When |
 |---|---|
-| `TASK_FAILED` | MAX_RETRIES aşıldığında |
-| `SPRINT_COMPLETE` | Sprintteki tüm görevler DONE olduğunda |
-| `PR_OPENED` | GitHub PR başarıyla oluşturulduğunda |
-| `TASK_DONE` | Her görev tamamlandığında (opt-in, varsayılan kapalı) |
+| `TASK_FAILED` | When MAX_RETRIES is exceeded |
+| `SPRINT_COMPLETE` | When all tasks in a sprint are DONE |
+| `PR_OPENED` | When a GitHub PR is successfully created |
+| `TASK_DONE` | When each task is completed (opt-in, disabled by default) |
 
 ### Researcher Agent
-Architect, planlama öncesinde PRD içindeki `https://` URL'lerini otomatik fetch eder. Bu sayede API referansları, SDK dökümanları ve changelog'lar plana dahil edilir — model, güncel olmayan eğitim verisine güvenmek zorunda kalmaz.
+Architect automatically fetches `https://` URLs within the PRD before planning. This ensures that API references, SDK documentation, and changelogs are included in the plan — so the model doesn't have to rely on outdated training data.
 
 ### Web Dashboard
 ```bash
-npm run dashboard  # http://localhost:3000
+npm run dashboard # http://localhost:3000
 ```
-Her proje için sprint progress bar, renk kodlu task durumları, canlı sayaçlar, otomatik güncellenen log paneli. Sıfır dış bağımlılık — native `node:http`.
+Sprint progress bars for each project, color-coded task statuses, live counters, and an auto-updating log panel. Zero external dependencies — native `node:http`.
 
 ---
 
-## Agent Dosyaları ve Ne Yaptıklarını Biliyorlar mı?
+## Agent Files and Their Roles
 
-| Agent / Modül | Kod Dosyası | Skill/Prompt | Rolü |
+| Agent / Module | Code File | Skill/Prompt | Role |
 |---|---|---|---|
 | **Architect** | `agents/architect.js` | `agents/architect.md` | Orchestrator: synthesis, consensus, sprint gate, steering |
-| **Coder** | `agents/coder.js` | `agents/coder.md` | Kod üretici: active recall, context injection, LANG_MAP |
-| **Tester** | `agents/tester.js` | `agents/tester.md` | 5 katmanlı kalite kapısı: syntax → sandbox → guardrail → security → AI |
-| **Docs** | `agents/docs.js` | `agents/docs.md` | DEVLOG + SYSTEM_STATE arşivci |
-| **Reviewer Cost** | *(architect içi)* | `agents/reviewer_cost.md` | Gereksiz adım tespiti, sadelik savunuculuğu |
-| **Reviewer Perf** | *(architect içi)* | `agents/reviewer_perf.md` | Bottleneck tespiti, <2s yanıt kuralı |
-| **Security Guard** | `agents/security_guardrail.js` | *(kodlanmış kurallar)* | Secret, eval(), ReDoS, SDK yasağı |
-| **Docker Sandbox** | `agents/docker_sandbox.js` | — | İzole test ortamı (Alpine, --network none) |
-| **Notifier** | `agents/notifier.js` | — | Webhook dispatcher: 4 event tipi, parallel POST |
-| **Researcher** | `agents/researcher.js` | — | PRD URL fetch, HTML strip, bağlam enjeksiyonu |
+| **Coder** | `agents/coder.js` | `agents/coder.md` | Code generator: active recall, context injection, LANG_MAP |
+| **Tester** | `agents/tester.js` | `agents/tester.md` | 5-layer quality gate: syntax → sandbox → guardrail → security → AI |
+| **Docs** | `agents/docs.js` | `agents/docs.md` | DEVLOG + SYSTEM_STATE archivist |
+| **Reviewer Cost** | *(within architect)* | `agents/reviewer_cost.md` | Redundant step detection, advocate for simplicity |
+| **Reviewer Perf** | *(within architect)* | `agents/reviewer_perf.md` | Bottleneck detection, <2s response rule |
+| **Security Guard** | `agents/security_guardrail.js` | *(hardcoded rules)* | Secret, eval(), ReDoS, SDK ban |
+| **Docker Sandbox** | `agents/docker_sandbox.js` | — | Isolated test environment (Alpine, --network none) |
+| **Notifier** | `agents/notifier.js` | — | Webhook dispatcher: 4 event types, parallel POST |
+| **Researcher** | `agents/researcher.js` | — | PRD URL fetch, HTML strip, context injection |
 | **Dashboard** | `dashboard/server.js` | — | Web UI: manifest + log → http://localhost:3000 |
 
-Her agent başlangıçta kendi `.md` skill dosyasını okur ve NIM'e system prompt olarak gönderir. Bu sayede LLM'in "kim olduğunu" ve "ne yapması gerektiğini" her call'da biliyor.
+Each agent reads its own `.md` skill file at startup and sends it to NIM as a system prompt. This way, the LLM knows "who it is" and "what it should do" in every call.
 
 ---
 
-## Çalışma Zamanında Optimizasyon Gerekiyor mu?
+## Is Runtime Optimization Necessary?
 
-### Hayır gerekmeyenler
-- Agent koordinasyonu otomatik (manifest + sprint gate)
-- Retry mantığı (max 3) hazır ve çalışıyor
-- Security guardrail statik regex, sıfır gecikme
-- Crash recovery (orphan tasks) bootstrap'ta
+### No (Automated)
+- Agent coordination is automatic (manifest + sprint gate)
+- Retry logic (max 3) is built-in and operational
+- Security guardrail is static regex, zero latency
+- Crash recovery (orphan tasks) handled at bootstrap
 
-### Evet, bunlara dikkat edin
+### Yes (Pay attention to these)
 
-**Token Limiti** — `agents/architect.js:TOKEN_LIMIT = 50000`
+**Token Limit** — `agents/architect.js:TOKEN_LIMIT = 50000`
 
-Nemotron'un 1M context'i ve vLLM'in `--max-model-len 65536` ayarı ile 50K token güvenle işlenir. Limiti aşan projeler `_overlimit_` prefix ile işaretlenip sonsuz döngü korunur.
+With Nemotron's 1M context and vLLM's `--max-model-len 65536` setting, 50K tokens are processed safely. Projects exceeding the limit are marked with the `_overlimit_` prefix to prevent infinite loops.
 
 ```js
-// agents/architect.js, satır 13
-const TOKEN_LIMIT = 50000; // Nemotron NVFP4 için güvenli sınır
+// agents/architect.js, line 13
+const TOKEN_LIMIT = 50000; // Safe limit for Nemotron NVFP4
 ```
 
 **Timeout** — `config/vault.json:nim_timeout_ms`
 
-| Model | Önerilen Timeout |
+| Model | Recommended Timeout |
 |---|---|
-| Nemotron-3-Super-120B-NVFP4 (GB10) | 300000 (5dk) — MoE, 12B aktif param |
-| GLM-4-32B (GB10) | 120000 (2dk) |
-| DeepSeek-R1-7B (Ollama) | 300000 (5dk) |
-| GPT-4o (OpenAI) | 120000 (2dk) |
+| Nemotron-3-Super-120B-NVFP4 (GB10) | 300000 (5min) — MoE, 12B active params |
+| GLM-4-32B (GB10) | 120000 (2min) |
+| DeepSeek-R1-7B (Ollama) | 300000 (5min) |
+| GPT-4o (OpenAI) | 120000 (2min) |
 
-**vLLM Ayarları (GB10) — Nemotron NVFP4**
+**vLLM Settings (GB10) — Nemotron NVFP4**
 
 ```bash
 vllm serve nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4 \
@@ -320,27 +320,27 @@ vllm serve nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4 \
 ```
 
 - `--quantization nvfp4` + `--kv-cache-dtype fp8` → ~60GB model, 68GB KV cache
-- `--reasoning-parser nemotron_v3` → thinking `reasoning_content`'a ayrılır, `content` temiz
-- `--enforce-eager` KULLANMAYIN — CUDA graph'ları kapatır, 2-3x throughput kaybı
+- `--reasoning-parser nemotron_v3` → thinking is separated into `reasoning_content`, `content` is clean
+- DO NOT USE `--enforce-eager` — it disables CUDA graphs, resulting in 2-3x throughput loss
 
 ---
 
-## Proje Yapısı
+## Project Structure
 
 ```
 AutonomousNativeForge/
 │
-├── agents/                    # Tüm agent kodları
-│   ├── bootstrap.js           # Fabrika ignition — başlatma noktası
-│   ├── base-agent.js          # NIM API, queue, GitHub, paralel start(), utils
+├── agents/                    # All agent source code
+│   ├── bootstrap.js           # Factory ignition — entry point
+│   ├── base-agent.js          # NIM API, queue, GitHub, parallel start(), utils
 │   ├── architect.js           # Orchestrator: synthesis, consensus, sprint gate
-│   ├── coder.js               # Kod üretici: active recall, context injection
-│   ├── tester.js              # 5 katmanlı QA: syntax→sandbox→guardrail→sec→AI
-│   ├── docs.js                # DEVLOG + SYSTEM_STATE arşivci
-│   ├── security_guardrail.js  # Statik regex güvenlik tarayıcı
-│   ├── docker_sandbox.js      # İzole test ortamı (Alpine, --network none) [V4.5]
-│   ├── notifier.js            # Webhook dispatcher (4 event tipi)           [V4.5]
-│   ├── researcher.js          # PRD URL fetch + HTML strip + bağlam inj.    [V4.5]
+│   ├── coder.js               # Code generator: active recall, context injection
+│   ├── tester.js              # 5-layer QA: syntax→sandbox→guardrail→sec→AI
+│   ├── docs.js                # DEVLOG + SYSTEM_STATE archivist
+│   ├── security_guardrail.js  # Static regex security scanner
+│   ├── docker_sandbox.js      # Isolated test environment (Alpine, --network none) [V4.5]
+│   ├── notifier.js            # Webhook dispatcher (4 event types)           [V4.5]
+│   ├── researcher.js          # PRD URL fetch + HTML strip + context inj.    [V4.5]
 │   │
 │   ├── architect.md           # Architect system prompt (skill)
 │   ├── coder.md               # Coder system prompt (skill)
@@ -353,115 +353,176 @@ AutonomousNativeForge/
 │   └── server.js              # Web UI: /api/status + /api/logs [V4.5]
 │
 ├── core/
-│   └── agentBus.js            # EventEmitter altyapısı (gelecek geliştirme)
+│   └── agentBus.js            # EventEmitter infrastructure (future development)
 │
 ├── config/
-│   ├── vault.json             # LLM endpoint + tüm config [gitignored]
-│   └── vault.example.json     # Referans şablonu
+│   ├── vault.json             # LLM endpoint + all config [gitignored]
+│   └── vault.example.json     # Reference template
 │
 ├── docs/
-│   └── reference/             # ← PRD'lerinizi buraya bırakın
-│       └── {proje_id}/
+│   └── reference/             # ← Drop your PRDs here
+│       └── {project_id}/
 │           └── *.md
 │
-├── src/                       # Agent çıktıları — üretilen kodlar
-│   └── {proje_id}/
-│       ├── manifest.json      # Görev durumu + stack_rules (pipeline state)
-│       ├── config.json        # GitHub token + repo URL [gitignored, opsiyonel]
-│       ├── SYSTEM_STATE.md    # Teknik borç + özellik haritası
-│       └── {üretilen kodlar}
+├── src/                       # Agent outputs — generated code
+│   └── {project_id}/
+│       ├── manifest.json      # Task status + stack_rules (pipeline state)
+│       ├── config.json        # GitHub token + repo URL [gitignored, optional]
+│       ├── SYSTEM_STATE.md    # Technical debt + feature map
+│       └── {generated code}
 │
-├── queue/                     # Agent mesajlaşma sistemi
-│   ├── inbox/{agent}/         # Gelen görevler (JSON)
-│   ├── processing/            # İşlenmekte: {agentName}-{file} formatı
-│   ├── done/                  # Tamamlananlar
-│   └── error/                 # {task_id}_RCA.md ile başarısızlar
+├── queue/                     # Agent messaging system
+│   ├── inbox/{agent}/         # Incoming tasks (JSON)
+│   ├── processing/            # In-progress: {agentName}-{file} format
+│   ├── done/                  # Completed
+│   └── error/                 # Failures with {task_id}_RCA.md
 │
-├── sys.log                    # Tüm agent logları (dashboard okur)
-├── common_lessons.json        # Global active recall (tüm projeler için)
+├── sys.log                    # All agent logs (read by dashboard)
+├── common_lessons.json        # Global active recall (for all projects)
 │
 └── scripts/
-    ├── status.js              # Pipeline durum monitörü (CLI)
-    └── test-nim-connection.js # LLM bağlantı + inference testi
+    ├── status.js              # Pipeline status monitor (CLI)
+    └── test-nim-connection.js # LLM connection + inference test
 ```
 
 ---
 
-## Komutlar
+## Commands
 
 ```bash
-npm run forge       # Fabrikayı başlat (tüm ajanlar)
-npm run architect   # Sadece architect'i başlat (tekil proje testi)
+npm run forge       # Start the factory (all agents)
+npm run architect   # Start only the architect (single project test)
 npm run dashboard   # Web dashboard → http://localhost:3000
-npm run status      # Pipeline durumu — anlık fotoğraf (CLI)
-npm run watch       # Pipeline durumu — 3s'de bir güncellenir (CLI)
-npm run test-nim    # LLM bağlantı + tek-token inference testi
+npm run status      # Pipeline status — snapshot (CLI)
+npm run watch       # Pipeline status — updates every 3s (CLI)
+npm run test-nim    # LLM connection + single-token inference test
 ```
 
 ---
 
-## PRD Format Rehberi
+## PRD Format Guide
 
-Architect şunları arar:
+Architect looks for the following:
 
 ```markdown
-# Proje Başlığı
+# Project Title
 
-## Sprint Planı
+## Sprint Plan
 
-### S0-1: Modül Adı
-**Dosya:** `apps/server/index.js`
+### S0-1: Module Name
+**File:** `apps/server/index.js`
 
-Burada ne yapılacağını açıkla...
+Explain what to do here...
 
-**Bağımlılıklar:** Yok  ← veya S0-2 gibi task_id
+**Dependencies:** None  ← or a task_id like S0-2
 ```
 
-**Kurallar:**
-- Task ID'leri `S0-1`, `S0-1.1`, `S1-2` formatında olsun (Sprint-No.Alt-No)
-- `file_path` uzantılı olsun: `.js`, `.ts`, `.tsx`, `.sql`, `.md`, `.yml`
-- Dosya yolu `apps/` veya `packages/` ile başlasın (monorepo standardı)
-- Toplam token < 50000 olsun (Nemotron için güvenli sınır; aşılırsa bölün)
+**Rules:**
+- Task IDs should be in the format `S0-1`, `S0-1.1`, `S1-2` (Sprint-No.Sub-No)
+- `file_path` must have an extension: `.js`, `.ts`, `.tsx`, `.sql`, `.md`, `.yml`
+- File paths should start with `apps/` or `packages/` (monorepo standard)
+- Total tokens should be < 50,000 (Safe limit for Nemotron; split if exceeded)
 
 ---
 
-## Sistem Başladığında Ne Olur?
+## What Happens When the System Starts?
 
-`npm run forge` → `node agents/bootstrap.js` çalışır:
+`npm run forge` → `node agents/bootstrap.js` executes:
 
 ```
-[BOOTSTRAP] Klasör hiyerarşisi inşa ediliyor...
-[BOOTSTRAP] Yetim görevler kurtarılıyor (Recovery)...
-[BOOTSTRAP] Proje credential'ları mühürleniyor...
-[BOOTSTRAP] Ajan dosyaları kontrol ediliyor...
-[BOOTSTRAP] vLLM (http://localhost:8000) bekleniyor...
-[BOOTSTRAP] ✅ vLLM Hazır!
-[BOOTSTRAP] 🚀 Ajanlar başlatılıyor...
-  + [ARCHITECT] macOS Terminal başlatıldı.
-  + [CODER]     macOS Terminal başlatıldı.
-  + [TESTER]    macOS Terminal başlatıldı.
-  + [DOCS]      macOS Terminal başlatıldı.
+[BOOTSTRAP] Building folder hierarchy...
+[BOOTSTRAP] Recovering orphan tasks (Recovery)...
+[BOOTSTRAP] Sealing project credentials...
+[BOOTSTRAP] Verifying agent files...
+[BOOTSTRAP] Waiting for vLLM (http://localhost:8000)...
+[BOOTSTRAP] ✅ vLLM Ready!
+[BOOTSTRAP] 🚀 Launching agents...
+  + [ARCHITECT] macOS Terminal started.
+  + [CODER]     macOS Terminal started.
+  + [TESTER]    macOS Terminal started.
+  + [DOCS]      macOS Terminal started.
 ```
 
-Sonra:
-1. Her agent kendi Terminal penceresinde (macOS) veya systemd service (Linux/GB10) olarak başlar
-2. Architect her 60 saniyede `docs/reference/` tarar
-3. Yeni PRD bulunca → Synthesis → Manifest → İlk görevi Coder'a gönderir
-4. Pipeline otomatik akar: Coder → Tester → [Retry veya GitHub Push] → Docs
-5. `npm run watch` ile gerçek zamanlı izleyebilirsiniz
+Then:
+1. Each agent starts in its own Terminal window (macOS) or as a systemd service (Linux/GB10)
+2. Architect scans `docs/reference/` every 60 seconds
+3. Upon finding a new PRD → Synthesis → Manifest → Sends the first task to Coder
+4. Pipeline flows automatically: Coder → Tester → [Retry or GitHub Push] → Docs
+5. Monitor in real-time with `npm run watch`
 
-**Not:** bootstrap.js vLLM hazır olmadan agent'ları başlatmaz. Sonsuz döngüyle bekler. GB10 soğuk başlatmada vLLM'nin yüklenmesi 2-5 dakika alabilir.
+**Note:** `bootstrap.js` will not start agents until vLLM is ready. It waits in an infinite loop. On GB10 cold starts, vLLM loading can take 2-5 minutes.
 
 ---
 
-## Donanım Desteği
+## Hardware Support
 
-| Platform | Durum | Model | Notlar |
+| Platform | Status | Model | Notes |
 |---|---|---|---|
-| **NVIDIA GB10 Blackwell** | ✅ Aktif | Nemotron-3-Super-120B-NVFP4 | vLLM + CUDA 13.2 + cu132 nightly PyTorch |
-| **ASUS Ascent GX10** | ✅ Aynı hw | Aynı | GB10 Superchip, 128GB unified mem |
-| **Apple Silicon** | ✅ Çalışır | Ollama (llama3, deepseek-r1:7b) | MLX backend roadmap |
-| **Herhangi Linux x86** | ✅ Çalışır | Ollama veya vLLM | GPU opsiyonel |
+| **NVIDIA GB10 Blackwell** | ✅ Active | Nemotron-3-Super-120B-NVFP4 | vLLM + CUDA 13.2 + cu132 nightly PyTorch |
+| **ASUS Ascent GX10** | ✅ Same hw | Same | GB10 Superchip, 128GB unified mem |
+| **Apple Silicon** | ✅ Works | Ollama (llama3, deepseek-r1:7b) | MLX backend roadmap |
+| **Any Linux x86** | ✅ Works | Ollama or vLLM | GPU optional |
+
+GB10 installation script: `./GB10_installation_script.sh` (v4.3.0 — NVFP4 + FP8 KV + Marlin)
+
+Detailed GB10 guide: `docs/GB10 system installation procedures/`
+
+---
+
+## Security Rules
+
+`security_guardrail.js` automatically blocks the following:
+
+| Rule | Severity | Example |
+|---|---|---|
+| Hardcoded secret | CRITICAL | `apiKey = "sk-abc..."` |
+| eval() usage | CRITICAL | `eval(userInput)` |
+| ReDoS regex | HIGH | `/.*/+/` |
+| Direct shell exec | MEDIUM | `child_process.exec(...)` |
+| openai SDK | CRITICAL | `require('openai')` |
+| @nvidia/* SDK | CRITICAL | `require('@nvidia/nim')` |
+
+---
+
+## Roadmap
+
+**V4.0 → V4.5 (Completed)**
+- [x] 4-agent pipeline (Architect, Coder, Tester, Docs)
+- [x] File-based crash-safe message queue
+- [x] Active Recall — contextual injection of error lessons
+- [x] Shadow Tester — static security scanning (secret, eval, ReDoS)
+- [x] Peer Review Consensus — Cost × Performance dialectic
+- [x] SYSTEM_STATE.md — technical debt tracking
+- [x] vLLM + Nemotron-3-Super-120B-NVFP4 stable on GB10 (CUDA 13.2, NVFP4, FP8 KV)
+- [x] External `reference_dir` support (read-only, manifest-based reprocessing protection)
+- [x] Agent skill files synchronized with current system behavior
+- [x] Generic PRD support — all project types supported via manifest.stack_rules
+- [x] Context File Injection — Coder writes by reading dependent files
+- [x] Sprint Branch Git integration — each sprint pushed to `feature/sprint-sN`
+- [x] Autonomous PR opening — GitHub PR created when sprint completes
+- [x] Docker Sandbox — `--network none` isolated test environment
+- [x] Webhook notification system — 4 event types, parallel POST, non-fatal
+- [x] Parallel Coder — simultaneous task support via vault.concurrency
+- [x] Orphan recovery bug fixed (correct matching with PROCESSING prefix)
+- [x] Researcher agent — external resource enrichment via PRD URL fetch
+- [x] Web Dashboard — `http://localhost:3000`, 5s refresh, dark theme
+
+**In Progress / Planned**
+- [ ] Step 11: Multi-file task — single task generating multiple files
+- [ ] Step 12: Diff/patch update — generate patch instead of entire file during STEER
+- [ ] Step 13: Knowledge graph — semantic lesson linkage (embedding instead of keyword)
+- [ ] ASUS Ascent NPU inference adapter (awaiting May 2026 drivers)
+- [ ] Apple Silicon MLX backend
+- [ ] Autonomous Refactoring Sprint (eliminating technical debt)
+
+---
+
+## Author
+
+**Turgay Savacı** — Software Developer, 15+ years in IT, last 5 years in software engineering.
+
+*Cloud is convenient. Local is free.*
+�� Çalışır | Ollama veya vLLM | GPU opsiyonel |
 
 GB10 kurulum scripti: `./GB10_installation_script.sh` (v4.3.0 — NVFP4 + FP8 KV + Marlin)
 
