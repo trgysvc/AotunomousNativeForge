@@ -309,13 +309,30 @@ async function discoverNewProjects() {
                 if (files.length === 0) continue;
             }
 
-            log(`🔍 [${project_id}] Multi-Doc Synthesis başlatılıyor (${files.length} dosya)${isExternal ? ' [Harici]' : ''}...`);
+            // Sprint sırasına göre sırala: master_system → prd → sprint0 → sprint1 → ...
+            const sprintOrder = (name) => {
+                if (name.includes('master_system')) return 0;
+                if (name.includes('prd'))           return 1;
+                const m = name.match(/sprint(\d+)/i);
+                return m ? 2 + parseInt(m[1]) : 50;
+            };
+            files.sort((a, b) => sprintOrder(a) - sprintOrder(b));
 
-            // Tüm dökümanları tek bir bağlamda birleştir
+            // Token limitine sığacak kadar dosya al (greedy batch)
+            const PROMPT_OVERHEAD = 1500; // plan prompt şablonunun sabit token maliyeti
+            let batchFiles = [];
             let combinedContent = "";
-            files.forEach(file => {
-                combinedContent += `\n\n--- FILE: ${file} ---\n\n` + fs.readFileSync(path.join(projectPath, file), 'utf-8');
-            });
+            for (const file of files) {
+                const piece = `\n\n--- FILE: ${file} ---\n\n` + fs.readFileSync(path.join(projectPath, file), 'utf-8');
+                if (batchFiles.length > 0 && estimateTokens(combinedContent + piece) + PROMPT_OVERHEAD > TOKEN_LIMIT) {
+                    log(`⏭️ [${project_id}] "${file}" bu tura sığmadı, sonraki iterasyona bırakıldı.`);
+                    break;
+                }
+                batchFiles.push(file);
+                combinedContent += piece;
+            }
+
+            log(`🔍 [${project_id}] Multi-Doc Synthesis başlatılıyor (${batchFiles.length}/${files.length} dosya, ~${estimateTokens(combinedContent) + PROMPT_OVERHEAD} token)...`);
 
             // Researcher: PRD içindeki URL'leri tara ve planlama bağlamını zenginleştir.
             // Devre dışı bırakmak için: vault.json > global.researcher_enabled = false
@@ -341,27 +358,6 @@ async function discoverNewProjects() {
             [{"task_id": "...", "title": "...", "desc": "...", "file_path": "...", "depends_on": ["task_id_x"], "context_files": ["opsiyonel/paylasilan/types.ts"]}]
 
             context_files: Bu görevin yazılabilmesi için Coder'ın önceden okuması gereken mevcut dosyaların listesi (tip tanımları, interface'ler, paylaşılan yardımcı fonksiyonlar). Yalnızca planda daha önce yaratılacak dosyaları referans ver. Yoksa boş bırak.`;
-
-            // planPrompt zaten combinedContent içeriyor; sadece planPrompt'u say
-            const estimatedTokens = estimateTokens(planPrompt);
-            if (estimatedTokens > TOKEN_LIMIT) {
-                log(`⚠️ [${project_id}] Kritik Uyarı: Toplam döküman boyutu çok büyük (~${estimatedTokens} token). Limit: ${TOKEN_LIMIT}`);
-                log(`💡 Dökümanları parçalara bölün.`);
-                if (!isExternal) {
-                    // Sonsuz retry döngüsünü önlemek için dahili dosyaları işaretliyoruz
-                    files.forEach(file => {
-                        const src = path.join(projectPath, file);
-                        const dst = path.join(projectPath, `_overlimit_${file}`);
-                        if (fs.existsSync(src)) fs.renameSync(src, dst);
-                    });
-                } else {
-                    // Harici dizin: manifest'e marker ekle
-                    const manifest = getManifest(project_id);
-                    manifest._overlimit = true;
-                    saveManifest(project_id, manifest);
-                }
-                continue;
-            }
 
             try {
                 // Phase 1: Initial Planning
@@ -432,9 +428,9 @@ SADECE şu JSON formatında yanıt ver (başka hiçbir şey yazma):
                     }
                 });
 
-                // Dahili dizinlerde işlenen dosyaları mühürle
+                // Dahili dizinlerde işlenen dosyaları mühürle (sadece bu turda işlenenler)
                 if (!isExternal) {
-                    files.forEach(file => fs.renameSync(path.join(projectPath, file), path.join(projectPath, `_${file}`)));
+                    batchFiles.forEach(file => fs.renameSync(path.join(projectPath, file), path.join(projectPath, `_${file}`)));
                 }
                 log(`✅ [${project_id}] Consensus Planlama tamamlandı. ${tasks.length} görev kuyruğa girdi.`);
             } catch (e) {
