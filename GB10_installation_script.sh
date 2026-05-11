@@ -145,9 +145,11 @@ echo "✅ vLLM kaynak kodu hazır."
 
 # --- ADIM 4: MODEL OTOMATİK İNDİRME (NEMOTRON NVFP4 — SafeTensors) ---
 echo ">>> [4/12] Nemotron-3-Super-120B-A12B-NVFP4 indiriliyor (~60GB SafeTensors)..."
-# CUDA'nın varlığını kontrol et ve uygun NCCL paketini seç
+# CUDA'nın varlığını kontrol et — CUDA_HOME'u adım 0'daki 13.2 değerinden EZME
 echo "CUDA durumu kontrol ediliyor..."
-if [ -d "/usr/local/cuda" ]; then
+if [ -d "/usr/local/cuda-13.2" ]; then
+    echo "CUDA bulundu: /usr/local/cuda-13.2 (adım 0 değeri korunuyor)"
+elif [ -d "/usr/local/cuda" ]; then
     export CUDA_HOME="/usr/local/cuda"
     export PATH="$CUDA_HOME/bin:$PATH"
     export LD_LIBRARY_PATH="$CUDA_HOME/lib64:$LD_LIBRARY_PATH"
@@ -170,15 +172,17 @@ sudo pip3 install --upgrade --force-reinstall --no-deps huggingface_hub --break-
 sudo pip3 install --upgrade tqdm filelock requests --break-system-packages
 echo "✅ HuggingFace CLI kuruldu"
 
+export HF_TOKEN="YOUR_HF_TOKEN"  # huggingface.co/settings/tokens adresinden al
+
 if [ ! -d "$MODEL_DIR" ] || [ -z "$(ls -A "$MODEL_DIR" 2>/dev/null)" ]; then
     hash -r 2>/dev/null
     echo "🚀 HuggingFace CLI ile model indirme başlıyor..."
     # NOT: --include filtresi KULLANILMAZ. Bu SafeTensors modelidir (GGUF/llama.cpp değil).
     # vLLM tüm shard dosyalarına ihtiyaç duyar.
-    # Yeni hf komutunu kullan (huggingface-cli deprecated)
+    # Yeni hf komutunu kullan (symlinks parametresi kaldırıldı)
     hf download "$MODEL_ID" \
         --local-dir "$MODEL_DIR" \
-        --local-dir-use-symlinks False
+        --token "$HF_TOKEN"
 else
     echo "✅ Model dizini mevcut ve dolu."
 fi
@@ -232,6 +236,7 @@ sed -i '/license-files =/d' pyproject.toml 2>/dev/null || true
 
 # --- ADIM 8: vLLM ABI FIX DERLEME ---
 echo ">>> [8/12] vLLM izolasyonsuz derleniyor (ABI Fix)..."
+sudo git config --global --add safe.directory "$VLLM_DIR" 2>/dev/null || true
 sudo -E env \
     LD_PRELOAD="$NCCL_PRELOAD" \
     LD_LIBRARY_PATH="$LD_LIB" \
@@ -267,10 +272,11 @@ ExecStart=/usr/bin/python3 -m vllm.entrypoints.openai.api_server \\
     --quantization nvfp4 \\
     --kv-cache-dtype fp8 \\
     --tensor-parallel-size 1 \\
-    --max-model-len 65536 \\
+    --max-model-len 32768 \\
     --gpu-memory-utilization 0.92 \\
     --reasoning-parser nemotron_v3 \\
     --enable-auto-tool-choice \\
+    --tool-call-parser hermes \\
     --port 8000 \\
     --trust-remote-code
 Restart=always
