@@ -1,17 +1,10 @@
 {
   "permissions": {
     "allow": [
-      "Read(//Users/trgysvc/Developer/ClaudeLearn/learn-coding-agent/**)",
-      "Read(//Users/trgysvc/Developer/ClaudeLearn/claurst/**)",
-      "WebSearch",
-      "Bash(node --check agents/base-agent.js)",
-      "Bash(node --check agents/architect.js)",
-      "Bash(node --check agents/coder.js)",
-      "Bash(node --check agents/tester.js)",
-      "Bash(node --check agents/bootstrap.js)",
-      "Bash(node *)",
-      "Bash(python3 -c ' *)",
-      "Bash(echo \"EXIT:$?\")"
-    ]
+      "Bash(dos2unix C:CodeAutonomousNativeForgeGB10_installation_script.sh)",
+      "Bash(powershell -Command \"(Get-Content ''C:\\Code\\AutonomousNativeForge\\GB10_installation_script.sh'' -Raw) -replace ''\\r\\n'',''\\n'' | Set-Content -NoNewline ''C:\\Code\\AutonomousNativeForge\\GB10_installation_script.sh''\")"
+    ],
+    "deny": [],
+    "ask": []
   }
 }
