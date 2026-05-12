@@ -112,7 +112,25 @@ function extractContent(parsed) {
  * Path Authority: Ensures the file path is within the project directory
  */
 function getAuthorizedPath(projectPath, targetRelativePath) {
-    const resolvedPath = path.resolve(projectPath, targetRelativePath);
+    let cleanPath = targetRelativePath;
+    
+    // AI Hallucination Correction: Gereksiz mutlak yolları temizle
+    // Ajanlar bazen /workspace/ veya /workspaces/ gibi ön ekler ekleyebiliyor.
+    const prefixesToRemove = [
+        '/workspaces/AutonomousNativeForge/src/',
+        '/workspaces/AutonomousNativeForge/',
+        '/workspace/src/',
+        '/workspace/',
+        '/workspaces/'
+    ];
+    
+    for (const prefix of prefixesToRemove) {
+        if (cleanPath.startsWith(prefix)) {
+            cleanPath = cleanPath.substring(prefix.length);
+        }
+    }
+
+    const resolvedPath = path.resolve(projectPath, cleanPath);
     const resolvedProjectRoot = path.resolve(projectPath);
     
     if (!resolvedPath.startsWith(resolvedProjectRoot)) {
@@ -165,50 +183,44 @@ async function ask(agentName, prompt, agentDir = __dirname) {
         // Nemotron: max_tokens TOPLAM output (thinking + content) sayar.
         // 6144 thinking + 6144 content = 12288 → context 32768'de güvenli sınır.
         // RESMİ DÖKÜMANTASYON (OpenAPI) UYUMLU AYARLAR
-        const estimatedInputTokens = Math.ceil(finalPrompt.length / 3.5);
-        const modelLimit = 24576;
-        const totalOutputBudget = Math.max(2048, modelLimit - estimatedInputTokens - 500);
+        const budgets = NIM_CONFIG.nim_reasoning_budgets || {};
+        const agentBudgetRaw = budgets[agentName.toUpperCase()];
+        const reasoningBudget = agentBudgetRaw ? parseInt(agentBudgetRaw) : 2048;
+
+        // OFFICIAL RULE: max_tokens MUST be greater than reasoning_budget
+        // We allocate the requested reasoning budget + 2048 tokens for the actual response.
+        const maxTokens = reasoningBudget + 2048;
+
+        // VLLM CRASH PREVENTION: Max Context is 24576. 
+        // We must ensure Input Tokens + maxTokens < 24576.
+        // Assuming ~4 chars per token, max input chars = (24000 - maxTokens) * 4
+        const maxSafeInputChars = (24000 - maxTokens) * 4;
+        let safePrompt = finalPrompt;
         
-        // Output budget'ı thinking ve completion arasında paylaştır
-        const thinkingBudget = Math.min(2048, Math.floor(totalOutputBudget / 3));
-        const completionBudget = totalOutputBudget - thinkingBudget;
+        if (safePrompt.length > maxSafeInputChars) {
+            safePrompt = safePrompt.substring(0, maxSafeInputChars);
+            log(`⚠️ [${agentName}] Kırpıldı: İçerik model kapasitesini (24576) aşmaması için ${maxSafeInputChars} karaktere düşürüldü.`);
+        }
 
         const requestBody = {
             model: NIM_CONFIG.model_id || 'nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4',
-            messages: [{ role: 'user', content: finalPrompt }],
+            messages: [{ role: 'user', content: safePrompt }],
             temperature: 0.1,
-            max_completion_tokens: Math.min(completionBudget, NIM_CONFIG.nim_max_tokens || 12288),
-            thinking_token_budget: thinkingBudget,
-            include_reasoning: true,
-            reasoning_effort: (agentName === 'ARCHITECT') ? 'low' : 'minimal'
+            max_tokens: maxTokens,
+            max_completion_tokens: maxTokens // Included for future OpenAI API compatibility
         };
-
-        // Eski parametreleri temizle (vLLM/OpenAI standardı için)
-        delete requestBody.max_tokens;
-
-        // Thinking & reasoning_budget kontrolü
-        // - nim_enable_thinking: false → düşünme kapalı (Tester gibi hızlı JSON görevleri için)
-        // - nim_reasoning_budgets: { ARCHITECT: 16384, CODER: 4096, ... } → per-agent derinlik
-        // Nemotron: chat_template_kwargs yöntemi | GLM: aynı yöntem
-        const budgets = NIM_CONFIG.nim_reasoning_budgets || {};
-        // ARCHITECT için güvenli üst sınır: 32768 - max_prompt(~22000) - output(~4096) = ~6672
-        // vault.json yanlış değer içerse de kod seviyesinde koruma
-        if (budgets['ARCHITECT']) {
-            budgets['ARCHITECT'] = 'low_effort';
-        }
-        const agentBudget = budgets[agentName.toUpperCase()];
 
         if (NIM_CONFIG.nim_enable_thinking === false) {
             requestBody.chat_template_kwargs = { enable_thinking: false };
-        } else if (agentBudget !== undefined) {
+            log(`⚡ [${agentName}] Thinking explicitly disabled.`);
+        } else {
             requestBody.chat_template_kwargs = {
                 enable_thinking: true,
-                ...(agentBudget === 'low_effort'
-                    ? { low_effort: true }
-                    : { reasoning_budget: agentBudget })
+                reasoning_budget: reasoningBudget
             };
-            log(`🧠 [${agentName}] Reasoning budget: ${agentBudget} token`);
+            log(`🧠 [${agentName}] Reasoning budget: ${reasoningBudget} tokens | Max Output: ${maxTokens}`);
         }
+
 
         const data = JSON.stringify({ ...requestBody, stream: true });
         

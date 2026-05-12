@@ -65,7 +65,8 @@ async function testNimConnection() {
         const body = JSON.stringify({
             model    : cfg.model_id,
             messages : [{ role: 'user', content: 'Reply with the single word: READY' }],
-            max_tokens: 10
+            max_tokens: 50,
+            chat_template_kwargs: { enable_thinking: false }
         });
         const headers = {
             'Content-Type'  : 'application/json',

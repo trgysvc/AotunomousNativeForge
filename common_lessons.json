@@ -61,6 +61,50 @@
       ],
       "rule": "Always validate and sanitize file paths to prevent directory traversal; reject any path containing '..' or absolute paths outside the project workspace.",
       "severity": "CRITICAL"
+    },
+    {
+      "id": "S0-12_1778624643982",
+      "context": [
+        "security",
+        "path-validation"
+      ],
+      "rule": "Never allow file paths that escape the project root; validate and sanitize paths before writing.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S0-16_1778626047130",
+      "context": [
+        "security",
+        "file-path"
+      ],
+      "rule": "Never allow file paths that escape the project root; validate and sanitize all file paths before writing.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S0-17_1778626258489",
+      "context": [
+        "security",
+        "file-path"
+      ],
+      "rule": "Always validate and sanitize file paths to ensure they remain within the project workspace; reject any path that attempts to traverse outside the root directory (e.g., containing '..' or absolute paths outside the allowed workspace).",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S0-16_1778626391853",
+      "context": [
+        "security",
+        "file-path"
+      ],
+      "rule": "Never allow file paths that escape the project workspace; validate and sanitize all paths to prevent directory traversal attacks.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S0-17_1778626794653",
+      "context": [
+        "typescript"
+      ],
+      "rule": "Always run TypeScript type-check (tsc --noEmit) on new or modified files to catch syntax errors before marking a task as complete.",
+      "severity": "CRITICAL"
     }
   ]
 }

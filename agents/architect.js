@@ -113,20 +113,22 @@ async function dispatchNextTasks(projectId) {
     const manifest = getManifest(projectId);
     const pendingTasks = manifest.tasks.filter(t => t.status === 'PENDING');
     
-    // Sprint Gate: Get the hierarchy of current tasks
-    const allTaskIds = manifest.tasks.map(t => t.task_id);
-    const sprints = [...new Set(allTaskIds.map(id => id.split('-')[0]))].sort(); // S0, S1, S2...
+    // Sprint Gate: Get the hierarchy of current tasks (SAFE PARSING)
+    const allTaskIds = manifest.tasks.map(t => t.task_id || t.id || 'S0-0');
+    const sprints = [...new Set(allTaskIds.map(id => String(id).split('-')[0]))].sort(); // S0, S1, S2...
 
     for (const task of pendingTasks) {
-        const currentSprint = task.task_id.split('-')[0];
+        const safeTaskId = String(task.task_id || task.id || 'S0-0');
+        const currentSprint = safeTaskId.split('-')[0];
         const sprintIndex = sprints.indexOf(currentSprint);
 
         // Eğer önceki bir sprint'te hala tamamlanmamış (DONE veya FAILED olmayan) görev varsa, bu görevi başlatma
         if (sprintIndex > 0) {
             const previousSprints = sprints.slice(0, sprintIndex);
-            const unfinishedInPrevious = manifest.tasks.filter(t => 
-                previousSprints.includes(t.task_id.split('-')[0]) && t.status !== 'DONE' && t.status !== 'FAILED'
-            );
+            const unfinishedInPrevious = manifest.tasks.filter(t => {
+                const checkId = String(t.task_id || t.id || 'S0-0');
+                return previousSprints.includes(checkId.split('-')[0]) && t.status !== 'DONE' && t.status !== 'FAILED';
+            });
 
             if (unfinishedInPrevious.length > 0) {
                 // log(`⏳ [${projectId}] Sprint Kilidi: ${currentSprint} başlatılamaz. Önceki sprintler bitmeli.`);
