@@ -59,6 +59,22 @@
       ],
       "rule": "Always verify that TypeScript source files have correct syntax and that the tsconfig targets the appropriate module/esnext settings before running tsc; missing or malformed imports/type definitions will cause compilation failures.",
       "severity": "CRITICAL"
+    },
+    {
+      "id": "S0-8_1778612030184",
+      "context": [
+        "typescript"
+      ],
+      "rule": "Always validate TypeScript syntax before committing; run `tsc --noEmit` locally to catch syntax errors early.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S0-8_1778615325471",
+      "context": [
+        "typescript"
+      ],
+      "rule": "Ensure TypeScript files have correct syntax (e.g., proper imports, semicolons, and module declarations) before running tsc; validate with `tsc --noEmit` to catch errors early.",
+      "severity": "CRITICAL"
     }
   ]
 }

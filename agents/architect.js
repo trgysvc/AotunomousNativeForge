@@ -104,6 +104,8 @@ function updateTaskStatus(projectId, taskId, status, extra = {}) {
         if (status === 'DONE' || status === 'FAILED') {
             dispatchNextTasks(projectId);
         }
+    } else {
+        log(`⚠️ updateTaskStatus: Task ${taskId} not found in manifest of ${projectId}`);
     }
 }
 
@@ -194,6 +196,59 @@ async function handleMessage(msg) {
     const prefix = `[${project_id}] `;
 
     switch (type) {
+        case 'PLAN_EXPANSION': {
+            log(`${prefix} 🗺️ TAM KAPSAMLI (300+ GÖREV) plan genişletme başlatılıyor...`);
+            const refDir = path.join(__dirname, '..', 'docs', 'reference', project_id);
+            if (!fs.existsSync(refDir)) {
+                log(`${prefix} ❌ Referans klasörü bulunamadı: ${refDir}`);
+                break;
+            }
+
+            const files = fs.readdirSync(refDir).filter(f => f.endsWith('.md') || f.endsWith('.sql') || f.endsWith('.txt') || f.endsWith('.ts'));
+            log(`${prefix} 📂 Toplam ${files.length} döküman analiz edilecek.`);
+
+            for (const file of files) {
+                log(`${prefix} 🔍 Analiz ediliyor: ${file}`);
+                const content = fs.readFileSync(path.join(refDir, file), 'utf8');
+                const manifest_cur = getManifest(project_id);
+                const currentTaskIds = manifest_cur.tasks.map(t => t.task_id);
+
+                const prompt_exp = `Sen AuraPOS projesinin baş mimarısın. Mevcut referans dökümanını inceleyerek EKSİK görevleri plana ekle.
+                HEDEF: Proje 300+ atomik görevden oluşmalı. Bu dökümandaki her detayı (Modüller, UI, Veritabanı, Test vb.) göreve dönüştür.
+                - Mevcut görevleri tekrarlama: ${currentTaskIds.slice(-50).join(', ')}... (Toplam ${currentTaskIds.length} görev var)
+                - SADECE bu dökümana özel yeni görevlerin JSON dizisini döndür. Hiç görev yoksa boş dizi [] döndür.
+                DÖKÜMAN (${file}):
+                ${content}`;
+
+                try {
+                    const response = await ask('ARCHITECT', prompt_exp, __dirname);
+                    const newTasks = JSON.parse(response);
+                    if (Array.isArray(newTasks) && newTasks.length > 0) {
+                        newTasks.forEach(t => {
+                            const tid = t.task_id || t.id;
+                            if (!manifest_cur.tasks.find(mt => mt.task_id === tid)) {
+                                manifest_cur.tasks.push({
+                                    task_id: tid,
+                                    title: t.title,
+                                    desc: t.desc || t.description,
+                                    file_path: t.file_path || t.filePath,
+                                    depends_on: t.depends_on || [],
+                                    status: 'PENDING'
+                                });
+                            }
+                        });
+                        saveManifest(project_id, manifest_cur);
+                        log(`${prefix} ✅ ${file} analiz edildi. +${newTasks.length} yeni görev eklendi.`);
+                    }
+                } catch (e) {
+                    log(`${prefix} ⚠️ ${file} işlenirken hata: ${e.message}`);
+                }
+            }
+            log(`${prefix} 🏁 TAM KAPSAMLI PLANLAMA BİTTİ. Toplam görev sayısını manifestodan kontrol edebilirsiniz.`);
+            dispatchNextTasks(project_id);
+            break;
+        }
+
         case 'TASK_READY':
             // Yeni görev geldiğinde manifest'e ekle (zaten yoksa)
             const manifest = getManifest(project_id);

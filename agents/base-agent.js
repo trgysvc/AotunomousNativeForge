@@ -164,12 +164,27 @@ async function ask(agentName, prompt, agentDir = __dirname) {
         // max_tokens: thinking(6144) + content için yeterli alan bırakılmalı.
         // Nemotron: max_tokens TOPLAM output (thinking + content) sayar.
         // 6144 thinking + 6144 content = 12288 → context 32768'de güvenli sınır.
+        // RESMİ DÖKÜMANTASYON (OpenAPI) UYUMLU AYARLAR
+        const estimatedInputTokens = Math.ceil(finalPrompt.length / 3.5);
+        const modelLimit = 24576;
+        const totalOutputBudget = Math.max(2048, modelLimit - estimatedInputTokens - 500);
+        
+        // Output budget'ı thinking ve completion arasında paylaştır
+        const thinkingBudget = Math.min(2048, Math.floor(totalOutputBudget / 3));
+        const completionBudget = totalOutputBudget - thinkingBudget;
+
         const requestBody = {
             model: NIM_CONFIG.model_id || 'nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4',
             messages: [{ role: 'user', content: finalPrompt }],
             temperature: 0.1,
-            max_tokens: NIM_CONFIG.nim_max_tokens || 16384
+            max_completion_tokens: Math.min(completionBudget, NIM_CONFIG.nim_max_tokens || 12288),
+            thinking_token_budget: thinkingBudget,
+            include_reasoning: true,
+            reasoning_effort: (agentName === 'ARCHITECT') ? 'low' : 'minimal'
         };
+
+        // Eski parametreleri temizle (vLLM/OpenAI standardı için)
+        delete requestBody.max_tokens;
 
         // Thinking & reasoning_budget kontrolü
         // - nim_enable_thinking: false → düşünme kapalı (Tester gibi hızlı JSON görevleri için)
@@ -195,12 +210,11 @@ async function ask(agentName, prompt, agentDir = __dirname) {
             log(`🧠 [${agentName}] Reasoning budget: ${agentBudget} token`);
         }
 
-        const data = JSON.stringify(requestBody);
+        const data = JSON.stringify({ ...requestBody, stream: true });
         
         // --- LLM REQUEST LOGGING ---
         const timestamp = new Date().toISOString();
-        const requestHeader = `\n\n[${timestamp}] >>> REQUEST [${agentName}] >>>\n`;
-        fs.appendFileSync(LLM_COMM_LOG, requestHeader + data, 'utf8');
+        fs.appendFileSync(LLM_COMM_LOG, `\n\n[${timestamp}] >>> REQUEST [${agentName}] >>>\n` + data, 'utf8');
 
         // Authorization header — boşsa ekleme
         const headers = {
@@ -217,48 +231,108 @@ async function ask(agentName, prompt, agentDir = __dirname) {
             path: '/v1/chat/completions',
             method: 'POST',
             headers,
-            timeout: NIM_CONFIG.nim_timeout_ms || 2700000 // vault'tan veya default 45dk (CoT modeller)
         };
 
+        // Inactivity timeout: if no chunk arrives in this many ms, abort.
+        // Much safer than a wall-clock timeout — detects truly stalled streams.
+        const INACTIVITY_MS = NIM_CONFIG.nim_stream_inactivity_ms || 120000; // 2 min default
+        let inactivityTimer = null;
+        let tokenCount = 0;
+        let lastProgressLog = Date.now();
+        const PROGRESS_INTERVAL_MS = 30000; // log progress every 30 sec
+
+        const resetInactivity = () => {
+            if (inactivityTimer) clearTimeout(inactivityTimer);
+            inactivityTimer = setTimeout(() => {
+                req.destroy(new Error(`Stream inactivity timeout (${INACTIVITY_MS / 1000}s, ${tokenCount} tokens received)`));
+            }, INACTIVITY_MS);
+        };
+
+        // SSE accumulator
+        let contentBuffer = '';
+        let reasoningBuffer = '';
+        let sseBuffer = '';
+        let finishReason = null;
+        let resolved = false;
+
         const req = httpModule.request(options, (res) => {
-            let body = '';
-            res.on('data', chunk => body += chunk);
+            if (res.statusCode !== 200) {
+                let errBody = '';
+                res.on('data', c => errBody += c);
+                res.on('end', () => {
+                    reject(new Error(`LLM API Hatası [${res.statusCode}]: ${errBody}`));
+                });
+                return;
+            }
+            resetInactivity();
+
+            res.on('data', (chunk) => {
+                resetInactivity();
+                sseBuffer += chunk.toString('utf8');
+
+                // SSE lines arrive as: "data: {...}\n\n"
+                const lines = sseBuffer.split('\n');
+                sseBuffer = lines.pop(); // keep incomplete last line
+
+                for (const line of lines) {
+                    const trimmed = line.trim();
+                    if (!trimmed.startsWith('data:')) continue;
+                    const jsonStr = trimmed.slice(5).trim();
+                    if (jsonStr === '[DONE]') { finishReason = finishReason || 'stop'; continue; }
+                    try {
+                        const event = JSON.parse(jsonStr);
+                        const delta = event.choices?.[0]?.delta;
+                        if (!delta) continue;
+                        if (delta.reasoning_content) reasoningBuffer += delta.reasoning_content;
+                        if (delta.content)           contentBuffer   += delta.content;
+                        finishReason = event.choices?.[0]?.finish_reason || finishReason;
+                        tokenCount++;
+
+                        // Periodic progress log so sys.log shows the model is alive
+                        const now = Date.now();
+                        if (now - lastProgressLog > PROGRESS_INTERVAL_MS) {
+                            log(`⏳ [${agentName}] Streaming... ${tokenCount} tokens so far (finish=${finishReason || 'generating'})`);
+                            lastProgressLog = now;
+                        }
+                    } catch (_) { /* partial JSON chunk — wait for next data event */ }
+                }
+            });
+
             res.on('end', () => {
+                if (inactivityTimer) clearTimeout(inactivityTimer);
+                if (resolved) return;
+                resolved = true;
+
                 // --- LLM RESPONSE LOGGING ---
                 const respTimestamp = new Date().toISOString();
-                const responseHeader = `\n\n[${respTimestamp}] <<< RESPONSE [${agentName}] <<<\n`;
-                fs.appendFileSync(LLM_COMM_LOG, responseHeader + body, 'utf8');
+                const summary = `[stream] tokens=${tokenCount}, finish=${finishReason}, content_len=${contentBuffer.length}`;
+                fs.appendFileSync(LLM_COMM_LOG, `\n\n[${respTimestamp}] <<< RESPONSE [${agentName}] <<<\n${summary}`, 'utf8');
 
-                try {
-                    const parsed = JSON.parse(body);
-                    if (parsed.error) {
-                        reject(new Error(`vLLM API Hatası: ${parsed.error.message || JSON.stringify(parsed.error)}`));
-                        return;
-                    }
-                    const content = extractContent(parsed);
-                    if (!content) {
-                        const ch = parsed.choices?.[0];
-                        const diag = `finish=${ch?.finish_reason}, content_len=${(ch?.message?.content||'').length}, reasoning_len=${(ch?.message?.reasoning_content||'').length}`;
-                        const debugFile = path.join(__dirname, '..', 'debug_last_error.json');
-                        fs.writeFileSync(debugFile, JSON.stringify({ diag, raw: body }, null, 2));
-                        reject(new Error(`NIM yanıt formatı hatalı [${diag}]. Ham yanıt debug_last_error.json dosyasına yazıldı.`));
-                        return;
-                    }
-                    const clean = cleanResponse(content);
-                    if (!clean || clean.length < 5) {
-                        reject(new Error(`Yanıt boş veya çok kısa (ham uzunluk: ${content.length}).`));
-                        return;
-                    }
-                    resolve(clean);
-                } catch (e) { reject(e); }
+                // Prefer content; fall back to reasoning_content (thinking-only models)
+                const raw = contentBuffer || reasoningBuffer;
+                if (!raw || raw.trim().length < 5) {
+                    reject(new Error(`Stream ended but response is empty (tokens=${tokenCount}, finish=${finishReason})`));
+                    return;
+                }
+                resolve(cleanResponse(raw));
+            });
+
+            res.on('error', (err) => {
+                if (inactivityTimer) clearTimeout(inactivityTimer);
+                if (!resolved) { resolved = true; reject(err); }
             });
         });
-        req.on('timeout', () => { req.destroy(); reject(new Error(`NIM Timeout (${Math.round((NIM_CONFIG.nim_timeout_ms || 2700000)/60000)}dk)`)); });
-        req.on('error', reject);
+
+        req.on('error', (err) => {
+            if (inactivityTimer) clearTimeout(inactivityTimer);
+            if (!resolved) { resolved = true; reject(err); }
+        });
+
         req.write(data);
         req.end();
     });
 }
+
 
 /**
  * Proje GitHub konfigürasyonunu yükler.

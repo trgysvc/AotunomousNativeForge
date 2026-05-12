@@ -1,6 +1,6 @@
 import { FastifyInstance, FastifyRequest, FastifyReply } from 'fastify';
 import { randomUUID } from 'crypto';
-import { Order, SplitRequest, MergeRequest, TransferRequest } from '../../../packages/shared-types/src';
+import { Order, SplitRequest, MergeRequest, TransferRequest } from '../../../../packages/shared-types';
 
 const validTransitions = {
   OPEN: ['PARTIAL_PAID', 'CANCELLED', 'SPLIT', 'MERGED'],

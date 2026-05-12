@@ -15,7 +15,7 @@
       "desc": "Implement a thin TypeScript wrapper that uses native `fetch` with keepAlive connection pooling to call the DeepSeek R1 API, or optionally spin up a local vLLM instance. Design for async, non‑blocking usage.",
       "file_path": "packages/shared/ai/wrapper.ts",
       "depends_on": [],
-      "status": "PENDING",
+      "status": "IN_PROGRESS",
       "retry_count": 0
     },
     {
@@ -163,7 +163,7 @@
       "depends_on": [
         "S0-5"
       ],
-      "status": "PENDING",
+      "status": "IN_PROGRESS",
       "retry_count": 0
     },
     {
@@ -174,7 +174,8 @@
       "depends_on": [
         "S0-6"
       ],
-      "status": "FIXING"
+      "status": "FIXING",
+      "retry_count": 1
     },
     {
       "task_id": "S0-8",
@@ -185,7 +186,7 @@
         "S0-4",
         "S0-5"
       ],
-      "status": "IN_PROGRESS"
+      "status": "FIXING"
     },
     {
       "task_id": "S0-9",
@@ -225,7 +226,7 @@
       "depends_on": [
         "S0-1"
       ],
-      "status": "PENDING",
+      "status": "IN_PROGRESS",
       "retry_count": 0
     },
     {
@@ -246,7 +247,7 @@
       "depends_on": [
         "S0-1"
       ],
-      "status": "PENDING",
+      "status": "IN_PROGRESS",
       "retry_count": 0
     },
     {
@@ -348,7 +349,7 @@
       "depends_on": [
         "S0-8_Dashboard"
       ],
-      "status": "PENDING",
+      "status": "IN_PROGRESS",
       "retry_count": 0
     },
     {
@@ -862,6 +863,1826 @@
       "depends_on": [
         "S6-1"
       ],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S7-1",
+      "title": "Create Ingredient and Recipe database migrations",
+      "desc": "Add ingredients, recipes, stock_movements tables with proper indexes and RLS policies.",
+      "file_path": "/packages/shared/migrations/202603150001_ingredient_recipe.sql",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S7-2",
+      "title": "Implement Ingredient Service (CRUD + stock adjustment)",
+      "desc": "Backend service for ingredient CRUD, stock movement logging, and critical stock check.",
+      "file_path": "/packages/backend/src/services/ingredientService.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S7-3",
+      "title": "Implement Recipe Service (link product ↔ ingredients)",
+      "desc": "Service to manage recipes, calculate required quantities per product, and validate stock sufficiency.",
+      "file_path": "/packages/backend/src/services/recipeService.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S7-4",
+      "title": "Add automatic stock deduction on order completion",
+      "desc": "Hook in Order Service to decrement ingredient quantities based on recipes when order reaches PAID status.",
+      "file_path": "/packages/backend/src/services/orderService.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S7-5",
+      "title": "Create Stock UI component (list, critical alerts, adjustment)",
+      "desc": "Dashboard page to view ingredients, see critical stock, and manually adjust quantities.",
+      "file_path": "/apps/dashboard/src/pages/stock.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S7-6",
+      "title": "Add Stock low‑quantity AI Insight card",
+      "desc": "Extend AI Insight Engine to emit critical stock warnings based on current_qty < critical_qty.",
+      "file_path": "/packages/backend/src/services/aiInsightEngine.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S8-1",
+      "title": "Create CRM tables (customers, loyalty_points, tiers)",
+      "desc": "Database schema for customer profiles, points accrual/spending, and loyalty tiers with RLS.",
+      "file_path": "/packages/shared/migrations/202603150002_crm_loyalty.sql",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S8-2",
+      "title": "Implement Customer Service (CRUD + loyalty points)",
+      "desc": "Backend service to manage customer data, award points on purchases, redeem points, and tier evaluation.",
+      "file_path": "/packages/backend/src/services/customerService.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S8-3",
+      "title": "Add loyalty points calculation to Payment Service",
+      "desc": "When a payment is finalized, calculate points earned based on amount and update customer record.",
+      "file_path": "/packages/backend/src/services/paymentService.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S8-4",
+      "title": "Create Customer UI (list, detail, points history)",
+      "desc": "Dashboard pages to view customers, see loyalty points, and manually adjust points.",
+      "file_path": "/apps/dashboard/src/pages/customers.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S8-5",
+      "title": "Display loyalty points on POS checkout screen",
+      "desc": "Show customer points balance and option to redeem during payment flow.",
+      "file_path": "/apps/pos/src/components/PaymentCheckout.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S9-1",
+      "title": "Create e-Fatura/e-Arşiv tables (invoices, gib_responses)",
+      "desc": "Schema for storing electronic invoice data and GIB response logs with RLS.",
+      "file_path": "/packages/shared/migrations/202603150003_efatura.sql",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S9-2",
+      "title": "Integrate with intermediary e‑Fatura service (mock)",
+      "desc": "Backend service that sends invoice XML to a mock GIB intermediary and stores response.",
+      "file_path": "/packages/backend/src/services/efaturaService.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S9-3",
+      "title": "Add e‑Fatura generation on invoice finalization",
+      "desc": "Trigger e‑Fatura service when an order reaches PAID status and store the response.",
+      "file_path": "/packages/backend/src/services/orderService.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S9-4",
+      "title": "Create e‑Fatura UI (list, status, download PDF/XML)",
+      "desc": "Dashboard page to view submitted e‑Faturalar, check GIB status, and download documents.",
+      "file_path": "/apps/dashboard/src/pages/efatura.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S9-5",
+      "title": "Implement e‑Arşiv long‑term storage (mock)",
+      "desc": "Service to archive invoices for legal retention period using mock storage.",
+      "file_path": "/packages/backend/src/services/earchiveService.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S10-1",
+      "title": "Extend AI Insight Engine with sales‑trend cards",
+      "desc": "Add insight cards for daily/weekly/monthly revenue change, low‑performing products, and forecasted rush hours.",
+      "file_path": "/packages/backend/src/services/aiInsightEngine.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S10-2",
+      "title": "Create AI Insight dashboard widgets",
+      "desc": "Frontend components to render AI Insight cards in a responsive grid.",
+      "file_path": "/apps/dashboard/src/components/AIInsightGrid.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S10-3",
+      "title": "Add AI Insight refresh mechanism (WebSocket)",
+      "desc": "Realtime updates of insight cards when new data arrives via Redis pub/sub.",
+      "file_path": "/apps/dashboard/src/hooks/useAIInsight.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S10-4",
+      "title": "Unit test AI Insight Engine logic",
+      "desc": "Vitest suite covering all insight triggers and edge cases.",
+      "file_path": "/packages/backend/src/services/__tests__/aiInsightEngine.test.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S11-1",
+      "title": "Design Multi‑branch HQ data model (business, branches, sync scopes)",
+      "desc": "Add business_id to all relevant tables, define sync shapes per branch, and update RLS policies.",
+      "file_path": "/packages/shared/migrations/202603150004_multibranch.sql",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S11-2",
+      "title": "Implement Branch Service (CRUD + activation)",
+      "desc": "Backend service to manage branches under a business, including activation/deactivation.",
+      "file_path": "/packages/backend/src/services/branchService.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S11-3",
+      "title": "Create HQ Dashboard (branch comparison, centralized menu push)",
+      "desc": "Dashboard pages for business owners to view branch performance, push menu updates, and manage users.",
+      "file_path": "/apps/dashboard/src/pages/hq.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S11-4",
+      "title": "Update ElectricSQL sync shapes to be branch‑scoped",
+      "desc": "Modify sync queries to include branch_id filter for orders, stock, payments, etc.",
+      "file_path": "/packages/backend/src/sync/branchSync.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S11-5",
+      "title": "Add conflict resolution logging for multi‑branch sync",
+      "desc": "Extend audit log to capture branch‑vs‑cloud conflicts and store resolution details.",
+      "file_path": "/packages/backend/src/services/auditService.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S0-11",
+      "desc": "Create a script to bootstrap the local development environment (Docker, dependencies, pre‑commit hooks).",
+      "file_path": "/workspace/aurapos/scripts/setup-dev-env.sh",
+      "depends_on": [],
+      "status": "IN_PROGRESS"
+    },
+    {
+      "task_id": "S0-12",
+      "desc": "Add GitHub Actions workflow for linting, unit tests, and mock service validation on push/pull request.",
+      "file_path": "/workspace/aurapos/.github/workflows/ci.yml",
+      "depends_on": [],
+      "status": "IN_PROGRESS"
+    },
+    {
+      "task_id": "S0-15",
+      "desc": "Define TypeScript interfaces for all PostgreSQL tables (businesses, branches, staff, orders, etc.) using the schema from PRD §7.",
+      "file_path": "/workspace/aurapos/packages/shared/src/types/database.ts",
+      "depends_on": [],
+      "status": "IN_PROGRESS"
+    },
+    {
+      "task_id": "S0-16",
+      "desc": "Create Supabase client wrapper with RLS helpers and business‑scoped query utilities.",
+      "file_path": "/workspace/aurapos/packages/shared/src/types/supabase.ts",
+      "depends_on": [],
+      "status": "IN_PROGRESS"
+    },
+    {
+      "task_id": "S0-17",
+      "desc": "Initialize ElectricSQL sync engine for cloud ↔ local PGlite instances, exposing sync shapes for orders, payments, and stock.",
+      "file_path": "/workspace/aurapos/packages/shared/src/lib/electricsql.ts",
+      "depends_on": [],
+      "status": "IN_PROGRESS"
+    },
+    {
+      "task_id": "S1-11",
+      "desc": "Implement visual floor‑plan UI with drag‑drop table assignment, status colors, and context‑menu for split/merge.",
+      "file_path": "/workspace/aurapos/apps/pos/components/MasaPlanı.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S1-12",
+      "desc": "Build the order panel UI: product search, quantity/portion selection, option groups, notes, and real‑time total.",
+      "file_path": "/workspace/aurapos/apps/pos/components/AdisyonPanelı.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S1-13",
+      "desc": "Implement Order Service API client wrapping endpoints from PRD §6.1 with optimistic UI updates.",
+      "file_path": "/workspace/aurapos/apps/pos/services/orderService.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S2-4",
+      "desc": "Implement Payment Service client for cash, card (Ingenico mock), meal voucher, mixed, and batch‑close operations.",
+      "file_path": "/workspace/aurapos/apps/pos/services/paymentService.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S2-7",
+      "desc": "Create modal UI for initiating payments, displaying Ingenico mock flow, handling tips, partial amounts, and cash‑given.",
+      "file_path": "/workspace/aurapos/apps/pos/components/PaymentModal.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S4-8",
+      "desc": "Create product‑level sales report view with date filter and Excel export button.",
+      "file_path": "/workspace/aurapos/apps/dashboard/components/ÜrünSatışRaporu.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S6-7",
+      "desc": "Render AI insight cards (sales drop, critical stock, demand forecast) received from AI Insight Service.",
+      "file_path": "/workspace/aurapos/apps/dashboard/components/AIInsightKartları.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S12-1",
+      "desc": "Add override file for production environment with real hardware driver volumes and secrets.",
+      "file_path": "/workspace/aurapos/docker-compose.override.yml",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S12-2",
+      "desc": "Deployment script for staging/production: DB migrations, Docker build, image push, and restart.",
+      "file_path": "/workspace/aurapos/scripts/deploy-prod.sh",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S13-1",
+      "desc": "Create root layout for POS Next.js app with PWA metadata and global styles",
+      "file_path": "apps/pos/app/layout.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S13-2",
+      "desc": "Implement PIN entry screen with form validation and Supabase auth call",
+      "file_path": "apps/pos/app/(auth)/pin/page.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S13-3",
+      "desc": "Build table map UI using react‑flow or custom drag‑drop to show table statuses",
+      "file_path": "apps/pos/app/(pos)/tables/page.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S13-4",
+      "desc": "Create order detail page showing items, modifiers, and KDS status",
+      "file_path": "apps/pos/app/(pos)/order/[id]/page.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S13-5",
+      "desc": "Implement payment screen integrating hardware driver via lib/hardware.ts",
+      "file_path": "apps/pos/app/(pos)/payment/[id]/page.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S13-6",
+      "desc": "Reusable component for a single table with status coloring and tooltip",
+      "file_path": "apps/pos/components/tables/TableItem.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S13-7",
+      "desc": "List current open orders with summary and quick actions",
+      "file_path": "apps/pos/components/order/OrderList.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S13-8",
+      "desc": "UI for selecting cash, card, meal voucher, mobile payment methods",
+      "file_path": "apps/pos/components/payment/PaymentMethodSelector.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S13-9",
+      "desc": "KDS order card showing item name, quantity, station, and timer badge",
+      "file_path": "apps/pos/components/kds/KdsOrderCard.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S13-10",
+      "desc": "Initialize ElectricSQL client using getElectricClient from electric-config",
+      "file_path": "apps/pos/lib/electric.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S13-11",
+      "desc": "Create Supabase client with anon key and helper functions for auth",
+      "file_path": "apps/pos/lib/supabase.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S13-12",
+      "desc": "Wrap IHardwareDriver implementations and expose async functions for POS",
+      "file_path": "apps/pos/lib/hardware.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S13-13",
+      "desc": "Configure Workbox service worker for offline caching and background sync",
+      "file_path": "apps/pos/public/sw.js",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S13-14",
+      "desc": "Enable next-pwa, set output: 'export', and configure images domains",
+      "file_path": "apps/pos/next.config.js",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S13-15",
+      "desc": "Add dependencies: next, react, react-dom, @supabase/supabase-js, @electric-sql/pglite, next-pwa",
+      "file_path": "apps/pos/package.json",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S14-1",
+      "desc": "Root layout for dashboard with auth guard and sidebar navigation",
+      "file_path": "apps/dashboard/app/layout.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S14-2",
+      "desc": "Login page using email/password and Supabase auth",
+      "file_path": "apps/dashboard/app/(auth)/login/page.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S14-3",
+      "desc": "Main dashboard showing AI insights cards and quick metrics",
+      "file_path": "apps/dashboard/app/(panel)/page.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S14-4",
+      "desc": "Branch list view with create/edit/delete controls",
+      "file_path": "apps/dashboard/app/(panel)/branches/page.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S14-5",
+      "desc": "Menu management UI for categories, products, portions, options",
+      "file_path": "apps/dashboard/app/(panel)/menu/page.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S14-6",
+      "desc": "Staff management with role assignment, PIN reset, and shift overview",
+      "file_path": "apps/dashboard/app/(panel)/staff/page.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S14-7",
+      "desc": "Stock overview with critical stock alerts and adjustment forms",
+      "file_path": "apps/dashboard/app/(panel)/stock/page.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S14-8",
+      "desc": "Revenue, sales, and labor reports using Recharts wrappers",
+      "file_path": "apps/dashboard/app/(panel)/reports/page.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S14-9",
+      "desc": "Business settings: logo, tax info, payment gateway config",
+      "file_path": "apps/dashboard/app/(panel)/settings/page.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S14-10",
+      "desc": "Payment reconciliation view with filters and export",
+      "file_path": "apps/dashboard/app/(panel)/payments/page.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S14-11",
+      "desc": "Export Button from shared ui package with dashboard theme",
+      "file_path": "apps/dashboard/components/ui/Button.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S14-12",
+      "desc": "Recharts wrapper for daily revenue line chart",
+      "file_path": "apps/dashboard/components/charts/RevenueChart.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S14-13",
+      "desc": "Card displaying AI-generated insight with action button",
+      "file_path": "apps/dashboard/components/ai/InsightCard.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S14-14",
+      "desc": "Supabase client for dashboard with service role key for admin ops",
+      "file_path": "apps/dashboard/lib/supabase.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S14-15",
+      "desc": "Add dependencies: next, react, react-dom, recharts, @supabase/supabase-js",
+      "file_path": "apps/dashboard/package.json",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S15-1",
+      "desc": "Single page KDS UI subscribing to ElectricSQL changes for order_items",
+      "file_path": "apps/kds/app/page.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S15-2",
+      "desc": "Component showing order items grouped by station with ready/served toggles",
+      "file_path": "apps/kds/components/OrderCard.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S15-3",
+      "desc": "Filter buttons for kitchen/bar/cold stations",
+      "file_path": "apps/kds/components/StationFilter.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S15-4",
+      "desc": "Badge showing elapsed time since order created",
+      "file_path": "apps/kds/components/TimerBadge.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S15-5",
+      "desc": "Add dependencies: next, react, react-dom, @electric-sql/pglite",
+      "file_path": "apps/kds/package.json",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S16-1",
+      "desc": "Screen showing table map with ability to select table and start order",
+      "file_path": "apps/waiter-app/src/screens/TablesScreen.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S16-2",
+      "desc": "Screen for adding items, modifiers, notes, and sending to KDS",
+      "file_path": "apps/waiter-app/src/screens/OrderScreen.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S16-3",
+      "desc": "Screen showing waiter info, PIN change, and logout",
+      "file_path": "apps/waiter-app/src/screens/ProfileScreen.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S16-4",
+      "desc": "Component for a line item in the order with quantity stepper",
+      "file_path": "apps/waiter-app/src/components/OrderItem.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S16-5",
+      "desc": "Initialize ElectricSQL client for waiter app using AsyncStorage fallback",
+      "file_path": "apps/waiter-app/src/lib/electric.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S16-6",
+      "desc": "REST API wrapper calling branch-server endpoints for sync fallback",
+      "file_path": "apps/waiter-app/src/lib/api.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S16-7",
+      "desc": "Stack navigator configuring screens and auth flow",
+      "file_path": "apps/waiter-app/src/navigation/AppNavigator.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S16-8",
+      "desc": "Enable cleartext traffic and set up AppRegistry entry point",
+      "file_path": "apps/waiter-app/android/app/src/main/java/com/aurapos/MainActivity.java",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S16-9",
+      "desc": "Configure URL linking and enable background fetch for sync",
+      "file_path": "apps/waiter-app/ios/WaiterApp/AppDelegate.swift",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S16-10",
+      "desc": "Add dependencies: react, react-native, @electric-sql/pglite, @react-navigation/native",
+      "file_path": "apps/waiter-app/package.json",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S17-1",
+      "desc": "Create Fastify server, register plugins, and start listening on port 4000",
+      "file_path": "apps/branch-server/src/index.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S17-2",
+      "desc": "Set up PGlite with electric sync for branch‑local DB",
+      "file_path": "apps/branch-server/src/electric.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S17-3",
+      "desc": "CRUD endpoints for orders with optimistic lock validation",
+      "file_path": "apps/branch-server/src/routes/orders.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S17-4",
+      "desc": "Endpoints for creating payments, retrieving receipts, and handling refunds",
+      "file_path": "apps/branch-server/src/routes/payments.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S17-5",
+      "desc": "WebSocket or HTTP endpoints to forward commands to hardware drivers",
+      "file_path": "apps/branch-server/src/routes/hardware.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S17-6",
+      "desc": "Middleware that checks lock_version on update and increments it",
+      "file_path": "apps/branch-server/src/middleware/optimisticLock.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S17-7",
+      "desc": "Validate JWT from Supabase and attach business_id to request",
+      "file_path": "apps/branch-server/src/middleware/requireAuth.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S17-8",
+      "desc": "Factory that selects mock or real driver based on env vars",
+      "file_path": "apps/branch-server/src/hardware/index.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S17-9",
+      "desc": "Loop that pulls changes from Supabase via ElectricSQL and applies locally",
+      "file_path": "apps/branch-server/src/sync/engine.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S17-10",
+      "desc": "Implement conflict resolution logic (already provided) and export",
+      "file_path": "apps/branch-server/src/sync/conflict.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S17-11",
+      "desc": "Add dependencies: fastify, @fastify/jwt, @electric-sql/pglite, pg, zod",
+      "file_path": "apps/branch-server/package.json",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S18-1",
+      "desc": "Define TypeScript interfaces for Order, OrderItem, OrderItemOption",
+      "file_path": "packages/shared-types/src/order.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S18-2",
+      "desc": "Define interfaces for Payment, PaymentSplit, and related enums",
+      "file_path": "packages/shared-types/src/payment.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S18-3",
+      "desc": "Define interfaces for Category, Product, Portion, OptionGroup, OptionItem",
+      "file_path": "packages/shared-types/src/menu.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S18-4",
+      "desc": "Define interfaces for Staff, Role, Shift, and PIN handling",
+      "file_path": "packages/shared-types/src/staff.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S18-5",
+      "desc": "Re‑export IHardwareDriver interfaces from packages/hardware",
+      "file_path": "packages/shared-types/src/hardware.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S18-6",
+      "desc": "Barrel export of all shared types",
+      "file_path": "packages/shared-types/src/index.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S18-7",
+      "desc": "Add typescript as devDependency and declare main ./src/index.ts",
+      "file_path": "packages/shared-types/package.json",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S19-1",
+      "desc": "Implement IPaymentTerminalDriver with simulated responses",
+      "file_path": "packages/hardware/payment-terminal/mock-driver.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S19-2",
+      "desc": "Ingenico A910 driver using USB HID or serial (stub)",
+      "file_path": "packages/hardware/payment-terminal/real-driver-ingenico-a910.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S19-3",
+      "desc": "Ingenico Move5000 driver (stub)",
+      "file_path": "packages/hardware/payment-terminal/real-driver-ingenico-move5000.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S19-4",
+      "desc": "Beko terminal driver (stub)",
+      "file_path": "packages/hardware/payment-terminal/real-driver-beko.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S19-5",
+      "desc": "Export driver based on TERMINAL_MODEL env var",
+      "file_path": "packages/hardware/payment-terminal/index.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S19-6",
+      "desc": "Mock printer driver accepting receipt object",
+      "file_path": "packages/hardware/printer/mock-driver.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S19-7",
+      "desc": "USB printer driver using escpos-usb",
+      "file_path": "packages/hardware/printer/real-driver-usb.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S19-8",
+      "desc": "Network printer driver via raw TCP port 9100",
+      "file_path": "packages/hardware/printer/real-driver-network.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S19-9",
+      "desc": "Select printer driver based on PRINTER_TYPE env",
+      "file_path": "packages/hardware/printer/index.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S19-10",
+      "desc": "Mock cash drawer driver",
+      "file_path": "packages/hardware/drawer/mock-driver.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S19-11",
+      "desc": "Escpos serial driver for cash drawer kick",
+      "file_path": "packages/hardware/drawer/real-driver-escpos.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S19-12",
+      "desc": "Generic serial driver for drawer",
+      "file_path": "packages/hardware/drawer/real-driver-serial.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S19-13",
+      "desc": "Export appropriate drawer driver",
+      "file_path": "packages/hardware/drawer/index.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S19-14",
+      "desc": "Mock display driver",
+      "file_path": "packages/hardware/display/mock-driver.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S19-15",
+      "desc": "Serial display driver (e.g., LCD via UART)",
+      "file_path": "packages/hardware/display/real-driver-serial.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S19-16",
+      "desc": "Export display driver",
+      "file_path": "packages/hardware/display/index.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S19-17",
+      "desc": "Mock barcode scanner driver",
+      "file_path": "packages/hardware/barcode/mock-driver.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S19-18",
+      "desc": "Export barcode driver",
+      "file_path": "packages/hardware/barcode/index.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S19-19",
+      "desc": "Mock scale driver",
+      "file_path": "packages/hardware/scale/mock-driver.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S19-20",
+      "desc": "Export scale driver",
+      "file_path": "packages/hardware/scale/index.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S19-21",
+      "desc": "Already provided – ensure file exists with exact interfaces",
+      "file_path": "packages/hardware/IHardwareDriver.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S19-22",
+      "desc": "Add typescript devDependency and declare each subpackage via workspaces",
+      "file_path": "packages/hardware/package.json",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S20-1",
+      "desc": "Export shadcn/ui Button with theme customization",
+      "file_path": "packages/ui/src/Button.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S20-2",
+      "desc": "Responsive table component with sorting and pagination",
+      "file_path": "packages/ui/src/Table.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S20-3",
+      "desc": "Accessible modal with focus trap and backdrop",
+      "file_path": "packages/ui/src/Modal.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S20-4",
+      "desc": "Card showing title, description, and action button for AI insights",
+      "file_path": "packages/ui/src/InsightCard.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S20-5",
+      "desc": "Barrel export of UI components",
+      "file_path": "packages/ui/src/index.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S20-6",
+      "desc": "Add dependencies: @radix-ui/react-slot, class-variance-authority, clsx, tailwind-merge",
+      "file_path": "packages/ui/package.json",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S21-1",
+      "desc": "Already provided – ensure file exists",
+      "file_path": "packages/electric-config/src/client.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S21-2",
+      "desc": "Already provided – ensure file exists",
+      "file_path": "packages/electric-config/src/shapes.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S21-3",
+      "desc": "Define ELECTRIC_URL, SUPABASE_URL, BRANCH_ID from process.env",
+      "file_path": "packages/electric-config/src/env.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S21-4",
+      "desc": "Add dependencies: @electric-sql/pglite",
+      "file_path": "packages/electric-config/package.json",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S22-1",
+      "desc": "Main AI orchestrator that routes requests to insight, stock, tester, coder agents",
+      "file_path": "packages/ai/src/orchestrator.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S22-2",
+      "desc": "Agent generating business insights from sales and stock data",
+      "file_path": "packages/ai/src/agents/insight.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S22-3",
+      "desc": "Agent suggesting reorder quantities and waste reduction",
+      "file_path": "packages/ai/src/agents/stock.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S22-4",
+      "desc": "Agent generating test cases for POS and dashboard features",
+      "file_path": "packages/ai/src/agents/tester.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S22-5",
+      "desc": "Agent proposing code changes based on issue descriptions",
+      "file_path": "packages/ai/src/agents/coder.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S22-6",
+      "desc": "Prompt template for insight agent",
+      "file_path": "packages/ai/src/prompts/insight.prompt.txt",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S22-7",
+      "desc": "Prompt template for stock agent",
+      "file_path": "packages/ai/src/prompts/stock.prompt.txt",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S22-8",
+      "desc": "Prompt template for tester agent",
+      "file_path": "packages/ai/src/prompts/tester.prompt.txt",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S22-9",
+      "desc": "Prompt template for coder agent",
+      "file_path": "packages/ai/src/prompts/coder.prompt.txt",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S22-10",
+      "desc": "Add dependencies: openai, zod, ts-node-dev",
+      "file_path": "packages/ai/package.json",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S23-1",
+      "desc": "Already provided – ensure file exists",
+      "file_path": "supabase/migrations/001_init_schema.sql",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S23-2",
+      "desc": "Already provided – ensure file exists",
+      "file_path": "supabase/migrations/002_rls_policies.sql",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S23-3",
+      "desc": "Already provided – ensure file exists",
+      "file_path": "supabase/migrations/003_functions.sql",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S23-4",
+      "desc": "Already provided – ensure file exists",
+      "file_path": "supabase/migrations/004_seed_data.sql",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S23-5",
+      "desc": "Edge Function that calls AI orchestrator and returns insights",
+      "file_path": "supabase/functions/ai-insights/index.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S23-6",
+      "desc": "Edge Function receiving e‑invoice webhook and creating payment",
+      "file_path": "supabase/functions/efatura-webhook/index.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S23-7",
+      "desc": "Supabase CLI config for functions and secrets",
+      "file_path": "supabase/config.toml",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S24-1",
+      "desc": "Run unit tests using mock drivers for all hardware",
+      "file_path": "scripts/test-all-mocks.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S24-2",
+      "desc": "Script to insert demo businesses, branches, menu, and staff",
+      "file_path": "scripts/seed-demo-data.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S24-3",
+      "desc": "CLI to toggle between mock and real hardware drivers",
+      "file_path": "scripts/switch-hardware.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S24-4",
+      "desc": "Script that queries ElectricSQL sync lag and logs status",
+      "file_path": "scripts/check-sync-status.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S25-1",
+      "desc": "Define services: branch-server, supabase (studio/db), redis, and optionally mock hardware",
+      "file_path": "docker/docker-compose.yml",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S25-2",
+      "desc": "Staging override with scaling and external Supabase",
+      "file_path": "docker/docker-compose.staging.yml",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S25-3",
+      "desc": "Build Fastify server from source, install deps, expose port 4000",
+      "file_path": "docker/Dockerfile.branch-server",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S26-1",
+      "desc": "Configure TurboRepo pipelines for build, test, lint, and dev",
+      "file_path": "turbo.json",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S26-2",
+      "desc": "Define workspace packages and hoist settings",
+      "file_path": "pnpm-workspace.yaml",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S26-3",
+      "desc": "Root package with workspaces, prisma?, and scripts for turbo",
+      "file_path": "package.json",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S27-1",
+      "desc": "Create visual table map UI with drag‑drop table assignment and color‑coded status (empty/green, occupied/red, on‑hold/yellow).",
+      "file_path": "/apps/pos/components/TableMap.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S27-2",
+      "desc": "Implement backend service for table area CRUD, table status updates, and WebSocket broadcasting of table state changes.",
+      "file_path": "/apps/pos/lib/tableService.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S27-3",
+      "desc": "Build order entry form with product search, category filtering, quantity input, special notes, and seat number assignment.",
+      "file_path": "/apps/pos/components/OrderForm.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S27-4",
+      "desc": "Implement order CRUD endpoints (POST /api/orders, GET /api/orders/:id, PATCH /api/orders/:id) and state machine transitions (OPEN → PARTIAL_PAID → PAID → CLOSED).",
+      "file_path": "/apps/pos/lib/orderService.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S27-5",
+      "desc": "Create modal UI for splitting and merging orders, including person‑based and item‑based split logic.",
+      "file_path": "/apps/pos/components/SplitMergeModal.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S27-6",
+      "desc": "Implement backend logic for order split (/api/orders/:id/split) and merge (/api/orders/:id/merge) preserving total amount and audit logs.",
+      "file_path": "/apps/pos/lib/orderSplitMergeService.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S27-7",
+      "desc": "Build UI for transferring an order to another table with validation of table availability.",
+      "file_path": "/apps/pos/components/TransferTableModal.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S27-8",
+      "desc": "Implement POST /api/orders/:id/transfer endpoint and associated WebSocket update for table status.",
+      "file_path": "/apps/pos/lib/tableTransferService.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S27-9",
+      "desc": "Create payment UI supporting cash, card, meal voucher, mobile, and mixed payments with tip, cash given, and partial amounts.",
+      "file_path": "/apps/pos/components/PaymentForm.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S27-10",
+      "desc": "Implement payment orchestration endpoints (POST /api/payments, POST /api/payments/:id/confirm, POST /api/payments/:id/refund) and Ingenico bridge integration.",
+      "file_path": "/apps/pos/lib/paymentService.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S27-11",
+      "desc": "Implement Ingenico mock driver functions (sale, cancel, refund, batchClose, addTip, partialPayment) with simulated delays and ApprovalResponse schema.",
+      "file_path": "/apps/pos/lib/ingenicoMock.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S27-12",
+      "desc": "UI component to trigger receipt printing via hardware bridge and display print preview based on ReceiptObject schema.",
+      "file_path": "/apps/pos/components/ReceiptPrinter.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S27-13",
+      "desc": "Implement hardware bridge endpoints: print, payment/sale, drawer/open, display/show, health check.",
+      "file_path": "/apps/pos/lib/hardwareBridgeService.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S27-14",
+      "desc": "Build Kitchen Display Screen (KDS) UI showing real‑time orders, station filters (kitchen/bar/cold), and completion marking.",
+      "file_path": "/apps/pos/components/KDScreen.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S27-15",
+      "desc": "Implement WebSocket server for KDS updates and API to mark order items as prepared/completed.",
+      "file_path": "/apps/pos/lib/kdsService.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S27-16",
+      "desc": "Set up ElectricSQL sync engine for browser PGlite ↔ local SQLite ↔ Supabase PostgreSQL, including background sync queue and conflict resolution per Section 8.4.",
+      "file_path": "/apps/pos/lib/offlineSyncService.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S27-17",
+      "desc": "Configure Workbox service worker with cache‑first strategies for menus/assets and background sync for POST/PATCH requests.",
+      "file_path": "/apps/pos/lib/serviceWorker.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S27-18",
+      "desc": "UI indicator showing online/offline status and sync progress notifications.",
+      "file_path": "/apps/pos/components/OfflineIndicator.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S27-19",
+      "desc": "Create dashboard cards for daily/weekly/monthly revenue, staff shift summary, recent invoices, and branch revenue comparison.",
+      "file_path": "/apps/dashboard/components/DashboardCards.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S27-20",
+      "desc": "Implement API endpoints for revenue reports, product‑wise sales, and Excel export functionality.",
+      "file_path": "/apps/dashboard/lib/reportService.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S27-21",
+      "desc": "Display AI Insight Engine cards (revenue drop, critical stock, demand forecast, low‑performing product) as per Section 9.2.",
+      "file_path": "/apps/dashboard/components/InsightCards.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S27-22",
+      "desc": "Implement logic for AI insight triggers using DeepSeek R1 (API or local) and store insights in Redis for dashboard consumption.",
+      "file_path": "/apps/pos/lib/aiInsightEngine.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S27-23",
+      "desc": "Implement JWT‑based auth (login, refresh token) and custom PIN authentication for staff, integrating Supabase Auth bypass.",
+      "file_path": "/apps/pos/lib/authService.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S27-24",
+      "desc": "Create role‑based access control middleware using Supabase RLS and branch/session validation.",
+      "file_path": "/apps/pos/middleware/roleMiddleware.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S27-25",
+      "desc": "Generate and run PostgreSQL migrations matching the draft schema in Section 7, including indexes and RLS policies.",
+      "file_path": "/apps/pos/lib/db/migrate.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S27-26",
+      "desc": "Implement ingredient stock management, recipe‑based automatic deduction, critical stock alerts, and stock movement logging.",
+      "file_path": "/apps/pos/lib/stockService.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S27-27",
+      "desc": "Build task management module (scheduled tasks, photo proof, recurrence) and associated API endpoints.",
+      "file_path": "/apps/pos/lib/taskService.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S27-28",
+      "desc": "UI for viewing, completing, and uploading photo proof for tasks, with filtering by due date and recurrence.",
+      "file_path": "/apps/pos/components/TaskList.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S27-29",
+      "desc": "Stub implementation for e‑Fatura integration via intermediary provider (e.g., Uyumsoft) with hooks for future direct GİB integration.",
+      "file_path": "/apps/pos/lib/eFaturaService.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S27-30",
+      "desc": "Initialize React Native waiter app structure, navigation, and connection to POS WebSocket for order updates.",
+      "file_path": "/apps/waiter-app/App.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S28-1",
+      "desc": "Implement mDNS service discovery using mdns-js to detect network printers and expose a PrinterDiscovery interface.",
+      "file_path": "src/services/mdnsService.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S28-2",
+      "desc": "Create printer routing rules engine that selects printer based on mdns_name, ip_address, and fallback logic per Kural 12.",
+      "file_path": "src/services/printerRouting.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S28-3",
+      "desc": "UI component for configuring printer mdns_name and ip_address, with validation and save to Supabase via API.",
+      "file_path": "src/components/PrinterSettings.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S28-4",
+      "desc": "REST endpoints for GET /printers (list discovered), POST /printers (register), PUT /printers/:id (update routing rules).",
+      "file_path": "src/api/printers.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S28-5",
+      "desc": "Add optimistic lock handling: require lock_version in PATCH /orders/:id, compare with orders.lock_version, throw OPTIMISTIC_LOCK_FAILED on mismatch.",
+      "file_path": "src/services/orderService.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S28-6",
+      "desc": "UI form for creating/editing orders that includes seat_no field per order_items.seat_no and displays lock version toast on conflict.",
+      "file_path": "src/components/OrderForm.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S28-7",
+      "desc": "Extend PATCH /orders/:id endpoint to accept seat_no array and update order_items.seat_no accordingly.",
+      "file_path": "src/api/orders.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S28-8",
+      "desc": "Implement multi‑warehouse stock deduction logic using warehouses table and products.warehouse_type.",
+      "file_path": "src/services/warehouseService.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S28-9",
+      "desc": "UI for selecting source warehouse (Bar/Kitchen/Main) when adding ingredients to a product or production log.",
+      "file_path": "src/components/WarehouseSelector.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S28-10",
+      "desc": "CRUD endpoints for warehouses (GET, POST, PUT, DELETE) with RLS policies enforced via Supabase.",
+      "file_path": "src/api/warehouses.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S28-11",
+      "desc": "Service to post payments to customer_ledgers, compute balance, and expose GET /ledgers/:customerId.",
+      "file_path": "src/services/customerLedgerService.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S28-12",
+      "desc": "Dashboard widget showing customer ledger entries and allowing 'Şirketime yazın' (post to ledger) action.",
+      "file_path": "src/components/CustomerLedger.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S28-13",
+      "desc": "Endpoints: GET /ledgers/:customerId, POST /ledgers/:customerId/payments.",
+      "file_path": "src/api/ledgers.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S28-14",
+      "desc": "Service that inserts into production_logs when raw material is converted to semi‑product, triggers stock updates.",
+      "file_path": "src/services/productionLogService.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S28-15",
+      "desc": "Form to record production logs (input raw material, output semi‑product, quantity) with validation.",
+      "file_path": "src/components/ProductionLogForm.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S28-16",
+      "desc": "Endpoints for production_logs (GET list, POST new).",
+      "file_path": "src/api/productionLogs.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S28-17",
+      "desc": "Handle incoming aggregator webhooks: map aggregator SKU to internal product via aggregator_mappings, throw AGGREGATOR_SKU_NOT_FOUND if missing.",
+      "file_path": "src/services/aggregatorService.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S28-18",
+      "desc": "POST /webhooks/aggregator endpoint with signature verification, idempotency check (AGGREGATOR_ORDER_DUPLICATE).",
+      "file_path": "src/api/webhooks/aggregator.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S28-19",
+      "desc": "UI for check fragmentation: split order into multiple payments, support fractional amounts, update order status.",
+      "file_path": "src/components/CheckSplitter.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S28-20",
+      "desc": "POST /orders/:id/split endpoint that creates child orders with split amounts and updates parent order.",
+      "file_path": "src/api/orders.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S28-21",
+      "desc": "Implement QR rotating token generation and validation for attendance (qr_attendance_tokens table).",
+      "file_path": "src/services/tokenService.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S28-22",
+      "desc": "Screen showing rotating QR code for staff clock‑in/out, validates token against db.",
+      "file_path": "src/components/QRAttendance.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S28-23",
+      "desc": "Endpoints: GET /attendance/token (current), POST /attendance/validate.",
+      "file_path": "src/api/attendance.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S28-24",
+      "desc": "Add new error codes to ErrorCode union: OPTIMISTIC_LOCK_FAILED, AGGREGATOR_SKU_NOT_FOUND, INSUFFICIENT_STOCK, WAREHOUSE_NOT_FOUND, PRINTER_OFFLINE, PRINTER_NO_PAPER, TERMINAL_OFFLINE, TERMINAL_DECLINED, SYNC_CONFLICT, SYNC_FAILED, AGGREGATOR_ORDER_DUPLICATE, CUSTOMER_LEDGER_ERROR.",
+      "file_path": "src/lib/errorCodes.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S28-25",
+      "desc": "Update auth middleware to attach business_id from JWT and enforce RLS via Supabase session.",
+      "file_path": "src/middleware/requireAuth.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S28-26",
+      "desc": "Middleware checking user role against required permission (e.g., 'warehouse:manage').",
+      "file_path": "src/middleware/requirePermission.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S28-27",
+      "desc": "Unit tests for mDNS service discovery mocking mdns-js.",
+      "file_path": "src/tests/mdnsService.test.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S28-28",
+      "desc": "Tests for printer routing logic covering mdns_name, ip_address, fallback.",
+      "file_path": "src/tests/printerRouting.test.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S28-29",
+      "desc": "Tests for optimistic lock failure and success scenarios.",
+      "file_path": "src/tests/orderService.test.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S28-30",
+      "desc": "Tests for multi‑warehouse stock deduction.",
+      "file_path": "src/tests/warehouseService.test.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S29-1",
+      "desc": "Create root pnpm-workspace.yaml",
+      "file_path": "pnpm-workspace.yaml",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S29-2",
+      "desc": "Create/update turbo.json with task dependencies",
+      "file_path": "turbo.json",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S29-3",
+      "desc": "Create .env.example with all required variables",
+      "file_path": ".env.example",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S29-4",
+      "desc": "Create initial Supabase migration file",
+      "file_path": "supabase/migrations/001_init_schema.sql",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S29-5",
+      "desc": "Create RLS policies migration file",
+      "file_path": "supabase/migrations/002_rls_policies.sql",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S29-6",
+      "desc": "Create functions migration file",
+      "file_path": "supabase/migrations/003_functions.sql",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S29-7",
+      "desc": "Create seed data migration file",
+      "file_path": "supabase/migrations/004_seed_data.sql",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S29-8",
+      "desc": "Create docker-compose.yml for infra services",
+      "file_path": "docker/docker-compose.yml",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S29-9",
+      "desc": "Create Dockerfile for branch-server",
+      "file_path": "docker/Dockerfile.branch-server",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S29-10",
+      "desc": "Create package.json for shared-types",
+      "file_path": "packages/shared-types/package.json",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S29-11",
+      "desc": "Add shared type definitions",
+      "file_path": "packages/shared-types/src/index.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S29-12",
+      "desc": "Create package.json for hardware package",
+      "file_path": "packages/hardware/package.json",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S29-13",
+      "desc": "Create mock payment terminal driver",
+      "file_path": "packages/hardware/payment-terminal/mock-driver.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S29-14",
+      "desc": "Create index.ts for payment-terminal hardware",
+      "file_path": "packages/hardware/payment-terminal/index.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S29-15",
+      "desc": "Create mock printer driver",
+      "file_path": "packages/hardware/printer/mock-driver.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S29-16",
+      "desc": "Create printer index.ts",
+      "file_path": "packages/hardware/printer/index.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S29-17",
+      "desc": "Create mock drawer driver",
+      "file_path": "packages/hardware/drawer/mock-driver.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S29-18",
+      "desc": "Create drawer index.ts",
+      "file_path": "packages/hardware/drawer/index.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S29-19",
+      "desc": "Create mock display driver",
+      "file_path": "packages/hardware/display/mock-driver.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S29-20",
+      "desc": "Create display index.ts",
+      "file_path": "packages/hardware/display/index.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S29-21",
+      "desc": "Create package.json for electric-config",
+      "file_path": "packages/electric-config/package.json",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S29-22",
+      "desc": "Create electric client.ts",
+      "file_path": "packages/electric-config/src/client.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S29-23",
+      "desc": "Create electric shapes.ts",
+      "file_path": "packages/electric-config/src/shapes.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S29-24",
+      "desc": "Create package.json for branch-server",
+      "file_path": "apps/branch-server/package.json",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S29-25",
+      "desc": "Create branch-server entry point",
+      "file_path": "apps/branch-server/src/index.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S29-26",
+      "desc": "Create hardware routes for branch-server",
+      "file_path": "apps/branch-server/src/routes/hardware.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S29-27",
+      "desc": "Create orders routes file",
+      "file_path": "apps/branch-server/src/routes/orders.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S29-28",
+      "desc": "Create mock test script",
+      "file_path": "scripts/test-all-mocks.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S29-29",
+      "desc": "Create package.json for POS Next.js app",
+      "file_path": "apps/pos/package.json",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S29-30",
+      "desc": "Configure Next.js POS with PWA",
+      "file_path": "apps/pos/next.config.js",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S29-31",
+      "desc": "Create package.json for Dashboard Next.js app",
+      "file_path": "apps/dashboard/package.json",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S29-32",
+      "desc": "Create dashboard home page with Supabase connection test",
+      "file_path": "apps/dashboard/app/page.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S29-33",
+      "desc": "Create local env for dashboard",
+      "file_path": "apps/dashboard/.env.local",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S29-34",
+      "desc": "Create script to verify ElectricSQL sync",
+      "file_path": "scripts/check-sync-status.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S2-1b",
+      "desc": "Add seat_no column to order_items, create SeatSelector component, implement seat-based total calculation and payment flow.",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "depends_on": [],
       "status": "PENDING"
     }
   ],

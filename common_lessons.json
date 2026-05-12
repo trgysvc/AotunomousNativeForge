@@ -27,6 +27,15 @@
       ],
       "rule": "Before generating any task, confirm that the PRD (Product Requirements Document) is fully loaded and all required sections are defined; otherwise, halt and request the missing PRD content.",
       "severity": "CRITICAL"
+    },
+    {
+      "id": "S0-7_1778615955978",
+      "context": [
+        "typescript",
+        "jsx"
+      ],
+      "rule": "Files containing JSX must use the .tsx extension and include the necessary React import (or rely on automatic JSX runtime) to avoid TypeScript syntax errors during compilation.",
+      "severity": "CRITICAL"
     }
   ]
 }
