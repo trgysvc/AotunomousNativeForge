@@ -1,59 +1,66 @@
-import { Agent as HttpAgent } from 'node:http';
-import { Agent as HttpsAgent } from 'node:https';
-
 export class DeepSeekWrapper {
-  private baseURL: string;
   private apiKey: string | undefined;
-  private httpsAgent: HttpsAgent;
-  private httpAgent: HttpAgent;
+  private baseUrl: string;
+  private model: string;
 
-  constructor(baseURL?: string, apiKey?: string) {
-    this.baseURL = baseURL ?? 'https://api.deepseek.com/v1';
-    this.apiKey = apiKey ?? process.env.DEEPSEEK_API_KEY;
-    const keepAliveOptions = { keepAlive: true };
-    this.httpsAgent = new HttpsAgent(keepAliveOptions);
-    this.httpAgent = new HttpAgent(keepAliveOptions);
+  constructor(options: {
+    apiKey?: string;
+    baseUrl?: string;
+    model?: string;
+  } = {}) {
+    this.apiKey = options.apiKey ?? process.env.DEEPSEEK_API_KEY;
+    this.baseUrl = options.baseUrl ?? process.env.DEEPSEEK_BASE_URL ?? 'https://api.deepseek.com';
+    this.model = options.model ?? process.env.DEEPSEEK_MODEL ?? 'deepseek-chat';
   }
 
-  private getAgent(url: URL): HttpAgent | HttpsAgent {
-    return url.protocol === 'https:' ? this.httpsAgent : this.httpAgent;
-  }
-
-  async chatCompletion(
-    messages: Array<{ role: string; content: string }>,
+  async generate(
+    prompt: string,
     options: {
-      model?: string;
       temperature?: number;
-      max_tokens?: number;
-      [key: string]: unknown;
+      maxTokens?: number;
+      topP?: number;
+      frequencyPenalty?: number;
+      presencePenalty?: number;
+      stop?: string | string[];
     } = {}
-  ): Promise<unknown> {
-    const url = new URL('/chat/completions', this.baseURL);
-    const body = {
-      messages,
-      ...options,
-      model: options.model ?? 'deepseek-chat',
+  ): Promise<string> {
+    const url = `${this.baseUrl.replace(/\/+$/, '')}/v1/chat/completions`;
+    
+    const payload = {
+      model: this.model,
+      messages: [{ role: 'user', content: prompt }],
       temperature: options.temperature ?? 0.7,
-      max_tokens: options.max_tokens ?? 1000,
+      max_tokens: options.maxTokens ?? 512,
+      top_p: options.topP ?? 1.0,
+      frequency_penalty: options.frequencyPenalty ?? 0.0,
+      presence_penalty: options.presencePenalty ?? 0.0,
+      stop: options.stop ?? undefined
     };
 
-    const response = await fetch(url.toString(), {
+    const headers: HeadersInit = {
+      'Content-Type': 'application/json'
+    };
+
+    if (this.apiKey) {
+      headers['Authorization'] = `Bearer ${this.apiKey}`;
+    }
+
+    const response = await fetch(url, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        ...(this.apiKey ? { Authorization: `Bearer ${this.apiKey}` } : {}),
-      },
-      body: JSON.stringify(body),
-      agent: this.getAgent(url),
+      headers,
+      body: JSON.stringify(payload)
     });
 
     if (!response.ok) {
       const errorText = await response.text();
-      throw new Error(
-        `DeepSeek API error: ${response.status} ${response.statusText} - ${errorText}`
-      );
+      throw new Error(`DeepSeek API error: ${response.status} - ${errorText}`);
     }
 
-    return response.json();
+    const data = await response.json();
+    if (!data.choices?.[0]?.message?.content) {
+      throw new Error('Invalid response format from DeepSeek API');
+    }
+
+    return data.choices[0].message.content;
   }
 }
