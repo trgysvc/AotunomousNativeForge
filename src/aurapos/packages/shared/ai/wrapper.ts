@@ -21,9 +21,9 @@ export class DeepSeekWrapper {
             model?: string;
             temperature?: number;
             maxTokens?: number;
-            [key: string]: any;
+            [key: string]: unknown;
         } = {}
-    ) {
+    ): Promise<unknown> {
         const {
             model = 'deepseek-chat',
             temperature,
@@ -31,7 +31,13 @@ export class DeepSeekWrapper {
             ...rest
         } = options;
 
-        const body: any = {
+        const body: {
+            model: string;
+            messages: { role: string; content: string }[];
+            temperature?: number;
+            max_tokens?: number;
+            [key: string]: unknown;
+        } = {
             model,
             messages,
             ...(temperature !== undefined && { temperature }),

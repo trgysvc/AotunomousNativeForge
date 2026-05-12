@@ -83,6 +83,14 @@
       ],
       "rule": "When using `tsc` with `--skipLibCheck`, ensure that the project's `tsconfig.json` has appropriate `moduleResolution` and `types` settings (e.g., include `@types/node` for Node.js APIs) to avoid syntax errors during type checking.",
       "severity": "CRITICAL"
+    },
+    {
+      "id": "S0-10_CheckSync_1778621887930",
+      "context": [
+        "aurapos"
+      ],
+      "rule": "Ensure the TypeScript compiler configuration (tsconfig.json) includes the correct module resolution and target settings for the project, and that all required type definitions are installed before running tsc checks.",
+      "severity": "CRITICAL"
     }
   ]
 }

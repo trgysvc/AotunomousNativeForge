@@ -29,3 +29,11 @@ node_modules/
 
 # Temp
 /tmp/
+
+# Claude IDE/Agent settings
+.claude
+
+
+# Ignore the gitignore file itself
+.gitignore
+

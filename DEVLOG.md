@@ -1,5 +1,14 @@
 
 ---
+### [2026-05-12T21:35:00.000Z] - system - Stabilization of Autonomous Factory & Master Plan Execution
+- **Master Plan Ingestion:** Successfully parsed all 13 PRD documents and atomized them into a massive 542-task `manifest.json`.
+- **Queue Engine Stabilization:** Architect now uses precise NVIDIA NIM parameters (`max_completion_tokens`, `thinking_token_budget`) to avoid context overflows and API errors.
+- **Autonomous Error Handling (Self-Healing):** Implemented a rigorous Steer & Re-plan loop. Coder failures (e.g., TypeScript syntax errors or MAX_RETRY limits) are automatically intercepted and sent back to the Architect to revise the plan with stricter constraints.
+- **Strict Stack Adherence:** The factory now completely adheres to the "No-Middleware" and native toolchain constraints, executing tasks automatically via JSON message passing.
+- **Status:** The factory is currently ONLINE and autonomously processing Sprint 0 and Sprint 1 tasks for the AuraPOS implementation without human intervention.
+
+
+---
 ### [2026-05-12T17:33:14.489Z] - system - Automated Telemetry Daemon & Event-Loop Patch
 - **Event-Loop Fix:** Patched `agents/architect.js` to dispatch tasks when status is `FAILED` (not just `DONE`). This prevents the system from stalling if a task reaches MAX_RETRIES.
 - **Telemetry Daemon:** Created `agents/telemetry.js` to run independently as a systemd service (`anf-telemetry.service`).
@@ -91,12 +100,12 @@ main();
 
 
 ## 2025-09-16 14:32:07 - Generate monorepo structure documentation from workspace config
-**PROJE:** aurapos  
-**GÖREV:** Monorepo yapısını `package.json` workspaces alanından otomatik olarak çıkaran bir doküman üretildi.  
-**KULLANILAN TEKNOLOJİ:** Node.js (fs, path, glob) – **No‑Middleware** yaklaşımı.  
-**Neden Bu Seçim:** PRD’de “minimum bağımlılık ve hızlı çalıştırılabilirlik” gerekliliği vurgulanmıştır; yerleşik modüllerle ek paket yüklemeyi önleyerek bu hedef sağlandı.  
-**SONUÇ:** `docs/monorepo-structure.md` dosyası başarıyla oluşturuldu, içerik otomatik güncellenebilir ve dokümantasyon hierarşisine uygun şekilde `PROJECT_ID: aurapos` damgasıyla işaretlendi.  
-**NOT:** Dosya içeriği elle düzenlenmemeli; güncellemeler sadece çalıştırılan script üzerinden yapılmalıdır.
+**PROJECT:** aurapos  
+**TASK:** Monorepo yapısını `package.json` workspaces alanından otomatik olarak çıkaran bir doküman üretildi.  
+**TECHNOLOGY USED:** Node.js (fs, path, glob) – **No‑Middleware** yaklaşımı.  
+**REASONING:** PRD’de “minimum bağımlılık ve hızlı çalıştırılabilirlik” gerekliliği vurgulanmıştır; yerleşik modüllerle ek paket yüklemeyi önleyerek bu hedef sağlandı.  
+**OUTCOME:** `docs/monorepo-structure.md` dosyası başarıyla oluşturuldu, içerik otomatik güncellenebilir ve dokümantasyon hierarşisine uygun şekilde `PROJECT_ID: aurapos` damgasıyla işaretlendi.  
+**NOTE:** Dosya içeriği elle düzenlenmemeli; güncellemeler sadece çalıştırılan script üzerinden yapılmalıdır.
 
 ---
 ### [2026-05-11T21:32:59.666Z] - aurapos - Setup CI/CD pipeline with parallel jobs and caching
@@ -243,18 +252,18 @@ GitHub Actions ile CI/CD iş akışı oluşturuldu. İş akışı üç aşamadan
 # Proje kök dizinine gelin
 cd /path/to/aurapos
 
-# Bağımlılıkları kök ve tüm workspace paketlerine kurun
+# Install dependencies to root and all workspace packages
 npm run bootstrap
 
 
 npm run dev
 
 
-# Yeni bir utility paketi oluştur
+# Create a new utility package
 mkdir -p packages/utils
 cd packages/utils
-npm init -y   # varsayılan paket.json oluştur
-cd ../..      # kök dizinine dön
+npm init -y   # create default package.json
+cd ../..      # return to root directory
 
 # Kök package.json'a otomatik eklenmez; workspaces zaten paketi tanır
 # Bağımlılık eklemek için:
@@ -278,7 +287,7 @@ cd packages/shared-types
 # Geliştirme bağımlılıklarını kur (sadece TypeScript)
 npm install
 
-# Derleme
+# Build
 npm run build   # tsc komutu çalıştırılır, dist/ klasörüne çıktı üretilir
 
 
@@ -340,19 +349,19 @@ npm run build && tsc --noEmit --project tsconfig.json
 └─ README.md
 
 
-# Bağımlılıkları yükle
+# Install dependencies
 npm install
 
-# Geliştirme modunu başlat
+# Start development mode
 npm run dev
 
-# Üretim build’i oluştur
+# Create production build
 npm run build
 
-# Üretim sunucusunu başlat
+# Start production server
 npm start
 
-# Lint kontrolü
+# Lint check
 npm run lint
 
 
@@ -385,15 +394,15 @@ export default function handler(req, res) {
 
 
 ## DEVLOG – 2025-09-26 14:35:00 (UTC+3)
-**Görev:** Create POS Next.js app  
-**Durum:** DONE  
+**Task:** Create POS Next.js app  
+**STATUS:** DONE  
 
 - `package.json` oluşturuldu; `next`, `react`, `react-dom` ve geliştirme araçları (`eslint`, `eslint-config-next`) eklendi.
 - `pages/_app.js` ve `pages/index.js` ile temel POS arayüzü hazırlandı.
 - `pages/api/hello.js` örneği ile middleware olası olmayan API route gösterildi.
 - Proje kök dizinine `README.md` ve bu teknik doküman eklendi.
 - `npm run dev`, `npm run build`, `npm start` ve `npm run lint` komutları test edildi; tüm komutlar başarılı çalıştı.
-- Karar nedeni: Next.js’in yerleşik API route ve file‑system routing özellikleri sayesinde ekstra middleware katmanı kullanmadan PRD’nin “No‑Middleware” kısıtlaması sağlandı.
+- Reasoning: Next.js’in yerleşik API route ve file‑system routing özellikleri sayesinde ekstra middleware katmanı kullanmadan PRD’nin “No‑Middleware” kısıtlaması sağlandı.
 
 ---
 ### [2026-05-12T01:07:56.622Z] - aurapos - Create Dashboard Next.js app
@@ -505,7 +514,7 @@ export default function Widget({ title, value, format }: WidgetProps) {
 }
 
 
-# 1. Bağımlılıkları yükle
+# 1. Install dependencies
 npm install
 
 # 2. Geliştirme sunucusunu başlat
@@ -519,14 +528,14 @@ npm start
 
 
 ## DEVLOG - 2025-09-26 10:12:00
-- **Proje:** aurapos
-- **Görev:** Create Dashboard Next.js app
-- **Durum:** DONE
-- **Açıklama:** Next.js 13+ (App Router) ve TypeScript kullanarak yönetim paneli dashboard’u oluşturuldu. Sayfa tabanlı routing, API route’ları ve React bileşenleriyle veri gösterimi sağlandı. Ek bir middleware katmanı kullanılmadı; Next.js’in kendi veri çekme ve routing mekanizmaları tercih edildi.
-- **Kullanılan Teknoloji:** Next.js (latest), React 18, TypeScript, ESLint + eslint-config-next
-- **Neden Bu Seçim:** PRD’de belirtilen SSR, otomatik kod splitting ve tip güvenli geliştirme ihtiyaçları Next.js’in yerleşik özellikleriyle doğrudan karşılanabiliyor. Bu sayede ek bir sunucu/middleware gereği olmadan, performanslı ve SEO dostu bir uygulama elde edildi.
-- **Örnek Kodlar:** Yukarıdaki teknik dokümanda `src/app/dashboard/page.tsx`, `src/app/api/reports/route.ts` ve `src/components/Widget.tsx` blokları kopyalanabilir, yapıştırılabilir örneklerdir.
-- **Not:** Başarılı derleme ve lint kontrolü (`npm run lint`) tamamlandı; tüm testler geçti.
+- **PROJECT:** aurapos
+- **Task:** Create Dashboard Next.js app
+- **STATUS:** DONE
+- **DESCRIPTION:** Next.js 13+ (App Router) ve TypeScript kullanarak yönetim paneli dashboard’u oluşturuldu. Sayfa tabanlı routing, API route’ları ve React bileşenleriyle veri gösterimi sağlandı. Ek bir middleware katmanı kullanılmadı; Next.js’in kendi veri çekme ve routing mekanizmaları tercih edildi.
+- **TECHNOLOGY USED:** Next.js (latest), React 18, TypeScript, ESLint + eslint-config-next
+- **REASONING:** PRD’de belirtilen SSR, otomatik kod splitting ve tip güvenli geliştirme ihtiyaçları Next.js’in yerleşik özellikleriyle doğrudan karşılanabiliyor. Bu sayede ek bir sunucu/middleware gereği olmadan, performanslı ve SEO dostu bir uygulama elde edildi.
+- **Example Codes:** Yukarıdaki teknik dokümanda `src/app/dashboard/page.tsx`, `src/app/api/reports/route.ts` ve `src/components/Widget.tsx` blokları kopyalanabilir, yapıştırılabilir örneklerdir.
+- **Note:** Başarılı derleme ve lint kontrolü (`npm run lint`) tamamlandı; tüm testler geçti.
 
 ---
 ### [2026-05-12T01:11:26.812Z] - aurapos - Create electric-config package source
@@ -573,10 +582,10 @@ console.log(electricConfig.thresholds.warning);   // 0.8
 
 
 ## DEVLOG - 2025-09-26 10:15:00 +0300
-**Görev:** Create electric-config package source
-**Durum:** DONE
-**Açıklama:** @aurapos/electric-config paketi oluşturuldu, package.json yapılandırıldı, TypeScript derleme süreci tanımlanır. Native Node.js (No-Middleware) yaklaşımı benimsendi, çünkü paket sadece yapılandırma verilerini dışa aktarır ve hiçbir HTTP veya middleware katmanı gerektirmez. Bu karar PRD'de "hafif ve bağımsız konfigürasyon paketi" gerektiği için alındı.
-**Değişiklikler:** 
+**Task:** Create electric-config package source
+**STATUS:** DONE
+**DESCRIPTION:** @aurapos/electric-config paketi oluşturuldu, package.json yapılandırıldı, TypeScript derleme süreci tanımlanır. Native Node.js (No-Middleware) yaklaşımı benimsendi, çünkü paket sadece yapılandırma verilerini dışa aktarır ve hiçbir HTTP veya middleware katmanı gerektirmez. Bu karar PRD'de "hafif ve bağımsız konfigürasyon paketi" gerektiği için alındı.
+**CHANGES:** 
 - paket kök dizinine `package.json` eklendi (yukarıdaki içerik)
 - varsayılan `tsconfig.json` eklendi
 - `src/index.ts` örnek yapılandırma dışa aktarımı eklendi
@@ -731,12 +740,12 @@ chmod +x check-requirements.sh
    
 
 ## [2025-08-27 14:32:00] Repo oluştur ve Turborepo başlat (önbellekli)
-- **Görev:** aurapos monorepo için ilk deposu oluşturulmuş ve Turborepo ile önbellekli görev akışı tanımlanmıştır.
-- **Kullanılan Teknoloji:** Native Node.js (No‑Middleware) + Turborepo v2.
+- **Task:** aurapos monorepo için ilk deposu oluşturulmuş ve Turborepo ile önbellekli görev akışı tanımlanmıştır.
+- **TECHNOLOGY USED:** Native Node.js (No‑Middleware) + Turborepo v2.
 - **Karar Nedeni:** PRD’de belirtilen hızlı, önbellekli derleme/lint/test ihtiyacını ekstra middleware katmanı eklemeden karşılamak için Turborepo’nun bağımlılık yönetimi ve çıktı önbellekleme özelliklerinden yararlanıldı.
 - **Eklenen Dosyalar:** `turborepo.json`, root `package.json`, örnek paket `apps/web/package.json`.
 - **Komutlar:** `npx turborepo run build|lint|test|dev` ile tüm işlemler önbellekli olarak çalıştırılabiliyor.
-- **Not:** `dev` görevinde önbellek kapatılmıştır; bu, geliştirme sırasında kod değişikliklerinin anında yansımasını sağlar.
+- **Note:** `dev` görevinde önbellek kapatılmıştır; bu, geliştirme sırasında kod değişikliklerinin anında yansımasını sağlar.
 
 ---
 ### [2026-05-12T11:51:09.082Z] - aurapos - Root konfigürasyon dosyalarını oluştur
@@ -907,14 +916,14 @@ Redis is ready.
 
 
 ## [2025-09-16 14:32:00] - Setup local development services with health-checked PostgreSQL and Redis
-- **Görev:** Setup local development services with health-checked PostgreSQL and Redis
-- **Kullanılan Teknoloji:** Native Bash (no‑middleware)
+- **Task:** Setup local development services with health-checked PostgreSQL and Redis
+- **TECHNOLOGY USED:** Native Bash (no‑middleware)
 - **Neden Native:** PRD, geliştirme ortamının hızlı ve bağımsız kurulmasını gerektiriyor; betik sistem tarafından sağlanan `pg_ctl` ve `redis-server` komutlarını doğrudan çağırarak ekstra katmanlar olmadan, hızlı başlatma ve sağlık kontrolleri sağlar.
-- **Açıklama:** Betik, PostgreSQL ve Redis'i ayrı ayrı başlatır, her biri için veri dizinlerini oluşturur, gerekirse `initdb` ile veri kümesini hazırlar ve `pg_isready` / `redis-cli ping` ile hizmetlerin bağlantı kabul etmesini bekler. `trap` ile `SIGINT`/`SIGTERM` sinyalleri yakalanarak hizmetler temiz şekilde durdurulur.
+- **DESCRIPTION:** Betik, PostgreSQL ve Redis'i ayrı ayrı başlatır, her biri için veri dizinlerini oluşturur, gerekirse `initdb` ile veri kümesini hazırlar ve `pg_isready` / `redis-cli ping` ile hizmetlerin bağlantı kabul etmesini bekler. `trap` ile `SIGINT`/`SIGTERM` sinyalleri yakalanarak hizmetler temiz şekilde durdurulur.
 - **Kod Örneği:**
   
 
-- **Not:** İlk çalıştırmada `pg_ctl` bulunamadıysa sistemde PostgreSQL client kurulumu gerektiği hatası verilir; benzer şekilde Redis de kontrol edilir.
+- **Note:** İlk çalıştırmada `pg_ctl` bulunamadıysa sistemde PostgreSQL client kurulumu gerektiği hatası verilir; benzer şekilde Redis de kontrol edilir.
 
 ---
 ### [2026-05-12T17:30:12.129Z] - aurapos - Service Worker ve PWA yapılandırmasını kur (Workbox)
