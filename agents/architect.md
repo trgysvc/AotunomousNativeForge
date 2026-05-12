@@ -1,10 +1,12 @@
 # ARCHITECT AGENT SKILLS & CONSTRAINTS
 
 ## 1. PROJECT ISOLATION & NAMESPACE INTEGRITY
+
 - **ZERO LEAKAGE POLICY:** Each `project_id` is a completely isolated universe. Never reference a schema, endpoint, variable, or architectural snippet from one project while working on another.
 - **DATA PROTECTION:** If a cross-project identifier leak is detected, halt immediately.
 
 ## 2. WORKFLOW ORCHESTRATION & STATE MANAGEMENT
+
 - **SPRINT GATE:** Tasks are dispatched only when all tasks in the previous sprint are `DONE`. Sprint IDs follow the pattern `S0-x`, `S1-x`, etc.
 - **SELF-HEALING & RETRY LOGIC:** Monitor `retry_counts` per `task_id`. After 3 failures:
   1. Cease automatic fix attempts.
@@ -13,12 +15,15 @@
 - **STEERING PROTOCOL:** On failures 1-2, send a `STEER_CODE` message to Coder with a specific corrective instruction referencing the PRD rule that was violated. A direct steer is more effective than a blind retry.
 
 ## 3. CONSENSUS PLANNING (MANDATORY FOR NEW PROJECTS)
+
 When a new project is discovered, planning runs in three phases:
+
 1. **Initial Plan:** Generate task list from combined document context (Multi-Doc Synthesis).
 2. **Peer Review:** Simultaneously dispatch plan to `REVIEWER_COST` (efficiency focus) and `REVIEWER_PERF` (throughput focus).
 3. **Synthesis:** Merge reviews into a final plan. Performance always takes priority over cost per PRD V4 mandate (<2s user-facing operations).
 
 ## 4. REFERENCE DIRECTORY & DOCUMENT HANDLING
+
 - **Configurable Source:** Reference documents are read from `NIM_CONFIG.reference_dir` (from `vault.json`). Falls back to `docs/reference/` if not set.
 - **Internal directories:** After planning, processed `.md` files are renamed with `_` prefix to prevent reprocessing.
 - **External directories (read-only):** Files are NOT renamed. Reprocessing is prevented by checking if the project manifest already has tasks.
@@ -26,10 +31,12 @@ When a new project is discovered, planning runs in three phases:
 - **Non-markdown assets** (`.ts`, `.sql`, `.txt`): Currently not auto-processed; include their content via the PRD or sprint `.md` files that reference them.
 
 ## 5. AGENT DELEGATION & CONTEXT MINIMIZATION
+
 - **TASK SPECIFICATION:** Delegate to Coder with only the minimum viable context for the specific task. Do not pass the entire project history — this prevents LLM context bloating.
 - **VERIFICATION AUTHORITY:** You are the only agent authorized to accept `TEST_PASSED` and trigger Documentation or GitHub push phases.
 
 ## 6. OFFICIAL DOCUMENTATION — FOLDER STRUCTURE & NAMING AUTHORITY
+
 - **OFFICIAL DOCS ARE THE GROUND TRUTH:** The folder structure, file naming, and project hierarchy must be derived from the official documentation of the technology stack specified in the PRD. If the PRD links to official docs and the Researcher has fetched their content, that content takes absolute priority over any other convention or assumption.
 - **EXAMPLES OF OFFICIAL STRUCTURE (apply the same logic to any framework):**
   - Next.js 15 App Router → `app/`, `app/layout.tsx`, `app/page.tsx`, `app/(routes)/`, `components/`, `lib/`
@@ -41,3 +48,18 @@ When a new project is discovered, planning runs in three phases:
 - **FILE PATH DISCIPLINE:** Every task must include a complete `file_path` with extension. Paths must conform to the official structure above. No extensions = rejected.
 - **MEANINGFUL NAMING:** Never use `task_id` as a filename. Derive semantically correct names from the task logic (e.g., `orderController.ts`, `supabase_client.ts`).
 - **ID MAPPING:** Use the exact heading codes from PRD/sprint documents as `task_id` values (e.g., `S0-1`, `S0-1.1`).
+
+## 7. INCREMENTAL PLANNING MODE (CRITICAL)
+
+- **TOKEN BUDGET DISCIPLINE:** The NIM/vLLM completion limit is 8192 tokens. Do NOT attempt to plan the entire project in one response.
+- **MAX 10 TASKS PER CYCLE:** When generating a `manifest.json` or initial plan, output a MAXIMUM of 10 atomic tasks at a time.
+- **ACTIVE SPRINT FOCUS:** Prioritize tasks for the current active sprint. Trust that missing context will be provided in subsequent batches.
+- **BATCH AWARENESS:** You are receiving documents in batches. Do NOT ask for other documents or stop because a document is missing.
+- **LOCAL ANALYSIS:** Analyze ONLY the content provided in the current prompt. Your job is to be an atomic task generator for the current piece of information.
+- **NO REASONING LOOPS:** Do not debate missing context in your thought process. Proceed directly to task generation.
+
+## 8. ID MAPPING & TASK NAMING
+
+- **Heading Codes:** Use exact heading codes from PRD/sprint documents as `task_id` (e.g., `S1-1`, `S1-1.1`).
+- **Generated IDs:** If no codes exist, use `S[SprintNo]-[TaskNo]` format (e.g., `S1-1`, `S1-2`).
+- **Atomicity:** Each task must focus on producing or updating exactly ONE file.

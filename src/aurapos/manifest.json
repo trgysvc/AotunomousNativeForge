@@ -1,0 +1,871 @@
+{
+  "project_id": "aurapos",
+  "tasks": [
+    {
+      "task_id": "S0-1",
+      "title": "Setup local development services with health-checked PostgreSQL and Redis",
+      "desc": "Create npm scripts (e.g., `dev:db` and `dev:redis`) that start PostgreSQL and Redis locally, include healthcheck logic (e.g., using `wait-for` or pg_isready) to ensure services are ready before the Node app starts. Optionally keep Docker Compose for CI only.",
+      "file_path": "scripts/dev-services.sh",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S0-3",
+      "title": "Create lightweight AI wrapper for DeepSeek R1 with connection pooling",
+      "desc": "Implement a thin TypeScript wrapper that uses native `fetch` with keepAlive connection pooling to call the DeepSeek R1 API, or optionally spin up a local vLLM instance. Design for async, non‑blocking usage.",
+      "file_path": "packages/shared/ai/wrapper.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S0-4",
+      "title": "Generate monorepo structure documentation from workspace config",
+      "desc": "Add a script that reads the monorepo workspace configuration (e.g., `package.json` workspaces) and auto-generates `docs/monorepo-structure.md` as part of the build process, eliminating handwritten maintenance.",
+      "file_path": "docs/monorepo-structure.md",
+      "depends_on": [],
+      "status": "DONE"
+    },
+    {
+      "task_id": "S0-5",
+      "title": "Setup CI/CD pipeline with parallel jobs and caching",
+      "desc": "Create GitHub Actions workflow (`.github/workflows/ci.yml`) that splits build, test, and deploy into parallel jobs, uses `needs:` to orchestrate, caches `node_modules` and Docker layers, and includes the test-all-mocks execution via `Promise.all` for parallel mock testing.",
+      "file_path": ".github/workflows/ci.yml",
+      "depends_on": [],
+      "status": "DONE"
+    },
+    {
+      "task_id": "S1-1",
+      "title": "Apply PostgreSQL migrations as a separate release step",
+      "desc": "Run SQL migrations via Supabase CLI (or `psql`) as a pre-release step, using additive schema changes and zero‑downtime techniques (e.g., `pg_partman`) to avoid blocking incoming traffic.",
+      "file_path": "supabase/migrations/20260315_init.sql",
+      "depends_on": [
+        "S0-1"
+      ],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S1-2",
+      "title": "Implement unified authentication module (JWT + PIN)",
+      "desc": "Create a single auth module (`apps/api/src/routes/auth.ts`) providing login endpoints for JWT (using async `jwt.signAsync`/`jwt.verifyAsync` or worker thread pool) and PIN‑based login for staff (using async `bcrypt.hashAsync`/`bcrypt.compareAsync` or libsodium). Ensure non‑blocking crypto operations.",
+      "file_path": "apps/api/src/routes/auth.ts",
+      "depends_on": [
+        "S1-1"
+      ],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S1-4",
+      "title": "Implement RBAC middleware with Redis‑cached role/permission sets",
+      "desc": "Create middleware (`apps/api/src/middleware/rbac.ts`) that loads role/permissions at startup and caches them in Redis with TTL, invalidating on change via Redis pub/sub, eliminating per‑request DB hits.",
+      "file_path": "apps/api/src/middleware/rbac.ts",
+      "depends_on": [
+        "S1-1"
+      ],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S1-0",
+      "title": "PostgreSQL migration'ları oluşturma",
+      "desc": "Bölüm 7'deki veritabanı şemasına uyumlu başlangıç migration dosyasını oluştur. Tablolar: businesses, branches, staff, roles, table_areas, tables, categories, products, portions, option_groups, option_items, orders, order_items, order_item_options, payments, cash_registers, ingredients, recipes, stock_movements, tasks, task_logs, warehouses, aggregator_mappings, aggregator_orders, aggregator_order_items, customer_ledgers, semi_products, semi_product_recipes, production_logs, printers, printer_routing_rules, qr_attendance_tokens. Migration dosyası şema tanımından otomatik olarak üretilecek (örneğin Node scripti).",
+      "file_path": "supabase/migrations/20260315000000_initial_schema.sql",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S1-3",
+      "title": "JWT refresh token endpoint'i oluşturma",
+      "desc": "Refresh token kullanarak yeni access token elde eden endpoint. JWT içinde user ID, role ve branch bilgileri yer alır, dolayısıyla ek DB sorgusu gerekmez. Async pg.Pool ve async JWT signing kullanılır.",
+      "file_path": "apps/branch-server/src/routes/auth/routes.ts",
+      "depends_on": [
+        "S1-1",
+        "S1-9"
+      ],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S1-5",
+      "title": "Rol bazlı yetki middleware'i oluşturma",
+      "desc": "JWT tokenindeki rol bilgisini kontrol eden ve yetkisiz erişimi engelleyen middleware. Rol bilgisi JWT içinde saklandığı için DB sorgusu gerekmez; sadece CPU işlemi yapılır.",
+      "file_path": "apps/branch-server/src/middleware/auth.ts",
+      "depends_on": [
+        "S1-1"
+      ],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S1-6",
+      "title": "Branch seçimi middleware'i oluşturma",
+      "desc": "JWT tokenindeki branch bilgisini doğrulayan ve request'e branch ekleyen middleware. Branch ID JWT içinde olduğundan DB sorgusu yoktur.",
+      "file_path": "apps/branch-server/src/middleware/auth.ts",
+      "depends_on": [
+        "S1-1"
+      ],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S1-7",
+      "title": "Branch setter endpoint'i oluşturma",
+      "desc": "Kullanıcının aktif şubesini değiştirebileceği endpoint. Yetki kontrolü için branch middleware kullanılır. Branch bilgisi JWT içinde olduğu için ek DB sorgusu gerekmez.",
+      "file_path": "apps/branch-server/src/middleware/branch.ts",
+      "depends_on": [
+        "S1-1",
+        "S1-6"
+      ],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S1-8",
+      "title": "Temel API health-check endpoint'i oluşturma",
+      "desc": "API'nin çalışıp çalışmadığını ve veritabanı bağlantısını kontrol eden basit endpoint. lightweight SELECT 1 ping kullanılır, mevcut pg.Pool üzerinden çalışır.",
+      "file_path": "apps/branch-server/src/utils/health.ts",
+      "depends_on": [
+        "S1-0",
+        "S1-9"
+      ],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S1-9",
+      "title": "PostgreSQL connection pool kurulumu",
+      "desc": "pg.Pool (veya Supabase istemcisi) oluşturulur, max bağlantı sayısı ve idle timeout ayarlanır. Bu havuz tüm route ve middleware dosyalarında yeniden kullanılır.",
+      "file_path": "apps/branch-server/src/lib/db.ts",
+      "depends_on": [
+        "S1-0"
+      ],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S1-10",
+      "title": "Async JWT signing utility oluşturma",
+      "desc": "jsonwebtoken.sign'in promisified versiyonu (util.promisify) veya worker thread pool üzerinden async signing sağlanır. Bu utility login, refresh ve PIN endpointlerinde kullanılır.",
+      "file_path": "apps/branch-server/src/lib/jwt.ts",
+      "depends_on": [
+        "S1-1"
+      ],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S0-2",
+      "title": "Docker Compose setup for essential local services",
+      "desc": "Define only Supabase DB and Redis services in docker-compose.yml; add npm scripts to spin up Supabase Studio, ElectricSQL, branch server, POS, dashboard, KDS on‑demand or via separate compose files.",
+      "file_path": "docker-compose.yml",
+      "depends_on": [
+        "S0-1"
+      ],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S0-6",
+      "title": "Shared TypeScript types generated from Supabase schema",
+      "desc": "Set up @aurapos/shared-types with tsconfig; use supabase-typescript generator to produce interfaces directly from the schema, ensuring strict mode and no any.",
+      "file_path": "packages/shared-types/src/index.ts",
+      "depends_on": [
+        "S0-5"
+      ],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S0-7",
+      "title": "POS Next.js App Router shell with consolidated routes",
+      "desc": "Create apps/pos with app/layout.tsx (AuthContext, ElectricSQL provider) and a minimal app/page.tsx. Define all route groups (orders, tables, payments) in a single routes.ts file and import them in layout.tsx to eliminate duplicated boilerplate.",
+      "file_path": "apps/pos/app/layout.tsx",
+      "depends_on": [
+        "S0-6"
+      ],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S0-8",
+      "title": "Order Service temel CRUD, bölme, birleştirme ve masa taşıma endpoint'lerini oluştur",
+      "desc": "POST /api/orders (adisyon aç), GET /api/orders/:id (detay), PATCH /api/orders/:id (güncelle), DELETE /api/orders/:id (iptal). POST /api/orders/:id/split ve POST /api/orders/:id/merge endpoint'leri (kişi/ürün bazlı bölme, toplam tutar korunur). POST /api/orders/:id/transfer (masa taşı) endpoint'i. Order status state machine'i (OPEN → PARTIAL_PAID → PAID → CLOSED vb.) uygula. Bağlantı havuzu (pg.Pool) kullan ve orders.status, branch_id üzerinde indeks ekle.",
+      "file_path": "src/routes/orders.ts",
+      "depends_on": [
+        "S0-4",
+        "S0-5"
+      ],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S0-9",
+      "title": "Masa planı UI'sini (görsel, drag-drop) uygula",
+      "desc": "POS ekranında masa düzenini görsel olarak göster. Masa boş/dolu/beklemede durumlarına göre renk değiştir. Drag‑drop ile masa değiştirme ve birleştirme/bolme işlemlerini destekle.",
+      "file_path": "apps/pos/src/components/FloorPlan.tsx",
+      "depends_on": [
+        "S0-8"
+      ],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S0-10",
+      "title": "Ürün arama ve kategori filtreleme özelliği ekle",
+      "desc": "POS'ta ürün listesi, kategori ağacıyla filtreleme ve anlık arama (debounce) işlevini sağla. Menü servisinden kategori ve ürünleri çek.",
+      "file_path": "apps/pos/src/components/ProductSearch.tsx",
+      "depends_on": [
+        "S0-8"
+      ],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S0-13",
+      "title": "Nakit ödeme + para üstü hesabı ve para çekmecesi açma modülünü oluştur",
+      "desc": "POST /api/payments endpoint'inde method=CASH olduğunda para üstü hesabı, kasa hareketi kaydı ve para çekmecesi açma tetiklemesi yap. Hardware Bridge Service üzerinden POST /api/hardware/drawer/open çağrısı yap ve cash_registers tablosuna giriş/çıkış kaydı ekle.",
+      "file_path": "src/routes/payments.ts",
+      "depends_on": [
+        "S0-8"
+      ],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S0-14",
+      "title": "Ingenico mock entegrasyonunu (sale, cancel, refund, addTip, partialPayment, batchClose) ve karma/yemek çeki ödeme desteği tamamla",
+      "desc": "Hardware Bridge Service üzerinden POST /api/hardware/payment/sale vb. endpoint'lerini mock driver ile bağla. Her fonksiyon için gecikme simülasyonu ve doğru yanıt şeması (ApprovalResponse vb.) döndür. PaymentRequest şemasında mixed ve meal_voucher metodlarını destekle; kart kısmı Ingenico mock, nakit kısmı para üstü hesabı, yemek çeki mock ile işle. Gün sonu kasa sayımı & batch close işlemini de bu task içinde gerçekleştir (POST /api/payments/batch-close).",
+      "file_path": "src/routes/hardware/payment.ts",
+      "depends_on": [
+        "S0-1"
+      ],
+      "status": "FIXING"
+    },
+    {
+      "task_id": "S0-18",
+      "title": "KDS (Mutfak Ekranı) WebSocket entegrasyonunu gerçekleştir",
+      "desc": "KDS ekranında yeni siparişler gerçek zamanlı olarak görünmeli. Sipariş durumu (hazır, tamamlandı, iptal) güncellemeleri için WebSocket kanallarını kullan. İstasyon bazlı filtreleme (mutfak, bar, soğuk büfe). Redis pub/sub adaptorü ekleyerek yatay ölçeklenebilir hale getir.",
+      "file_path": "apps/kds/src/components/OrderList.tsx",
+      "depends_on": [
+        "S0-8"
+      ],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S0-19",
+      "title": "Termal yazıcı mock entegrasyonunu ve otomatik yazdırma akışını kur",
+      "desc": "Sipariş oluşturulduğunda ve ödeme sonrası fiş yazdırma için Hardware Bridge Service üzerinden POST /api/hardware/print endpoint'ini mock driver ile bağla. ReceiptObject şemasına uygun çıktı üret.",
+      "file_path": "src/routes/hardware/print.ts",
+      "depends_on": [
+        "S0-1"
+      ],
+      "status": "FIXING"
+    },
+    {
+      "task_id": "S0-20",
+      "title": "Müşteri ekranı güncelleme (ödeme sırasında toplam göster) özelliği ekle",
+      "desc": "Ödeme işlemi sırasında Hardware Bridge Service üzerinden POST /api/hardware/display/show çağrısı yap ve toplam tutarı, ödeme yöntemini ve gerekirse bahşişi göster.",
+      "file_path": "src/routes/hardware/display.ts",
+      "depends_on": [
+        "S0-13"
+      ],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S0-21",
+      "title": "Service Worker ve PWA yapılandırmasını kur (Workbox)",
+      "desc": "Service Worker kaydı, ön bellekleme stratejileri ve PWA manifestı için Workbox kullan. /apps/pos ve /apps/dashboard için offline destek ve yükleme deneyimi iyileştir.",
+      "file_path": "apps/pos/src/serviceWorker.js",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S0-1_Init",
+      "title": "Initialize workspace",
+      "desc": "Create pnpm-workspace.yaml, turbo.json, .env.example and .env (via templating).",
+      "file_path": "pnpm-workspace.yaml",
+      "depends_on": [],
+      "status": "DONE"
+    },
+    {
+      "task_id": "S0-4_SharedTypes",
+      "title": "Create shared-types package",
+      "desc": "Create package.json and src/index.ts.",
+      "file_path": "packages/shared-types/package.json",
+      "depends_on": [],
+      "status": "DONE"
+    },
+    {
+      "task_id": "S0-4_Hardware",
+      "title": "Create hardware package source",
+      "desc": "Create package.json, mock-driver.ts and index.ts after shared-types ready.",
+      "file_path": "packages/hardware/package.json",
+      "depends_on": [
+        "S0-4_SharedTypes"
+      ],
+      "status": "DONE"
+    },
+    {
+      "task_id": "S0-4_ElectricConfig",
+      "title": "Create electric-config package source",
+      "desc": "Create package.json, client.ts and shapes.ts after shared-types ready.",
+      "file_path": "packages/electric-config/package.json",
+      "depends_on": [
+        "S0-4_SharedTypes"
+      ],
+      "status": "DONE"
+    },
+    {
+      "task_id": "S0-5_BranchServer",
+      "title": "Create branch-server package and source",
+      "desc": "Create package.json, src/index.ts, src/routes/hardware.ts, src/routes/orders.ts after shared-types, hardware and electric-config ready.",
+      "file_path": "apps/branch-server/package.json",
+      "depends_on": [
+        "S0-4_Hardware",
+        "S0-4_ElectricConfig"
+      ],
+      "status": "DONE"
+    },
+    {
+      "task_id": "S0-6_TestMocks",
+      "title": "Create mock test script",
+      "desc": "Create scripts/test-all-mocks.ts after hardware package ready.",
+      "file_path": "scripts/test-all-mocks.ts",
+      "depends_on": [
+        "S0-4_Hardware"
+      ],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S0-7_POS",
+      "title": "Create POS Next.js app",
+      "desc": "Scaffold POS app via create-next-app.",
+      "file_path": "apps/pos/package.json",
+      "depends_on": [],
+      "status": "DONE"
+    },
+    {
+      "task_id": "S0-8_Dashboard",
+      "title": "Create Dashboard Next.js app",
+      "desc": "Scaffold Dashboard app via create-next-app.",
+      "file_path": "apps/dashboard/package.json",
+      "depends_on": [],
+      "status": "DONE"
+    },
+    {
+      "task_id": "S0-9_DashboardPage",
+      "title": "Create dashboard home page and env",
+      "desc": "Create apps/dashboard/app/page.tsx and .env.local.",
+      "file_path": "apps/dashboard/app/page.tsx",
+      "depends_on": [
+        "S0-8_Dashboard"
+      ],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S0-10_CheckSync",
+      "title": "Create sync status script",
+      "desc": "Create scripts/check-sync-status.ts after dashboard env ready.",
+      "file_path": "scripts/check-sync-status.ts",
+      "depends_on": [
+        "S0-9_DashboardPage"
+      ],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S2-2",
+      "title": "Orders API (branch-server)",
+      "desc": "Implement order creation, validation, item addition, calculation, cancellation, splitting, table status updates, and KDS notification via WebSocket after persisting order. Use DB column-level optimistic locking (lock_version) handling 409 errors directly.",
+      "file_path": "apps/branch-server/src/routes/orders.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S2-3",
+      "title": "WebSocket Sunucusu",
+      "desc": "Set up Fastify WebSocket using @fastify/websocket plugin, manage client connections, provide broadcast functions with rooms per-table/per-order to reduce fan-out.",
+      "file_path": "apps/branch-server/src/lib/websocket.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S2-5",
+      "title": "Masa Planı UI (POS)",
+      "desc": "Build table layout page with area tabs, table cards, and real-time status updates via WebSocket. Memoize table cards and diff only changed items.",
+      "file_path": "apps/pos/app/(pos)/tables/page.tsx",
+      "depends_on": [
+        "S2-3"
+      ],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S2-6",
+      "title": "Sipariş / Adisyon Ekranı (POS)",
+      "desc": "Create order detail screen with header, category sidebar, product grid, item list, footbar, seat selection UI, optimistic updates, note handling, and batch KDS notification.",
+      "file_path": "apps/pos/app/(pos)/order/[id]/page.tsx",
+      "depends_on": [
+        "S2-2",
+        "S2-3"
+      ],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S3-0",
+      "title": "Cari Hesap, Kesirli Bölme ve Tüm Ödeme Endpoint'leri",
+      "desc": "apps/branch-server/src/routes/payments.ts dosyasına cari ödeme işlemi (customer ledger), fractional split (kesirli bölme) ve POST /api/payments, refund, summary, batch-close endpoint'lerini ekle.",
+      "file_path": "apps/branch-server/src/routes/payments.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S3-1",
+      "title": "PaymentOrchestrator merkezi servisi",
+      "desc": "apps/branch-server/src/lib/payment-orchestrator.ts dosyasında tüm ödeme akışlarını koordine eden sınıfı oluştur. Servis mümkün olduğunca ince bir fachada tutulmalı ve stateless olmalı.",
+      "file_path": "apps/branch-server/src/lib/payment-orchestrator.ts",
+      "depends_on": [
+        "S3-0"
+      ],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S3-3",
+      "title": "Birleştirilmiş Ingenico ve Sprint 3 Entegrasyon Testi",
+      "desc": "scripts/ingenico-sprint3-integration-test.ts dosyasında mock terminal üzerinden 6 fonksiyonun test senaryosunu ve tam akış testi (kasa aç, sipariş, nakit/kart/karma ödeme, iade, batch close, kasa özeti) uygula. Testler async/await ve Promise.all ile paralel çalıştırılmalı.",
+      "file_path": "scripts/ingenico-sprint3-integration-test.ts",
+      "depends_on": [
+        "S3-1"
+      ],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S3-4",
+      "title": "Kasa Yönetimi (Cash Register)",
+      "desc": "apps/branch-server/src/routes/cash-register.ts dosyasında kasayı açma, kapatma ve nakit hareket endpoint'lerini uygula. Bu görev testlerden bağımsız olarak yürütülebilir.",
+      "file_path": "apps/branch-server/src/routes/cash-register.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S3-5",
+      "title": "Ödeme Ekranı (POS) UI",
+      "desc": "apps/pos/app/(pos)/payment/[orderId]/page.tsx dosyasında ödeme sayfası bileşen ağacını, form validasyonu ve terminal bekleme animasyonunu oluştur.",
+      "file_path": "apps/pos/app/(pos)/payment/[orderId]/page.tsx",
+      "depends_on": [
+        "S3-4"
+      ],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S3-6",
+      "title": "Yemek Çeki (Mock) Destek",
+      "desc": "packages/hardware/payment-terminal/mock-driver.ts dosyasına mealVoucherSale metodunu ve IHardwareDriver.ts arayüzüne ilgili imzayı ekle. Mock, üretimde feature flag ile kapalı tutulmalı ve gerçek driver doğrudan enjekte edilmelidir.",
+      "file_path": "packages/hardware/payment-terminal/mock-driver.ts",
+      "depends_on": [
+        "S3-5"
+      ],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S4-0",
+      "title": "mDNS Service Discovery for Printers (Native Implementation)",
+      "desc": "Replace handwritten mdns‑js boilerplate with a lightweight utility using native dns.promises.resolve4/resolve6 and dgram.Socket for multicast, cached via background worker to avoid blocking the event loop. Expose GET /api/hardware/printers/discover and POST /api/hardware/printers/register.",
+      "file_path": "packages/hardware/printer/mdns-discovery.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S4-1",
+      "title": "KDS Page UI with Station Filter, Header, Board and Live Ticket Timer",
+      "desc": "Create the KDS page (apps/kds/app/page.tsx) containing StationFilter, KdsHeader, KdsBoard components with CSS Grid layout. Integrate timer badge logic directly into KdsTicketCard (no separate TimerBadge file) using a global ticker (requestAnimationFrame/shared setInterval) to avoid per‑ticket setInterval overhead.",
+      "file_path": "apps/kds/app/page.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S4-3",
+      "title": "Automatic Printing System with Queue‑Based Offload and Display Manager Integration",
+      "desc": "Implement auto‑print logic in apps/branch-server/src/lib/auto-print.ts: printKitchenTicket on order creation and printReceipt on payment completion. Offload blocking printer I/O to a durable queue (BullMQ or worker_threads) and return immediate acknowledgment. Include thin wrapper for re‑print endpoint. Embed DisplayManager helper functions (showOrderTotal, showPaymentWaiting, showThankYou) as event‑based utilities within this module to avoid direct DOM writes and layout thrashing. Add kitchen‑ticket test double to auto‑print test utilities.",
+      "file_path": "apps/branch-server/src/lib/auto-print.ts",
+      "depends_on": [
+        "S4-0"
+      ],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S4-7",
+      "title": "Sprint 4 Focused Integration and Unit Tests",
+      "desc": "Split end‑to‑end coverage into focused unit‑style tests: one for timer colors/global ticker, one for auto‑print queue flow, one for re‑print endpoint, one for display‑manager event handling, and one for mDNS discovery. Use shared test helpers and mock‑driver in‑memory implementations; reserve real‑hardware runs for a nightly smoke‑test suite.",
+      "file_path": "tests/integration/S4.integration.test.ts",
+      "depends_on": [
+        "S4-1",
+        "S4-3"
+      ],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S5-1",
+      "title": "PGlite Şema Kurulumu",
+      "desc": "Supabase introsiyonu (pg_dump) ile yerel PGlite şemasını üret ve electric-config paketine ekle. Şema, Supabase'in çalışan alt kümesi olacak ve branch-server başlangıcında uygulanacak.",
+      "file_path": "packages/electric-config/src/local-schema.sql",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S5-2",
+      "title": "Sync Queue Engine",
+      "desc": "Branch-server için async-only sync engine sınıfı oluştur. Enqueue işlemi pure async, gerçek yazma işlemleri background worker pool (setImmediate/MessageChannel veya BullMQ‑style) tarafından yapılır. Online/offline kontrolü, periyodik sync denemeleri ve Supabase'e veri uygulama işlevselliği eklenir.",
+      "file_path": "apps/branch-server/src/sync/engine.ts",
+      "depends_on": [
+        "S5-1"
+      ],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S5-3",
+      "title": "Branch-Server Yazmalarını Kuyruğa Ekle (Debounce/Batch)",
+      "desc": "Her INSERT/UPDATE/DELETE işleminin ardından syncEngine.enqueue çağrısı yapılır, ancak enqueue içindeki işlemler debounce/batch mekanizmasıyla (100 ms veya 100 row) biriktirilir ve periyodik olarak flush edilir. Bu sayede route handler'lar hafif kalır ve senkron Supabase yazmaları önlenir.",
+      "file_path": "apps/branch-server/src/routes/orders.ts",
+      "depends_on": [
+        "S5-2"
+      ],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S5-4",
+      "title": "Conflict Resolution Entegrasyonu (Async)",
+      "desc": "Sync engine'e conflict resolution mantığı eklenir. HTTP 409 alındığında resolveConflict() aynı background worker kuyruğuna gönderilir, hızlı acknowledgment döndürülür ve sonuç non‑blocking event emitter üzerinden yerel state güncellenir veya audit log'a yazılır.",
+      "file_path": "apps/branch-server/src/sync/conflict.ts",
+      "depends_on": [
+        "S5-2"
+      ],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S5-5",
+      "title": "Service Worker & PWA Kurulumu (next-pwa plugin)",
+      "desc": "next-pwa plugin kullanılarak Service Worker ve manifest otomatik üretilir. next.config.js ve public/manifest.json el ile yazılmaz, plugin tarafından yönetilir.",
+      "file_path": "apps/pos/next.config.js",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S5-6",
+      "title": "Offline Banner & Sync UI (React Context + Built‑in Fallback)",
+      "desc": "Next‑PWA’nın built‑in offline fallback kullanılır. Sync durumu için basit bir React Context (useSyncStatus) oluşturulur, WebSocket yerine SSE/Redis PubSub üzerinden broadcast yapılır. Banner component'i layout.tsx'ye eklenir.",
+      "file_path": "apps/pos/components/OfflineBanner/index.tsx",
+      "depends_on": [
+        "S5-2"
+      ],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S5-7",
+      "title": "PGlite Browser Entegrasyonu (Lazy‑Load / IndexedDB)",
+      "desc": "PGlite sadece offline transaction tespit edildiğinde lazy‑load edilir. Ağır sorgu gerektiren durumlar dışında hafif offline storage için native idb (IndexedDB) kullanılır. electric.ts modülü bu koşullu yükleme mantığını içerir.",
+      "file_path": "apps/pos/lib/electric.ts",
+      "depends_on": [
+        "S5-1"
+      ],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S5-8",
+      "title": "Sprint 5 Entegrasyon Testi (Playwright)",
+      "desc": "Offline‑first ve PWA özelliklerinin uçtan uca testi Playwright ile otomatikleştirilir. Senaryo: normal işlem → offline mod → yerel kaydet → online gelince sync → conflict ve PWA install kontrolü. Test scripti docs/test/ altında yer alır.",
+      "file_path": "docs/test/sprint5-integration-test.spec.ts",
+      "depends_on": [
+        "S5-1",
+        "S5-2",
+        "S5-3",
+        "S5-4",
+        "S5-5",
+        "S5-6",
+        "S5-7"
+      ],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S6-2",
+      "title": "ReportPage component with excel-export utility",
+      "desc": "Create a generic ReportPage component that handles date/filter UI, table rendering, and Excel export via a shared utility. Used for both branch revenue and product sales reports.",
+      "file_path": "apps/dashboard/components/ReportPage.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S6-3",
+      "title": "Next.js API route for AI insights (async, timeout, caching)",
+      "desc": "Replace Edge Function with a Next.js API route that asynchronously calls DeepSeek R1, respects nim_reasoning_budgets timeout from vault.json, caches recent insights, and returns JSON.",
+      "file_path": "apps/dashboard/app/api/ai-insights/route.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S6-4",
+      "title": "AI insight hook with skeleton/shimmer UI",
+      "desc": "Hook useAiInsight that triggers the API request, shows skeleton UI while loading, implements stale‑while‑revalidate caching, and returns insight data.",
+      "file_path": "apps/dashboard/hooks/useAiInsight.ts",
+      "depends_on": [
+        "S6-3"
+      ],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S6-5",
+      "title": "DataList component (recent orders + active shifts)",
+      "desc": "Reusable DataList component that renders recent orders (with Supabase index on created_at, limit 10) and active shifts (using global tick via useSyncExternalStore). Includes status badges and elapsed time.",
+      "file_path": "apps/dashboard/components/DataList.tsx",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S6-6",
+      "title": "Live data hook (useLiveRevenue) using shared broadcast",
+      "desc": "Hook that connects to a single server‑side broadcast (Supabase Function or lightweight WS) to push revenue updates to all clients, eliminating per‑client Realtime listeners.",
+      "file_path": "apps/dashboard/hooks/useLiveRevenue.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S6-9a",
+      "title": "Unit/component tests for dashboard features",
+      "desc": "Focused unit tests for ReportPage, DataList, useAiInsight, useLiveRevenue, and API route.",
+      "file_path": "apps/dashboard/tests/sprint6.unit.test.ts",
+      "depends_on": [
+        "S6-2",
+        "S6-3",
+        "S6-4",
+        "S6-5",
+        "S6-6"
+      ],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S6-9b",
+      "title": "Minimal smoke test for end‑to‑end flow",
+      "desc": "Smoke test covering dashboard load, AI insight display, live update, report generation, and export.",
+      "file_path": "apps/dashboard/tests/sprint6.smoke.test.ts",
+      "depends_on": [
+        "S6-9a"
+      ],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S6-10",
+      "title": "Lazy‑loaded Dashboard page with Suspense",
+      "desc": "Dashboard page that lazily loads non‑above‑the‑fold cards (RevenueCards, BranchComparison, AiInsightCards, DataList) using React.lazy and Suspense to reduce initial JS bundle.",
+      "file_path": "apps/dashboard/app/(panel)/page.tsx",
+      "depends_on": [
+        "S6-2",
+        "S6-3",
+        "S6-4",
+        "S6-5",
+        "S6-6"
+      ],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S2-1",
+      "title": "Masa yönetimi ve optimistic lock entegrasyonu",
+      "desc": "Masa oluşturma, güncelleme ve silme endpoint'lerini ekleyin; order PATCH'lerinde lock_version kontrolünü ve OPTIMISTIC_LOCK_FAILED hata kodunu uygulayın.",
+      "file_path": "apps/branch-server/src/routes/tables.ts",
+      "depends_on": [
+        "S1-4"
+      ],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S4-2",
+      "title": "Yazıcı yönlendirme kuralları motoru (statik yapılandırma)",
+      "desc": "mDNS keşfi yerine geliştirme ortamında statik yazıcı yapılandırması kullanın. printer_routing_rules tablosuna göre yazıcı seçimini yapan mantığı yazın, mdns_name önceliği (statik yapılandırma üzerinden), ardından ip_address, yoksa PRINTER_OFFLINE hatası.",
+      "file_path": "apps/branch-server/src/services/printerRouting.ts",
+      "depends_on": [
+        "S0-3"
+      ],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S6-1",
+      "title": "Dashboard ve AI Insights modülü (DeepSeek R1 entegrasyonu)",
+      "desc": "Dashboard (Next.js) uygulaması için AI destekli raporlar, satış trendleri ve stok tahminleri gösteren sayfaları oluşturun. AI_MODE=api|local ortam değişkenini destekleyin; üretimde AI_MODE=api zorunlu tutulur, yerel mod gerekirse modeli GGML 4-bit ile kuantize edin, context window'u ≤2K token ile sınırlayın ve KV cache'in bellek sığınmasını kontrol edin.",
+      "file_path": "apps/dashboard/app/page.tsx",
+      "depends_on": [
+        "S5-1"
+      ],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S0-1.1",
+      "title": "Paralel sistem gereksinimlerini kontrol et",
+      "desc": "Node, pnpm, Docker, Git sürümlerini tek bir bash script ile kontrol et; eksikse hata ver ve kurulum talimatlarını göster.",
+      "file_path": "scripts/verify-requirements.sh",
+      "depends_on": [],
+      "status": "DONE"
+    },
+    {
+      "task_id": "S0-1.2",
+      "title": "Repo oluştur ve Turborepo başlat (önbellekli)",
+      "desc": "aurapos klasörünü oluştur, git init yap, pnpm add -D turbo ile Turborepo'yu yerel devDependency olarak ekle, turbo.json şablonunu kopyala ve apps/ ve packages/ klasörlerini temizle.",
+      "file_path": "turbo.json",
+      "depends_on": [
+        "S0-1.1"
+      ],
+      "status": "DONE"
+    },
+    {
+      "task_id": "S0-1.3",
+      "title": "Root konfigürasyon dosyalarını oluştur",
+      "desc": "pnpm-workspace.yaml, turbo.json (zaten var) ve .env dosyasını tek adımda oluştur; .env.example'a gerek yok.",
+      "file_path": "pnpm-workspace.yaml",
+      "depends_on": [
+        "S0-1.2"
+      ],
+      "status": "DONE"
+    },
+    {
+      "task_id": "S0-2.2",
+      "title": "Supabase migrations, realtime ve storage kurulumu (CLI)",
+      "desc": "supabase/db/migrations klasörünü oluştur, 001_init_schema.sql, 002_rls_policies.sql, 003_functions.sql, 004_seed_data.sql dosyalarına final SQL içeriğini yaz, supabase db push ile uygula, supabase replication start ile replikasyonu etkinleştir ve supabase storage bucket create komutlarıyla product-images, task-photos, receipts bucket'larını oluştur.",
+      "file_path": "supabase/migrations/001_init_schema.sql",
+      "depends_on": [
+        "S0-2.1"
+      ],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S0-3.1",
+      "title": "Docker ortamını hazırla ve servisleri başlat (health‑check ile)",
+      "desc": "docker klasörünü oluştur, docker-compose.yml (redis, electric, branch-server) ve Dockerfile.branch-server dosyasını yaz, .env'den SUPABASE_DB_URL'i ekle, docker compose up -d ile servisleri başlat ve docker compose wait-for veya nc -z döngüsüyle Redis ve ElectricSQL hazır olana kadar bekle.",
+      "file_path": "docker/docker-compose.yml",
+      "depends_on": [
+        "S0-2.2"
+      ],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S0-4.1",
+      "title": "Paket yapısını tek adımda scaffold et (shared-types, hardware, electric-config)",
+      "desc": "packages/shared-types, packages/hardware, packages/electric-config klasörlerini oluştur, her biri için package.json ve gerekli src dosyalarını (index.ts, client.ts, shapes.ts vb.) tek bir işlemle oluştur; hardware paketi içinde shared-types bağımlılığını ekle.",
+      "file_path": "packages/shared-types/package.json",
+      "depends_on": [
+        "S0-3.1"
+      ],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S0-5.1",
+      "title": "Branch‑server paketini tek adımda scaffold et",
+      "desc": "apps/branch-server klasörünü oluştur, package.json, src/index.ts (Fastify sunucu iskeleti, CORS, hardware ve order route kayıtları, health endpointi) ve src/routes/hardware.ts (hardware endpoint'leri) dosyalarını tek bir görevde üret.",
+      "file_path": "apps/branch-server/package.json",
+      "depends_on": [
+        "S0-4.1"
+      ],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S0-6.1",
+      "title": "Tüm mock sürücüleri ve test scriptini oluştur",
+      "desc": "packages/hardware altında payment-terminal, printer, drawer, display, barcode, scale klasörlerini oluştur, her biri için mock-driver.ts ve index.ts dosyasını tek bir döngüyle yaz; ardından scripts/test-all-mocks.ts dosyasını otomatik olarak oluştur ve tüm mock fonksiyonlarını test eden senaryoyu ekle.",
+      "file_path": "scripts/test-all-mocks.ts",
+      "depends_on": [
+        "S0-5.1"
+      ],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S0-7.1",
+      "title": "POS uygulaması (Next.js PWA) oluştur",
+      "desc": "apps/pos klasörünü oluştur, Next.js 15 App Router yapısını kur (app/, app/layout.tsx, app/page.tsx, app/(routes)/, components/, lib/), PWA yapılandırmasını ekle ve gerekli bağımlılıkları yükle.",
+      "file_path": "apps/pos/app/layout.tsx",
+      "depends_on": [
+        "S0-6.1"
+      ],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S2-0",
+      "title": "Optimistic Lock Middleware",
+      "desc": "Implement middleware that checks lock_version via a single UPDATE … WHERE lock_version = expected; return 409 if no rows affected (eliminates extra SELECT).",
+      "file_path": "apps/branch-server/src/middleware/optimisticLock.ts",
+      "depends_on": [],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S2-1c",
+      "title": "Masa Durumu ve Transfer Endpointleri",
+      "desc": "Implement GET /api/tables, PATCH /api/tables/:id/status, POST /api/tables/:id/transfer with WebSocket broadcasts.",
+      "file_path": "apps/branch-server/src/routes/tables.ts",
+      "depends_on": [
+        "S2-3"
+      ],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S2-8",
+      "title": "Sprint 2 Entegrasyon Testi",
+      "desc": "End-to-end test covering login, table management, order creation, updates, splits, transfers, cancellations, and WebSocket updates (now depends on the consolidated feature set).",
+      "file_path": "apps/branch-server/tests/integration/sprint2.test.ts",
+      "depends_on": [
+        "S2-0",
+        "S2-1c",
+        "S2-2",
+        "S2-3",
+        "S2-5",
+        "S2-6"
+      ],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S3-2",
+      "title": "Payment API Endpoint'leri (paralel ve akışlı)",
+      "desc": "POST /api/payments, refund, summary ve batch-close endpoint'lerini payments.ts'te implement et; bağımsız ödeme çağrılarını Promise.all ile paralelleştir, saga‑style compensating actions sadece gerektiğinde kullan; batch-close endpoint'ini chunk'lar halinde async iteration ile işle, 202 Accepted dön ve işlemi arka planda tamamla, sonuç için webhook/polling sağla.",
+      "file_path": "apps/branch-server/src/routes/payments.ts",
+      "depends_on": [
+        "S3-0"
+      ],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S3-7",
+      "title": "Sprint 3 Entegrasyon Testi (Ingenico tam fonksiyon testi dahil)",
+      "desc": "scripts/sprint3-integration-test.ts dosyasında kasa aç, sipariş, nakit/kart/karma ödeme, iade ve batch close senaryolarını çalıştır; Ingenico tüm fonksiyonları test etmek için mock terminal/stubs ve fake timers kullan, gerçek I/O yapmayın; testleri paralel çalıştır ve bağımlılıkları S3-6 mock sürücüsüne eklemeden kod üreteci şablonu üzerinden sağla.",
+      "file_path": "scripts/sprint3-integration-test.ts",
+      "depends_on": [
+        "S3-6"
+      ],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S4-4",
+      "title": "Receipt Reprint Endpoint",
+      "desc": "Add POST /api/payments/:id/reprint route in apps/branch-server/src/routes/payments.ts that retrieves payment/order and calls printReceipt (from auto-print), returning 503 if printer offline.",
+      "file_path": "apps/branch-server/src/routes/payments.ts",
+      "depends_on": [
+        "S4-3"
+      ],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S4-5",
+      "title": "Mock Printer Driver Extension (async)",
+      "desc": "Extend packages/hardware/printer/mock-driver.ts with printKitchenTicket method that formats kitchen ticket per spec and writes to receipts/ directory using fs.promises.writeFile (async).",
+      "file_path": "packages/hardware/printer/mock-driver.ts",
+      "depends_on": [
+        "S4-0"
+      ],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S4-6",
+      "title": "Display Manager Integrated into Auto‑Print",
+      "desc": "Add showOrderTotal, showPaymentWaiting, showThankYou methods to auto-print.ts (or a shared utils module) and invoke them at order item addition, payment start, and payment completion points. No separate display-manager.ts file.",
+      "file_path": "apps/branch-server/src/lib/auto-print.ts",
+      "depends_on": [
+        "S4-3"
+      ],
+      "status": "PENDING"
+    },
+    {
+      "task_id": "S6-8",
+      "title": "Supabase Realtime Dashboard Güncellemeleri (useLiveRevenue hook)",
+      "desc": "Create shared hook useLiveRevenue.ts that debounces Realtime payloads (250ms) and computes incremental delta, used by dashboard home.",
+      "file_path": "apps/dashboard/hooks/useLiveRevenue.ts",
+      "depends_on": [
+        "S6-1"
+      ],
+      "status": "PENDING"
+    }
+  ],
+  "stack_rules": {
+    "forbidden_libs": [],
+    "monorepo_roots": [
+      "apps/",
+      "packages/",
+      "supabase/"
+    ]
+  }
+}

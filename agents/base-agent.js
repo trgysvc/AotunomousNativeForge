@@ -33,6 +33,7 @@ const DONE = path.join(QUEUE, 'done');
 const ERROR = path.join(QUEUE, 'error');
 
 const SYS_LOG = path.join(__dirname, '..', 'sys.log');
+const LLM_COMM_LOG = path.join(__dirname, '..', 'llm_communication.log');
 
 // Security Blacklist for GitHub Pushes
 const SECRET_BLACKLIST = [
@@ -80,8 +81,9 @@ function cleanResponse(content) {
     clean = clean.replace(/<\|begin_of_thought\|>[\s\S]*?<\|end_of_thought\|>/gi, '');
     // Format 4: <|thought|>...</|thought|> — alternatif format
     clean = clean.replace(/<\|thought\|>[\s\S]*?<\/\|thought\|>/gi, '');
-    // Format 5: Kapanmamış thinking tag — geri kalan her şeyi temizle
-    clean = clean.replace(/<(think|thinking)[^>]*>[\s\S]*/gi, '');
+    // Format 5: Kapanmamış thinking tag — sadece METNİN BAŞINDA varsa temizle
+    // Ortada geçen <think> benzeri ifadeler JSON'ı silmesin
+    clean = clean.replace(/^<(think|thinking)[^>]*>[\s\S]*/i, '');
     clean = clean.trim();
 
     // Kod bloğu extraction (Coder çıktısı için)
@@ -102,8 +104,8 @@ function cleanResponse(content) {
 function extractContent(parsed) {
     const choice = parsed.choices?.[0];
     if (!choice) return null;
-    // reasoning-parser aktifse content zaten temiz gelir
-    return choice.message?.content || null;
+    // reasoning-parser aktifse content temiz gelir; content null ise reasoning veya reasoning_content'e düş
+    return choice.message?.content || choice.message?.reasoning || choice.message?.reasoning_content || null;
 }
 
 /**
@@ -159,10 +161,14 @@ async function ask(agentName, prompt, agentDir = __dirname) {
 
     return new Promise((resolve, reject) => {
         // Temel istek gövdesi
+        // max_tokens: thinking(6144) + content için yeterli alan bırakılmalı.
+        // Nemotron: max_tokens TOPLAM output (thinking + content) sayar.
+        // 6144 thinking + 6144 content = 12288 → context 32768'de güvenli sınır.
         const requestBody = {
             model: NIM_CONFIG.model_id || 'nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4',
             messages: [{ role: 'user', content: finalPrompt }],
-            temperature: 0.1
+            temperature: 0.1,
+            max_tokens: NIM_CONFIG.nim_max_tokens || 16384
         };
 
         // Thinking & reasoning_budget kontrolü
@@ -170,6 +176,11 @@ async function ask(agentName, prompt, agentDir = __dirname) {
         // - nim_reasoning_budgets: { ARCHITECT: 16384, CODER: 4096, ... } → per-agent derinlik
         // Nemotron: chat_template_kwargs yöntemi | GLM: aynı yöntem
         const budgets = NIM_CONFIG.nim_reasoning_budgets || {};
+        // ARCHITECT için güvenli üst sınır: 32768 - max_prompt(~22000) - output(~4096) = ~6672
+        // vault.json yanlış değer içerse de kod seviyesinde koruma
+        if (budgets['ARCHITECT']) {
+            budgets['ARCHITECT'] = 'low_effort';
+        }
         const agentBudget = budgets[agentName.toUpperCase()];
 
         if (NIM_CONFIG.nim_enable_thinking === false) {
@@ -185,6 +196,11 @@ async function ask(agentName, prompt, agentDir = __dirname) {
         }
 
         const data = JSON.stringify(requestBody);
+        
+        // --- LLM REQUEST LOGGING ---
+        const timestamp = new Date().toISOString();
+        const requestHeader = `\n\n[${timestamp}] >>> REQUEST [${agentName}] >>>\n`;
+        fs.appendFileSync(LLM_COMM_LOG, requestHeader + data, 'utf8');
 
         // Authorization header — boşsa ekleme
         const headers = {
@@ -208,16 +224,29 @@ async function ask(agentName, prompt, agentDir = __dirname) {
             let body = '';
             res.on('data', chunk => body += chunk);
             res.on('end', () => {
+                // --- LLM RESPONSE LOGGING ---
+                const respTimestamp = new Date().toISOString();
+                const responseHeader = `\n\n[${respTimestamp}] <<< RESPONSE [${agentName}] <<<\n`;
+                fs.appendFileSync(LLM_COMM_LOG, responseHeader + body, 'utf8');
+
                 try {
                     const parsed = JSON.parse(body);
+                    if (parsed.error) {
+                        reject(new Error(`vLLM API Hatası: ${parsed.error.message || JSON.stringify(parsed.error)}`));
+                        return;
+                    }
                     const content = extractContent(parsed);
                     if (!content) {
-                        reject(new Error(`NIM yanıt formatı hatalı: ${body.substring(0, 200)}`));
+                        const ch = parsed.choices?.[0];
+                        const diag = `finish=${ch?.finish_reason}, content_len=${(ch?.message?.content||'').length}, reasoning_len=${(ch?.message?.reasoning_content||'').length}`;
+                        const debugFile = path.join(__dirname, '..', 'debug_last_error.json');
+                        fs.writeFileSync(debugFile, JSON.stringify({ diag, raw: body }, null, 2));
+                        reject(new Error(`NIM yanıt formatı hatalı [${diag}]. Ham yanıt debug_last_error.json dosyasına yazıldı.`));
                         return;
                     }
                     const clean = cleanResponse(content);
                     if (!clean || clean.length < 5) {
-                        reject(new Error("Yanıt boş veya çok kısa."));
+                        reject(new Error(`Yanıt boş veya çok kısa (ham uzunluk: ${content.length}).`));
                         return;
                     }
                     resolve(clean);
@@ -327,8 +356,9 @@ async function createPullRequest(projectId, branchName, title, body) {
 async function pushToGithub(projectId, filePath, content, commitMessage, branch = 'main') {
     const fileName = path.basename(filePath);
 
-    // Security Check: Blacklist filter
-    if (SECRET_BLACKLIST.some(blocked => fileName.includes(blocked) || filePath.includes(blocked))) {
+    // Security Check: Blacklist filter — path segment bazında kontrol (false positive önler)
+    const pathSegments = filePath.replace(/\\/g, '/').split('/');
+    if (SECRET_BLACKLIST.some(blocked => pathSegments.some(seg => seg === blocked) || fileName === blocked)) {
         log(`🛡️ GÜVENLİK: ${fileName} hassas veri — GitHub'a gönderilmedi.`);
         return false;
     }

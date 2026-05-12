@@ -1,0 +1,56 @@
+{
+  "lessons": [
+    {
+      "id": "S0-6_1778542349882",
+      "context": [
+        "typescript",
+        "tsconfig"
+      ],
+      "rule": "Ensure tsconfig.json includes \"module\": \"ESNext\" and \"target\": \"ESNext\" (or compatible) when using npx tsc with --module esnext --target esnext; otherwise compilation fails due to mismatched module/target settings.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S0-9_DashboardPage_1778547979461",
+      "context": [
+        "typescript"
+      ],
+      "rule": "Ensure all .tsx files have correct imports and that the tsconfig includes the proper paths; missing or incorrect imports cause TS syntax errors during tsc check.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S0-9_DashboardPage_1778548351107",
+      "context": [
+        "typescript",
+        "syntax"
+      ],
+      "rule": "Always validate TSX syntax before committing; ensure JSX tags are properly closed and file extensions are .tsx for components that contain JSX.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S0-6_TestMocks_1778548735145",
+      "context": [
+        "typescript",
+        "tsconfig"
+      ],
+      "rule": "Always include a valid tsconfig.json with appropriate module and target settings (e.g., \"module\": \"ESNext\", \"target\": \"ESNext\", \"moduleResolution\": \"node\") before running tsc on mock test files.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S0-6_TestMocks_1778548821576",
+      "context": [
+        "typescript",
+        "tsconfig"
+      ],
+      "rule": "Always verify that a valid tsconfig.json exists in the project root and that it includes the necessary compiler options (e.g., \"module\": \"esnext\", \"target\": \"esnext\", \"esModuleInterop\": true) before running tsc; otherwise the compile step will fail with syntax errors.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S0-19_1778600160397",
+      "context": [
+        "typescript"
+      ],
+      "rule": "Always verify that TypeScript source files have correct syntax and that the tsconfig targets the appropriate module/target before running tsc; missing or incorrect import/export statements will cause compilation failures.",
+      "severity": "CRITICAL"
+    }
+  ]
+}

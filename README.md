@@ -421,7 +421,8 @@ Explain what to do here...
 - Task IDs should be in the format `S0-1`, `S0-1.1`, `S1-2` (Sprint-No.Sub-No)
 - `file_path` must have an extension: `.js`, `.ts`, `.tsx`, `.sql`, `.md`, `.yml`
 - File paths should start with `apps/` or `packages/` (monorepo standard)
-- Total tokens should be < 50,000 (Safe limit for Nemotron; split if exceeded)
+- Total tokens should be < 24,000 (Safe limit for local vLLM GB10 deployment `max-model-len=24576`).
+- Reasoning Budgets: Optimized in `vault.json` (Architect: 4096, Coder: 2048) to prevent token exhaustion and improve TTFT.
 
 ---
 
@@ -522,7 +523,7 @@ Detailed GB10 guide: `docs/GB10 system installation procedures/`
 **Turgay Savacı** — Software Developer, 15+ years in IT, last 5 years in software engineering.
 
 *Cloud is convenient. Local is free.*
-�� Çalışır | Ollama veya vLLM | GPU opsiyonel |
+�� Çalışır | Ollama veya vLLM | GPU opsiyonel |
 
 GB10 kurulum scripti: `./GB10_installation_script.sh` (v4.3.0 — NVFP4 + FP8 KV + Marlin)
 

@@ -272,7 +272,7 @@ ExecStart=/usr/bin/python3 -m vllm.entrypoints.openai.api_server \\
     --quantization nvfp4 \\
     --kv-cache-dtype fp8 \\
     --tensor-parallel-size 1 \\
-    --max-model-len 32768 \\
+    --max-model-len 24576 \\
     --gpu-memory-utilization 0.92 \\
     --reasoning-parser nemotron_v3 \\
     --enable-auto-tool-choice \\

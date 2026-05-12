@@ -96,38 +96,59 @@ const TYPE_TO_AGENT = {
 };
 
 function recoverStuckTasks() {
-    log("🔄 Yetim görevler kurtarılıyor (Recovery)...");
+    log("🔄 Yetim görevler kurtarılıyor ve Manifest iyileştiriliyor (Self-Healing)...");
     const PROCESSING = path.join(BASE_DIR, 'queue', 'processing');
     const INBOX = path.join(BASE_DIR, 'queue', 'inbox');
+    const SRC_DIR = path.join(BASE_DIR, 'src');
 
-    if (!fs.existsSync(PROCESSING)) return;
+    // 1. Klasör tabanlı kurtarma (İşlem klasöründeki dosyaları inbox'a geri taşı)
+    if (fs.existsSync(PROCESSING)) {
+        const files = fs.readdirSync(PROCESSING).filter(f => f.endsWith('.json'));
+        files.forEach(f => {
+            try {
+                const source = path.join(PROCESSING, f);
+                const content = JSON.parse(fs.readFileSync(source, 'utf8'));
+                content.recovery_count = (content.recovery_count || 0) + 1;
+                const targetAgent = TYPE_TO_AGENT[content.type] || 'architect';
+                const newFileName = f.includes('_recovered_') ? f : f.replace('.json', `_recovered_${Date.now()}.json`);
+                const targetDir = path.join(INBOX, targetAgent);
+                if (!fs.existsSync(targetDir)) fs.mkdirSync(targetDir, { recursive: true });
+                fs.writeFileSync(path.join(targetDir, newFileName), JSON.stringify(content, null, 2));
+                fs.unlinkSync(source);
+                log(`   + [RECOVERED FILE] ${f} → ${targetAgent}`);
+            } catch (err) {
+                log(`   ❌ [RECOVERY HATASI] ${f}: ${err.message}`);
+            }
+        });
+    }
 
-    const files = fs.readdirSync(PROCESSING).filter(f => f.endsWith('.json'));
-    files.forEach(f => {
-        try {
-            const source = path.join(PROCESSING, f);
-            const content = JSON.parse(fs.readFileSync(source, 'utf8'));
+    // 2. Manifest tabanlı iyileştirme (Zombi ve Hatalı görevleri sıfırla)
+    if (fs.existsSync(SRC_DIR)) {
+        const projects = fs.readdirSync(SRC_DIR).filter(d => fs.lstatSync(path.join(SRC_DIR, d)).isDirectory());
+        projects.forEach(projectId => {
+            const manifestPath = path.join(SRC_DIR, projectId, 'manifest.json');
+            if (!fs.existsSync(manifestPath)) return;
 
-            content.recovery_count = (content.recovery_count || 0) + 1;
-
-            // Tip → agent eşlemesi: WRITE_CODE → coder, RUN_TEST → tester, vb.
-            const targetAgent = TYPE_TO_AGENT[content.type] || 'architect';
-
-            const newFileName = f.includes('_recovered_')
-                ? f
-                : f.replace('.json', `_recovered_${Date.now()}.json`);
-            const targetDir = path.join(INBOX, targetAgent);
-
-            if (!fs.existsSync(targetDir)) fs.mkdirSync(targetDir, { recursive: true });
-
-            fs.writeFileSync(path.join(targetDir, newFileName), JSON.stringify(content, null, 2));
-            fs.unlinkSync(source);
-
-            log(`   + [RECOVERED] ${f} → ${targetAgent} (Count: ${content.recovery_count})`);
-        } catch (err) {
-            log(`   ❌ [RECOVERY HATASI] ${f}: ${err.message}`);
-        }
-    });
+            try {
+                const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+                let changed = false;
+                manifest.tasks.forEach(task => {
+                    // IN_PROGRESS, FIXING, TESTING veya FAILED durumundakileri sıfırla
+                    const stuckStates = ['IN_PROGRESS', 'FIXING', 'TESTING', 'FAILED'];
+                    if (stuckStates.includes(task.status)) {
+                        log(`   + [HEALED MANIFEST] ${projectId}:${task.task_id} (${task.status} -> PENDING)`);
+                        task.status = 'PENDING';
+                        changed = true;
+                    }
+                });
+                if (changed) {
+                    fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2));
+                }
+            } catch (err) {
+                log(`   ❌ [MANIFEST HEAL HATASI] ${projectId}: ${err.message}`);
+            }
+        });
+    }
 }
 
 function deployProjectCredentials() {

@@ -1,18 +1,30 @@
 'use strict';
 const fs = require('node:fs');
 const path = require('node:path');
+const { jsonrepair } = require('jsonrepair');
 const { log, start, sendMessage, ask, pushToGithub, NIM_CONFIG, ensureBranch, createPullRequest } = require('./base-agent');
 const { notify } = require('./notifier');
 const { research } = require('./researcher');
 
 const MAX_RETRIES = 3;
+// Planlama başarısız olursa dosyaları sonsuz döngüden korur
+const planFailCounts = {};
+const MAX_PLAN_FAILS = 3;
+
+function parseJsonRobust(raw) {
+    try {
+        return JSON.parse(raw);
+    } catch (_) {
+        return JSON.parse(jsonrepair(raw));
+    }
+}
 const retryCounts = {};
 
 let isDiscovering = false;
 const PROMPT_MODE = 'FULL'; // Forge V3 Standard
 // TOKEN_LIMIT: Tahmin (chars/4) gerçek tokenizer'dan ~1.22x düşük sayıyor.
-// 32768 context - 1.22 düzeltme - 12000 output tamponu = ~17000 güvenli içerik sınırı.
-const TOKEN_LIMIT = 17000;
+// 24576 context (vLLM max-model-len) - 1.22 düzeltme - 10000 output tamponu = ~12000 güvenli içerik sınırı.
+const TOKEN_LIMIT = 12000;
 
 /**
  * Token Estimation: Heuristic for character-to-token count (approx 4 chars/token)
@@ -319,7 +331,10 @@ async function discoverNewProjects() {
             files.sort((a, b) => sprintOrder(a) - sprintOrder(b));
 
             // Token limitine sığacak kadar dosya al (greedy batch)
-            const PROMPT_OVERHEAD = 1500; // plan prompt şablonunun sabit token maliyeti
+            // Skill dosyasını da sayıyoruz — sadece şablon değil, skill içeriği de context'e giriyor
+            const skillPath = path.join(__dirname, 'architect.md');
+            const skillTokens = fs.existsSync(skillPath) ? estimateTokens(fs.readFileSync(skillPath, 'utf-8')) : 0;
+            const PROMPT_OVERHEAD = 1200 + skillTokens; // şablon + skill içeriği
             let batchFiles = [];
             let combinedContent = "";
             for (const file of files) {
@@ -364,13 +379,16 @@ async function discoverNewProjects() {
                 const rawPlan = await ask('ARCHITECT', planPrompt, __dirname);
                 const match = rawPlan.match(/\[[\s\S]*\]/);
                 if (!match) throw new Error("JSON üretilemedi.");
-                let tasks = JSON.parse(match[0]);
+                let tasks = parseJsonRobust(match[0]);
 
                 // Phase 2: Peer Review (Consensus)
                 log(`⚖️ CONSENSUS: [${project_id}] Peer Review başlatılıyor...`);
 
-                const costPrompt = `Aşağıdaki planı "Maliyet ve Verimlilik" (Cost-Oriented) açısından eleştir. Nereden tasarruf edilebilir? Gereksiz adımlar var mı?\nPLAN: ${JSON.stringify(tasks)}`;
-                const perfPrompt = `Aşağıdaki planı "Yüksek Performans ve Ölçeklenebilirlik" (Performance-Oriented) açısından eleştir. Nerede darboğaz olabilir? Daha native/hızlı bir yol var mı?\nPLAN: ${JSON.stringify(tasks)}`;
+                // Token cap: review prompt'larının context overflow yapmasını önler
+                const MAX_TASKS_CHARS = 8000;
+                const tasksJson = JSON.stringify(tasks).substring(0, MAX_TASKS_CHARS);
+                const costPrompt = `Aşağıdaki planı "Maliyet ve Verimlilik" (Cost-Oriented) açısından eleştir. Nereden tasarruf edilebilir? Gereksiz adımlar var mı?\nPLAN: ${tasksJson}`;
+                const perfPrompt = `Aşağıdaki planı "Yüksek Performans ve Ölçeklenebilirlik" (Performance-Oriented) açısından eleştir. Nerede darboğaz olabilir? Daha native/hızlı bir yol var mı?\nPLAN: ${tasksJson}`;
 
                 const [costReview, perfReview] = await Promise.all([
                     ask('REVIEWER_COST', costPrompt, __dirname),
@@ -379,17 +397,19 @@ async function discoverNewProjects() {
 
                 // Phase 3: Synthesis (Performance-Weighted)
                 log(`🧬 SYNTHESIS: [${project_id}] Görüşler birleştiriliyor...`);
+                // Review metinlerini de kap: synthesis prompt'un toplam boyutunu kontrol altına al
+                const MAX_REVIEW_CHARS = 3000;
                 const synthesisPrompt = `Sen Baş Mimarsın. İki farklı görüşü (Maliyet ve Performans) değerlendirerek final planı oluştur.
                 KRİTİK: PRD V4 uyarınca "Yüksek Performans" (<2s yüklenme) her zaman maliyetten önceliklidir.
-                COST REVIEW: ${costReview}
-                PERF REVIEW: ${perfReview}
-                ORIGINAL PLAN: ${JSON.stringify(tasks)}
+                COST REVIEW: ${costReview.substring(0, MAX_REVIEW_CHARS)}
+                PERF REVIEW: ${perfReview.substring(0, MAX_REVIEW_CHARS)}
+                ORIGINAL PLAN: ${tasksJson}
 
                 Final planı SADECE JSON array olarak döndür.`;
 
                 const finalPlanRaw = await ask('ARCHITECT', synthesisPrompt, __dirname);
                 const finalMatch = finalPlanRaw.match(/\[[\s\S]*\]/);
-                if (finalMatch) tasks = JSON.parse(finalMatch[0]);
+                if (finalMatch) tasks = parseJsonRobust(finalMatch[0]);
 
                 // Phase 4: Stack Rules Extraction
                 // Görev dağıtımından ÖNCE manifest'e yazılır — Tester ilk görevi aldığında kurallar hazır olur.
@@ -408,7 +428,7 @@ SADECE şu JSON formatında yanıt ver (başka hiçbir şey yazma):
                     const stackRaw = await ask('ARCHITECT', stackPrompt, __dirname);
                     const stackMatch = stackRaw.match(/\{[\s\S]*\}/);
                     if (stackMatch) {
-                        const stackRules = JSON.parse(stackMatch[0]);
+                        const stackRules = parseJsonRobust(stackMatch[0]);
                         const stackManifest = getManifest(project_id);
                         stackManifest.stack_rules = stackRules;
                         saveManifest(project_id, stackManifest);
@@ -432,9 +452,19 @@ SADECE şu JSON formatında yanıt ver (başka hiçbir şey yazma):
                 if (!isExternal) {
                     batchFiles.forEach(file => fs.renameSync(path.join(projectPath, file), path.join(projectPath, `_${file}`)));
                 }
+                delete planFailCounts[project_id]; // başarıda sayacı sıfırla
                 log(`✅ [${project_id}] Consensus Planlama tamamlandı. ${tasks.length} görev kuyruğa girdi.`);
             } catch (e) {
                 log(`❌ [${project_id}] Planlama Hatası: ${e.message}`);
+                planFailCounts[project_id] = (planFailCounts[project_id] || 0) + 1;
+                // MAX_PLAN_FAILS sonrası dosyaları mühürle — sonsuz döngüyü kır
+                if (!isExternal && planFailCounts[project_id] >= MAX_PLAN_FAILS) {
+                    log(`⛔ [${project_id}] ${MAX_PLAN_FAILS} başarısız denemeden sonra dosyalar mühürleniyor.`);
+                    batchFiles.forEach(file => {
+                        try { fs.renameSync(path.join(projectPath, file), path.join(projectPath, `_FAILED_${file}`)); } catch (_) {}
+                    });
+                    delete planFailCounts[project_id];
+                }
             }
         }
     } finally {

@@ -2,7 +2,17 @@
   "permissions": {
     "allow": [
       "Bash(dos2unix C:CodeAutonomousNativeForgeGB10_installation_script.sh)",
-      "Bash(powershell -Command \"(Get-Content ''C:\\Code\\AutonomousNativeForge\\GB10_installation_script.sh'' -Raw) -replace ''\\r\\n'',''\\n'' | Set-Content -NoNewline ''C:\\Code\\AutonomousNativeForge\\GB10_installation_script.sh''\")"
+      "Bash(powershell -Command \"(Get-Content ''C:\\Code\\AutonomousNativeForge\\GB10_installation_script.sh'' -Raw) -replace ''\\r\\n'',''\\n'' | Set-Content -NoNewline ''C:\\Code\\AutonomousNativeForge\\GB10_installation_script.sh''\")",
+      "PowerShell(Get-ChildItem \"C:\\\\Code\\\\AutonomousNativeForge\\\\docs\\\\reference\\\\aurapos\" | Where-Object {$_.Extension -eq \".md\"} | Select-Object Name, @{N=\"Chars\";E={$_.Length}}, @{N=\"EstTokens\";E={[math]::Ceiling\\($_.Length/4\\)}} | Sort-Object EstTokens -Descending)",
+      "Bash(git *)",
+      "Bash(Get-ChildItem -Path . -Recurse -Filter \"*reasoning*\" -ErrorAction SilentlyContinue)",
+      "Bash(Select-Object -First 10)",
+      "WebSearch",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:docs.vllm.ai)",
+      "WebFetch(domain:vllm.ai)",
+      "WebFetch(domain:docs.nvidia.com)",
+      "WebFetch(domain:shuyo.wordpress.com)"
     ],
     "deny": [],
     "ask": []

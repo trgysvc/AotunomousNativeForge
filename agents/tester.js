@@ -54,8 +54,13 @@ function checkArchitectureGuardrails(code, filePath, projectId) {
     const issues = [];
     const normalizedPath = filePath.replace(/\\/g, '/');
 
-    // Rule 1: Dosya Yolu Kısıtlaması — yalnızca monorepo_roots tanımlıysa uygulanır
-    if (monorepoRoots.length > 0) {
+    // Rule 1: Dosya Yolu Kısıtlaması — yalnızca monorepo_roots tanımlıysa ve kaynak kod ise uygulanır
+    // Dokümantasyon (.md), CI/CD (.yml/.yaml), config (.json, .toml, .env) ve migration (.sql)
+    // dosyaları monorepo kök kontrolünden muaftır.
+    const SOURCE_EXTS = ['.ts', '.tsx', '.js', '.jsx', '.py', '.rs', '.go', '.swift', '.kt', '.cs', '.cpp', '.c'];
+    const ext = path.extname(filePath).toLowerCase();
+    const isSourceFile = SOURCE_EXTS.includes(ext);
+    if (monorepoRoots.length > 0 && isSourceFile) {
         const inValidRoot = monorepoRoots.some(root => normalizedPath.includes(root));
         if (!inValidRoot) {
             issues.push(`🛡️ PATH VIOLATION: Dosya geçerli bir proje kökünde değil [${monorepoRoots.join(', ')}]: ${filePath}`);
