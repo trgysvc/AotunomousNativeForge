@@ -75,6 +75,14 @@
       ],
       "rule": "Ensure TypeScript files have correct syntax (e.g., proper imports, semicolons, and module declarations) before running tsc; validate with `tsc --noEmit` to catch errors early.",
       "severity": "CRITICAL"
+    },
+    {
+      "id": "S0-10_CheckSync_1778619532432",
+      "context": [
+        "typescript"
+      ],
+      "rule": "When using `tsc` with `--skipLibCheck`, ensure that the project's `tsconfig.json` has appropriate `moduleResolution` and `types` settings (e.g., include `@types/node` for Node.js APIs) to avoid syntax errors during type checking.",
+      "severity": "CRITICAL"
     }
   ]
 }

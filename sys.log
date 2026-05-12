@@ -2320,3 +2320,106 @@
 [2026-05-12T20:31:42.729Z] ❌ Orphan Hata: ENOENT: no such file or directory, open '/workspaces/AutonomousNativeForge/queue/processing/architect-BUG_REPORT-1778617837972.json'
 [2026-05-12T20:32:02.087Z] ⏳ [CODER] Streaming... 956 tokens so far (finish=generating)
 [2026-05-12T20:32:32.137Z] ⏳ [CODER] Streaming... 1351 tokens so far (finish=generating)
+[2026-05-12T20:33:02.182Z] ⏳ [CODER] Streaming... 1763 tokens so far (finish=generating)
+[2026-05-12T20:33:32.216Z] ⏳ [CODER] Streaming... 2173 tokens so far (finish=generating)
+[2026-05-12T20:34:02.236Z] ⏳ [CODER] Streaming... 2579 tokens so far (finish=generating)
+[2026-05-12T20:34:32.292Z] ⏳ [CODER] Streaming... 2984 tokens so far (finish=generating)
+[2026-05-12T20:35:02.325Z] ⏳ [CODER] Streaming... 3403 tokens so far (finish=generating)
+[2026-05-12T20:35:32.330Z] ⏳ [CODER] Streaming... 3817 tokens so far (finish=generating)
+[2026-05-12T20:36:02.356Z] ⏳ [CODER] Streaming... 4225 tokens so far (finish=generating)
+[2026-05-12T20:36:32.400Z] ⏳ [CODER] Streaming... 4633 tokens so far (finish=generating)
+[2026-05-12T20:37:02.454Z] ⏳ [CODER] Streaming... 5038 tokens so far (finish=generating)
+[2026-05-12T20:37:32.464Z] ⏳ [CODER] Streaming... 5437 tokens so far (finish=generating)
+[2026-05-12T20:38:02.532Z] ⏳ [CODER] Streaming... 5843 tokens so far (finish=generating)
+[2026-05-12T20:38:32.551Z] ⏳ [CODER] Streaming... 6253 tokens so far (finish=generating)
+[2026-05-12T20:38:44.584Z] 💾 Dosya mühürlendi (935 bytes): check-sync-status.ts
+[2026-05-12T20:38:47.066Z] 🧭 STEERING: [aurapos] S0-7 yönlendirme ile düzeltiliyor...
+[2026-05-12T20:38:47.066Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-12T20:38:47.066Z] 🧠 [CODER] Reasoning budget: 2048 token
+[2026-05-12T20:38:48.101Z] [aurapos]  Kod yazımı bitti. Test ajanı devralıyor: S0-10_CheckSync
+[2026-05-12T20:38:52.484Z] 🧐 QA GUARDRAIL: [aurapos] S0-10_CheckSync denetleniyor...
+[2026-05-12T20:38:53.380Z] ❌ SYNC FAIL: check-sync-status.ts
+[2026-05-12T20:38:58.120Z] [aurapos]  🧭 STEERING: Hata analizi ve yönlendirme yapılıyor (1/3)
+[2026-05-12T20:38:58.123Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T20:38:58.123Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T20:39:17.125Z] ⏳ [CODER] Streaming... 363 tokens so far (finish=generating)
+[2026-05-12T20:39:47.131Z] ⏳ [CODER] Streaming... 780 tokens so far (finish=generating)
+[2026-05-12T20:40:17.174Z] ⏳ [CODER] Streaming... 1200 tokens so far (finish=generating)
+[2026-05-12T20:40:47.177Z] ⏳ [CODER] Streaming... 1613 tokens so far (finish=generating)
+[2026-05-12T20:41:17.242Z] ⏳ [CODER] Streaming... 2027 tokens so far (finish=generating)
+[2026-05-12T20:41:47.300Z] ⏳ [CODER] Streaming... 2441 tokens so far (finish=generating)
+[2026-05-12T20:42:17.357Z] ⏳ [CODER] Streaming... 2850 tokens so far (finish=generating)
+[2026-05-12T20:42:47.376Z] ⏳ [CODER] Streaming... 3269 tokens so far (finish=generating)
+[2026-05-12T20:43:17.427Z] ⏳ [CODER] Streaming... 3687 tokens so far (finish=generating)
+[2026-05-12T20:43:47.495Z] ⏳ [CODER] Streaming... 4104 tokens so far (finish=generating)
+[2026-05-12T20:44:17.503Z] ⏳ [CODER] Streaming... 4521 tokens so far (finish=generating)
+[2026-05-12T20:44:47.571Z] ⏳ [CODER] Streaming... 4937 tokens so far (finish=generating)
+[2026-05-12T20:45:17.584Z] ⏳ [CODER] Streaming... 5347 tokens so far (finish=generating)
+[2026-05-12T20:45:47.643Z] ⏳ [CODER] Streaming... 5762 tokens so far (finish=generating)
+[2026-05-12T20:45:50.797Z] 💾 Dosya mühürlendi (482 bytes): layout.tsx
+[2026-05-12T20:45:52.088Z] 🧭 STEERING: [aurapos] S0-8 yönlendirme ile düzeltiliyor...
+[2026-05-12T20:45:52.088Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-12T20:45:52.088Z] 🧠 [CODER] Reasoning budget: 2048 token
+[2026-05-12T20:45:53.476Z] [aurapos]  Kod yazımı bitti. Test ajanı devralıyor: S0-7
+[2026-05-12T20:45:57.878Z] 🧐 QA GUARDRAIL: [aurapos] S0-7 denetleniyor...
+[2026-05-12T20:45:58.748Z] ❌ SYNC FAIL: layout.tsx
+[2026-05-12T20:46:03.498Z] [aurapos]  🧭 STEERING: Hata analizi ve yönlendirme yapılıyor (3/3)
+[2026-05-12T20:46:03.501Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T20:46:03.501Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T20:46:03.502Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T20:46:03.502Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T20:46:22.153Z] ⏳ [CODER] Streaming... 312 tokens so far (finish=generating)
+[2026-05-12T20:46:52.157Z] ⏳ [CODER] Streaming... 729 tokens so far (finish=generating)
+[2026-05-12T20:47:22.230Z] ⏳ [CODER] Streaming... 1137 tokens so far (finish=generating)
+[2026-05-12T20:47:52.261Z] ⏳ [CODER] Streaming... 1552 tokens so far (finish=generating)
+[2026-05-12T20:48:22.329Z] ⏳ [CODER] Streaming... 1969 tokens so far (finish=generating)
+[2026-05-12T20:48:52.343Z] ⏳ [CODER] Streaming... 2383 tokens so far (finish=generating)
+[2026-05-12T20:49:22.399Z] ⏳ [CODER] Streaming... 2799 tokens so far (finish=generating)
+[2026-05-12T20:49:52.432Z] ⏳ [CODER] Streaming... 3217 tokens so far (finish=generating)
+[2026-05-12T20:50:22.491Z] ⏳ [CODER] Streaming... 3631 tokens so far (finish=generating)
+[2026-05-12T20:50:52.493Z] ⏳ [CODER] Streaming... 4047 tokens so far (finish=generating)
+[2026-05-12T20:51:22.561Z] ⏳ [CODER] Streaming... 4463 tokens so far (finish=generating)
+[2026-05-12T20:51:24.859Z] 💾 Dosya mühürlendi (8526 bytes): orders.ts
+[2026-05-12T20:51:27.103Z] 🧭 STEERING: [aurapos] S0-10_CheckSync yönlendirme ile düzeltiliyor...
+[2026-05-12T20:51:27.104Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-12T20:51:27.104Z] 🧠 [CODER] Reasoning budget: 2048 token
+[2026-05-12T20:51:28.754Z] [aurapos]  Kod yazımı bitti. Test ajanı devralıyor: S0-8
+[2026-05-12T20:51:33.213Z] 🧐 QA GUARDRAIL: [aurapos] S0-8 denetleniyor...
+[2026-05-12T20:51:34.108Z] ❌ SYNC FAIL: orders.ts
+[2026-05-12T20:51:38.773Z] [aurapos]  🧭 STEERING: Hata analizi ve yönlendirme yapılıyor (2/3)
+[2026-05-12T20:51:38.776Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T20:51:38.776Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T20:51:38.777Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T20:51:38.777Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T20:51:57.114Z] ⏳ [CODER] Streaming... 334 tokens so far (finish=generating)
+[2026-05-12T20:52:27.157Z] ⏳ [CODER] Streaming... 753 tokens so far (finish=generating)
+[2026-05-12T20:52:57.207Z] ⏳ [CODER] Streaming... 1172 tokens so far (finish=generating)
+[2026-05-12T20:53:27.245Z] ⏳ [CODER] Streaming... 1590 tokens so far (finish=generating)
+[2026-05-12T20:53:57.249Z] ⏳ [CODER] Streaming... 2008 tokens so far (finish=generating)
+[2026-05-12T20:54:27.283Z] ⏳ [CODER] Streaming... 2426 tokens so far (finish=generating)
+[2026-05-12T20:54:57.329Z] ⏳ [CODER] Streaming... 2844 tokens so far (finish=generating)
+[2026-05-12T20:55:27.333Z] ⏳ [CODER] Streaming... 3262 tokens so far (finish=generating)
+[2026-05-12T20:55:57.370Z] ⏳ [CODER] Streaming... 3699 tokens so far (finish=generating)
+[2026-05-12T20:56:27.399Z] ⏳ [CODER] Streaming... 4136 tokens so far (finish=generating)
+[2026-05-12T20:56:57.406Z] ⏳ [CODER] Streaming... 4573 tokens so far (finish=generating)
+[2026-05-12T20:57:27.427Z] ⏳ [CODER] Streaming... 5009 tokens so far (finish=generating)
+[2026-05-12T20:57:57.432Z] ⏳ [CODER] Streaming... 5445 tokens so far (finish=generating)
+[2026-05-12T20:58:21.083Z] 💾 Dosya mühürlendi (939 bytes): check-sync-status.ts
+[2026-05-12T20:58:22.121Z] 🧭 STEERING: [aurapos] S0-7 yönlendirme ile düzeltiliyor...
+[2026-05-12T20:58:22.122Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-12T20:58:22.122Z] 🧠 [CODER] Reasoning budget: 2048 token
+[2026-05-12T20:58:24.098Z] [aurapos]  Kod yazımı bitti. Test ajanı devralıyor: S0-10_CheckSync
+[2026-05-12T20:58:28.616Z] 🧐 QA GUARDRAIL: [aurapos] S0-10_CheckSync denetleniyor...
+[2026-05-12T20:58:29.467Z] ❌ SYNC FAIL: check-sync-status.ts
+[2026-05-12T20:58:34.117Z] [aurapos]  🧭 STEERING: Hata analizi ve yönlendirme yapılıyor (2/3)
+[2026-05-12T20:58:34.137Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T20:58:34.137Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T20:58:34.139Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T20:58:34.139Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T20:58:52.169Z] ⏳ [CODER] Streaming... 314 tokens so far (finish=generating)
+[2026-05-12T20:58:52.432Z] 🧠 BELLEK GÜNCELLENDİ: aurapos dersi işlendi.
+[2026-05-12T20:59:22.219Z] ⏳ [CODER] Streaming... 729 tokens so far (finish=generating)
+[2026-05-12T20:59:52.223Z] ⏳ [CODER] Streaming... 1143 tokens so far (finish=generating)
+[2026-05-12T21:00:22.226Z] ⏳ [CODER] Streaming... 1555 tokens so far (finish=generating)
+[2026-05-12T21:00:52.234Z] ⏳ [CODER] Streaming... 1969 tokens so far (finish=generating)
+[2026-05-12T21:01:22.266Z] ⏳ [CODER] Streaming... 2381 tokens so far (finish=generating)
