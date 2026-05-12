@@ -16,6 +16,8 @@ queue/error/
 # Logs
 logs/
 *.log
+!llm_communication.log
+!sys.log
 
 # System & IDE
 .DS_Store

@@ -1,0 +1,1629 @@
+[2026-05-11T16:56:33.163Z] ⚠️ Referans dizini bulunamadı: /workspaces/AutonomousNativeForge/docs/reference
+[2026-05-11T16:57:33.167Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (10 dosya)...
+[2026-05-11T16:57:33.168Z] ⚠️ [aurapos] Kritik Uyarı: Toplam döküman boyutu çok büyük (~101830 token). Limit: 50000
+[2026-05-11T16:57:33.169Z] 💡 Dökümanları parçalara bölün.
+[2026-05-11T17:54:30.878Z] ⏭️ [aurapos] "sprint5_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T17:54:30.878Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (6/10 dosya, ~26835 token)...
+[2026-05-11T17:54:30.878Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T17:54:30.878Z] 🧠 [ARCHITECT] Reasoning budget: 16384 token
+[2026-05-11T17:54:30.884Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-11T17:54:30.954Z] ❌ [aurapos] Planlama Hatası: NIM yanıt formatı hatalı: {"error":{"message":"This model's maximum context length is 16384 tokens. However, you requested 0 output tokens and your prompt contains at least 16385 input tokens, for a total of at least 16385 tok
+[2026-05-11T17:55:30.879Z] ⏭️ [aurapos] "sprint5_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T17:55:30.879Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (6/10 dosya, ~26835 token)...
+[2026-05-11T17:55:30.879Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T17:55:30.879Z] 🧠 [ARCHITECT] Reasoning budget: 16384 token
+[2026-05-11T17:55:30.942Z] ❌ [aurapos] Planlama Hatası: NIM yanıt formatı hatalı: {"error":{"message":"This model's maximum context length is 16384 tokens. However, you requested 0 output tokens and your prompt contains at least 16385 input tokens, for a total of at least 16385 tok
+[2026-05-11T17:56:30.909Z] ⏭️ [aurapos] "sprint5_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T17:56:30.909Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (6/10 dosya, ~26835 token)...
+[2026-05-11T17:56:30.909Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T17:56:30.909Z] 🧠 [ARCHITECT] Reasoning budget: 16384 token
+[2026-05-11T17:56:30.974Z] ❌ [aurapos] Planlama Hatası: NIM yanıt formatı hatalı: {"error":{"message":"This model's maximum context length is 16384 tokens. However, you requested 0 output tokens and your prompt contains at least 16385 input tokens, for a total of at least 16385 tok
+[2026-05-11T17:57:30.890Z] ⏭️ [aurapos] "sprint5_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T17:57:30.890Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (6/10 dosya, ~26835 token)...
+[2026-05-11T17:57:30.890Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T17:57:30.890Z] 🧠 [ARCHITECT] Reasoning budget: 16384 token
+[2026-05-11T17:57:30.951Z] ❌ [aurapos] Planlama Hatası: NIM yanıt formatı hatalı: {"error":{"message":"This model's maximum context length is 16384 tokens. However, you requested 0 output tokens and your prompt contains at least 16385 input tokens, for a total of at least 16385 tok
+[2026-05-11T17:58:30.894Z] ⏭️ [aurapos] "sprint5_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T17:58:30.894Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (6/10 dosya, ~26835 token)...
+[2026-05-11T17:58:30.894Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T17:58:30.894Z] 🧠 [ARCHITECT] Reasoning budget: 16384 token
+[2026-05-11T17:58:30.956Z] ❌ [aurapos] Planlama Hatası: NIM yanıt formatı hatalı: {"error":{"message":"This model's maximum context length is 16384 tokens. However, you requested 0 output tokens and your prompt contains at least 16385 input tokens, for a total of at least 16385 tok
+[2026-05-11T17:59:30.894Z] ⏭️ [aurapos] "sprint5_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T17:59:30.895Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (6/10 dosya, ~26835 token)...
+[2026-05-11T17:59:30.895Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T17:59:30.895Z] 🧠 [ARCHITECT] Reasoning budget: 16384 token
+[2026-05-11T17:59:30.956Z] ❌ [aurapos] Planlama Hatası: NIM yanıt formatı hatalı: {"error":{"message":"This model's maximum context length is 16384 tokens. However, you requested 0 output tokens and your prompt contains at least 16385 input tokens, for a total of at least 16385 tok
+[2026-05-11T18:00:30.899Z] ⏭️ [aurapos] "sprint5_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T18:00:30.900Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (6/10 dosya, ~26835 token)...
+[2026-05-11T18:00:30.900Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T18:00:30.900Z] 🧠 [ARCHITECT] Reasoning budget: 16384 token
+[2026-05-11T18:00:30.901Z] ❌ [aurapos] Planlama Hatası: connect ECONNREFUSED 127.0.0.1:8000
+[2026-05-11T18:01:30.904Z] ⏭️ [aurapos] "sprint5_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T18:01:30.904Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (6/10 dosya, ~26835 token)...
+[2026-05-11T18:01:30.905Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T18:01:30.905Z] 🧠 [ARCHITECT] Reasoning budget: 16384 token
+[2026-05-11T18:01:30.907Z] ❌ [aurapos] Planlama Hatası: connect ECONNREFUSED 127.0.0.1:8000
+[2026-05-11T18:02:30.914Z] ⏭️ [aurapos] "sprint5_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T18:02:30.915Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (6/10 dosya, ~26835 token)...
+[2026-05-11T18:02:30.915Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T18:02:30.915Z] 🧠 [ARCHITECT] Reasoning budget: 16384 token
+[2026-05-11T18:02:30.923Z] ❌ [aurapos] Planlama Hatası: connect ECONNREFUSED 127.0.0.1:8000
+[2026-05-11T18:03:30.909Z] ⏭️ [aurapos] "sprint5_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T18:03:30.909Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (6/10 dosya, ~26835 token)...
+[2026-05-11T18:03:30.909Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T18:03:30.909Z] 🧠 [ARCHITECT] Reasoning budget: 16384 token
+[2026-05-11T18:03:30.911Z] ❌ [aurapos] Planlama Hatası: connect ECONNREFUSED 127.0.0.1:8000
+[2026-05-11T18:04:30.909Z] ⏭️ [aurapos] "sprint5_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T18:04:30.909Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (6/10 dosya, ~26835 token)...
+[2026-05-11T18:04:30.909Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T18:04:30.909Z] 🧠 [ARCHITECT] Reasoning budget: 16384 token
+[2026-05-11T18:04:30.910Z] ❌ [aurapos] Planlama Hatası: connect ECONNREFUSED 127.0.0.1:8000
+[2026-05-11T18:05:30.913Z] ⏭️ [aurapos] "sprint5_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T18:05:30.914Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (6/10 dosya, ~26835 token)...
+[2026-05-11T18:05:30.914Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T18:05:30.914Z] 🧠 [ARCHITECT] Reasoning budget: 16384 token
+[2026-05-11T18:05:30.916Z] ❌ [aurapos] Planlama Hatası: connect ECONNREFUSED 127.0.0.1:8000
+[2026-05-11T18:06:30.915Z] ⏭️ [aurapos] "sprint5_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T18:06:30.916Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (6/10 dosya, ~26835 token)...
+[2026-05-11T18:06:30.916Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T18:06:30.916Z] 🧠 [ARCHITECT] Reasoning budget: 16384 token
+[2026-05-11T18:06:30.918Z] ❌ [aurapos] Planlama Hatası: connect ECONNREFUSED 127.0.0.1:8000
+[2026-05-11T18:07:30.920Z] ⏭️ [aurapos] "sprint5_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T18:07:30.920Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (6/10 dosya, ~26835 token)...
+[2026-05-11T18:07:30.921Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T18:07:30.921Z] 🧠 [ARCHITECT] Reasoning budget: 16384 token
+[2026-05-11T18:07:30.924Z] ❌ [aurapos] Planlama Hatası: connect ECONNREFUSED 127.0.0.1:8000
+[2026-05-11T18:08:30.924Z] ⏭️ [aurapos] "sprint5_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T18:08:30.924Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (6/10 dosya, ~26835 token)...
+[2026-05-11T18:08:30.924Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T18:08:30.924Z] 🧠 [ARCHITECT] Reasoning budget: 16384 token
+[2026-05-11T18:08:31.225Z] ❌ [aurapos] Planlama Hatası: NIM yanıt formatı hatalı: {"error":{"message":"This model's maximum context length is 32768 tokens. However, you requested 0 output tokens and your prompt contains at least 32769 input tokens, for a total of at least 32769 tok
+[2026-05-11T18:09:30.924Z] ⏭️ [aurapos] "sprint5_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T18:09:30.924Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (6/10 dosya, ~26835 token)...
+[2026-05-11T18:09:30.924Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T18:09:30.924Z] 🧠 [ARCHITECT] Reasoning budget: 16384 token
+[2026-05-11T18:09:30.987Z] ❌ [aurapos] Planlama Hatası: NIM yanıt formatı hatalı: {"error":{"message":"This model's maximum context length is 32768 tokens. However, you requested 0 output tokens and your prompt contains at least 32769 input tokens, for a total of at least 32769 tok
+[2026-05-11T18:10:30.927Z] ⏭️ [aurapos] "sprint5_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T18:10:30.928Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (6/10 dosya, ~26835 token)...
+[2026-05-11T18:10:30.928Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T18:10:30.928Z] 🧠 [ARCHITECT] Reasoning budget: 16384 token
+[2026-05-11T18:10:30.991Z] ❌ [aurapos] Planlama Hatası: NIM yanıt formatı hatalı: {"error":{"message":"This model's maximum context length is 32768 tokens. However, you requested 0 output tokens and your prompt contains at least 32769 input tokens, for a total of at least 32769 tok
+[2026-05-11T18:11:30.933Z] ⏭️ [aurapos] "sprint5_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T18:11:30.933Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (6/10 dosya, ~26835 token)...
+[2026-05-11T18:11:30.933Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T18:11:30.933Z] 🧠 [ARCHITECT] Reasoning budget: 16384 token
+[2026-05-11T18:11:30.996Z] ❌ [aurapos] Planlama Hatası: NIM yanıt formatı hatalı: {"error":{"message":"This model's maximum context length is 32768 tokens. However, you requested 0 output tokens and your prompt contains at least 32769 input tokens, for a total of at least 32769 tok
+[2026-05-11T18:12:30.938Z] ⏭️ [aurapos] "sprint5_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T18:12:30.938Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (6/10 dosya, ~26835 token)...
+[2026-05-11T18:12:30.938Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T18:12:30.938Z] 🧠 [ARCHITECT] Reasoning budget: 16384 token
+[2026-05-11T18:12:31.002Z] ❌ [aurapos] Planlama Hatası: NIM yanıt formatı hatalı: {"error":{"message":"This model's maximum context length is 32768 tokens. However, you requested 0 output tokens and your prompt contains at least 32769 input tokens, for a total of at least 32769 tok
+[2026-05-11T18:13:30.942Z] ⏭️ [aurapos] "sprint5_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T18:13:30.943Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (6/10 dosya, ~26835 token)...
+[2026-05-11T18:13:30.943Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T18:13:30.943Z] 🧠 [ARCHITECT] Reasoning budget: 16384 token
+[2026-05-11T18:13:31.009Z] ❌ [aurapos] Planlama Hatası: NIM yanıt formatı hatalı: {"error":{"message":"This model's maximum context length is 32768 tokens. However, you requested 0 output tokens and your prompt contains at least 32769 input tokens, for a total of at least 32769 tok
+[2026-05-11T18:14:30.944Z] ⏭️ [aurapos] "sprint5_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T18:14:30.944Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (6/10 dosya, ~26835 token)...
+[2026-05-11T18:14:30.944Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T18:14:30.944Z] 🧠 [ARCHITECT] Reasoning budget: 16384 token
+[2026-05-11T18:14:31.008Z] ❌ [aurapos] Planlama Hatası: NIM yanıt formatı hatalı: {"error":{"message":"This model's maximum context length is 32768 tokens. However, you requested 0 output tokens and your prompt contains at least 32769 input tokens, for a total of at least 32769 tok
+[2026-05-11T18:15:29.334Z] 🚀 TESTER başlatıldı.
+[2026-05-11T18:15:29.340Z] 🚀 CODER başlatıldı.
+[2026-05-11T18:15:29.341Z] 🚀 DOCS başlatıldı.
+[2026-05-11T18:15:29.343Z] ⏭️ [aurapos] "sprint2_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T18:15:29.344Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (3/10 dosya, ~16601 token)...
+[2026-05-11T18:15:29.344Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T18:15:29.344Z] 🧠 [ARCHITECT] Reasoning budget: 16384 token
+[2026-05-11T18:15:29.352Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-11T18:20:29.358Z] ❌ [aurapos] Planlama Hatası: NIM Timeout (5dk)
+[2026-05-11T18:20:29.362Z] ⏭️ [aurapos] "sprint2_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T18:20:29.362Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (3/10 dosya, ~16601 token)...
+[2026-05-11T18:20:29.362Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T18:20:29.363Z] 🧠 [ARCHITECT] Reasoning budget: 16384 token
+[2026-05-11T18:25:29.366Z] ❌ [aurapos] Planlama Hatası: NIM Timeout (5dk)
+[2026-05-11T18:25:29.376Z] ⏭️ [aurapos] "sprint2_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T18:25:29.376Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (3/10 dosya, ~16601 token)...
+[2026-05-11T18:25:29.376Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T18:25:29.377Z] 🧠 [ARCHITECT] Reasoning budget: 16384 token
+[2026-05-11T18:30:29.383Z] ❌ [aurapos] Planlama Hatası: NIM Timeout (5dk)
+[2026-05-11T18:30:29.394Z] ⏭️ [aurapos] "sprint2_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T18:30:29.394Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (3/10 dosya, ~16601 token)...
+[2026-05-11T18:30:29.394Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T18:30:29.395Z] 🧠 [ARCHITECT] Reasoning budget: 16384 token
+[2026-05-11T18:35:29.403Z] ❌ [aurapos] Planlama Hatası: NIM Timeout (5dk)
+[2026-05-11T18:35:29.405Z] ⏭️ [aurapos] "sprint2_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T18:35:29.405Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (3/10 dosya, ~16601 token)...
+[2026-05-11T18:35:29.405Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T18:35:29.405Z] 🧠 [ARCHITECT] Reasoning budget: 16384 token
+[2026-05-11T18:39:35.312Z] ⏭️ [aurapos] "sprint2_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T18:39:35.313Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (3/10 dosya, ~16601 token)...
+[2026-05-11T18:39:35.314Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T18:39:35.314Z] 🧠 [ARCHITECT] Reasoning budget: 6144 token
+[2026-05-11T18:39:35.324Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-11T18:52:22.302Z] ❌ [aurapos] Planlama Hatası: Expected ',' or '}' after property value in JSON at position 381 (line 8 column 24)
+[2026-05-11T18:52:35.366Z] ⏭️ [aurapos] "sprint2_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T18:52:35.367Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (3/10 dosya, ~16601 token)...
+[2026-05-11T18:52:35.367Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T18:52:35.367Z] 🧠 [ARCHITECT] Reasoning budget: 6144 token
+[2026-05-11T19:05:15.754Z] ❌ [aurapos] Planlama Hatası: NIM yanıt formatı hatalı: {"id":"chatcmpl-9ea99b6e2718da3c","object":"chat.completion","created":1778525555,"prompt_routed_experts":null,"model":"nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4","choices":[{"index":0,"message":
+[2026-05-11T19:05:35.415Z] ⏭️ [aurapos] "sprint2_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T19:05:35.415Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (3/10 dosya, ~16601 token)...
+[2026-05-11T19:05:35.415Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T19:05:35.415Z] 🧠 [ARCHITECT] Reasoning budget: 6144 token
+[2026-05-11T19:14:26.882Z] ⏭️ [aurapos] "sprint2_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T19:14:26.884Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (3/10 dosya, ~16601 token)...
+[2026-05-11T19:14:26.884Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T19:14:26.884Z] 🧠 [ARCHITECT] Reasoning budget: 16384 token
+[2026-05-11T19:14:26.895Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-11T19:19:26.898Z] ❌ [aurapos] Planlama Hatası: NIM Timeout (5dk)
+[2026-05-11T19:20:26.902Z] ⏭️ [aurapos] "sprint2_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T19:20:26.902Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (3/10 dosya, ~16601 token)...
+[2026-05-11T19:20:26.902Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T19:20:26.903Z] 🧠 [ARCHITECT] Reasoning budget: 16384 token
+[2026-05-11T19:25:26.909Z] ❌ [aurapos] Planlama Hatası: NIM Timeout (5dk)
+[2026-05-11T19:25:26.914Z] ⏭️ [aurapos] "sprint2_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T19:25:26.914Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (3/10 dosya, ~16601 token)...
+[2026-05-11T19:25:26.914Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T19:25:26.914Z] 🧠 [ARCHITECT] Reasoning budget: 16384 token
+[2026-05-11T19:28:59.047Z] ⏭️ [aurapos] "sprint0_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T19:28:59.048Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (2/10 dosya, ~12713 token)...
+[2026-05-11T19:28:59.048Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T19:28:59.049Z] 🧠 [ARCHITECT] Reasoning budget: 6144 token
+[2026-05-11T19:28:59.056Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-11T19:38:53.545Z] ❌ [aurapos] Planlama Hatası: NIM yanıt formatı hatalı: {"id":"chatcmpl-933def4db06f140d","object":"chat.completion","created":1778527739,"prompt_routed_experts":null,"model":"nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4","choices":[{"index":0,"message":
+[2026-05-11T19:38:59.091Z] ⏭️ [aurapos] "sprint0_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T19:38:59.091Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (2/10 dosya, ~12713 token)...
+[2026-05-11T19:38:59.092Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T19:38:59.092Z] 🧠 [ARCHITECT] Reasoning budget: 6144 token
+[2026-05-11T19:46:03.264Z] ⏭️ [aurapos] "sprint0_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T19:46:03.265Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (2/10 dosya, ~12713 token)...
+[2026-05-11T19:46:03.266Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T19:46:03.266Z] 🧠 [ARCHITECT] Reasoning budget: 6144 token
+[2026-05-11T19:46:03.276Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-11T19:52:17.427Z] ⏭️ [aurapos] "sprint0_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T19:52:17.428Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (2/10 dosya, ~12713 token)...
+[2026-05-11T19:52:17.429Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T19:52:17.429Z] 🧠 [ARCHITECT] Reasoning budget: 6144 token
+[2026-05-11T19:52:17.436Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-11T19:52:22.716Z] ⏭️ [aurapos] "sprint0_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T19:52:22.717Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (2/10 dosya, ~12713 token)...
+[2026-05-11T19:52:22.719Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T19:52:22.719Z] 🧠 [ARCHITECT] Reasoning budget: 6144 token
+[2026-05-11T19:52:22.730Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-11T19:59:10.240Z] ⏭️ [aurapos] "sprint0_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T19:59:10.240Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (2/10 dosya, ~12713 token)...
+[2026-05-11T19:59:10.241Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T19:59:10.242Z] 🧠 [ARCHITECT] Reasoning budget: 6144 token
+[2026-05-11T19:59:10.248Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-11T20:13:56.487Z] ❌ [aurapos] Planlama Hatası: Expected ',' or '}' after property value in JSON at position 11798 (line 296 column 61)
+[2026-05-11T20:14:10.302Z] ⏭️ [aurapos] "sprint0_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T20:14:10.302Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (2/10 dosya, ~12713 token)...
+[2026-05-11T20:14:10.302Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T20:14:10.302Z] 🧠 [ARCHITECT] Reasoning budget: 6144 token
+[2026-05-11T20:16:44.688Z] ⏭️ [aurapos] "sprint0_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T20:16:44.689Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (2/10 dosya, ~12713 token)...
+[2026-05-11T20:16:44.689Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T20:16:44.689Z] 🧠 [ARCHITECT] Reasoning budget: 6144 token
+[2026-05-11T20:16:44.697Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-11T20:31:28.072Z] ⚖️ CONSENSUS: [aurapos] Peer Review başlatılıyor...
+[2026-05-11T20:31:28.073Z] 📖 [REVIEWER_COST] Skill mühürü okundu.
+[2026-05-11T20:31:28.073Z] 🧠 [REVIEWER_COST] Reasoning budget: 2048 token
+[2026-05-11T20:31:28.074Z] 📖 [REVIEWER_PERF] Skill mühürü okundu.
+[2026-05-11T20:31:28.074Z] 🧠 [REVIEWER_PERF] Reasoning budget: 2048 token
+[2026-05-11T20:33:15.118Z] 🧬 SYNTHESIS: [aurapos] Görüşler birleştiriliyor...
+[2026-05-11T20:33:15.119Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T20:33:15.119Z] 🧠 [ARCHITECT] Reasoning budget: 6144 token
+[2026-05-11T20:37:15.389Z] 📋 STACK RULES: [aurapos] PRD'den teknoloji kuralları çıkarılıyor...
+[2026-05-11T20:37:15.390Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T20:37:15.390Z] 🧠 [ARCHITECT] Reasoning budget: 6144 token
+[2026-05-11T20:38:49.366Z] 📋 [aurapos] Stack kuralları mühürlendi. Yasak: [Dexie.js, toast (other than react-hot-toast)]
+[2026-05-11T20:38:49.366Z] 🎯 [aurapos] Bağımlılıklar tamam, görev başlatılıyor: Setup local development services with health-checked PostgreSQL and Redis
+[2026-05-11T20:38:49.367Z] 🎯 [aurapos] Bağımlılıklar tamam, görev başlatılıyor: Create lightweight AI wrapper for DeepSeek R1 with connection pooling
+[2026-05-11T20:38:49.367Z] 🎯 [aurapos] Bağımlılıklar tamam, görev başlatılıyor: Generate monorepo structure documentation from workspace config
+[2026-05-11T20:38:49.367Z] 🎯 [aurapos] Bağımlılıklar tamam, görev başlatılıyor: Setup CI/CD pipeline with parallel jobs and caching
+[2026-05-11T20:38:49.368Z] ✅ [aurapos] Consensus Planlama tamamlandı. 7 görev kuyruğa girdi.
+[2026-05-11T20:38:52.366Z] ✍️ CODER: [aurapos] S0-4 yazılıyor...
+[2026-05-11T20:38:52.366Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-11T20:38:52.366Z] 🧠 [CODER] Reasoning budget: 4096 token
+[2026-05-11T20:39:44.778Z] ⏭️ [aurapos] "sprint4_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T20:39:44.778Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (3/8 dosya, ~13772 token)...
+[2026-05-11T20:39:44.778Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T20:39:44.778Z] 🧠 [ARCHITECT] Reasoning budget: 6144 token
+[2026-05-11T20:41:11.097Z] 💾 Dosya mühürlendi (1592 bytes): monorepo-structure.md
+[2026-05-11T20:41:12.494Z] ✍️ CODER: [aurapos] S0-5 yazılıyor...
+[2026-05-11T20:41:12.495Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-11T20:41:12.495Z] 🧠 [CODER] Reasoning budget: 4096 token
+[2026-05-11T20:41:16.039Z] [aurapos]  Kod yazımı bitti. Test ajanı devralıyor: S0-4
+[2026-05-11T20:41:17.591Z] 🧐 QA GUARDRAIL: [aurapos] S0-4 denetleniyor...
+[2026-05-11T20:41:17.592Z] 🐳 SANDBOX: [aurapos] S0-4 izole test ortamında denetleniyor...
+[2026-05-11T20:41:17.592Z] ⏭️ SANDBOX ATLANDI: .md dosyaları için sandbox tanımsız
+[2026-05-11T20:41:17.593Z] 🛡️ GUARDRAIL FAIL: [aurapos] Mimari İhlal!
+[2026-05-11T20:41:21.046Z] [aurapos]  🧭 STEERING: Hata analizi ve yönlendirme yapılıyor (1/3)
+[2026-05-11T20:41:21.046Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T20:41:21.046Z] 🧠 [ARCHITECT] Reasoning budget: 6144 token
+[2026-05-11T20:44:12.409Z] 💾 Dosya mühürlendi (2876 bytes): ci.yml
+[2026-05-11T20:44:12.643Z] 🧭 STEERING: [aurapos] S0-4 yönlendirme ile düzeltiliyor...
+[2026-05-11T20:44:12.643Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-11T20:44:12.643Z] 🧠 [CODER] Reasoning budget: 4096 token
+[2026-05-11T20:44:16.201Z] [aurapos]  Kod yazımı bitti. Test ajanı devralıyor: S0-5
+[2026-05-11T20:44:17.740Z] 🧐 QA GUARDRAIL: [aurapos] S0-5 denetleniyor...
+[2026-05-11T20:44:17.741Z] 🐳 SANDBOX: [aurapos] S0-5 izole test ortamında denetleniyor...
+[2026-05-11T20:44:17.741Z] ⏭️ SANDBOX ATLANDI: .yml dosyaları için sandbox tanımsız
+[2026-05-11T20:44:17.742Z] 🛡️ GUARDRAIL FAIL: [aurapos] Mimari İhlal!
+[2026-05-11T20:44:21.208Z] [aurapos]  🧭 STEERING: Hata analizi ve yönlendirme yapılıyor (1/3)
+[2026-05-11T20:44:21.209Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T20:44:21.209Z] 🧠 [ARCHITECT] Reasoning budget: 6144 token
+[2026-05-11T20:45:54.752Z] 💾 Dosya mühürlendi (2171 bytes): monorepo-structure.md
+[2026-05-11T20:45:56.290Z] [aurapos]  Kod yazımı bitti. Test ajanı devralıyor: S0-4
+[2026-05-11T20:45:57.747Z] 🧭 STEERING: [aurapos] S0-5 yönlendirme ile düzeltiliyor...
+[2026-05-11T20:45:57.747Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-11T20:45:57.748Z] 🧠 [CODER] Reasoning budget: 4096 token
+[2026-05-11T20:45:57.832Z] 🧐 QA GUARDRAIL: [aurapos] S0-4 denetleniyor...
+[2026-05-11T20:45:57.833Z] 🐳 SANDBOX: [aurapos] S0-4 izole test ortamında denetleniyor...
+[2026-05-11T20:45:57.833Z] ⏭️ SANDBOX ATLANDI: .md dosyaları için sandbox tanımsız
+[2026-05-11T20:45:57.833Z] 🛡️ GUARDRAIL FAIL: [aurapos] Mimari İhlal!
+[2026-05-11T20:46:01.295Z] [aurapos]  🧭 STEERING: Hata analizi ve yönlendirme yapılıyor (2/3)
+[2026-05-11T20:46:01.296Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T20:46:01.296Z] 🧠 [ARCHITECT] Reasoning budget: 6144 token
+[2026-05-11T20:46:01.298Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T20:46:01.298Z] 🧠 [ARCHITECT] Reasoning budget: 6144 token
+[2026-05-11T20:46:27.356Z] 🧠 BELLEK GÜNCELLENDİ: Global dersi işlendi.
+[2026-05-11T20:50:57.755Z] ❌ CODER HATASI: NIM Timeout (5dk)
+[2026-05-11T20:50:57.998Z] 🧭 STEERING: [aurapos] S0-4 yönlendirme ile düzeltiliyor...
+[2026-05-11T20:50:57.998Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-11T20:50:57.998Z] 🧠 [CODER] Reasoning budget: 4096 token
+[2026-05-11T20:51:01.569Z] [aurapos]  🧭 STEERING: Hata analizi ve yönlendirme yapılıyor (2/3)
+[2026-05-11T20:51:01.569Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T20:51:01.570Z] 🧠 [ARCHITECT] Reasoning budget: 6144 token
+[2026-05-11T20:51:01.570Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T20:51:01.570Z] 🧠 [ARCHITECT] Reasoning budget: 6144 token
+[2026-05-11T20:51:26.397Z] 🧠 BELLEK GÜNCELLENDİ: Global dersi işlendi.
+[2026-05-11T20:54:14.726Z] 💾 Dosya mühürlendi (1727 bytes): monorepo-structure.md
+[2026-05-11T20:54:16.740Z] [aurapos]  Kod yazımı bitti. Test ajanı devralıyor: S0-4
+[2026-05-11T20:54:18.167Z] 🧭 STEERING: [aurapos] S0-5 yönlendirme ile düzeltiliyor...
+[2026-05-11T20:54:18.167Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-11T20:54:18.167Z] 🧠 [CODER] Reasoning budget: 4096 token
+[2026-05-11T20:54:18.311Z] 🧐 QA GUARDRAIL: [aurapos] S0-4 denetleniyor...
+[2026-05-11T20:54:18.312Z] 🐳 SANDBOX: [aurapos] S0-4 izole test ortamında denetleniyor...
+[2026-05-11T20:54:18.312Z] ⏭️ SANDBOX ATLANDI: .md dosyaları için sandbox tanımsız
+[2026-05-11T20:54:18.312Z] 🛡️ GUARDRAIL FAIL: [aurapos] Mimari İhlal!
+[2026-05-11T20:54:21.769Z] [aurapos]  🧭 STEERING: Hata analizi ve yönlendirme yapılıyor (3/3)
+[2026-05-11T20:54:21.769Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T20:54:21.769Z] 🧠 [ARCHITECT] Reasoning budget: 6144 token
+[2026-05-11T20:54:21.770Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T20:54:21.770Z] 🧠 [ARCHITECT] Reasoning budget: 6144 token
+[2026-05-11T20:54:53.383Z] 🧠 BELLEK GÜNCELLENDİ: Global dersi işlendi.
+[2026-05-11T20:58:04.598Z] ❌ [aurapos] Planlama Hatası: NIM yanıt formatı hatalı [finish=length, content_len=0, reasoning_len=0]: {"id":"chatcmpl-918617aaa984c44f","object":"chat.completion","created":1778531984,"prompt_routed_experts":null,"model":"nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4","choices":[{"index":0,"message":{"role":"assistant","content":null,"refusal":null,"annotations":null,"audio":null,"function_call":nu
+[2026-05-11T20:58:44.840Z] ⏭️ [aurapos] "sprint4_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T20:58:44.840Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (3/8 dosya, ~13772 token)...
+[2026-05-11T20:58:44.840Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T20:58:44.840Z] 🧠 [ARCHITECT] Reasoning budget: 6144 token
+[2026-05-11T20:59:18.173Z] ❌ CODER HATASI: NIM Timeout (5dk)
+[2026-05-11T20:59:18.419Z] 🧭 STEERING: [aurapos] S0-4 yönlendirme ile düzeltiliyor...
+[2026-05-11T20:59:18.419Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-11T20:59:18.419Z] 🧠 [CODER] Reasoning budget: 4096 token
+[2026-05-11T20:59:22.016Z] [aurapos]  🧭 STEERING: Hata analizi ve yönlendirme yapılıyor (3/3)
+[2026-05-11T20:59:22.016Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T20:59:22.016Z] 🧠 [ARCHITECT] Reasoning budget: 6144 token
+[2026-05-11T20:59:22.017Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T20:59:22.017Z] 🧠 [ARCHITECT] Reasoning budget: 6144 token
+[2026-05-11T20:59:53.138Z] 🧠 BELLEK GÜNCELLENDİ: Global dersi işlendi.
+[2026-05-11T21:04:18.425Z] ❌ CODER HATASI: NIM Timeout (5dk)
+[2026-05-11T21:04:18.689Z] 🧭 STEERING: [aurapos] S0-5 yönlendirme ile düzeltiliyor...
+[2026-05-11T21:04:18.689Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-11T21:04:18.689Z] 🧠 [CODER] Reasoning budget: 4096 token
+[2026-05-11T21:04:22.282Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-11T21:04:22.283Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T21:04:22.283Z] 🧠 [ARCHITECT] Reasoning budget: 6144 token
+[2026-05-11T21:05:14.923Z] ⏭️ [aurapos] "sprint0_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T21:05:14.924Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (2/10 dosya, ~12713 token)...
+[2026-05-11T21:05:14.924Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T21:05:14.924Z] 🧠 [ARCHITECT] Reasoning budget: 3072 token
+[2026-05-11T21:05:14.932Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-11T21:05:14.932Z] ♻️ Orphan task kurtarıldı: architect-BUG_REPORT-1778533458425.json
+[2026-05-11T21:05:14.933Z] [aurapos]  🧭 STEERING: Hata analizi ve yönlendirme yapılıyor (1/3)
+[2026-05-11T21:05:14.933Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T21:05:14.933Z] 🧠 [ARCHITECT] Reasoning budget: 3072 token
+[2026-05-11T21:09:18.695Z] ❌ CODER HATASI: NIM Timeout (5dk)
+[2026-05-11T21:09:18.983Z] 🧭 STEERING: [aurapos] S0-4 yönlendirme ile düzeltiliyor...
+[2026-05-11T21:09:18.983Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-11T21:09:18.983Z] 🧠 [CODER] Reasoning budget: 4096 token
+[2026-05-11T21:09:23.125Z] [aurapos]  🧭 STEERING: Hata analizi ve yönlendirme yapılıyor (1/3)
+[2026-05-11T21:09:23.126Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T21:09:23.126Z] 🧠 [ARCHITECT] Reasoning budget: 3072 token
+[2026-05-11T21:10:34.428Z] 💾 Dosya mühürlendi (1586 bytes): monorepo-structure.md
+[2026-05-11T21:10:38.194Z] [aurapos]  Kod yazımı bitti. Test ajanı devralıyor: S0-4
+[2026-05-11T21:10:39.060Z] 🧭 STEERING: [aurapos] S0-5 yönlendirme ile düzeltiliyor...
+[2026-05-11T21:10:39.061Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-11T21:10:39.061Z] 🧠 [CODER] Reasoning budget: 4096 token
+[2026-05-11T21:10:39.233Z] 🧐 QA GUARDRAIL: [aurapos] S0-4 denetleniyor...
+[2026-05-11T21:10:39.234Z] 🐳 SANDBOX: [aurapos] S0-4 izole test ortamında denetleniyor...
+[2026-05-11T21:10:39.234Z] ⏭️ SANDBOX ATLANDI: .md dosyaları için sandbox tanımsız
+[2026-05-11T21:10:39.234Z] 🛡️ GUARDRAIL FAIL: [aurapos] Mimari İhlal!
+[2026-05-11T21:10:43.199Z] [aurapos]  🧭 STEERING: Hata analizi ve yönlendirme yapılıyor (2/3)
+[2026-05-11T21:10:43.201Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T21:10:43.201Z] 🧠 [ARCHITECT] Reasoning budget: 3072 token
+[2026-05-11T21:10:43.201Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T21:10:43.201Z] 🧠 [ARCHITECT] Reasoning budget: 3072 token
+[2026-05-11T21:11:08.651Z] 🧠 BELLEK GÜNCELLENDİ: Global dersi işlendi.
+[2026-05-11T21:13:35.224Z] 💾 Dosya mühürlendi (2876 bytes): ci.yml
+[2026-05-11T21:13:38.376Z] [aurapos]  Kod yazımı bitti. Test ajanı devralıyor: S0-5
+[2026-05-11T21:13:39.243Z] 🧭 STEERING: [aurapos] S0-4 yönlendirme ile düzeltiliyor...
+[2026-05-11T21:13:39.243Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-11T21:13:39.243Z] 🧠 [CODER] Reasoning budget: 4096 token
+[2026-05-11T21:13:39.406Z] 🧐 QA GUARDRAIL: [aurapos] S0-5 denetleniyor...
+[2026-05-11T21:13:39.407Z] 🐳 SANDBOX: [aurapos] S0-5 izole test ortamında denetleniyor...
+[2026-05-11T21:13:39.407Z] ⏭️ SANDBOX ATLANDI: .yml dosyaları için sandbox tanımsız
+[2026-05-11T21:13:39.407Z] 🛡️ GUARDRAIL FAIL: [aurapos] Mimari İhlal!
+[2026-05-11T21:13:43.383Z] [aurapos]  🧭 STEERING: Hata analizi ve yönlendirme yapılıyor (2/3)
+[2026-05-11T21:13:43.383Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T21:13:43.383Z] 🧠 [ARCHITECT] Reasoning budget: 3072 token
+[2026-05-11T21:13:43.384Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T21:13:43.384Z] 🧠 [ARCHITECT] Reasoning budget: 3072 token
+[2026-05-11T21:14:20.052Z] 🧠 BELLEK GÜNCELLENDİ: Global dersi işlendi.
+[2026-05-11T21:16:24.034Z] 💾 Dosya mühürlendi (1660 bytes): monorepo-structure.md
+[2026-05-11T21:16:24.373Z] 🧭 STEERING: [aurapos] S0-5 yönlendirme ile düzeltiliyor...
+[2026-05-11T21:16:24.374Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-11T21:16:24.374Z] 🧠 [CODER] Reasoning budget: 4096 token
+[2026-05-11T21:16:28.511Z] 🚀 TESTER başlatıldı.
+[2026-05-11T21:16:28.515Z] [aurapos]  Kod yazımı bitti. Test ajanı devralıyor: S0-4
+[2026-05-11T21:16:33.518Z] 🧐 QA GUARDRAIL: [aurapos] S0-4 denetleniyor...
+[2026-05-11T21:16:33.519Z] 🐳 SANDBOX: [aurapos] S0-4 izole test ortamında denetleniyor...
+[2026-05-11T21:16:33.519Z] ⏭️ SANDBOX ATLANDI: .md dosyaları için sandbox tanımsız
+[2026-05-11T21:16:33.520Z] 🕵️ SHADOW TESTER: [aurapos] Güvenlik denetimi yapılıyor...
+[2026-05-11T21:16:33.520Z] 📖 [TESTER] Skill mühürü okundu.
+[2026-05-11T21:16:33.520Z] 🧠 [TESTER] Reasoning budget: 256 token
+[2026-05-11T21:19:43.685Z] [aurapos]  🧭 STEERING: Hata analizi ve yönlendirme yapılıyor (3/3)
+[2026-05-11T21:19:43.687Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T21:19:43.687Z] 🧠 [ARCHITECT] Reasoning budget: 3072 token
+[2026-05-11T21:19:43.688Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T21:19:43.689Z] 🧠 [ARCHITECT] Reasoning budget: 3072 token
+[2026-05-11T21:20:13.007Z] 🧠 BELLEK GÜNCELLENDİ: Global dersi işlendi.
+[2026-05-11T21:21:24.376Z] ❌ CODER HATASI: NIM Timeout (5dk)
+[2026-05-11T21:21:24.633Z] 🧭 STEERING: [aurapos] S0-4 yönlendirme ile düzeltiliyor...
+[2026-05-11T21:21:24.633Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-11T21:21:24.633Z] 🧠 [CODER] Reasoning budget: 4096 token
+[2026-05-11T21:21:28.775Z] [aurapos]  🧭 STEERING: Hata analizi ve yönlendirme yapılıyor (3/3)
+[2026-05-11T21:21:28.776Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T21:21:28.777Z] 🧠 [ARCHITECT] Reasoning budget: 3072 token
+[2026-05-11T21:21:28.778Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T21:21:28.778Z] 🧠 [ARCHITECT] Reasoning budget: 3072 token
+[2026-05-11T21:21:57.803Z] 🧠 BELLEK GÜNCELLENDİ: Global dersi işlendi.
+[2026-05-11T21:22:36.930Z] ⚖️ CONSENSUS: [aurapos] Peer Review başlatılıyor...
+[2026-05-11T21:22:36.930Z] 📖 [REVIEWER_COST] Skill mühürü okundu.
+[2026-05-11T21:22:36.930Z] 🧠 [REVIEWER_COST] Reasoning budget: 2048 token
+[2026-05-11T21:22:36.931Z] 📖 [REVIEWER_PERF] Skill mühürü okundu.
+[2026-05-11T21:22:36.931Z] 🧠 [REVIEWER_PERF] Reasoning budget: 2048 token
+[2026-05-11T21:23:29.553Z] 🚀 TESTER başlatıldı.
+[2026-05-11T21:24:38.056Z] 🧬 SYNTHESIS: [aurapos] Görüşler birleştiriliyor...
+[2026-05-11T21:24:38.057Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T21:24:38.057Z] 🧠 [ARCHITECT] Reasoning budget: 3072 token
+[2026-05-11T21:24:41.423Z] 💾 Dosya mühürlendi (1792 bytes): monorepo-structure.md
+[2026-05-11T21:24:43.935Z] [aurapos]  Kod yazımı bitti. Test ajanı devralıyor: S0-4
+[2026-05-11T21:24:44.619Z] 🧐 QA GUARDRAIL: [aurapos] S0-4 denetleniyor...
+[2026-05-11T21:24:44.620Z] 🐳 SANDBOX: [aurapos] S0-4 izole test ortamında denetleniyor...
+[2026-05-11T21:24:44.620Z] ⏭️ SANDBOX ATLANDI: .md dosyaları için sandbox tanımsız
+[2026-05-11T21:24:44.621Z] 🕵️ SHADOW TESTER: [aurapos] Güvenlik denetimi yapılıyor...
+[2026-05-11T21:24:44.622Z] 📖 [TESTER] Skill mühürü okundu.
+[2026-05-11T21:24:44.623Z] 🧠 [TESTER] Reasoning budget: 256 token
+[2026-05-11T21:24:44.816Z] 🧭 STEERING: [aurapos] S0-5 yönlendirme ile düzeltiliyor...
+[2026-05-11T21:24:44.816Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-11T21:24:44.817Z] 🧠 [CODER] Reasoning budget: 4096 token
+[2026-05-11T21:25:57.326Z] ✅ [aurapos] S0-4 onaylandı. HEARTBEAT_OK
+[2026-05-11T21:25:59.003Z] [aurapos]  ✅ TEST GEÇİLDİ.
+[2026-05-11T21:26:00.106Z] 🌿 Branch oluşturuldu: feature/sprint-s0
+[2026-05-11T21:26:01.011Z] [aurapos]  📦 feature/sprint-s0 branch'ına push edildi.
+[2026-05-11T21:26:05.012Z] 📄 Dokümantasyon: [aurapos] Generate monorepo structure documentation from workspace config
+[2026-05-11T21:26:05.012Z] 📖 [DOCS] Skill mühürü okundu.
+[2026-05-11T21:26:05.013Z] 🧠 [DOCS] Reasoning budget: 1024 token
+[2026-05-11T21:27:24.030Z] 💾 Dosya mühürlendi (2876 bytes): ci.yml
+[2026-05-11T21:27:24.094Z] [aurapos]  Kod yazımı bitti. Test ajanı devralıyor: S0-5
+[2026-05-11T21:27:24.785Z] 🧐 QA GUARDRAIL: [aurapos] S0-5 denetleniyor...
+[2026-05-11T21:27:24.785Z] 🐳 SANDBOX: [aurapos] S0-5 izole test ortamında denetleniyor...
+[2026-05-11T21:27:24.785Z] ⏭️ SANDBOX ATLANDI: .yml dosyaları için sandbox tanımsız
+[2026-05-11T21:27:24.785Z] 🕵️ SHADOW TESTER: [aurapos] Güvenlik denetimi yapılıyor...
+[2026-05-11T21:27:24.786Z] 📖 [TESTER] Skill mühürü okundu.
+[2026-05-11T21:27:24.786Z] 🧠 [TESTER] Reasoning budget: 256 token
+[2026-05-11T21:28:23.788Z] ✅ [aurapos] S0-5 onaylandı. HEARTBEAT_OK
+[2026-05-11T21:28:24.139Z] [aurapos]  ✅ TEST GEÇİLDİ.
+[2026-05-11T21:28:24.408Z] 🛡️ GÜVENLİK: ci.yml hassas veri — GitHub'a gönderilmedi.
+[2026-05-11T21:28:24.408Z] [aurapos]  📦 feature/sprint-s0 branch'ına push edildi.
+[2026-05-11T21:28:38.582Z] ✅ Süreç Tamamlandı.
+[2026-05-11T21:28:39.155Z] [aurapos]  📄 Dokümantasyon tamamlandı. Sistem durumu güncelleniyor...
+[2026-05-11T21:28:40.167Z] 📊 Sistem Durumu Güncelleniyor: [aurapos]
+[2026-05-11T21:28:40.168Z] 📖 [DOCS] Skill mühürü okundu.
+[2026-05-11T21:28:40.168Z] 🧠 [DOCS] Reasoning budget: 1024 token
+[2026-05-11T21:29:32.768Z] 📋 STACK RULES: [aurapos] PRD'den teknoloji kuralları çıkarılıyor...
+[2026-05-11T21:29:32.768Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T21:29:32.769Z] 🧠 [ARCHITECT] Reasoning budget: 3072 token
+[2026-05-11T21:30:07.213Z] ✅ SYSTEM_STATE.md güncellendi.
+[2026-05-11T21:30:10.250Z] 📄 Dokümantasyon: [aurapos] Setup CI/CD pipeline with parallel jobs and caching
+[2026-05-11T21:30:10.251Z] 📖 [DOCS] Skill mühürü okundu.
+[2026-05-11T21:30:10.251Z] 🧠 [DOCS] Reasoning budget: 1024 token
+[2026-05-11T21:30:51.568Z] 📋 [aurapos] Stack kuralları mühürlendi. Yasak: [dexie.js]
+[2026-05-11T21:30:51.592Z] ✅ [aurapos] Consensus Planlama tamamlandı. 11 görev kuyruğa girdi.
+[2026-05-11T21:31:15.016Z] ⏭️ [aurapos] "sprint4_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T21:31:15.017Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (3/8 dosya, ~13772 token)...
+[2026-05-11T21:31:15.017Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T21:31:15.017Z] 🧠 [ARCHITECT] Reasoning budget: 3072 token
+[2026-05-11T21:32:59.666Z] ✅ Süreç Tamamlandı.
+[2026-05-11T21:33:04.402Z] [aurapos]  📄 Dokümantasyon tamamlandı. Sistem durumu güncelleniyor...
+[2026-05-11T21:33:05.400Z] 📊 Sistem Durumu Güncelleniyor: [aurapos]
+[2026-05-11T21:33:05.401Z] 📖 [DOCS] Skill mühürü okundu.
+[2026-05-11T21:33:05.401Z] 🧠 [DOCS] Reasoning budget: 1024 token
+[2026-05-11T21:34:20.024Z] ✅ SYSTEM_STATE.md güncellendi.
+[2026-05-11T21:46:14.037Z] ❌ [aurapos] Planlama Hatası: NIM yanıt formatı hatalı [finish=length, content_len=0, reasoning_len=0]: {"id":"chatcmpl-bbb35e5f37253d48","object":"chat.completion","created":1778535075,"prompt_routed_experts":null,"model":"nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4","choices":[{"index":0,"message":{"role":"assistant","content":null,"refusal":null,"annotations":null,"audio":null,"function_call":nu
+[2026-05-11T21:46:15.028Z] ⏭️ [aurapos] "sprint0_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T21:46:15.029Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (2/10 dosya, ~12713 token)...
+[2026-05-11T21:46:15.029Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T21:46:15.029Z] 🧠 [ARCHITECT] Reasoning budget: 3072 token
+[2026-05-11T21:50:36.773Z] ⏭️ [aurapos] "aurapos_prd.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T21:50:36.774Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (1/10 dosya, ~4865 token)...
+[2026-05-11T21:50:36.774Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T21:50:36.774Z] 🧠 [ARCHITECT] Reasoning budget: 3072 token
+[2026-05-11T21:50:36.781Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-11T22:05:12.280Z] ❌ [aurapos] Planlama Hatası: NIM yanıt formatı hatalı [finish=length, content_len=0, reasoning_len=0]: {"id":"chatcmpl-8e94c3876951b9eb","object":"chat.completion","created":1778536236,"prompt_routed_experts":null,"model":"nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4","choices":[{"index":0,"message":{"role":"assistant","content":null,"refusal":null,"annotations":null,"audio":null,"function_call":nu
+[2026-05-11T22:05:36.832Z] ⏭️ [aurapos] "aurapos_prd.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T22:05:36.832Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (1/10 dosya, ~4865 token)...
+[2026-05-11T22:05:36.833Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T22:05:36.833Z] 🧠 [ARCHITECT] Reasoning budget: 3072 token
+[2026-05-11T22:08:30.108Z] ❌ [aurapos] Planlama Hatası: NIM yanıt formatı hatalı [finish=abort, content_len=0, reasoning_len=0]: {"id":"chatcmpl-966cbad7826cb433","object":"chat.completion","created":1778537136,"prompt_routed_experts":null,"model":"nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4","choices":[{"index":0,"message":{"role":"assistant","content":null,"refusal":null,"annotations":null,"audio":null,"function_call":nu
+[2026-05-11T22:08:36.846Z] ⏭️ [aurapos] "aurapos_prd.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T22:08:36.846Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (1/10 dosya, ~4865 token)...
+[2026-05-11T22:08:36.846Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T22:08:36.846Z] 🧠 [ARCHITECT] Reasoning budget: 3072 token
+[2026-05-11T22:08:36.848Z] ❌ [aurapos] Planlama Hatası: connect ECONNREFUSED 127.0.0.1:8000
+[2026-05-11T22:08:36.848Z] ⛔ [aurapos] 3 başarısız denemeden sonra dosyalar mühürleniyor.
+[2026-05-11T22:09:36.850Z] ⏭️ [aurapos] "sprint0_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T22:09:36.850Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (1/9 dosya, ~10127 token)...
+[2026-05-11T22:09:36.850Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T22:09:36.851Z] 🧠 [ARCHITECT] Reasoning budget: 3072 token
+[2026-05-11T22:09:36.852Z] ❌ [aurapos] Planlama Hatası: connect ECONNREFUSED 127.0.0.1:8000
+[2026-05-11T22:10:36.854Z] ⏭️ [aurapos] "sprint0_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T22:10:36.854Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (1/9 dosya, ~10127 token)...
+[2026-05-11T22:10:36.854Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T22:10:36.854Z] 🧠 [ARCHITECT] Reasoning budget: 3072 token
+[2026-05-11T22:10:36.856Z] ❌ [aurapos] Planlama Hatası: connect ECONNREFUSED 127.0.0.1:8000
+[2026-05-11T22:11:36.857Z] ⏭️ [aurapos] "sprint0_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T22:11:36.858Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (1/9 dosya, ~10127 token)...
+[2026-05-11T22:11:36.858Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T22:11:36.858Z] 🧠 [ARCHITECT] Reasoning budget: 3072 token
+[2026-05-11T22:11:36.860Z] ❌ [aurapos] Planlama Hatası: connect ECONNREFUSED 127.0.0.1:8000
+[2026-05-11T22:11:36.860Z] ⛔ [aurapos] 3 başarısız denemeden sonra dosyalar mühürleniyor.
+[2026-05-11T22:12:36.862Z] ⏭️ [aurapos] "sprint3_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T22:12:36.862Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (2/8 dosya, ~10464 token)...
+[2026-05-11T22:12:36.863Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T22:12:36.863Z] 🧠 [ARCHITECT] Reasoning budget: 3072 token
+[2026-05-11T22:12:36.864Z] ❌ [aurapos] Planlama Hatası: connect ECONNREFUSED 127.0.0.1:8000
+[2026-05-11T22:13:36.866Z] ⏭️ [aurapos] "sprint3_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T22:13:36.866Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (2/8 dosya, ~10464 token)...
+[2026-05-11T22:13:36.867Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T22:13:36.867Z] 🧠 [ARCHITECT] Reasoning budget: 3072 token
+[2026-05-11T22:13:36.868Z] ❌ [aurapos] Planlama Hatası: connect ECONNREFUSED 127.0.0.1:8000
+[2026-05-11T22:14:36.871Z] ⏭️ [aurapos] "sprint3_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T22:14:36.871Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (2/8 dosya, ~10464 token)...
+[2026-05-11T22:14:36.871Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T22:14:36.871Z] 🧠 [ARCHITECT] Reasoning budget: 3072 token
+[2026-05-11T22:14:36.874Z] ❌ [aurapos] Planlama Hatası: connect ECONNREFUSED 127.0.0.1:8000
+[2026-05-11T22:14:36.874Z] ⛔ [aurapos] 3 başarısız denemeden sonra dosyalar mühürleniyor.
+[2026-05-11T22:15:36.873Z] ⏭️ [aurapos] "sprint5_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T22:15:36.873Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (2/6 dosya, ~8995 token)...
+[2026-05-11T22:15:36.873Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T22:15:36.873Z] 🧠 [ARCHITECT] Reasoning budget: 3072 token
+[2026-05-11T22:15:36.874Z] ❌ [aurapos] Planlama Hatası: connect ECONNREFUSED 127.0.0.1:8000
+[2026-05-11T22:16:36.875Z] ⏭️ [aurapos] "sprint5_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T22:16:36.875Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (2/6 dosya, ~8995 token)...
+[2026-05-11T22:16:36.875Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T22:16:36.876Z] 🧠 [ARCHITECT] Reasoning budget: 3072 token
+[2026-05-11T22:16:36.877Z] ❌ [aurapos] Planlama Hatası: connect ECONNREFUSED 127.0.0.1:8000
+[2026-05-11T22:17:36.878Z] ⏭️ [aurapos] "sprint5_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T22:17:36.878Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (2/6 dosya, ~8995 token)...
+[2026-05-11T22:17:36.878Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T22:17:36.878Z] 🧠 [ARCHITECT] Reasoning budget: 3072 token
+[2026-05-11T22:19:36.944Z] 🚀 CODER başlatıldı.
+[2026-05-11T22:19:36.948Z] 🚀 TESTER başlatıldı.
+[2026-05-11T22:19:36.949Z] ⏭️ [aurapos] "sprint4_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T22:19:36.950Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (1/6 dosya, ~5587 token)...
+[2026-05-11T22:19:36.950Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T22:19:36.950Z] 🧠 [ARCHITECT] Reasoning budget: 3072 token
+[2026-05-11T22:19:36.958Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-11T22:29:27.151Z] ❌ [aurapos] Planlama Hatası: NIM yanıt formatı hatalı [finish=length, content_len=0, reasoning_len=0]: {"id":"chatcmpl-ab039ae75c10f0d1","object":"chat.completion","created":1778537977,"prompt_routed_experts":null,"model":"nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4","choices":[{"index":0,"message":{"role":"assistant","content":null,"refusal":null,"annotations":null,"audio":null,"function_call":nu
+[2026-05-11T22:29:36.998Z] ⏭️ [aurapos] "aurapos_prd.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T22:29:36.998Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (1/10 dosya, ~4865 token)...
+[2026-05-11T22:29:36.998Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T22:29:36.999Z] 🧠 [ARCHITECT] Reasoning budget: 3072 token
+[2026-05-11T22:32:39.687Z] 🚀 TESTER başlatıldı.
+[2026-05-11T22:32:39.687Z] 🚀 CODER başlatıldı.
+[2026-05-11T22:32:39.690Z] ⏭️ [aurapos] "aurapos_prd.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T22:32:39.691Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (1/10 dosya, ~4865 token)...
+[2026-05-11T22:32:39.691Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T22:32:39.691Z] 🧠 [ARCHITECT] Reasoning budget: 3072 token
+[2026-05-11T22:32:39.699Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-11T22:36:34.674Z] 🚀 TESTER başlatıldı.
+[2026-05-11T22:36:34.675Z] ⏭️ [aurapos] "aurapos_prd.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T22:36:34.676Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (1/10 dosya, ~4865 token)...
+[2026-05-11T22:36:34.676Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T22:36:34.676Z] 🧠 [ARCHITECT] Reasoning budget: 3072 token
+[2026-05-11T22:36:34.681Z] 🚀 CODER başlatıldı.
+[2026-05-11T22:36:34.683Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-11T22:38:35.833Z] 🚀 CODER başlatıldı.
+[2026-05-11T22:38:35.838Z] ⏭️ [aurapos] "aurapos_prd.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T22:38:35.838Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (1/10 dosya, ~4865 token)...
+[2026-05-11T22:38:35.838Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T22:38:35.838Z] 🧠 [ARCHITECT] Reasoning budget: 3072 token
+[2026-05-11T22:38:35.844Z] 🚀 TESTER başlatıldı.
+[2026-05-11T22:38:35.846Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-11T22:48:26.439Z] ❌ [aurapos] Planlama Hatası: NIM yanıt formatı hatalı [finish=length, content_len=0, reasoning_len=0]. Ham yanıt debug_last_error.json dosyasına yazıldı.
+[2026-05-11T22:48:35.886Z] ⏭️ [aurapos] "aurapos_prd.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T22:48:35.886Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (1/10 dosya, ~4865 token)...
+[2026-05-11T22:48:35.886Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T22:48:35.886Z] 🧠 [ARCHITECT] Reasoning budget: 3072 token
+[2026-05-11T22:58:16.308Z] ❌ [aurapos] Planlama Hatası: NIM yanıt formatı hatalı [finish=length, content_len=0, reasoning_len=0]. Ham yanıt debug_last_error.json dosyasına yazıldı.
+[2026-05-11T22:58:35.926Z] ⏭️ [aurapos] "aurapos_prd.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T22:58:35.926Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (1/10 dosya, ~4865 token)...
+[2026-05-11T22:58:35.926Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T22:58:35.926Z] 🧠 [ARCHITECT] Reasoning budget: 3072 token
+[2026-05-11T23:08:03.288Z] ❌ [aurapos] Planlama Hatası: NIM yanıt formatı hatalı [finish=length, content_len=0, reasoning_len=0]. Ham yanıt debug_last_error.json dosyasına yazıldı.
+[2026-05-11T23:08:03.289Z] ⛔ [aurapos] 3 başarısız denemeden sonra dosyalar mühürleniyor.
+[2026-05-11T23:08:35.966Z] ⏭️ [aurapos] "sprint0_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T23:08:35.966Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (1/9 dosya, ~10127 token)...
+[2026-05-11T23:08:35.966Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T23:08:35.966Z] 🧠 [ARCHITECT] Reasoning budget: 3072 token
+[2026-05-11T23:11:19.616Z] ⏭️ [aurapos] "aurapos_prd.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T23:11:19.617Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (1/10 dosya, ~5023 token)...
+[2026-05-11T23:11:19.617Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T23:11:19.617Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-11T23:11:19.626Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-11T23:13:29.144Z] ⚖️ CONSENSUS: [aurapos] Peer Review başlatılıyor...
+[2026-05-11T23:13:29.144Z] 📖 [REVIEWER_COST] Skill mühürü okundu.
+[2026-05-11T23:13:29.145Z] 🧠 [REVIEWER_COST] Reasoning budget: 2048 token
+[2026-05-11T23:13:29.145Z] 📖 [REVIEWER_PERF] Skill mühürü okundu.
+[2026-05-11T23:13:29.146Z] 🧠 [REVIEWER_PERF] Reasoning budget: 2048 token
+[2026-05-11T23:15:51.525Z] 🧬 SYNTHESIS: [aurapos] Görüşler birleştiriliyor...
+[2026-05-11T23:15:51.526Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T23:15:51.526Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-11T23:17:45.745Z] 📋 STACK RULES: [aurapos] PRD'den teknoloji kuralları çıkarılıyor...
+[2026-05-11T23:17:45.765Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T23:17:45.765Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-11T23:19:30.761Z] 📋 [aurapos] Stack kuralları mühürlendi. Yasak: [Dexie.js, toast library (other than react-hot-toast), barrel import, deep relative import (2+ levels)]
+[2026-05-11T23:19:30.764Z] 🎯 [aurapos] Bağımlılıklar tamam, görev başlatılıyor: Shared TypeScript types generated from Supabase schema
+[2026-05-11T23:19:30.765Z] ✅ [aurapos] Consensus Planlama tamamlandı. 11 görev kuyruğa girdi.
+[2026-05-11T23:19:33.193Z] ✍️ CODER: [aurapos] S0-6 yazılıyor...
+[2026-05-11T23:19:33.193Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-11T23:19:33.194Z] 🧠 [CODER] Reasoning budget: 4096 token
+[2026-05-11T23:19:51.335Z] 💾 Dosya mühürlendi (27 bytes): index.ts
+[2026-05-11T23:19:55.090Z] [aurapos]  Kod yazımı bitti. Test ajanı devralıyor: S0-6
+[2026-05-11T23:19:58.184Z] 🧐 QA GUARDRAIL: [aurapos] S0-6 denetleniyor...
+[2026-05-11T23:19:59.692Z] ❌ SYNC FAIL: index.ts
+[2026-05-11T23:20:00.096Z] [aurapos]  🧭 STEERING: Hata analizi ve yönlendirme yapılıyor (1/3)
+[2026-05-11T23:20:00.097Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T23:20:00.097Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-11T23:20:13.232Z] 🧭 STEERING: [aurapos] S0-6 yönlendirme ile düzeltiliyor...
+[2026-05-11T23:20:13.233Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-11T23:20:13.233Z] 🧠 [CODER] Reasoning budget: 4096 token
+[2026-05-11T23:20:19.653Z] ⏭️ [aurapos] "sprint0_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T23:20:19.653Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (1/9 dosya, ~10285 token)...
+[2026-05-11T23:20:19.653Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T23:20:19.653Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-11T23:21:13.876Z] 💾 Dosya mühürlendi (24 bytes): index.ts
+[2026-05-11T23:21:15.158Z] [aurapos]  Kod yazımı bitti. Test ajanı devralıyor: S0-6
+[2026-05-11T23:21:18.259Z] 🧐 QA GUARDRAIL: [aurapos] S0-6 denetleniyor...
+[2026-05-11T23:21:19.034Z] ❌ SYNC FAIL: index.ts
+[2026-05-11T23:21:20.160Z] [aurapos]  🧭 STEERING: Hata analizi ve yönlendirme yapılıyor (2/3)
+[2026-05-11T23:21:20.162Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T23:21:20.162Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-11T23:21:20.163Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T23:21:20.163Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-11T23:21:42.240Z] 🧠 BELLEK GÜNCELLENDİ: Global dersi işlendi.
+[2026-05-11T23:21:43.321Z] 🧭 STEERING: [aurapos] S0-6 yönlendirme ile düzeltiliyor...
+[2026-05-11T23:21:43.322Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-11T23:21:43.322Z] 🧠 [CODER] Reasoning budget: 4096 token
+[2026-05-11T23:27:12.773Z] ⚖️ CONSENSUS: [aurapos] Peer Review başlatılıyor...
+[2026-05-11T23:27:12.774Z] 📖 [REVIEWER_COST] Skill mühürü okundu.
+[2026-05-11T23:27:12.774Z] 🧠 [REVIEWER_COST] Reasoning budget: 2048 token
+[2026-05-11T23:27:12.774Z] 📖 [REVIEWER_PERF] Skill mühürü okundu.
+[2026-05-11T23:27:12.774Z] 🧠 [REVIEWER_PERF] Reasoning budget: 2048 token
+[2026-05-11T23:30:06.459Z] 🧬 SYNTHESIS: [aurapos] Görüşler birleştiriliyor...
+[2026-05-11T23:30:06.459Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T23:30:06.459Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-11T23:32:07.743Z] 💾 Dosya mühürlendi (27 bytes): index.ts
+[2026-05-11T23:32:10.732Z] [aurapos]  Kod yazımı bitti. Test ajanı devralıyor: S0-6
+[2026-05-11T23:32:13.906Z] 🧐 QA GUARDRAIL: [aurapos] S0-6 denetleniyor...
+[2026-05-11T23:32:14.941Z] ❌ SYNC FAIL: index.ts
+[2026-05-11T23:32:15.739Z] [aurapos]  🧭 STEERING: Hata analizi ve yönlendirme yapılıyor (3/3)
+[2026-05-11T23:32:15.739Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T23:32:15.739Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-11T23:32:15.740Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T23:32:15.740Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-11T23:32:29.883Z] 🧠 BELLEK GÜNCELLENDİ: aurapos dersi işlendi.
+[2026-05-11T23:32:33.919Z] 🧭 STEERING: [aurapos] S0-6 yönlendirme ile düzeltiliyor...
+[2026-05-11T23:32:33.919Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-11T23:32:33.919Z] 🧠 [CODER] Reasoning budget: 4096 token
+[2026-05-11T23:32:47.570Z] 💾 Dosya mühürlendi (24 bytes): index.ts
+[2026-05-11T23:32:50.762Z] [aurapos]  Kod yazımı bitti. Test ajanı devralıyor: S0-6
+[2026-05-11T23:32:53.972Z] 🧐 QA GUARDRAIL: [aurapos] S0-6 denetleniyor...
+[2026-05-11T23:32:54.720Z] ❌ SYNC FAIL: index.ts
+[2026-05-11T23:32:55.769Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-11T23:32:55.770Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T23:32:55.770Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-11T23:37:32.409Z] 📋 STACK RULES: [aurapos] PRD'den teknoloji kuralları çıkarılıyor...
+[2026-05-11T23:37:32.410Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T23:37:32.410Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-11T23:37:53.095Z] 📋 [aurapos] Stack kuralları mühürlendi. Yasak: [localStorage, sessionStorage, jQuery, MongoDB, Dexie.js]
+[2026-05-11T23:37:53.096Z] 🎯 [aurapos] Bağımlılıklar tamam, görev başlatılıyor: Order Service temel CRUD, bölme, birleştirme ve masa taşıma endpoint'lerini oluştur
+[2026-05-11T23:37:53.101Z] 🎯 [aurapos] Bağımlılıklar tamam, görev başlatılıyor: Service Worker ve PWA yapılandırmasını kur (Workbox)
+[2026-05-11T23:37:53.101Z] ✅ [aurapos] Consensus Planlama tamamlandı. 15 görev kuyruğa girdi.
+[2026-05-11T23:37:54.253Z] ✍️ CODER: [aurapos] S0-8 yazılıyor...
+[2026-05-11T23:37:54.253Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-11T23:37:54.253Z] 🧠 [CODER] Reasoning budget: 4096 token
+[2026-05-11T23:38:19.725Z] ⏭️ [aurapos] "sprint2_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T23:38:19.725Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (1/8 dosya, ~7104 token)...
+[2026-05-11T23:38:19.725Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T23:38:19.725Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-11T23:41:58.915Z] ⚖️ CONSENSUS: [aurapos] Peer Review başlatılıyor...
+[2026-05-11T23:41:58.915Z] 📖 [REVIEWER_COST] Skill mühürü okundu.
+[2026-05-11T23:41:58.915Z] 🧠 [REVIEWER_COST] Reasoning budget: 2048 token
+[2026-05-11T23:41:58.915Z] 📖 [REVIEWER_PERF] Skill mühürü okundu.
+[2026-05-11T23:41:58.915Z] 🧠 [REVIEWER_PERF] Reasoning budget: 2048 token
+[2026-05-11T23:45:46.290Z] 🧬 SYNTHESIS: [aurapos] Görüşler birleştiriliyor...
+[2026-05-11T23:45:46.290Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T23:45:46.290Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-11T23:49:01.021Z] 📋 STACK RULES: [aurapos] PRD'den teknoloji kuralları çıkarılıyor...
+[2026-05-11T23:49:01.021Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T23:49:01.021Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-11T23:49:27.775Z] 📋 [aurapos] Stack kuralları mühürlendi. Yasak: []
+[2026-05-11T23:49:27.776Z] 🎯 [aurapos] Bağımlılıklar tamam, görev başlatılıyor: Initialize workspace
+[2026-05-11T23:49:27.777Z] 🎯 [aurapos] Bağımlılıklar tamam, görev başlatılıyor: Create shared-types package
+[2026-05-11T23:49:27.781Z] 🎯 [aurapos] Bağımlılıklar tamam, görev başlatılıyor: Create POS Next.js app
+[2026-05-11T23:49:27.782Z] 🎯 [aurapos] Bağımlılıklar tamam, görev başlatılıyor: Create Dashboard Next.js app
+[2026-05-11T23:49:27.784Z] ✅ [aurapos] Consensus Planlama tamamlandı. 12 görev kuyruğa girdi.
+[2026-05-11T23:49:38.793Z] 💾 Dosya mühürlendi (8698 bytes): orders.ts
+[2026-05-11T23:49:39.901Z] ✍️ CODER: [aurapos] S0-21 yazılıyor...
+[2026-05-11T23:49:39.901Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-11T23:49:39.901Z] 🧠 [CODER] Reasoning budget: 4096 token
+[2026-05-11T23:49:41.641Z] [aurapos]  Kod yazımı bitti. Test ajanı devralıyor: S0-8
+[2026-05-11T23:49:44.941Z] 🧐 QA GUARDRAIL: [aurapos] S0-8 denetleniyor...
+[2026-05-11T23:49:45.600Z] ❌ SYNC FAIL: orders.ts
+[2026-05-11T23:49:46.647Z] [aurapos]  🧭 STEERING: Hata analizi ve yönlendirme yapılıyor (1/3)
+[2026-05-11T23:49:46.648Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T23:49:46.648Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-11T23:50:19.773Z] ⏭️ [aurapos] "sprint3_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T23:50:19.774Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (1/7 dosya, ~5955 token)...
+[2026-05-11T23:50:19.774Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T23:50:19.774Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-11T23:51:06.527Z] 💾 Dosya mühürlendi (1737 bytes): serviceWorker.js
+[2026-05-11T23:51:06.718Z] [aurapos]  Kod yazımı bitti. Test ajanı devralıyor: S0-21
+[2026-05-11T23:51:09.993Z] 🧭 STEERING: [aurapos] S0-8 yönlendirme ile düzeltiliyor...
+[2026-05-11T23:51:09.994Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-11T23:51:09.994Z] 🧠 [CODER] Reasoning budget: 4096 token
+[2026-05-11T23:51:10.025Z] 🧐 QA GUARDRAIL: [aurapos] S0-21 denetleniyor...
+[2026-05-11T23:51:10.050Z] 🐳 SANDBOX: [aurapos] S0-21 izole test ortamında denetleniyor...
+[2026-05-11T23:51:10.258Z] ⏭️ SANDBOX ATLANDI: Docker daemon çalışmıyor
+[2026-05-11T23:51:10.259Z] 🕵️ SHADOW TESTER: [aurapos] Güvenlik denetimi yapılıyor...
+[2026-05-11T23:51:10.260Z] 📖 [TESTER] Skill mühürü okundu.
+[2026-05-11T23:51:10.261Z] 🧠 [TESTER] Reasoning budget: 256 token
+[2026-05-11T23:52:36.793Z] [aurapos]  🧭 STEERING: Hata analizi ve yönlendirme yapılıyor (1/3)
+[2026-05-11T23:52:36.793Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T23:52:36.794Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-11T23:53:08.205Z] ⚖️ CONSENSUS: [aurapos] Peer Review başlatılıyor...
+[2026-05-11T23:53:08.205Z] 📖 [REVIEWER_COST] Skill mühürü okundu.
+[2026-05-11T23:53:08.205Z] 🧠 [REVIEWER_COST] Reasoning budget: 2048 token
+[2026-05-11T23:53:08.206Z] 📖 [REVIEWER_PERF] Skill mühürü okundu.
+[2026-05-11T23:53:08.206Z] 🧠 [REVIEWER_PERF] Reasoning budget: 2048 token
+[2026-05-11T23:55:25.414Z] 🧬 SYNTHESIS: [aurapos] Görüşler birleştiriliyor...
+[2026-05-11T23:55:25.415Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T23:55:25.415Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-11T23:57:11.193Z] 📋 STACK RULES: [aurapos] PRD'den teknoloji kuralları çıkarılıyor...
+[2026-05-11T23:57:11.194Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T23:57:11.194Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-11T23:57:31.286Z] 📋 [aurapos] Stack kuralları mühürlendi. Yasak: []
+[2026-05-11T23:57:31.311Z] ✅ [aurapos] Consensus Planlama tamamlandı. 4 görev kuyruğa girdi.
+[2026-05-11T23:58:19.816Z] ⏭️ [aurapos] "sprint4_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-11T23:58:19.816Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (1/6 dosya, ~5745 token)...
+[2026-05-11T23:58:19.816Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-11T23:58:19.816Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T00:00:41.987Z] ⚖️ CONSENSUS: [aurapos] Peer Review başlatılıyor...
+[2026-05-12T00:00:41.987Z] 📖 [REVIEWER_COST] Skill mühürü okundu.
+[2026-05-12T00:00:41.987Z] 🧠 [REVIEWER_COST] Reasoning budget: 2048 token
+[2026-05-12T00:00:41.987Z] 📖 [REVIEWER_PERF] Skill mühürü okundu.
+[2026-05-12T00:00:41.987Z] 🧠 [REVIEWER_PERF] Reasoning budget: 2048 token
+[2026-05-12T00:01:59.025Z] 💾 Dosya mühürlendi (8698 bytes): orders.ts
+[2026-05-12T00:02:00.619Z] 🧭 STEERING: [aurapos] S0-21 yönlendirme ile düzeltiliyor...
+[2026-05-12T00:02:00.619Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-12T00:02:00.619Z] 🧠 [CODER] Reasoning budget: 4096 token
+[2026-05-12T00:02:02.324Z] [aurapos]  Kod yazımı bitti. Test ajanı devralıyor: S0-8
+[2026-05-12T00:02:05.655Z] 🧐 QA GUARDRAIL: [aurapos] S0-8 denetleniyor...
+[2026-05-12T00:02:06.470Z] ❌ SYNC FAIL: orders.ts
+[2026-05-12T00:02:07.332Z] [aurapos]  🧭 STEERING: Hata analizi ve yönlendirme yapılıyor (2/3)
+[2026-05-12T00:02:07.333Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T00:02:07.334Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T00:02:07.335Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T00:02:07.335Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T00:03:15.729Z] 🧬 SYNTHESIS: [aurapos] Görüşler birleştiriliyor...
+[2026-05-12T00:03:15.729Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T00:03:15.729Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T00:04:58.826Z] 💾 Dosya mühürlendi (2424 bytes): serviceWorker.js
+[2026-05-12T00:05:00.780Z] 🧭 STEERING: [aurapos] S0-8 yönlendirme ile düzeltiliyor...
+[2026-05-12T00:05:00.781Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-12T00:05:00.781Z] 🧠 [CODER] Reasoning budget: 4096 token
+[2026-05-12T00:05:02.507Z] [aurapos]  Kod yazımı bitti. Test ajanı devralıyor: S0-21
+[2026-05-12T00:05:05.834Z] 🧐 QA GUARDRAIL: [aurapos] S0-21 denetleniyor...
+[2026-05-12T00:05:05.867Z] 🐳 SANDBOX: [aurapos] S0-21 izole test ortamında denetleniyor...
+[2026-05-12T00:05:05.994Z] ⏭️ SANDBOX ATLANDI: Docker daemon çalışmıyor
+[2026-05-12T00:05:05.995Z] 🕵️ SHADOW TESTER: [aurapos] Güvenlik denetimi yapılıyor...
+[2026-05-12T00:05:05.995Z] 📖 [TESTER] Skill mühürü okundu.
+[2026-05-12T00:05:05.995Z] 🧠 [TESTER] Reasoning budget: 256 token
+[2026-05-12T00:05:27.041Z] 📋 STACK RULES: [aurapos] PRD'den teknoloji kuralları çıkarılıyor...
+[2026-05-12T00:05:27.042Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T00:05:27.042Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T00:06:52.602Z] [aurapos]  🧭 STEERING: Hata analizi ve yönlendirme yapılıyor (2/3)
+[2026-05-12T00:06:52.604Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T00:06:52.604Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T00:06:52.604Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T00:06:52.605Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T00:07:08.367Z] 🧠 BELLEK GÜNCELLENDİ: Global dersi işlendi.
+[2026-05-12T00:11:04.839Z] 📋 [aurapos] Stack kuralları mühürlendi. Yasak: []
+[2026-05-12T00:11:04.843Z] ✅ [aurapos] Consensus Planlama tamamlandı. 6 görev kuyruğa girdi.
+[2026-05-12T00:11:19.847Z] ⏭️ [aurapos] "sprint5_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-12T00:11:19.847Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (1/5 dosya, ~5845 token)...
+[2026-05-12T00:11:19.847Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T00:11:19.847Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T00:13:15.622Z] ⚖️ CONSENSUS: [aurapos] Peer Review başlatılıyor...
+[2026-05-12T00:13:15.622Z] 📖 [REVIEWER_COST] Skill mühürü okundu.
+[2026-05-12T00:13:15.622Z] 🧠 [REVIEWER_COST] Reasoning budget: 2048 token
+[2026-05-12T00:13:15.623Z] 📖 [REVIEWER_PERF] Skill mühürü okundu.
+[2026-05-12T00:13:15.623Z] 🧠 [REVIEWER_PERF] Reasoning budget: 2048 token
+[2026-05-12T00:15:05.034Z] 💾 Dosya mühürlendi (7883 bytes): orders.ts
+[2026-05-12T00:15:06.384Z] 🧭 STEERING: [aurapos] S0-21 yönlendirme ile düzeltiliyor...
+[2026-05-12T00:15:06.384Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-12T00:15:06.384Z] 🧠 [CODER] Reasoning budget: 4096 token
+[2026-05-12T00:15:08.112Z] [aurapos]  Kod yazımı bitti. Test ajanı devralıyor: S0-8
+[2026-05-12T00:15:11.436Z] 🧐 QA GUARDRAIL: [aurapos] S0-8 denetleniyor...
+[2026-05-12T00:15:12.416Z] ❌ SYNC FAIL: orders.ts
+[2026-05-12T00:15:13.119Z] [aurapos]  🧭 STEERING: Hata analizi ve yönlendirme yapılıyor (3/3)
+[2026-05-12T00:15:13.119Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T00:15:13.120Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T00:15:13.120Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T00:15:13.120Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T00:15:31.869Z] 🧬 SYNTHESIS: [aurapos] Görüşler birleştiriliyor...
+[2026-05-12T00:15:31.869Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T00:15:31.869Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T00:16:50.883Z] 📋 STACK RULES: [aurapos] PRD'den teknoloji kuralları çıkarılıyor...
+[2026-05-12T00:16:50.884Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T00:16:50.884Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T00:21:38.297Z] 📋 [aurapos] Stack kuralları mühürlendi. Yasak: []
+[2026-05-12T00:21:38.322Z] ✅ [aurapos] Consensus Planlama tamamlandı. 4 görev kuyruğa girdi.
+[2026-05-12T00:22:19.848Z] ⏭️ [aurapos] "sprint6_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-12T00:22:19.849Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (1/4 dosya, ~5991 token)...
+[2026-05-12T00:22:19.849Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T00:22:19.849Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T00:23:58.132Z] ⚖️ CONSENSUS: [aurapos] Peer Review başlatılıyor...
+[2026-05-12T00:23:58.132Z] 📖 [REVIEWER_COST] Skill mühürü okundu.
+[2026-05-12T00:23:58.132Z] 🧠 [REVIEWER_COST] Reasoning budget: 2048 token
+[2026-05-12T00:23:58.132Z] 📖 [REVIEWER_PERF] Skill mühürü okundu.
+[2026-05-12T00:23:58.132Z] 🧠 [REVIEWER_PERF] Reasoning budget: 2048 token
+[2026-05-12T00:24:28.984Z] 💾 Dosya mühürlendi (1356 bytes): serviceWorker.js
+[2026-05-12T00:24:31.945Z] 🧭 STEERING: [aurapos] S0-8 yönlendirme ile düzeltiliyor...
+[2026-05-12T00:24:31.965Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-12T00:24:31.965Z] 🧠 [CODER] Reasoning budget: 4096 token
+[2026-05-12T00:24:33.639Z] [aurapos]  Kod yazımı bitti. Test ajanı devralıyor: S0-21
+[2026-05-12T00:24:37.003Z] 🧐 QA GUARDRAIL: [aurapos] S0-21 denetleniyor...
+[2026-05-12T00:24:37.036Z] 🐳 SANDBOX: [aurapos] S0-21 izole test ortamında denetleniyor...
+[2026-05-12T00:24:37.107Z] ⏭️ SANDBOX ATLANDI: Docker daemon çalışmıyor
+[2026-05-12T00:24:37.108Z] 🕵️ SHADOW TESTER: [aurapos] Güvenlik denetimi yapılıyor...
+[2026-05-12T00:24:37.108Z] 📖 [TESTER] Skill mühürü okundu.
+[2026-05-12T00:24:37.108Z] 🧠 [TESTER] Reasoning budget: 256 token
+[2026-05-12T00:26:26.691Z] 🧬 SYNTHESIS: [aurapos] Görüşler birleştiriliyor...
+[2026-05-12T00:26:26.691Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T00:26:26.691Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T00:26:43.770Z] [aurapos]  🧭 STEERING: Hata analizi ve yönlendirme yapılıyor (3/3)
+[2026-05-12T00:26:43.771Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T00:26:43.771Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T00:26:43.772Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T00:26:43.772Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T00:26:59.061Z] 🧠 BELLEK GÜNCELLENDİ: Global dersi işlendi.
+[2026-05-12T00:28:12.326Z] 📋 STACK RULES: [aurapos] PRD'den teknoloji kuralları çıkarılıyor...
+[2026-05-12T00:28:12.326Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T00:28:12.326Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T00:28:24.395Z] 📋 [aurapos] Stack kuralları mühürlendi. Yasak: []
+[2026-05-12T00:28:24.404Z] ✅ [aurapos] Consensus Planlama tamamlandı. 8 görev kuyruğa girdi.
+[2026-05-12T00:29:19.860Z] ⏭️ [aurapos] "assets_embedded.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-12T00:29:19.861Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (1/3 dosya, ~5620 token)...
+[2026-05-12T00:29:19.861Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T00:29:19.861Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T00:31:21.874Z] ⚖️ CONSENSUS: [aurapos] Peer Review başlatılıyor...
+[2026-05-12T00:31:21.874Z] 📖 [REVIEWER_COST] Skill mühürü okundu.
+[2026-05-12T00:31:21.874Z] 🧠 [REVIEWER_COST] Reasoning budget: 2048 token
+[2026-05-12T00:31:21.875Z] 📖 [REVIEWER_PERF] Skill mühürü okundu.
+[2026-05-12T00:31:21.875Z] 🧠 [REVIEWER_PERF] Reasoning budget: 2048 token
+[2026-05-12T00:34:17.441Z] 💾 Dosya mühürlendi (8527 bytes): orders.ts
+[2026-05-12T00:34:17.549Z] 🧭 STEERING: [aurapos] S0-21 yönlendirme ile düzeltiliyor...
+[2026-05-12T00:34:17.549Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-12T00:34:17.549Z] 🧠 [CODER] Reasoning budget: 4096 token
+[2026-05-12T00:34:19.215Z] [aurapos]  Kod yazımı bitti. Test ajanı devralıyor: S0-8
+[2026-05-12T00:34:22.576Z] 🧐 QA GUARDRAIL: [aurapos] S0-8 denetleniyor...
+[2026-05-12T00:34:23.499Z] ❌ SYNC FAIL: orders.ts
+[2026-05-12T00:34:24.221Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T00:34:24.222Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T00:34:24.222Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T00:34:28.046Z] 🧬 SYNTHESIS: [aurapos] Görüşler birleştiriliyor...
+[2026-05-12T00:34:28.046Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T00:34:28.046Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T00:36:50.988Z] 📋 STACK RULES: [aurapos] PRD'den teknoloji kuralları çıkarılıyor...
+[2026-05-12T00:36:50.989Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T00:36:50.989Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T00:38:50.447Z] 📋 [aurapos] Stack kuralları mühürlendi. Yasak: []
+[2026-05-12T00:38:50.474Z] ✅ [aurapos] Consensus Planlama tamamlandı. 8 görev kuyruğa girdi.
+[2026-05-12T00:39:19.872Z] ⏭️ [aurapos] "aurapos_reference.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-12T00:39:19.872Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (1/2 dosya, ~10542 token)...
+[2026-05-12T00:39:19.873Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T00:39:19.873Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T00:42:38.571Z] 💾 Dosya mühürlendi (1539 bytes): serviceWorker.js
+[2026-05-12T00:42:39.717Z] [aurapos]  Kod yazımı bitti. Test ajanı devralıyor: S0-21
+[2026-05-12T00:42:43.044Z] ✍️ CODER: [aurapos] S0-1_Init yazılıyor...
+[2026-05-12T00:42:43.044Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-12T00:42:43.044Z] 🧠 [CODER] Reasoning budget: 4096 token
+[2026-05-12T00:42:43.100Z] 🧐 QA GUARDRAIL: [aurapos] S0-21 denetleniyor...
+[2026-05-12T00:42:43.129Z] 🐳 SANDBOX: [aurapos] S0-21 izole test ortamında denetleniyor...
+[2026-05-12T00:42:43.205Z] ⏭️ SANDBOX ATLANDI: Docker daemon çalışmıyor
+[2026-05-12T00:42:43.206Z] 🕵️ SHADOW TESTER: [aurapos] Güvenlik denetimi yapılıyor...
+[2026-05-12T00:42:43.207Z] 📖 [TESTER] Skill mühürü okundu.
+[2026-05-12T00:42:43.207Z] 🧠 [TESTER] Reasoning budget: 256 token
+[2026-05-12T00:43:17.245Z] 💾 Dosya mühürlendi (35 bytes): pnpm-workspace.yaml
+[2026-05-12T00:43:18.077Z] ✍️ CODER: [aurapos] S0-4_SharedTypes yazılıyor...
+[2026-05-12T00:43:18.077Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-12T00:43:18.077Z] 🧠 [CODER] Reasoning budget: 4096 token
+[2026-05-12T00:43:19.760Z] [aurapos]  Kod yazımı bitti. Test ajanı devralıyor: S0-1_Init
+[2026-05-12T00:43:53.168Z] 🧐 QA GUARDRAIL: [aurapos] S0-1_Init denetleniyor...
+[2026-05-12T00:43:53.168Z] 🐳 SANDBOX: [aurapos] S0-1_Init izole test ortamında denetleniyor...
+[2026-05-12T00:43:53.168Z] ⏭️ SANDBOX ATLANDI: .yaml dosyaları için sandbox tanımsız
+[2026-05-12T00:43:53.168Z] 🕵️ SHADOW TESTER: [aurapos] Güvenlik denetimi yapılıyor...
+[2026-05-12T00:43:53.168Z] 📖 [TESTER] Skill mühürü okundu.
+[2026-05-12T00:43:53.168Z] 🧠 [TESTER] Reasoning budget: 256 token
+[2026-05-12T00:43:54.798Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T00:43:54.799Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T00:43:54.799Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T00:44:25.244Z] ✅ [aurapos] S0-1_Init onaylandı. HEARTBEAT_OK
+[2026-05-12T00:44:57.635Z] 💾 Dosya mühürlendi (249 bytes): package.json
+[2026-05-12T00:44:58.174Z] ✍️ CODER: [aurapos] S0-7_POS yazılıyor...
+[2026-05-12T00:44:58.174Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-12T00:44:58.174Z] 🧠 [CODER] Reasoning budget: 4096 token
+[2026-05-12T00:45:07.645Z] ⚖️ CONSENSUS: [aurapos] Peer Review başlatılıyor...
+[2026-05-12T00:45:07.645Z] 📖 [REVIEWER_COST] Skill mühürü okundu.
+[2026-05-12T00:45:07.645Z] 🧠 [REVIEWER_COST] Reasoning budget: 2048 token
+[2026-05-12T00:45:07.645Z] 📖 [REVIEWER_PERF] Skill mühürü okundu.
+[2026-05-12T00:45:07.645Z] 🧠 [REVIEWER_PERF] Reasoning budget: 2048 token
+[2026-05-12T00:45:29.888Z] [aurapos]  Kod yazımı bitti. Test ajanı devralıyor: S0-4_SharedTypes
+[2026-05-12T00:45:33.256Z] 🧐 QA GUARDRAIL: [aurapos] S0-4_SharedTypes denetleniyor...
+[2026-05-12T00:45:33.256Z] 🐳 SANDBOX: [aurapos] S0-4_SharedTypes izole test ortamında denetleniyor...
+[2026-05-12T00:45:33.256Z] ⏭️ SANDBOX ATLANDI: .json dosyaları için sandbox tanımsız
+[2026-05-12T00:45:33.257Z] 🕵️ SHADOW TESTER: [aurapos] Güvenlik denetimi yapılıyor...
+[2026-05-12T00:45:33.257Z] 📖 [TESTER] Skill mühürü okundu.
+[2026-05-12T00:45:33.257Z] 🧠 [TESTER] Reasoning budget: 256 token
+[2026-05-12T00:45:34.894Z] [aurapos]  ✅ TEST GEÇİLDİ.
+[2026-05-12T00:45:36.075Z] [aurapos]  📦 feature/sprint-s0 branch'ına push edildi.
+[2026-05-12T00:45:36.248Z] 📄 Dokümantasyon: [aurapos] Initialize workspace
+[2026-05-12T00:45:36.250Z] 📖 [DOCS] Skill mühürü okundu.
+[2026-05-12T00:45:36.250Z] 🧠 [DOCS] Reasoning budget: 1024 token
+[2026-05-12T00:46:18.363Z] 💾 Dosya mühürlendi (364 bytes): package.json
+[2026-05-12T00:46:19.941Z] [aurapos]  Kod yazımı bitti. Test ajanı devralıyor: S0-7_POS
+[2026-05-12T00:46:21.658Z] ✅ [aurapos] S0-4_SharedTypes onaylandı. HEARTBEAT_OK
+[2026-05-12T00:46:23.254Z] ✍️ CODER: [aurapos] S0-8_Dashboard yazılıyor...
+[2026-05-12T00:46:23.255Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-12T00:46:23.255Z] 🧠 [CODER] Reasoning budget: 4096 token
+[2026-05-12T00:46:23.300Z] 🧐 QA GUARDRAIL: [aurapos] S0-7_POS denetleniyor...
+[2026-05-12T00:46:23.300Z] 🐳 SANDBOX: [aurapos] S0-7_POS izole test ortamında denetleniyor...
+[2026-05-12T00:46:23.300Z] ⏭️ SANDBOX ATLANDI: .json dosyaları için sandbox tanımsız
+[2026-05-12T00:46:23.300Z] 🕵️ SHADOW TESTER: [aurapos] Güvenlik denetimi yapılıyor...
+[2026-05-12T00:46:23.301Z] 📖 [TESTER] Skill mühürü okundu.
+[2026-05-12T00:46:23.301Z] 🧠 [TESTER] Reasoning budget: 256 token
+[2026-05-12T00:46:24.948Z] [aurapos]  ✅ TEST GEÇİLDİ.
+[2026-05-12T00:46:26.255Z] [aurapos]  📦 feature/sprint-s0 branch'ına push edildi.
+[2026-05-12T00:46:26.256Z] 🎯 [aurapos] Bağımlılıklar tamam, görev başlatılıyor: Create hardware package source
+[2026-05-12T00:46:26.276Z] 🎯 [aurapos] Bağımlılıklar tamam, görev başlatılıyor: Create electric-config package source
+[2026-05-12T00:47:57.495Z] 💾 Dosya mühürlendi (491 bytes): package.json
+[2026-05-12T00:47:58.333Z] ✍️ CODER: [aurapos] S0-4_Hardware yazılıyor...
+[2026-05-12T00:47:58.333Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-12T00:47:58.333Z] 🧠 [CODER] Reasoning budget: 4096 token
+[2026-05-12T00:48:00.038Z] [aurapos]  Kod yazımı bitti. Test ajanı devralıyor: S0-8_Dashboard
+[2026-05-12T00:48:20.123Z] ✅ [aurapos] S0-7_POS onaylandı. HEARTBEAT_OK
+[2026-05-12T00:48:23.407Z] 🧐 QA GUARDRAIL: [aurapos] S0-8_Dashboard denetleniyor...
+[2026-05-12T00:48:23.408Z] 🐳 SANDBOX: [aurapos] S0-8_Dashboard izole test ortamında denetleniyor...
+[2026-05-12T00:48:23.408Z] ⏭️ SANDBOX ATLANDI: .json dosyaları için sandbox tanımsız
+[2026-05-12T00:48:23.408Z] 🕵️ SHADOW TESTER: [aurapos] Güvenlik denetimi yapılıyor...
+[2026-05-12T00:48:23.408Z] 📖 [TESTER] Skill mühürü okundu.
+[2026-05-12T00:48:23.409Z] 🧠 [TESTER] Reasoning budget: 256 token
+[2026-05-12T00:48:25.057Z] [aurapos]  ✅ TEST GEÇİLDİ.
+[2026-05-12T00:48:26.102Z] [aurapos]  📦 feature/sprint-s0 branch'ına push edildi.
+[2026-05-12T00:49:02.593Z] ✅ [aurapos] S0-8_Dashboard onaylandı. HEARTBEAT_OK
+[2026-05-12T00:49:05.097Z] [aurapos]  ✅ TEST GEÇİLDİ.
+[2026-05-12T00:49:06.180Z] [aurapos]  📦 feature/sprint-s0 branch'ına push edildi.
+[2026-05-12T00:49:06.183Z] 🎯 [aurapos] Bağımlılıklar tamam, görev başlatılıyor: Create dashboard home page and env
+[2026-05-12T00:49:08.023Z] ✅ Süreç Tamamlandı.
+[2026-05-12T00:49:08.864Z] 🧬 SYNTHESIS: [aurapos] Görüşler birleştiriliyor...
+[2026-05-12T00:49:08.864Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T00:49:08.864Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T00:49:10.101Z] [aurapos]  📄 Dokümantasyon tamamlandı. Sistem durumu güncelleniyor...
+[2026-05-12T00:49:11.450Z] 📊 Sistem Durumu Güncelleniyor: [aurapos]
+[2026-05-12T00:49:11.470Z] 📖 [DOCS] Skill mühürü okundu.
+[2026-05-12T00:49:11.470Z] 🧠 [DOCS] Reasoning budget: 1024 token
+[2026-05-12T00:51:24.793Z] 💾 Dosya mühürlendi (1048 bytes): package.json
+[2026-05-12T00:51:25.230Z] [aurapos]  Kod yazımı bitti. Test ajanı devralıyor: S0-4_Hardware
+[2026-05-12T00:51:28.522Z] ✍️ CODER: [aurapos] S0-4_ElectricConfig yazılıyor...
+[2026-05-12T00:51:28.522Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-12T00:51:28.522Z] 🧠 [CODER] Reasoning budget: 4096 token
+[2026-05-12T00:51:28.579Z] 🧐 QA GUARDRAIL: [aurapos] S0-4_Hardware denetleniyor...
+[2026-05-12T00:51:28.579Z] 🐳 SANDBOX: [aurapos] S0-4_Hardware izole test ortamında denetleniyor...
+[2026-05-12T00:51:28.579Z] ⏭️ SANDBOX ATLANDI: .json dosyaları için sandbox tanımsız
+[2026-05-12T00:51:28.579Z] 🕵️ SHADOW TESTER: [aurapos] Güvenlik denetimi yapılıyor...
+[2026-05-12T00:51:28.580Z] 📖 [TESTER] Skill mühürü okundu.
+[2026-05-12T00:51:28.580Z] 🧠 [TESTER] Reasoning budget: 256 token
+[2026-05-12T00:51:49.829Z] ✅ SYSTEM_STATE.md güncellendi.
+[2026-05-12T00:51:51.603Z] 📄 Dokümantasyon: [aurapos] Create shared-types package
+[2026-05-12T00:51:51.603Z] 📖 [DOCS] Skill mühürü okundu.
+[2026-05-12T00:51:51.603Z] 🧠 [DOCS] Reasoning budget: 1024 token
+[2026-05-12T00:52:32.538Z] 💾 Dosya mühürlendi (342 bytes): package.json
+[2026-05-12T00:52:33.583Z] ✍️ CODER: [aurapos] S0-9_DashboardPage yazılıyor...
+[2026-05-12T00:52:33.583Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-12T00:52:33.583Z] 🧠 [CODER] Reasoning budget: 4096 token
+[2026-05-12T00:52:35.299Z] [aurapos]  Kod yazımı bitti. Test ajanı devralıyor: S0-4_ElectricConfig
+[2026-05-12T00:53:43.725Z] 🧐 QA GUARDRAIL: [aurapos] S0-4_ElectricConfig denetleniyor...
+[2026-05-12T00:53:43.725Z] 🐳 SANDBOX: [aurapos] S0-4_ElectricConfig izole test ortamında denetleniyor...
+[2026-05-12T00:53:43.725Z] ⏭️ SANDBOX ATLANDI: .json dosyaları için sandbox tanımsız
+[2026-05-12T00:53:43.726Z] 🕵️ SHADOW TESTER: [aurapos] Güvenlik denetimi yapılıyor...
+[2026-05-12T00:53:43.727Z] 📖 [TESTER] Skill mühürü okundu.
+[2026-05-12T00:53:43.727Z] 🧠 [TESTER] Reasoning budget: 256 token
+[2026-05-12T00:53:45.373Z] [aurapos]  🧭 STEERING: Hata analizi ve yönlendirme yapılıyor (1/3)
+[2026-05-12T00:53:45.374Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T00:53:45.374Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T00:54:50.037Z] ✅ [aurapos] S0-4_ElectricConfig onaylandı. HEARTBEAT_OK
+[2026-05-12T00:54:50.430Z] [aurapos]  ✅ TEST GEÇİLDİ.
+[2026-05-12T00:54:51.630Z] [aurapos]  📦 feature/sprint-s0 branch'ına push edildi.
+[2026-05-12T00:55:09.666Z] ❌ [aurapos] Planlama Hatası: Object key expected at position 289
+[2026-05-12T00:55:19.918Z] ⏭️ [aurapos] "aurapos_reference.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-12T00:55:19.918Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (1/2 dosya, ~10542 token)...
+[2026-05-12T00:55:19.918Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T00:55:19.918Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T00:55:29.935Z] 💾 Dosya mühürlendi (158 bytes): page.tsx
+[2026-05-12T00:55:30.462Z] [aurapos]  Kod yazımı bitti. Test ajanı devralıyor: S0-9_DashboardPage
+[2026-05-12T00:55:33.759Z] 🧭 STEERING: [aurapos] S0-4_Hardware yönlendirme ile düzeltiliyor...
+[2026-05-12T00:55:33.759Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-12T00:55:33.759Z] 🧠 [CODER] Reasoning budget: 4096 token
+[2026-05-12T00:55:33.815Z] 🧐 QA GUARDRAIL: [aurapos] S0-9_DashboardPage denetleniyor...
+[2026-05-12T00:55:34.503Z] ❌ SYNC FAIL: page.tsx
+[2026-05-12T00:55:34.975Z] ✅ Süreç Tamamlandı.
+[2026-05-12T00:55:35.469Z] [aurapos]  🧭 STEERING: Hata analizi ve yönlendirme yapılıyor (1/3)
+[2026-05-12T00:55:35.470Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T00:55:35.470Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T00:55:36.811Z] 📄 Dokümantasyon: [aurapos] Create POS Next.js app
+[2026-05-12T00:55:36.811Z] 📖 [DOCS] Skill mühürü okundu.
+[2026-05-12T00:55:36.811Z] 🧠 [DOCS] Reasoning budget: 1024 token
+[2026-05-12T00:56:00.495Z] [aurapos]  📄 Dokümantasyon tamamlandı. Sistem durumu güncelleniyor...
+[2026-05-12T00:57:20.096Z] ⚖️ CONSENSUS: [aurapos] Peer Review başlatılıyor...
+[2026-05-12T00:57:20.096Z] 📖 [REVIEWER_COST] Skill mühürü okundu.
+[2026-05-12T00:57:20.096Z] 🧠 [REVIEWER_COST] Reasoning budget: 2048 token
+[2026-05-12T00:57:20.096Z] 📖 [REVIEWER_PERF] Skill mühürü okundu.
+[2026-05-12T00:57:20.097Z] 🧠 [REVIEWER_PERF] Reasoning budget: 2048 token
+[2026-05-12T00:58:54.920Z] ✅ Süreç Tamamlandı.
+[2026-05-12T00:58:55.657Z] [aurapos]  📄 Dokümantasyon tamamlandı. Sistem durumu güncelleniyor...
+[2026-05-12T00:58:56.998Z] 📊 Sistem Durumu Güncelleniyor: [aurapos]
+[2026-05-12T00:58:56.998Z] 📖 [DOCS] Skill mühürü okundu.
+[2026-05-12T00:58:56.998Z] 🧠 [DOCS] Reasoning budget: 1024 token
+[2026-05-12T00:59:48.978Z] 🧬 SYNTHESIS: [aurapos] Görüşler birleştiriliyor...
+[2026-05-12T00:59:48.979Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T00:59:48.979Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T01:00:57.004Z] ✅ SYSTEM_STATE.md güncellendi.
+[2026-05-12T01:00:57.096Z] 📊 Sistem Durumu Güncelleniyor: [aurapos]
+[2026-05-12T01:00:57.097Z] 📖 [DOCS] Skill mühürü okundu.
+[2026-05-12T01:00:57.097Z] 🧠 [DOCS] Reasoning budget: 1024 token
+[2026-05-12T01:02:01.807Z] 📋 STACK RULES: [aurapos] PRD'den teknoloji kuralları çıkarılıyor...
+[2026-05-12T01:02:01.808Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T01:02:01.808Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T01:02:39.542Z] 📋 [aurapos] Stack kuralları mühürlendi. Yasak: []
+[2026-05-12T01:02:39.543Z] ✅ [aurapos] Consensus Planlama tamamlandı. 5 görev kuyruğa girdi.
+[2026-05-12T01:03:17.411Z] ✅ SYSTEM_STATE.md güncellendi.
+[2026-05-12T01:03:19.955Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (1/1 dosya, ~13013 token)...
+[2026-05-12T01:03:19.955Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T01:03:19.955Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T01:03:22.243Z] 📄 Dokümantasyon: [aurapos] Create Dashboard Next.js app
+[2026-05-12T01:03:22.263Z] 📖 [DOCS] Skill mühürü okundu.
+[2026-05-12T01:03:22.263Z] 🧠 [DOCS] Reasoning budget: 1024 token
+[2026-05-12T01:04:35.805Z] 💾 Dosya mühürlendi (356 bytes): package.json
+[2026-05-12T01:04:35.976Z] [aurapos]  Kod yazımı bitti. Test ajanı devralıyor: S0-4_Hardware
+[2026-05-12T01:04:39.242Z] 🧭 STEERING: [aurapos] S0-9_DashboardPage yönlendirme ile düzeltiliyor...
+[2026-05-12T01:04:39.242Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-12T01:04:39.242Z] 🧠 [CODER] Reasoning budget: 4096 token
+[2026-05-12T01:04:39.375Z] 🧐 QA GUARDRAIL: [aurapos] S0-4_Hardware denetleniyor...
+[2026-05-12T01:04:39.376Z] 🐳 SANDBOX: [aurapos] S0-4_Hardware izole test ortamında denetleniyor...
+[2026-05-12T01:04:39.376Z] ⏭️ SANDBOX ATLANDI: .json dosyaları için sandbox tanımsız
+[2026-05-12T01:04:39.376Z] 🕵️ SHADOW TESTER: [aurapos] Güvenlik denetimi yapılıyor...
+[2026-05-12T01:04:39.377Z] 📖 [TESTER] Skill mühürü okundu.
+[2026-05-12T01:04:39.377Z] 🧠 [TESTER] Reasoning budget: 256 token
+[2026-05-12T01:05:12.538Z] ✅ [aurapos] S0-4_Hardware onaylandı. HEARTBEAT_OK
+[2026-05-12T01:05:16.020Z] [aurapos]  ✅ TEST GEÇİLDİ.
+[2026-05-12T01:05:17.170Z] [aurapos]  📦 feature/sprint-s0 branch'ına push edildi.
+[2026-05-12T01:05:17.171Z] 🎯 [aurapos] Bağımlılıklar tamam, görev başlatılıyor: Create branch-server package and source
+[2026-05-12T01:05:17.192Z] 🎯 [aurapos] Bağımlılıklar tamam, görev başlatılıyor: Create mock test script
+[2026-05-12T01:05:55.764Z] 💾 Dosya mühürlendi (145 bytes): page.tsx
+[2026-05-12T01:05:56.056Z] [aurapos]  Kod yazımı bitti. Test ajanı devralıyor: S0-9_DashboardPage
+[2026-05-12T01:05:58.275Z] ⚖️ CONSENSUS: [aurapos] Peer Review başlatılıyor...
+[2026-05-12T01:05:58.275Z] 📖 [REVIEWER_COST] Skill mühürü okundu.
+[2026-05-12T01:05:58.275Z] 🧠 [REVIEWER_COST] Reasoning budget: 2048 token
+[2026-05-12T01:05:58.275Z] 📖 [REVIEWER_PERF] Skill mühürü okundu.
+[2026-05-12T01:05:58.276Z] 🧠 [REVIEWER_PERF] Reasoning budget: 2048 token
+[2026-05-12T01:05:59.322Z] ✍️ CODER: [aurapos] S0-5_BranchServer yazılıyor...
+[2026-05-12T01:05:59.323Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-12T01:05:59.323Z] 🧠 [CODER] Reasoning budget: 4096 token
+[2026-05-12T01:05:59.440Z] 🧐 QA GUARDRAIL: [aurapos] S0-9_DashboardPage denetleniyor...
+[2026-05-12T01:06:00.260Z] ❌ SYNC FAIL: page.tsx
+[2026-05-12T01:06:01.062Z] [aurapos]  🧭 STEERING: Hata analizi ve yönlendirme yapılıyor (2/3)
+[2026-05-12T01:06:01.063Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T01:06:01.063Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T01:06:01.063Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T01:06:01.064Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T01:06:19.461Z] 🧠 BELLEK GÜNCELLENDİ: aurapos dersi işlendi.
+[2026-05-12T01:07:56.622Z] ✅ Süreç Tamamlandı.
+[2026-05-12T01:07:57.529Z] 📄 Dokümantasyon: [aurapos] Create electric-config package source
+[2026-05-12T01:07:57.529Z] 📖 [DOCS] Skill mühürü okundu.
+[2026-05-12T01:07:57.529Z] 🧠 [DOCS] Reasoning budget: 1024 token
+[2026-05-12T01:08:01.175Z] [aurapos]  📄 Dokümantasyon tamamlandı. Sistem durumu güncelleniyor...
+[2026-05-12T01:08:19.474Z] 🧬 SYNTHESIS: [aurapos] Görüşler birleştiriliyor...
+[2026-05-12T01:08:19.474Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T01:08:19.474Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T01:08:53.231Z] 💾 Dosya mühürlendi (877 bytes): package.json
+[2026-05-12T01:08:54.507Z] 🧭 STEERING: [aurapos] S0-9_DashboardPage yönlendirme ile düzeltiliyor...
+[2026-05-12T01:08:54.507Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-12T01:08:54.507Z] 🧠 [CODER] Reasoning budget: 4096 token
+[2026-05-12T01:08:56.223Z] [aurapos]  Kod yazımı bitti. Test ajanı devralıyor: S0-5_BranchServer
+[2026-05-12T01:08:59.632Z] 🧐 QA GUARDRAIL: [aurapos] S0-5_BranchServer denetleniyor...
+[2026-05-12T01:08:59.632Z] 🐳 SANDBOX: [aurapos] S0-5_BranchServer izole test ortamında denetleniyor...
+[2026-05-12T01:08:59.632Z] ⏭️ SANDBOX ATLANDI: .json dosyaları için sandbox tanımsız
+[2026-05-12T01:08:59.633Z] 🕵️ SHADOW TESTER: [aurapos] Güvenlik denetimi yapılıyor...
+[2026-05-12T01:08:59.633Z] 📖 [TESTER] Skill mühürü okundu.
+[2026-05-12T01:08:59.633Z] 🧠 [TESTER] Reasoning budget: 256 token
+[2026-05-12T01:10:14.312Z] 💾 Dosya mühürlendi (301 bytes): page.tsx
+[2026-05-12T01:10:14.582Z] ✍️ CODER: [aurapos] S0-6_TestMocks yazılıyor...
+[2026-05-12T01:10:14.582Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-12T01:10:14.582Z] 🧠 [CODER] Reasoning budget: 4096 token
+[2026-05-12T01:10:16.300Z] [aurapos]  Kod yazımı bitti. Test ajanı devralıyor: S0-9_DashboardPage
+[2026-05-12T01:10:45.636Z] 📋 STACK RULES: [aurapos] PRD'den teknoloji kuralları çıkarılıyor...
+[2026-05-12T01:10:45.636Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T01:10:45.636Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T01:11:02.282Z] 💾 Dosya mühürlendi (328 bytes): test-all-mocks.ts
+[2026-05-12T01:11:06.347Z] [aurapos]  Kod yazımı bitti. Test ajanı devralıyor: S0-6_TestMocks
+[2026-05-12T01:11:26.812Z] ✅ Süreç Tamamlandı.
+[2026-05-12T01:11:27.715Z] 📊 Sistem Durumu Güncelleniyor: [aurapos]
+[2026-05-12T01:11:27.715Z] 📖 [DOCS] Skill mühürü okundu.
+[2026-05-12T01:11:27.715Z] 🧠 [DOCS] Reasoning budget: 1024 token
+[2026-05-12T01:11:31.372Z] [aurapos]  📄 Dokümantasyon tamamlandı. Sistem durumu güncelleniyor...
+[2026-05-12T01:11:36.515Z] 📋 [aurapos] Stack kuralları mühürlendi. Yasak: []
+[2026-05-12T01:11:36.516Z] ✅ [aurapos] Consensus Planlama tamamlandı. 10 görev kuyruğa girdi.
+[2026-05-12T01:11:59.813Z] 🧐 QA GUARDRAIL: [aurapos] S0-9_DashboardPage denetleniyor...
+[2026-05-12T01:12:00.506Z] ❌ SYNC FAIL: page.tsx
+[2026-05-12T01:12:01.404Z] [aurapos]  🧭 STEERING: Hata analizi ve yönlendirme yapılıyor (1/3)
+[2026-05-12T01:12:01.405Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T01:12:01.405Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T01:12:04.820Z] 🧐 QA GUARDRAIL: [aurapos] S0-6_TestMocks denetleniyor...
+[2026-05-12T01:12:05.649Z] ❌ SYNC FAIL: test-all-mocks.ts
+[2026-05-12T01:12:14.689Z] 🧭 STEERING: [aurapos] S0-5_BranchServer yönlendirme ile düzeltiliyor...
+[2026-05-12T01:12:14.689Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-12T01:12:14.689Z] 🧠 [CODER] Reasoning budget: 4096 token
+[2026-05-12T01:12:16.417Z] [aurapos]  🧭 STEERING: Hata analizi ve yönlendirme yapılıyor (3/3)
+[2026-05-12T01:12:16.418Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T01:12:16.418Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T01:12:16.419Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T01:12:16.419Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T01:12:21.991Z] ✅ SYSTEM_STATE.md güncellendi.
+[2026-05-12T01:12:22.747Z] 📊 Sistem Durumu Güncelleniyor: [aurapos]
+[2026-05-12T01:12:22.747Z] 📖 [DOCS] Skill mühürü okundu.
+[2026-05-12T01:12:22.747Z] 🧠 [DOCS] Reasoning budget: 1024 token
+[2026-05-12T01:12:31.107Z] 🧠 BELLEK GÜNCELLENDİ: aurapos dersi işlendi.
+[2026-05-12T01:12:36.431Z] [aurapos]  🧭 STEERING: Hata analizi ve yönlendirme yapılıyor (1/3)
+[2026-05-12T01:12:36.432Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T01:12:36.432Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T01:13:29.229Z] 💾 Dosya mühürlendi (718 bytes): package.json
+[2026-05-12T01:13:29.758Z] 🧭 STEERING: [aurapos] S0-9_DashboardPage yönlendirme ile düzeltiliyor...
+[2026-05-12T01:13:29.758Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-12T01:13:29.758Z] 🧠 [CODER] Reasoning budget: 4096 token
+[2026-05-12T01:13:31.481Z] [aurapos]  Kod yazımı bitti. Test ajanı devralıyor: S0-5_BranchServer
+[2026-05-12T01:13:34.915Z] 🧐 QA GUARDRAIL: [aurapos] S0-5_BranchServer denetleniyor...
+[2026-05-12T01:13:34.916Z] 🐳 SANDBOX: [aurapos] S0-5_BranchServer izole test ortamında denetleniyor...
+[2026-05-12T01:13:34.916Z] ⏭️ SANDBOX ATLANDI: .json dosyaları için sandbox tanımsız
+[2026-05-12T01:13:34.917Z] 🕵️ SHADOW TESTER: [aurapos] Güvenlik denetimi yapılıyor...
+[2026-05-12T01:13:34.917Z] 📖 [TESTER] Skill mühürü okundu.
+[2026-05-12T01:13:34.917Z] 🧠 [TESTER] Reasoning budget: 256 token
+[2026-05-12T01:14:00.548Z] ✅ SYSTEM_STATE.md güncellendi.
+[2026-05-12T01:14:02.829Z] 📄 Dokümantasyon: [aurapos] Create hardware package source
+[2026-05-12T01:14:02.849Z] 📖 [DOCS] Skill mühürü okundu.
+[2026-05-12T01:14:02.849Z] 🧠 [DOCS] Reasoning budget: 1024 token
+[2026-05-12T01:14:34.444Z] 💾 Dosya mühürlendi (197 bytes): page.tsx
+[2026-05-12T01:14:34.818Z] 🧭 STEERING: [aurapos] S0-6_TestMocks yönlendirme ile düzeltiliyor...
+[2026-05-12T01:14:34.818Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-12T01:14:34.818Z] 🧠 [CODER] Reasoning budget: 4096 token
+[2026-05-12T01:14:36.542Z] [aurapos]  Kod yazımı bitti. Test ajanı devralıyor: S0-9_DashboardPage
+[2026-05-12T01:15:40.515Z] 💾 Dosya mühürlendi (372 bytes): test-all-mocks.ts
+[2026-05-12T01:15:41.609Z] [aurapos]  Kod yazımı bitti. Test ajanı devralıyor: S0-6_TestMocks
+[2026-05-12T01:16:27.958Z] ✅ Süreç Tamamlandı.
+[2026-05-12T01:16:31.657Z] [aurapos]  📄 Dokümantasyon tamamlandı. Sistem durumu güncelleniyor...
+[2026-05-12T01:16:32.971Z] 📊 Sistem Durumu Güncelleniyor: [aurapos]
+[2026-05-12T01:16:32.971Z] 📖 [DOCS] Skill mühürü okundu.
+[2026-05-12T01:16:32.971Z] 🧠 [DOCS] Reasoning budget: 1024 token
+[2026-05-12T01:17:05.112Z] 🧐 QA GUARDRAIL: [aurapos] S0-9_DashboardPage denetleniyor...
+[2026-05-12T01:17:05.956Z] ❌ SYNC FAIL: page.tsx
+[2026-05-12T01:17:06.690Z] [aurapos]  🧭 STEERING: Hata analizi ve yönlendirme yapılıyor (2/3)
+[2026-05-12T01:17:06.691Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T01:17:06.691Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T01:17:06.692Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T01:17:06.692Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T01:17:10.118Z] 🧐 QA GUARDRAIL: [aurapos] S0-6_TestMocks denetleniyor...
+[2026-05-12T01:17:11.121Z] ❌ SYNC FAIL: test-all-mocks.ts
+[2026-05-12T01:17:24.989Z] 🧭 STEERING: [aurapos] S0-5_BranchServer yönlendirme ile düzeltiliyor...
+[2026-05-12T01:17:24.990Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-12T01:17:24.990Z] 🧠 [CODER] Reasoning budget: 4096 token
+[2026-05-12T01:17:26.709Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T01:17:26.710Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T01:17:26.710Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T01:17:28.831Z] 🧠 BELLEK GÜNCELLENDİ: Global dersi işlendi.
+[2026-05-12T01:18:41.784Z] [aurapos]  🧭 STEERING: Hata analizi ve yönlendirme yapılıyor (2/3)
+[2026-05-12T01:18:41.786Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T01:18:41.786Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T01:18:41.786Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T01:18:41.786Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T01:18:55.145Z] 🧠 BELLEK GÜNCELLENDİ: aurapos dersi işlendi.
+[2026-05-12T01:18:56.917Z] ✅ SYSTEM_STATE.md güncellendi.
+[2026-05-12T01:19:01.451Z] 💾 Dosya mühürlendi (718 bytes): package.json
+[2026-05-12T01:19:01.799Z] [aurapos]  Kod yazımı bitti. Test ajanı devralıyor: S0-5_BranchServer
+[2026-05-12T01:19:05.081Z] 🧭 STEERING: [aurapos] S0-6_TestMocks yönlendirme ile düzeltiliyor...
+[2026-05-12T01:19:05.082Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-12T01:19:05.082Z] 🧠 [CODER] Reasoning budget: 4096 token
+[2026-05-12T01:19:05.239Z] 🧐 QA GUARDRAIL: [aurapos] S0-5_BranchServer denetleniyor...
+[2026-05-12T01:19:05.240Z] 🐳 SANDBOX: [aurapos] S0-5_BranchServer izole test ortamında denetleniyor...
+[2026-05-12T01:19:05.240Z] ⏭️ SANDBOX ATLANDI: .json dosyaları için sandbox tanımsız
+[2026-05-12T01:19:05.240Z] 🕵️ SHADOW TESTER: [aurapos] Güvenlik denetimi yapılıyor...
+[2026-05-12T01:19:05.240Z] 📖 [TESTER] Skill mühürü okundu.
+[2026-05-12T01:19:05.240Z] 🧠 [TESTER] Reasoning budget: 256 token
+[2026-05-12T01:19:34.046Z] ✅ [aurapos] S0-5_BranchServer onaylandı. HEARTBEAT_OK
+[2026-05-12T01:19:36.830Z] [aurapos]  ✅ TEST GEÇİLDİ.
+[2026-05-12T01:19:38.077Z] [aurapos]  📦 feature/sprint-s0 branch'ına push edildi.
+[2026-05-12T01:19:38.143Z] 📄 Dokümantasyon: [aurapos] Create branch-server package and source
+[2026-05-12T01:19:38.143Z] 📖 [DOCS] Skill mühürü okundu.
+[2026-05-12T01:19:38.143Z] 🧠 [DOCS] Reasoning budget: 1024 token
+[2026-05-12T01:19:56.901Z] 💾 Dosya mühürlendi (384 bytes): test-all-mocks.ts
+[2026-05-12T01:20:01.859Z] [aurapos]  Kod yazımı bitti. Test ajanı devralıyor: S0-6_TestMocks
+[2026-05-12T01:20:05.288Z] 🧐 QA GUARDRAIL: [aurapos] S0-6_TestMocks denetleniyor...
+[2026-05-12T01:20:06.054Z] ❌ SYNC FAIL: test-all-mocks.ts
+[2026-05-12T01:20:06.867Z] [aurapos]  🧭 STEERING: Hata analizi ve yönlendirme yapılıyor (3/3)
+[2026-05-12T01:20:06.869Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T01:20:06.869Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T01:20:06.870Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T01:20:06.870Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T01:20:21.576Z] 🧠 BELLEK GÜNCELLENDİ: aurapos dersi işlendi.
+[2026-05-12T01:20:25.158Z] 🧭 STEERING: [aurapos] S0-6_TestMocks yönlendirme ile düzeltiliyor...
+[2026-05-12T01:20:25.158Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-12T01:20:25.158Z] 🧠 [CODER] Reasoning budget: 4096 token
+[2026-05-12T01:22:10.879Z] ✅ Süreç Tamamlandı.
+[2026-05-12T01:22:11.981Z] [aurapos]  📄 Dokümantasyon tamamlandı. Sistem durumu güncelleniyor...
+[2026-05-12T01:22:13.269Z] 📊 Sistem Durumu Güncelleniyor: [aurapos]
+[2026-05-12T01:22:13.269Z] 📖 [DOCS] Skill mühürü okundu.
+[2026-05-12T01:22:13.269Z] 🧠 [DOCS] Reasoning budget: 1024 token
+[2026-05-12T01:23:16.197Z] ✅ SYSTEM_STATE.md güncellendi.
+[2026-05-12T01:28:47.787Z] 💾 Dosya mühürlendi (407 bytes): test-all-mocks.ts
+[2026-05-12T01:28:52.356Z] [aurapos]  Kod yazımı bitti. Test ajanı devralıyor: S0-6_TestMocks
+[2026-05-12T01:28:55.832Z] 🧐 QA GUARDRAIL: [aurapos] S0-6_TestMocks denetleniyor...
+[2026-05-12T01:28:56.319Z] ❌ SYNC FAIL: test-all-mocks.ts
+[2026-05-12T01:28:57.362Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T01:28:57.363Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T01:28:57.363Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T11:09:21.632Z] ⏭️ [aurapos] "aurapos_prd.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-12T11:09:21.632Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (1/4 dosya, ~5152 token)...
+[2026-05-12T11:09:21.632Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T11:09:21.633Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T11:09:58.068Z] ⚖️ CONSENSUS: [aurapos] Peer Review başlatılıyor...
+[2026-05-12T11:09:58.068Z] 📖 [REVIEWER_COST] Skill mühürü okundu.
+[2026-05-12T11:09:58.068Z] 🧠 [REVIEWER_COST] Reasoning budget: 2048 token
+[2026-05-12T11:09:58.069Z] 📖 [REVIEWER_PERF] Skill mühürü okundu.
+[2026-05-12T11:09:58.069Z] 🧠 [REVIEWER_PERF] Reasoning budget: 2048 token
+[2026-05-12T11:10:46.969Z] 🧬 SYNTHESIS: [aurapos] Görüşler birleştiriliyor...
+[2026-05-12T11:10:46.969Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T11:10:46.969Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T11:11:06.682Z] ❌ [aurapos] Planlama Hatası: Yanıt boş veya çok kısa (ham uzunluk: 4).
+[2026-05-12T11:11:21.633Z] ⏭️ [aurapos] "aurapos_prd.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-12T11:11:21.633Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (1/10 dosya, ~5152 token)...
+[2026-05-12T11:11:21.634Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T11:11:21.634Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T11:14:38.296Z] ⚖️ CONSENSUS: [aurapos] Peer Review başlatılıyor...
+[2026-05-12T11:14:38.296Z] 📖 [REVIEWER_COST] Skill mühürü okundu.
+[2026-05-12T11:14:38.296Z] 🧠 [REVIEWER_COST] Reasoning budget: 2048 token
+[2026-05-12T11:14:38.297Z] 📖 [REVIEWER_PERF] Skill mühürü okundu.
+[2026-05-12T11:14:38.297Z] 🧠 [REVIEWER_PERF] Reasoning budget: 2048 token
+[2026-05-12T11:16:45.500Z] 🧬 SYNTHESIS: [aurapos] Görüşler birleştiriliyor...
+[2026-05-12T11:16:45.500Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T11:16:45.501Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T11:20:20.481Z] 📋 STACK RULES: [aurapos] PRD'den teknoloji kuralları çıkarılıyor...
+[2026-05-12T11:20:20.481Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T11:20:20.481Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T11:21:03.632Z] 📋 [aurapos] Stack kuralları mühürlendi. Yasak: [dexie.js, any-toast-library-other-than-react-hot-toast]
+[2026-05-12T11:21:03.655Z] ✅ [aurapos] Consensus Planlama tamamlandı. 14 görev kuyruğa girdi.
+[2026-05-12T11:21:21.641Z] ⏭️ [aurapos] "sprint0_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-12T11:21:21.641Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (1/9 dosya, ~10414 token)...
+[2026-05-12T11:21:21.641Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T11:21:21.641Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T11:22:26.604Z] ⚖️ CONSENSUS: [aurapos] Peer Review başlatılıyor...
+[2026-05-12T11:22:26.604Z] 📖 [REVIEWER_COST] Skill mühürü okundu.
+[2026-05-12T11:22:26.604Z] 🧠 [REVIEWER_COST] Reasoning budget: 2048 token
+[2026-05-12T11:22:26.605Z] 📖 [REVIEWER_PERF] Skill mühürü okundu.
+[2026-05-12T11:22:26.605Z] 🧠 [REVIEWER_PERF] Reasoning budget: 2048 token
+[2026-05-12T11:24:34.256Z] 🧬 SYNTHESIS: [aurapos] Görüşler birleştiriliyor...
+[2026-05-12T11:24:34.257Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T11:24:34.257Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T11:25:36.110Z] 📋 STACK RULES: [aurapos] PRD'den teknoloji kuralları çıkarılıyor...
+[2026-05-12T11:25:36.110Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T11:25:36.110Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T11:25:53.393Z] 📋 [aurapos] Stack kuralları mühürlendi. Yasak: [localStorage, sessionStorage, jQuery, MongoDB, Class components, Dexie.js]
+[2026-05-12T11:25:53.394Z] ✅ [aurapos] Consensus Planlama tamamlandı. 5 görev kuyruğa girdi.
+[2026-05-12T11:26:21.643Z] ⏭️ [aurapos] "sprint2_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-12T11:26:21.643Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (1/8 dosya, ~7233 token)...
+[2026-05-12T11:26:21.643Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T11:26:21.643Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T11:32:15.447Z] ⚖️ CONSENSUS: [aurapos] Peer Review başlatılıyor...
+[2026-05-12T11:32:15.447Z] 📖 [REVIEWER_COST] Skill mühürü okundu.
+[2026-05-12T11:32:15.448Z] 🧠 [REVIEWER_COST] Reasoning budget: 2048 token
+[2026-05-12T11:32:15.448Z] 📖 [REVIEWER_PERF] Skill mühürü okundu.
+[2026-05-12T11:32:15.448Z] 🧠 [REVIEWER_PERF] Reasoning budget: 2048 token
+[2026-05-12T11:34:12.906Z] 🧬 SYNTHESIS: [aurapos] Görüşler birleştiriliyor...
+[2026-05-12T11:34:12.906Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T11:34:12.906Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T11:36:25.660Z] 📋 STACK RULES: [aurapos] PRD'den teknoloji kuralları çıkarılıyor...
+[2026-05-12T11:36:25.660Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T11:36:25.660Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T11:36:40.668Z] 📋 [aurapos] Stack kuralları mühürlendi. Yasak: []
+[2026-05-12T11:36:40.670Z] 🎯 [aurapos] Bağımlılıklar tamam, görev başlatılıyor: Paralel sistem gereksinimlerini kontrol et
+[2026-05-12T11:36:40.677Z] ✅ [aurapos] Consensus Planlama tamamlandı. 10 görev kuyruğa girdi.
+[2026-05-12T11:36:41.522Z] ✍️ CODER: [aurapos] S0-1.1 yazılıyor...
+[2026-05-12T11:36:41.522Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-12T11:36:41.522Z] 🧠 [CODER] Reasoning budget: 4096 token
+[2026-05-12T11:37:21.690Z] ⏭️ [aurapos] "sprint3_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-12T11:37:21.690Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (1/7 dosya, ~6084 token)...
+[2026-05-12T11:37:21.690Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T11:37:21.690Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T11:37:35.460Z] 💾 Dosya mühürlendi (764 bytes): verify-requirements.sh
+[2026-05-12T11:37:37.186Z] [aurapos]  Kod yazımı bitti. Test ajanı devralıyor: S0-1.1
+[2026-05-12T11:37:41.817Z] 🧐 QA GUARDRAIL: [aurapos] S0-1.1 denetleniyor...
+[2026-05-12T11:37:41.817Z] 🐳 SANDBOX: [aurapos] S0-1.1 izole test ortamında denetleniyor...
+[2026-05-12T11:37:41.817Z] ⏭️ SANDBOX ATLANDI: .sh dosyaları için sandbox tanımsız
+[2026-05-12T11:37:41.818Z] 🕵️ SHADOW TESTER: [aurapos] Güvenlik denetimi yapılıyor...
+[2026-05-12T11:37:41.818Z] 📖 [TESTER] Skill mühürü okundu.
+[2026-05-12T11:37:41.818Z] 🧠 [TESTER] Reasoning budget: 256 token
+[2026-05-12T11:38:41.676Z] ✅ [aurapos] S0-1.1 onaylandı. HEARTBEAT_OK
+[2026-05-12T11:38:42.254Z] [aurapos]  ✅ TEST GEÇİLDİ.
+[2026-05-12T11:38:47.609Z] [aurapos]  ⚠️ GitHub push atlandı: main branch SHA alınamadı [401]
+[2026-05-12T11:38:47.612Z] 🎯 [aurapos] Bağımlılıklar tamam, görev başlatılıyor: Repo oluştur ve Turborepo başlat (önbellekli)
+[2026-05-12T11:38:49.703Z] 📄 Dokümantasyon: [aurapos] Paralel sistem gereksinimlerini kontrol et
+[2026-05-12T11:38:49.704Z] 📖 [DOCS] Skill mühürü okundu.
+[2026-05-12T11:38:49.704Z] 🧠 [DOCS] Reasoning budget: 1024 token
+[2026-05-12T11:38:51.644Z] ✍️ CODER: [aurapos] S0-1.2 yazılıyor...
+[2026-05-12T11:38:51.644Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-12T11:38:51.644Z] 🧠 [CODER] Reasoning budget: 4096 token
+[2026-05-12T11:39:46.898Z] 💾 Dosya mühürlendi (307 bytes): turbo.json
+[2026-05-12T11:39:47.317Z] [aurapos]  Kod yazımı bitti. Test ajanı devralıyor: S0-1.2
+[2026-05-12T11:39:51.940Z] 🧐 QA GUARDRAIL: [aurapos] S0-1.2 denetleniyor...
+[2026-05-12T11:39:51.940Z] 🐳 SANDBOX: [aurapos] S0-1.2 izole test ortamında denetleniyor...
+[2026-05-12T11:39:51.940Z] ⏭️ SANDBOX ATLANDI: .json dosyaları için sandbox tanımsız
+[2026-05-12T11:39:51.940Z] 🕵️ SHADOW TESTER: [aurapos] Güvenlik denetimi yapılıyor...
+[2026-05-12T11:39:51.941Z] 📖 [TESTER] Skill mühürü okundu.
+[2026-05-12T11:39:51.941Z] 🧠 [TESTER] Reasoning budget: 256 token
+[2026-05-12T11:40:14.322Z] ⚖️ CONSENSUS: [aurapos] Peer Review başlatılıyor...
+[2026-05-12T11:40:14.322Z] 📖 [REVIEWER_COST] Skill mühürü okundu.
+[2026-05-12T11:40:14.322Z] 🧠 [REVIEWER_COST] Reasoning budget: 2048 token
+[2026-05-12T11:40:14.322Z] 📖 [REVIEWER_PERF] Skill mühürü okundu.
+[2026-05-12T11:40:14.322Z] 🧠 [REVIEWER_PERF] Reasoning budget: 2048 token
+[2026-05-12T11:40:34.038Z] ✅ [aurapos] S0-1.2 onaylandı. HEARTBEAT_OK
+[2026-05-12T11:40:37.363Z] [aurapos]  ✅ TEST GEÇİLDİ.
+[2026-05-12T11:40:37.679Z] [aurapos]  ⚠️ GitHub push atlandı: main branch SHA alınamadı [401]
+[2026-05-12T11:40:37.680Z] 🎯 [aurapos] Bağımlılıklar tamam, görev başlatılıyor: Root konfigürasyon dosyalarını oluştur
+[2026-05-12T11:40:41.753Z] 📎 CODER: [aurapos] S0-1.3 — 1 bağlam dosyası enjekte edildi.
+[2026-05-12T11:40:41.753Z] ✍️ CODER: [aurapos] S0-1.3 yazılıyor...
+[2026-05-12T11:40:41.754Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-12T11:40:41.754Z] 🧠 [CODER] Reasoning budget: 4096 token
+[2026-05-12T11:41:59.396Z] ✅ Süreç Tamamlandı.
+[2026-05-12T11:41:59.890Z] 📄 Dokümantasyon: [aurapos] Repo oluştur ve Turborepo başlat (önbellekli)
+[2026-05-12T11:41:59.890Z] 📖 [DOCS] Skill mühürü okundu.
+[2026-05-12T11:41:59.890Z] 🧠 [DOCS] Reasoning budget: 1024 token
+[2026-05-12T11:42:02.433Z] [aurapos]  📄 Dokümantasyon tamamlandı. Sistem durumu güncelleniyor...
+[2026-05-12T11:42:11.992Z] 🧬 SYNTHESIS: [aurapos] Görüşler birleştiriliyor...
+[2026-05-12T11:42:11.993Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T11:42:11.993Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T11:44:17.789Z] 📋 STACK RULES: [aurapos] PRD'den teknoloji kuralları çıkarılıyor...
+[2026-05-12T11:44:17.789Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T11:44:17.790Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T11:45:20.478Z] ✅ Süreç Tamamlandı.
+[2026-05-12T11:45:22.590Z] [aurapos]  📄 Dokümantasyon tamamlandı. Sistem durumu güncelleniyor...
+[2026-05-12T11:45:25.091Z] 📊 Sistem Durumu Güncelleniyor: [aurapos]
+[2026-05-12T11:45:25.092Z] 📖 [DOCS] Skill mühürü okundu.
+[2026-05-12T11:45:25.092Z] 🧠 [DOCS] Reasoning budget: 1024 token
+[2026-05-12T11:46:47.549Z] ✅ SYSTEM_STATE.md güncellendi.
+[2026-05-12T11:46:50.162Z] 📊 Sistem Durumu Güncelleniyor: [aurapos]
+[2026-05-12T11:46:50.162Z] 📖 [DOCS] Skill mühürü okundu.
+[2026-05-12T11:46:50.162Z] 🧠 [DOCS] Reasoning budget: 1024 token
+[2026-05-12T11:47:59.841Z] 📋 [aurapos] Stack kuralları mühürlendi. Yasak: []
+[2026-05-12T11:47:59.848Z] ✅ [aurapos] Consensus Planlama tamamlandı. 7 görev kuyruğa girdi.
+[2026-05-12T11:48:14.778Z] 💾 Dosya mühürlendi (41 bytes): pnpm-workspace.yaml
+[2026-05-12T11:48:17.750Z] [aurapos]  Kod yazımı bitti. Test ajanı devralıyor: S0-1.3
+[2026-05-12T11:48:21.726Z] ⏭️ [aurapos] "sprint4_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-12T11:48:21.726Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (1/6 dosya, ~5874 token)...
+[2026-05-12T11:48:21.726Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T11:48:21.726Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T11:48:22.421Z] 🧐 QA GUARDRAIL: [aurapos] S0-1.3 denetleniyor...
+[2026-05-12T11:48:22.421Z] 🐳 SANDBOX: [aurapos] S0-1.3 izole test ortamında denetleniyor...
+[2026-05-12T11:48:22.421Z] ⏭️ SANDBOX ATLANDI: .yaml dosyaları için sandbox tanımsız
+[2026-05-12T11:48:22.421Z] 🕵️ SHADOW TESTER: [aurapos] Güvenlik denetimi yapılıyor...
+[2026-05-12T11:48:22.421Z] 📖 [TESTER] Skill mühürü okundu.
+[2026-05-12T11:48:22.421Z] 🧠 [TESTER] Reasoning budget: 256 token
+[2026-05-12T11:49:03.368Z] ✅ SYSTEM_STATE.md güncellendi.
+[2026-05-12T11:49:10.896Z] ✅ [aurapos] S0-1.3 onaylandı. HEARTBEAT_OK
+[2026-05-12T11:49:12.800Z] [aurapos]  ✅ TEST GEÇİLDİ.
+[2026-05-12T11:49:13.119Z] [aurapos]  ⚠️ GitHub push atlandı: main branch SHA alınamadı [401]
+[2026-05-12T11:49:15.281Z] 📄 Dokümantasyon: [aurapos] Root konfigürasyon dosyalarını oluştur
+[2026-05-12T11:49:15.281Z] 📖 [DOCS] Skill mühürü okundu.
+[2026-05-12T11:49:15.281Z] 🧠 [DOCS] Reasoning budget: 1024 token
+[2026-05-12T11:50:59.611Z] ⚖️ CONSENSUS: [aurapos] Peer Review başlatılıyor...
+[2026-05-12T11:50:59.612Z] 📖 [REVIEWER_COST] Skill mühürü okundu.
+[2026-05-12T11:50:59.612Z] 🧠 [REVIEWER_COST] Reasoning budget: 2048 token
+[2026-05-12T11:50:59.612Z] 📖 [REVIEWER_PERF] Skill mühürü okundu.
+[2026-05-12T11:50:59.612Z] 🧠 [REVIEWER_PERF] Reasoning budget: 2048 token
+[2026-05-12T11:51:09.082Z] ✅ Süreç Tamamlandı.
+[2026-05-12T11:51:12.906Z] [aurapos]  📄 Dokümantasyon tamamlandı. Sistem durumu güncelleniyor...
+[2026-05-12T11:51:15.389Z] 📊 Sistem Durumu Güncelleniyor: [aurapos]
+[2026-05-12T11:51:15.390Z] 📖 [DOCS] Skill mühürü okundu.
+[2026-05-12T11:51:15.390Z] 🧠 [DOCS] Reasoning budget: 1024 token
+[2026-05-12T11:53:16.389Z] 🧬 SYNTHESIS: [aurapos] Görüşler birleştiriliyor...
+[2026-05-12T11:53:16.389Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T11:53:16.389Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T11:53:47.223Z] ✅ SYSTEM_STATE.md güncellendi.
+[2026-05-12T11:55:22.425Z] 📋 STACK RULES: [aurapos] PRD'den teknoloji kuralları çıkarılıyor...
+[2026-05-12T11:55:22.425Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T11:55:22.425Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T11:58:23.161Z] 📋 [aurapos] Stack kuralları mühürlendi. Yasak: []
+[2026-05-12T11:58:23.184Z] ✅ [aurapos] Consensus Planlama tamamlandı. 6 görev kuyruğa girdi.
+[2026-05-12T11:59:21.765Z] ⏭️ [aurapos] "sprint5_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-12T11:59:21.765Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (1/5 dosya, ~5974 token)...
+[2026-05-12T11:59:21.765Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T11:59:21.765Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T12:00:55.464Z] ⚖️ CONSENSUS: [aurapos] Peer Review başlatılıyor...
+[2026-05-12T12:00:55.464Z] 📖 [REVIEWER_COST] Skill mühürü okundu.
+[2026-05-12T12:00:55.465Z] 🧠 [REVIEWER_COST] Reasoning budget: 2048 token
+[2026-05-12T12:00:55.465Z] 📖 [REVIEWER_PERF] Skill mühürü okundu.
+[2026-05-12T12:00:55.465Z] 🧠 [REVIEWER_PERF] Reasoning budget: 2048 token
+[2026-05-12T12:02:19.949Z] 🧬 SYNTHESIS: [aurapos] Görüşler birleştiriliyor...
+[2026-05-12T12:02:19.950Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T12:02:19.950Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T12:03:37.993Z] 📋 STACK RULES: [aurapos] PRD'den teknoloji kuralları çıkarılıyor...
+[2026-05-12T12:03:37.993Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T12:03:37.993Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T12:06:59.495Z] 📋 [aurapos] Stack kuralları mühürlendi. Yasak: []
+[2026-05-12T12:06:59.499Z] ✅ [aurapos] Consensus Planlama tamamlandı. 7 görev kuyruğa girdi.
+[2026-05-12T12:07:21.786Z] ⏭️ [aurapos] "sprint6_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-12T12:07:21.786Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (1/4 dosya, ~6120 token)...
+[2026-05-12T12:07:21.786Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T12:07:21.786Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T12:10:12.824Z] ⚖️ CONSENSUS: [aurapos] Peer Review başlatılıyor...
+[2026-05-12T12:10:12.825Z] 📖 [REVIEWER_COST] Skill mühürü okundu.
+[2026-05-12T12:10:12.825Z] 🧠 [REVIEWER_COST] Reasoning budget: 2048 token
+[2026-05-12T12:10:12.825Z] 📖 [REVIEWER_PERF] Skill mühürü okundu.
+[2026-05-12T12:10:12.825Z] 🧠 [REVIEWER_PERF] Reasoning budget: 2048 token
+[2026-05-12T12:12:19.083Z] 🧬 SYNTHESIS: [aurapos] Görüşler birleştiriliyor...
+[2026-05-12T12:12:19.083Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T12:12:19.083Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T12:14:43.806Z] 📋 STACK RULES: [aurapos] PRD'den teknoloji kuralları çıkarılıyor...
+[2026-05-12T12:14:43.806Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T12:14:43.806Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T12:14:54.396Z] 📋 [aurapos] Stack kuralları mühürlendi. Yasak: []
+[2026-05-12T12:14:54.396Z] ✅ [aurapos] Consensus Planlama tamamlandı. 7 görev kuyruğa girdi.
+[2026-05-12T12:15:21.808Z] ⏭️ [aurapos] "assets_embedded.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-12T12:15:21.808Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (1/3 dosya, ~5749 token)...
+[2026-05-12T12:15:21.808Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T12:15:21.808Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T12:17:32.234Z] ⚖️ CONSENSUS: [aurapos] Peer Review başlatılıyor...
+[2026-05-12T12:17:32.235Z] 📖 [REVIEWER_COST] Skill mühürü okundu.
+[2026-05-12T12:17:32.235Z] 🧠 [REVIEWER_COST] Reasoning budget: 2048 token
+[2026-05-12T12:17:32.235Z] 📖 [REVIEWER_PERF] Skill mühürü okundu.
+[2026-05-12T12:17:32.235Z] 🧠 [REVIEWER_PERF] Reasoning budget: 2048 token
+[2026-05-12T12:19:28.975Z] 🧬 SYNTHESIS: [aurapos] Görüşler birleştiriliyor...
+[2026-05-12T12:19:28.975Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T12:19:28.975Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T12:21:17.691Z] 📋 STACK RULES: [aurapos] PRD'den teknoloji kuralları çıkarılıyor...
+[2026-05-12T12:21:17.691Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T12:21:17.691Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T12:24:16.969Z] 📋 [aurapos] Stack kuralları mühürlendi. Yasak: []
+[2026-05-12T12:24:16.972Z] ✅ [aurapos] Consensus Planlama tamamlandı. 4 görev kuyruğa girdi.
+[2026-05-12T12:24:21.832Z] ⏭️ [aurapos] "aurapos_reference.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-12T12:24:21.833Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (1/2 dosya, ~10671 token)...
+[2026-05-12T12:24:21.833Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T12:24:21.833Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T12:25:10.424Z] ⚖️ CONSENSUS: [aurapos] Peer Review başlatılıyor...
+[2026-05-12T12:25:10.424Z] 📖 [REVIEWER_COST] Skill mühürü okundu.
+[2026-05-12T12:25:10.424Z] 🧠 [REVIEWER_COST] Reasoning budget: 2048 token
+[2026-05-12T12:25:10.424Z] 📖 [REVIEWER_PERF] Skill mühürü okundu.
+[2026-05-12T12:25:10.424Z] 🧠 [REVIEWER_PERF] Reasoning budget: 2048 token
+[2026-05-12T12:26:09.442Z] 🧬 SYNTHESIS: [aurapos] Görüşler birleştiriliyor...
+[2026-05-12T12:26:09.442Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T12:26:09.442Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T12:26:32.934Z] 📋 STACK RULES: [aurapos] PRD'den teknoloji kuralları çıkarılıyor...
+[2026-05-12T12:26:32.934Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T12:26:32.934Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T12:27:12.855Z] 📋 [aurapos] Stack kuralları mühürlendi. Yasak: []
+[2026-05-12T12:27:12.856Z] ✅ [aurapos] Consensus Planlama tamamlandı. 3 görev kuyruğa girdi.
+[2026-05-12T12:27:21.841Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (1/1 dosya, ~13142 token)...
+[2026-05-12T12:27:21.841Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T12:27:21.841Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T12:29:38.552Z] ⚖️ CONSENSUS: [aurapos] Peer Review başlatılıyor...
+[2026-05-12T12:29:38.553Z] 📖 [REVIEWER_COST] Skill mühürü okundu.
+[2026-05-12T12:29:38.553Z] 🧠 [REVIEWER_COST] Reasoning budget: 2048 token
+[2026-05-12T12:29:38.553Z] 📖 [REVIEWER_PERF] Skill mühürü okundu.
+[2026-05-12T12:29:38.553Z] 🧠 [REVIEWER_PERF] Reasoning budget: 2048 token
+[2026-05-12T12:31:49.655Z] 🧬 SYNTHESIS: [aurapos] Görüşler birleştiriliyor...
+[2026-05-12T12:31:49.655Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T12:31:49.655Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T12:35:04.253Z] 📋 STACK RULES: [aurapos] PRD'den teknoloji kuralları çıkarılıyor...
+[2026-05-12T12:35:04.254Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T12:35:04.254Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T12:36:37.225Z] 📋 [aurapos] Stack kuralları mühürlendi. Yasak: []
+[2026-05-12T12:36:37.226Z] ✅ [aurapos] Consensus Planlama tamamlandı. 8 görev kuyruğa girdi.
+[2026-05-12T12:45:41.110Z] 🚀 DOCS başlatıldı.
+[2026-05-12T12:45:41.115Z] 🚀 TESTER başlatıldı.
+[2026-05-12T12:45:41.121Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T12:45:41.123Z] 🚀 CODER başlatıldı.
+[2026-05-12T12:55:41.168Z] ⏭️ [aurapos] "aurapos_prd.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-12T12:55:41.168Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (1/10 dosya, ~5152 token)...
+[2026-05-12T12:55:41.168Z] 🔬 RESEARCHER: 5 URL taranıyor: https://nextjs.org/docs, https://electric-sql.com/docs, https://fastify.dev/docs/latest/,, https://supabase.com/docs, https://reactnative.dev/docs/getting-started
+[2026-05-12T15:02:00.921Z] ⏭️ [aurapos] "aurapos_prd.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-12T15:02:00.922Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (1/10 dosya, ~5152 token)...
+[2026-05-12T15:02:00.922Z] 🔬 RESEARCHER: 5 URL taranıyor: https://nextjs.org/docs, https://electric-sql.com/docs, https://fastify.dev/docs/latest/,, https://supabase.com/docs, https://reactnative.dev/docs/getting-started
+[2026-05-12T15:02:19.608Z] ⏭️ [aurapos] "aurapos_prd.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-12T15:02:19.608Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (1/10 dosya, ~5152 token)...
+[2026-05-12T15:02:19.609Z] 🔬 RESEARCHER: 5 URL taranıyor: https://nextjs.org/docs, https://electric-sql.com/docs, https://fastify.dev/docs/latest/,, https://supabase.com/docs, https://reactnative.dev/docs/getting-started
+[2026-05-12T15:04:54.604Z] ❌ CODER HATASI: NIM yanıt formatı hatalı [finish=length, content_len=0, reasoning_len=0]. Ham yanıt debug_last_error.json dosyasına yazıldı.
+[2026-05-12T15:04:55.545Z] [aurapos]  🧭 STEERING: Hata analizi ve yönlendirme yapılıyor (1/3)
+[2026-05-12T15:04:55.546Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T15:04:55.546Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T15:04:56.950Z] ✍️ CODER: [aurapos] S0-19 yazılıyor...
+[2026-05-12T15:04:56.950Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-12T15:04:56.950Z] 🧠 [CODER] Reasoning budget: 4096 token
+[2026-05-12T15:06:43.208Z] 🚀 TESTER başlatıldı.
+[2026-05-12T15:06:43.210Z] 🚀 CODER başlatıldı.
+[2026-05-12T15:06:43.211Z] ♻️ Orphan task kurtarıldı: coder-WRITE_CODE-1778593115893.json
+[2026-05-12T15:06:43.214Z] ✍️ CODER: [aurapos] S0-19 yazılıyor...
+[2026-05-12T15:06:43.214Z] 🚀 DOCS başlatıldı.
+[2026-05-12T15:06:43.215Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-12T15:06:43.215Z] 🧠 [CODER] Reasoning budget: 4096 token
+[2026-05-12T15:06:43.218Z] ⏭️ [aurapos] "sprint0_tasks.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-12T15:06:43.219Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (2/10 dosya, ~13000 token)...
+[2026-05-12T15:06:43.219Z] 🔬 RESEARCHER: 5 URL taranıyor: https://nextjs.org/docs, https://electric-sql.com/docs, https://fastify.dev/docs/latest/,, https://supabase.com/docs, https://reactnative.dev/docs/getting-started
+[2026-05-12T15:06:43.232Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T15:14:42.895Z] 🚀 CODER başlatıldı.
+[2026-05-12T15:14:42.895Z] 🚀 DOCS başlatıldı.
+[2026-05-12T15:14:42.896Z] ♻️ Orphan task kurtarıldı: coder-WRITE_CODE-1778593115893.json
+[2026-05-12T15:14:42.899Z] ✍️ CODER: [aurapos] S0-19 yazılıyor...
+[2026-05-12T15:14:42.899Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-12T15:14:42.899Z] 🧠 [CODER] Reasoning budget: 2048 token
+[2026-05-12T15:14:42.902Z] 🚀 TESTER başlatıldı.
+[2026-05-12T15:14:42.903Z] ⏭️ [aurapos] "aurapos_prd.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-12T15:14:42.904Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (1/10 dosya, ~5152 token)...
+[2026-05-12T15:14:42.904Z] 🔬 RESEARCHER: 5 URL taranıyor: https://nextjs.org/docs, https://electric-sql.com/docs, https://fastify.dev/docs/latest/,, https://supabase.com/docs, https://reactnative.dev/docs/getting-started
+[2026-05-12T15:14:42.917Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T15:20:41.321Z] 💾 Dosya mühürlendi (382 bytes): print.ts
+[2026-05-12T15:20:41.323Z] 🧭 STEERING: [aurapos] S0-14 yönlendirme ile düzeltiliyor...
+[2026-05-12T15:20:41.323Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-12T15:20:41.323Z] 🧠 [CODER] Reasoning budget: 2048 token
+[2026-05-12T15:20:41.338Z] [aurapos]  Kod yazımı bitti. Test ajanı devralıyor: S0-19
+[2026-05-12T15:20:43.256Z] 🧐 QA GUARDRAIL: [aurapos] S0-19 denetleniyor...
+[2026-05-12T15:20:44.040Z] ❌ SYNC FAIL: print.ts
+[2026-05-12T15:20:46.346Z] [aurapos]  🧭 STEERING: Hata analizi ve yönlendirme yapılıyor (1/3)
+[2026-05-12T15:20:46.347Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T15:20:46.347Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T15:29:23.956Z] 💾 Dosya mühürlendi (3810 bytes): payment.ts
+[2026-05-12T15:29:26.809Z] 🧭 STEERING: [aurapos] S0-19 yönlendirme ile düzeltiliyor...
+[2026-05-12T15:29:26.810Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-12T15:29:26.810Z] 🧠 [CODER] Reasoning budget: 2048 token
+[2026-05-12T15:29:26.832Z] [aurapos]  Kod yazımı bitti. Test ajanı devralıyor: S0-14
+[2026-05-12T15:29:28.745Z] 🧐 QA GUARDRAIL: [aurapos] S0-14 denetleniyor...
+[2026-05-12T15:29:29.546Z] ❌ SYNC FAIL: payment.ts
+[2026-05-12T15:29:31.836Z] [aurapos]  🧭 STEERING: Hata analizi ve yönlendirme yapılıyor (2/3)
+[2026-05-12T15:29:31.837Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T15:29:31.837Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T15:29:31.838Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T15:29:31.838Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T15:35:41.288Z] 💾 Dosya mühürlendi (413 bytes): print.ts
+[2026-05-12T15:35:42.151Z] 🧭 STEERING: [aurapos] S0-14 yönlendirme ile düzeltiliyor...
+[2026-05-12T15:35:42.152Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-12T15:35:42.152Z] 🧠 [CODER] Reasoning budget: 2048 token
+[2026-05-12T15:35:42.157Z] [aurapos]  Kod yazımı bitti. Test ajanı devralıyor: S0-19
+[2026-05-12T15:35:44.112Z] 🧐 QA GUARDRAIL: [aurapos] S0-19 denetleniyor...
+[2026-05-12T15:35:44.890Z] ❌ SYNC FAIL: print.ts
+[2026-05-12T15:35:47.164Z] [aurapos]  🧭 STEERING: Hata analizi ve yönlendirme yapılıyor (2/3)
+[2026-05-12T15:35:47.165Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T15:35:47.165Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T15:35:47.166Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T15:35:47.166Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T15:36:00.398Z] 🧠 BELLEK GÜNCELLENDİ: aurapos dersi işlendi.
+[2026-05-12T15:43:09.663Z] 💾 Dosya mühürlendi (4110 bytes): payment.ts
+[2026-05-12T15:43:12.535Z] 🧭 STEERING: [aurapos] S0-19 yönlendirme ile düzeltiliyor...
+[2026-05-12T15:43:12.535Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-12T15:43:12.535Z] 🧠 [CODER] Reasoning budget: 2048 token
+[2026-05-12T15:43:12.551Z] [aurapos]  Kod yazımı bitti. Test ajanı devralıyor: S0-14
+[2026-05-12T15:43:14.511Z] 🧐 QA GUARDRAIL: [aurapos] S0-14 denetleniyor...
+[2026-05-12T15:43:15.358Z] ❌ SYNC FAIL: payment.ts
+[2026-05-12T15:43:17.558Z] [aurapos]  🧭 STEERING: Hata analizi ve yönlendirme yapılıyor (3/3)
+[2026-05-12T15:43:17.559Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T15:43:17.559Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T15:43:17.560Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T15:43:17.560Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T15:55:00.979Z] 💾 Dosya mühürlendi (413 bytes): print.ts
+[2026-05-12T15:55:03.159Z] 🧭 STEERING: [aurapos] S0-14 yönlendirme ile düzeltiliyor...
+[2026-05-12T15:55:03.159Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-12T15:55:03.159Z] 🧠 [CODER] Reasoning budget: 2048 token
+[2026-05-12T15:55:03.216Z] [aurapos]  Kod yazımı bitti. Test ajanı devralıyor: S0-19
+[2026-05-12T15:55:05.129Z] 🧐 QA GUARDRAIL: [aurapos] S0-19 denetleniyor...
+[2026-05-12T15:55:05.931Z] ❌ SYNC FAIL: print.ts
+[2026-05-12T15:55:08.225Z] [aurapos]  🧭 STEERING: Hata analizi ve yönlendirme yapılıyor (3/3)
+[2026-05-12T15:55:08.226Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T15:55:08.226Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T15:55:08.227Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T15:55:08.227Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T15:55:21.655Z] 🧠 BELLEK GÜNCELLENDİ: aurapos dersi işlendi.
+[2026-05-12T16:13:33.563Z] 💾 Dosya mühürlendi (62553 bytes): payment.ts
+[2026-05-12T16:13:34.195Z] 🧭 STEERING: [aurapos] S0-19 yönlendirme ile düzeltiliyor...
+[2026-05-12T16:13:34.195Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-12T16:13:34.195Z] 🧠 [CODER] Reasoning budget: 2048 token
+[2026-05-12T16:13:34.254Z] [aurapos]  Kod yazımı bitti. Test ajanı devralıyor: S0-14
+[2026-05-12T16:13:36.218Z] 🧐 QA GUARDRAIL: [aurapos] S0-14 denetleniyor...
+[2026-05-12T16:13:37.110Z] ❌ SYNC FAIL: payment.ts
+[2026-05-12T16:13:39.259Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T16:13:39.261Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T16:13:39.261Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T16:24:25.206Z] 💾 Dosya mühürlendi (413 bytes): print.ts
+[2026-05-12T16:24:26.660Z] [aurapos]  Kod yazımı bitti. Test ajanı devralıyor: S0-19
+[2026-05-12T16:24:26.839Z] 🧐 QA GUARDRAIL: [aurapos] S0-19 denetleniyor...
+[2026-05-12T16:24:27.348Z] ❌ SYNC FAIL: print.ts
+[2026-05-12T16:24:29.862Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T16:24:29.863Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T16:24:29.864Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T16:39:14.142Z] ⏭️ [aurapos] "aurapos_prd.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-12T16:39:14.143Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (1/10 dosya, ~5152 token)...
+[2026-05-12T16:39:14.143Z] 🔬 RESEARCHER: 5 URL taranıyor: https://nextjs.org/docs, https://electric-sql.com/docs, https://fastify.dev/docs/latest/,, https://supabase.com/docs, https://reactnative.dev/docs/getting-started
+[2026-05-12T16:39:14.144Z] 🚀 TESTER başlatıldı.
+[2026-05-12T16:39:14.149Z] 🚀 DOCS başlatıldı.
+[2026-05-12T16:39:14.150Z] 🚀 CODER başlatıldı.
+[2026-05-12T16:39:14.152Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T16:39:43.916Z] 🚀 [CLI] Proje doğrudan başlatılıyor: aurapos
+[2026-05-12T16:39:43.917Z] 🎯 [aurapos] Bağımlılıklar tamam, görev başlatılıyor: Setup local development services with health-checked PostgreSQL and Redis
+[2026-05-12T16:39:43.919Z] 🎯 [aurapos] Bağımlılıklar tamam, görev başlatılıyor: Create lightweight AI wrapper for DeepSeek R1 with connection pooling
+[2026-05-12T16:39:43.920Z] 🎯 [aurapos] Bağımlılıklar tamam, görev başlatılıyor: Shared TypeScript types generated from Supabase schema
+[2026-05-12T16:39:43.920Z] 🎯 [aurapos] Bağımlılıklar tamam, görev başlatılıyor: Order Service temel CRUD, bölme, birleştirme ve masa taşıma endpoint'lerini oluştur
+[2026-05-12T16:39:43.921Z] 🎯 [aurapos] Bağımlılıklar tamam, görev başlatılıyor: Service Worker ve PWA yapılandırmasını kur (Workbox)
+[2026-05-12T16:39:43.921Z] 🎯 [aurapos] Bağımlılıklar tamam, görev başlatılıyor: Create mock test script
+[2026-05-12T16:39:43.922Z] 🎯 [aurapos] Bağımlılıklar tamam, görev başlatılıyor: Create dashboard home page and env
+[2026-05-12T16:39:43.923Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T16:39:44.182Z] ✍️ CODER: [aurapos] S0-1 yazılıyor...
+[2026-05-12T16:39:44.182Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-12T16:39:44.183Z] 🧠 [CODER] Reasoning budget: 2048 token
+[2026-05-12T16:40:43.922Z] ⏭️ [aurapos] "aurapos_prd.md" bu tura sığmadı, sonraki iterasyona bırakıldı.
+[2026-05-12T16:40:43.923Z] 🔍 [aurapos] Multi-Doc Synthesis başlatılıyor (1/10 dosya, ~5152 token)...
+[2026-05-12T16:40:43.923Z] 🔬 RESEARCHER: 5 URL taranıyor: https://nextjs.org/docs, https://electric-sql.com/docs, https://fastify.dev/docs/latest/,, https://supabase.com/docs, https://reactnative.dev/docs/getting-started
+[2026-05-12T16:41:14.584Z] 💾 Dosya mühürlendi (2404 bytes): dev-services.sh
+[2026-05-12T16:41:15.717Z] [aurapos]  Kod yazımı bitti. Test ajanı devralıyor: S0-1
+[2026-05-12T16:41:19.264Z] 🧐 QA GUARDRAIL: [aurapos] S0-1 denetleniyor...
+[2026-05-12T16:41:19.264Z] 🐳 SANDBOX: [aurapos] S0-1 izole test ortamında denetleniyor...
+[2026-05-12T16:41:19.264Z] ⏭️ SANDBOX ATLANDI: .sh dosyaları için sandbox tanımsız
+[2026-05-12T16:41:19.265Z] 🕵️ SHADOW TESTER: [aurapos] Güvenlik denetimi yapılıyor...
+[2026-05-12T16:41:19.265Z] 📖 [TESTER] Skill mühürü okundu.
+[2026-05-12T16:41:19.265Z] 🧠 [TESTER] Reasoning budget: 256 token
+[2026-05-12T16:41:19.298Z] ✍️ CODER: [aurapos] S0-3 yazılıyor...
+[2026-05-12T16:41:19.299Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-12T16:41:19.299Z] 🧠 [CODER] Reasoning budget: 2048 token
+[2026-05-12T16:44:43.625Z] 💾 Dosya mühürlendi (1861 bytes): wrapper.ts
+[2026-05-12T16:44:44.181Z] [aurapos]  Kod yazımı bitti. Test ajanı devralıyor: S0-3
+[2026-05-12T16:44:44.488Z] ✍️ CODER: [aurapos] S0-6 yazılıyor...
+[2026-05-12T16:44:44.488Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-12T16:44:44.488Z] 🧠 [CODER] Reasoning budget: 2048 token
