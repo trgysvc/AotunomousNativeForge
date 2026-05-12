@@ -223,7 +223,7 @@
       "depends_on": [
         "S0-1"
       ],
-      "status": "IN_PROGRESS"
+      "status": "FAILED"
     },
     {
       "task_id": "S0-18",

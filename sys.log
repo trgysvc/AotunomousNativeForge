@@ -1769,3 +1769,27 @@
 [2026-05-12T17:30:17.024Z] 📊 Sistem Durumu Güncelleniyor: [aurapos]
 [2026-05-12T17:30:17.025Z] 📖 [DOCS] Skill mühürü okundu.
 [2026-05-12T17:32:22.072Z] ✅ SYSTEM_STATE.md güncellendi.
+[2026-05-12T17:37:53.207Z] 💾 Dosya mühürlendi (5312 bytes): payment.ts
+[2026-05-12T17:37:53.767Z] [aurapos]  Kod yazımı bitti. Test ajanı devralıyor: S0-14
+[2026-05-12T17:37:57.421Z] 🧐 QA GUARDRAIL: [aurapos] S0-14 denetleniyor...
+[2026-05-12T17:37:57.438Z] 🧭 STEERING: [aurapos] S0-2 yönlendirme ile düzeltiliyor...
+[2026-05-12T17:37:57.438Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-12T17:37:57.438Z] 🧠 [CODER] Reasoning budget: 2048 token
+[2026-05-12T17:37:58.283Z] ❌ SYNC FAIL: payment.ts
+[2026-05-12T17:37:58.774Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T17:37:58.775Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T17:37:58.775Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T17:38:28.700Z] 💾 Dosya mühürlendi (394 bytes): docker-compose.yml
+[2026-05-12T17:38:32.145Z] [aurapos]  Kod yazımı bitti. Test ajanı devralıyor: S0-2
+[2026-05-12T17:38:32.457Z] 🧐 QA GUARDRAIL: [aurapos] S0-2 denetleniyor...
+[2026-05-12T17:38:32.458Z] 🐳 SANDBOX: [aurapos] S0-2 izole test ortamında denetleniyor...
+[2026-05-12T17:38:32.458Z] ⏭️ SANDBOX ATLANDI: .yml dosyaları için sandbox tanımsız
+[2026-05-12T17:38:32.458Z] 🕵️ SHADOW TESTER: [aurapos] Güvenlik denetimi yapılıyor...
+[2026-05-12T17:38:32.458Z] 📖 [TESTER] Skill mühürü okundu.
+[2026-05-12T17:38:32.458Z] 🧠 [TESTER] Reasoning budget: 256 token
+[2026-05-12T17:38:32.473Z] ✍️ CODER: [aurapos] S0-19 yazılıyor...
+[2026-05-12T17:38:32.473Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-12T17:38:32.473Z] 🧠 [CODER] Reasoning budget: 2048 token
+[2026-05-12T17:40:52.260Z] [aurapos]  🧭 STEERING: Hata analizi ve yönlendirme yapılıyor (1/3)
+[2026-05-12T17:40:52.261Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T17:40:52.261Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
