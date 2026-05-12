@@ -1,5 +1,5 @@
 # ANF Autonomous System — Live Telemetry Report
-*Last Updated: 2026-05-12T21:49:43.991Z*
+*Last Updated: 2026-05-12T21:54:14.189Z*
 *System Status: **🟢 ONLINE***
 
 ---
@@ -15,8 +15,8 @@
 | **Thermal Throttling** | 🟢 NONE | — |
 | **VRAM Usage** | Unified Memory (128 GB) | Model weights ~60 GB |
 | **KV Cache (vLLM)** | **1.8%** | Active context memory usage |
-| **System RAM** | 98.4 GB / 121.6 GB (80.9%) | |
-| **CPU Load Average (1m)** | 4.54 | Agent process pressure |
+| **System RAM** | 98.6 GB / 121.6 GB (81.1%) | |
+| **CPU Load Average (1m)** | 4.45 | Agent process pressure |
 
 ---
 
@@ -24,7 +24,7 @@
 
 | Metric | Value | Description |
 |:---|:---|:---|
-| **Generation Speed (TPS)** | **13.8 tokens/sec** | Nemotron-3-Super-120B NVFP4 |
+| **Generation Speed (TPS)** | **13.5 tokens/sec** | Nemotron-3-Super-120B NVFP4 |
 | **Active Requests** | 1 Running / 0 Waiting | Parallel agent capacity |
 | **Prefix Cache Hit Rate** | 0% | Repeated prompt caching efficiency |
 | **Context Window Usage** | ~4K / 24K tokens | Estimated from KV cache ratio |
@@ -40,17 +40,17 @@
 
 | Metric | Value |
 |:---|:---|
-| **MTBF** | 23.2 minutes |
+| **MTBF** | 16.6 minutes |
 | **Syntax Failures (SYNC FAIL)** | 53 |
-| **MAX RETRY Exceeded** | 65 |
-| **Retry Rate** | 290.0% |
-| **Avg Attempts / Task** | 2.90 |
+| **MAX RETRY Exceeded** | 91 |
+| **Retry Rate** | 420.0% |
+| **Avg Attempts / Task** | 4.20 |
 
 **Error Classification (failure_log):**
 
 | Error Type | Count |
 |:---|:---|
-| SYNTAX | 57 |
+| SYNTAX | 83 |
 
 ---
 
