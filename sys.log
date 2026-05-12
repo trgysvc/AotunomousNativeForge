@@ -2996,3 +2996,337 @@
 [2026-05-12T21:54:40.414Z] 📖 [ARCHITECT] Skill mühürü okundu.
 [2026-05-12T21:54:40.415Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
 [2026-05-12T21:54:42.726Z] ⏳ [CODER] Streaming... 5306 tokens so far (finish=generating)
+[2026-05-12T21:54:50.653Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T21:54:50.653Z] ♻️ Orphan task kurtarıldı: architect-BUG_REPORT-1778622497196.json
+[2026-05-12T21:54:50.664Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T21:54:50.669Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T21:54:50.669Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T21:55:00.899Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T21:55:00.900Z] ♻️ Orphan task kurtarıldı: architect-BUG_REPORT-1778622497196.json
+[2026-05-12T21:55:00.910Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T21:55:00.914Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T21:55:00.915Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T21:55:11.162Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T21:55:11.163Z] ♻️ Orphan task kurtarıldı: architect-BUG_REPORT-1778622497196.json
+[2026-05-12T21:55:11.172Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T21:55:11.176Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T21:55:11.176Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T21:55:12.779Z] ⏳ [CODER] Streaming... 5717 tokens so far (finish=generating)
+[2026-05-12T21:55:21.411Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T21:55:21.413Z] ♻️ Orphan task kurtarıldı: architect-BUG_REPORT-1778622497196.json
+[2026-05-12T21:55:21.422Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T21:55:21.427Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T21:55:21.427Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T21:55:31.647Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T21:55:31.648Z] ♻️ Orphan task kurtarıldı: architect-BUG_REPORT-1778622497196.json
+[2026-05-12T21:55:31.659Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T21:55:31.677Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T21:55:31.677Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T21:55:41.905Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T21:55:41.906Z] ♻️ Orphan task kurtarıldı: architect-BUG_REPORT-1778622497196.json
+[2026-05-12T21:55:41.916Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T21:55:41.920Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T21:55:41.921Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T21:55:42.818Z] ⏳ [CODER] Streaming... 6128 tokens so far (finish=generating)
+[2026-05-12T21:55:52.154Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T21:55:52.155Z] ♻️ Orphan task kurtarıldı: architect-BUG_REPORT-1778622497196.json
+[2026-05-12T21:55:52.165Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T21:55:52.170Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T21:55:52.170Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T21:56:02.408Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T21:56:02.409Z] ♻️ Orphan task kurtarıldı: architect-BUG_REPORT-1778622497196.json
+[2026-05-12T21:56:02.419Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T21:56:02.424Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T21:56:02.424Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T21:56:04.138Z] 💾 Dosya mühürlendi (30 bytes): index.ts
+[2026-05-12T21:56:07.154Z] [aurapos]  Kod yazımı bitti. Test ajanı devralıyor: S0-6
+[2026-05-12T21:56:07.306Z] ✍️ CODER: [aurapos] S0-14 yazılıyor...
+[2026-05-12T21:56:07.306Z] 📖 [CODER] Skill mühürü okundu.
+[2026-05-12T21:56:07.306Z] 🧠 [CODER] Reasoning budget: 2048 token
+[2026-05-12T21:56:11.786Z] 🧐 QA GUARDRAIL: [aurapos] S0-6 denetleniyor...
+[2026-05-12T21:56:12.576Z] ❌ SYNC FAIL: index.ts
+[2026-05-12T21:56:12.655Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T21:56:12.656Z] ♻️ Orphan task kurtarıldı: architect-BUG_REPORT-1778622497196.json
+[2026-05-12T21:56:12.667Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T21:56:12.672Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T21:56:12.672Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T21:56:17.165Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T21:56:17.170Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T21:56:17.170Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T21:56:22.904Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T21:56:22.905Z] ♻️ Orphan task kurtarıldı: architect-BUG_REPORT-1778622497196.json
+[2026-05-12T21:56:22.913Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T21:56:22.918Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T21:56:22.918Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T21:56:33.146Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T21:56:33.147Z] ♻️ Orphan task kurtarıldı: architect-BUG_REPORT-1778622497196.json
+[2026-05-12T21:56:33.158Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T21:56:33.163Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T21:56:33.163Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T21:56:37.331Z] ⏳ [CODER] Streaming... 337 tokens so far (finish=generating)
+[2026-05-12T21:56:43.401Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T21:56:43.402Z] ♻️ Orphan task kurtarıldı: architect-BUG_REPORT-1778622497196.json
+[2026-05-12T21:56:43.412Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T21:56:43.417Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T21:56:43.417Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T21:56:53.649Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T21:56:53.650Z] ♻️ Orphan task kurtarıldı: architect-BUG_REPORT-1778622497196.json
+[2026-05-12T21:56:53.660Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T21:56:53.664Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T21:56:53.664Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T21:57:03.896Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T21:57:03.897Z] ♻️ Orphan task kurtarıldı: architect-BUG_REPORT-1778622497196.json
+[2026-05-12T21:57:03.906Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T21:57:03.909Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T21:57:03.909Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T21:57:07.375Z] ⏳ [CODER] Streaming... 680 tokens so far (finish=generating)
+[2026-05-12T21:57:14.159Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T21:57:14.160Z] ♻️ Orphan task kurtarıldı: architect-BUG_REPORT-1778622497196.json
+[2026-05-12T21:57:14.170Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T21:57:14.175Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T21:57:14.175Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T21:57:24.394Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T21:57:24.395Z] ♻️ Orphan task kurtarıldı: architect-BUG_REPORT-1778622497196.json
+[2026-05-12T21:57:24.404Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T21:57:24.409Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T21:57:24.409Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T21:57:34.659Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T21:57:34.660Z] ♻️ Orphan task kurtarıldı: architect-BUG_REPORT-1778622497196.json
+[2026-05-12T21:57:34.671Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T21:57:34.676Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T21:57:34.676Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T21:57:37.441Z] ⏳ [CODER] Streaming... 1077 tokens so far (finish=generating)
+[2026-05-12T21:57:44.903Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T21:57:44.904Z] ♻️ Orphan task kurtarıldı: architect-BUG_REPORT-1778622497196.json
+[2026-05-12T21:57:44.914Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T21:57:44.918Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T21:57:44.918Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T21:57:55.149Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T21:57:55.150Z] ♻️ Orphan task kurtarıldı: architect-BUG_REPORT-1778622497196.json
+[2026-05-12T21:57:55.160Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T21:57:55.164Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T21:57:55.164Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T21:58:05.392Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T21:58:05.393Z] ♻️ Orphan task kurtarıldı: architect-BUG_REPORT-1778622497196.json
+[2026-05-12T21:58:05.402Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T21:58:05.407Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T21:58:05.407Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T21:58:07.473Z] ⏳ [CODER] Streaming... 1481 tokens so far (finish=generating)
+[2026-05-12T21:58:15.648Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T21:58:15.649Z] ♻️ Orphan task kurtarıldı: architect-BUG_REPORT-1778622497196.json
+[2026-05-12T21:58:15.660Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T21:58:15.664Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T21:58:15.664Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T21:58:25.905Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T21:58:25.906Z] ♻️ Orphan task kurtarıldı: architect-BUG_REPORT-1778622497196.json
+[2026-05-12T21:58:25.916Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T21:58:25.921Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T21:58:25.921Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T21:58:36.158Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T21:58:36.160Z] ♻️ Orphan task kurtarıldı: architect-BUG_REPORT-1778622497196.json
+[2026-05-12T21:58:36.169Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T21:58:36.174Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T21:58:36.175Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T21:58:37.489Z] ⏳ [CODER] Streaming... 1892 tokens so far (finish=generating)
+[2026-05-12T21:58:46.400Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T21:58:46.402Z] ♻️ Orphan task kurtarıldı: architect-BUG_REPORT-1778622497196.json
+[2026-05-12T21:58:46.412Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T21:58:46.431Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T21:58:46.431Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T21:58:56.645Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T21:58:56.646Z] ♻️ Orphan task kurtarıldı: architect-BUG_REPORT-1778622497196.json
+[2026-05-12T21:58:56.657Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T21:58:56.661Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T21:58:56.661Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T21:59:06.901Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T21:59:06.903Z] ♻️ Orphan task kurtarıldı: architect-BUG_REPORT-1778622497196.json
+[2026-05-12T21:59:06.913Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T21:59:06.917Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T21:59:06.917Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T21:59:07.525Z] ⏳ [CODER] Streaming... 2299 tokens so far (finish=generating)
+[2026-05-12T21:59:17.150Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T21:59:17.151Z] ♻️ Orphan task kurtarıldı: architect-BUG_REPORT-1778622497196.json
+[2026-05-12T21:59:17.161Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T21:59:17.166Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T21:59:17.166Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T21:59:27.398Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T21:59:27.399Z] ♻️ Orphan task kurtarıldı: architect-BUG_REPORT-1778622497196.json
+[2026-05-12T21:59:27.408Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T21:59:27.427Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T21:59:27.427Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T21:59:37.550Z] ⏳ [CODER] Streaming... 2705 tokens so far (finish=generating)
+[2026-05-12T21:59:37.644Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T21:59:37.645Z] ♻️ Orphan task kurtarıldı: architect-BUG_REPORT-1778622497196.json
+[2026-05-12T21:59:37.656Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T21:59:37.661Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T21:59:37.662Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T21:59:47.896Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T21:59:47.897Z] ♻️ Orphan task kurtarıldı: architect-BUG_REPORT-1778622497196.json
+[2026-05-12T21:59:47.907Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T21:59:47.926Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T21:59:47.926Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T21:59:58.135Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T21:59:58.136Z] ♻️ Orphan task kurtarıldı: architect-BUG_REPORT-1778622497196.json
+[2026-05-12T21:59:58.145Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T21:59:58.164Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T21:59:58.165Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T22:00:07.590Z] ⏳ [CODER] Streaming... 3108 tokens so far (finish=generating)
+[2026-05-12T22:00:08.403Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T22:00:08.404Z] ♻️ Orphan task kurtarıldı: architect-BUG_REPORT-1778622497196.json
+[2026-05-12T22:00:08.413Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T22:00:08.433Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T22:00:08.433Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T22:00:18.644Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T22:00:18.645Z] ♻️ Orphan task kurtarıldı: architect-BUG_REPORT-1778622497196.json
+[2026-05-12T22:00:18.652Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T22:00:18.656Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T22:00:18.656Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T22:00:28.906Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T22:00:28.906Z] ♻️ Orphan task kurtarıldı: architect-BUG_REPORT-1778622497196.json
+[2026-05-12T22:00:28.917Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T22:00:28.922Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T22:00:28.922Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T22:00:37.596Z] ⏳ [CODER] Streaming... 3519 tokens so far (finish=generating)
+[2026-05-12T22:00:39.153Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T22:00:39.154Z] ♻️ Orphan task kurtarıldı: architect-BUG_REPORT-1778622497196.json
+[2026-05-12T22:00:39.164Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T22:00:39.183Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T22:00:39.184Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T22:00:49.402Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T22:00:49.403Z] ♻️ Orphan task kurtarıldı: architect-BUG_REPORT-1778622497196.json
+[2026-05-12T22:00:49.413Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T22:00:49.418Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T22:00:49.418Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T22:00:59.650Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T22:00:59.651Z] ♻️ Orphan task kurtarıldı: architect-BUG_REPORT-1778622497196.json
+[2026-05-12T22:00:59.661Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T22:00:59.664Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T22:00:59.665Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T22:01:07.656Z] ⏳ [CODER] Streaming... 3926 tokens so far (finish=generating)
+[2026-05-12T22:01:09.892Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T22:01:09.893Z] ♻️ Orphan task kurtarıldı: architect-BUG_REPORT-1778622497196.json
+[2026-05-12T22:01:09.902Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T22:01:09.922Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T22:01:09.922Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T22:01:20.152Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T22:01:20.153Z] ♻️ Orphan task kurtarıldı: architect-BUG_REPORT-1778622497196.json
+[2026-05-12T22:01:20.164Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T22:01:20.182Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T22:01:20.183Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T22:01:30.408Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T22:01:30.409Z] ♻️ Orphan task kurtarıldı: architect-BUG_REPORT-1778622497196.json
+[2026-05-12T22:01:30.419Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T22:01:30.423Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T22:01:30.424Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T22:01:37.714Z] ⏳ [CODER] Streaming... 4335 tokens so far (finish=generating)
+[2026-05-12T22:01:40.662Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T22:01:40.663Z] ♻️ Orphan task kurtarıldı: architect-BUG_REPORT-1778622497196.json
+[2026-05-12T22:01:40.670Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T22:01:40.690Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T22:01:40.690Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T22:01:50.905Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T22:01:50.907Z] ♻️ Orphan task kurtarıldı: architect-BUG_REPORT-1778622497196.json
+[2026-05-12T22:01:50.916Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T22:01:50.936Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T22:01:50.936Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T22:02:01.152Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T22:02:01.153Z] ♻️ Orphan task kurtarıldı: architect-BUG_REPORT-1778622497196.json
+[2026-05-12T22:02:01.162Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T22:02:01.181Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T22:02:01.182Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T22:02:07.745Z] ⏳ [CODER] Streaming... 4739 tokens so far (finish=generating)
+[2026-05-12T22:02:11.416Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T22:02:11.419Z] ♻️ Orphan task kurtarıldı: architect-BUG_REPORT-1778622497196.json
+[2026-05-12T22:02:11.430Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T22:02:11.450Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T22:02:11.450Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T22:02:21.645Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T22:02:21.646Z] ♻️ Orphan task kurtarıldı: architect-BUG_REPORT-1778622497196.json
+[2026-05-12T22:02:21.655Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T22:02:21.675Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T22:02:21.676Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T22:02:31.911Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T22:02:31.912Z] ♻️ Orphan task kurtarıldı: architect-BUG_REPORT-1778622497196.json
+[2026-05-12T22:02:31.922Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T22:02:31.925Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T22:02:31.926Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T22:02:37.757Z] ⏳ [CODER] Streaming... 5137 tokens so far (finish=generating)
+[2026-05-12T22:02:42.143Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T22:02:42.144Z] ♻️ Orphan task kurtarıldı: architect-BUG_REPORT-1778622497196.json
+[2026-05-12T22:02:42.152Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T22:02:42.156Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T22:02:42.156Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T22:02:52.447Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T22:02:52.449Z] ♻️ Orphan task kurtarıldı: architect-BUG_REPORT-1778622497196.json
+[2026-05-12T22:02:52.461Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T22:02:52.480Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T22:02:52.480Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T22:03:02.647Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T22:03:02.648Z] ♻️ Orphan task kurtarıldı: architect-BUG_REPORT-1778622497196.json
+[2026-05-12T22:03:02.659Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T22:03:02.663Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T22:03:02.663Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T22:03:07.771Z] ⏳ [CODER] Streaming... 5543 tokens so far (finish=generating)
+[2026-05-12T22:03:12.896Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T22:03:12.897Z] ♻️ Orphan task kurtarıldı: architect-BUG_REPORT-1778622497196.json
+[2026-05-12T22:03:12.908Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T22:03:12.913Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T22:03:12.914Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T22:03:23.151Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T22:03:23.151Z] ♻️ Orphan task kurtarıldı: architect-BUG_REPORT-1778622497196.json
+[2026-05-12T22:03:23.161Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T22:03:23.165Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T22:03:23.165Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T22:03:33.405Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T22:03:33.406Z] ♻️ Orphan task kurtarıldı: architect-BUG_REPORT-1778622497196.json
+[2026-05-12T22:03:33.416Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T22:03:33.420Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T22:03:33.421Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T22:03:37.830Z] ⏳ [CODER] Streaming... 5947 tokens so far (finish=generating)
+[2026-05-12T22:03:43.649Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T22:03:43.650Z] ♻️ Orphan task kurtarıldı: architect-BUG_REPORT-1778622497196.json
+[2026-05-12T22:03:43.661Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T22:03:43.664Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T22:03:43.664Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T22:03:53.906Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T22:03:53.907Z] ♻️ Orphan task kurtarıldı: architect-BUG_REPORT-1778622497196.json
+[2026-05-12T22:03:53.918Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T22:03:53.923Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T22:03:53.923Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T22:04:04.148Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T22:04:04.149Z] ♻️ Orphan task kurtarıldı: architect-BUG_REPORT-1778622497196.json
+[2026-05-12T22:04:04.159Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T22:04:04.165Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T22:04:04.165Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T22:04:07.898Z] ⏳ [CODER] Streaming... 6353 tokens so far (finish=generating)
+[2026-05-12T22:04:14.400Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T22:04:14.402Z] ♻️ Orphan task kurtarıldı: architect-BUG_REPORT-1778622497196.json
+[2026-05-12T22:04:14.412Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T22:04:14.418Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T22:04:14.418Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T22:04:24.650Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T22:04:24.651Z] ♻️ Orphan task kurtarıldı: architect-BUG_REPORT-1778622497196.json
+[2026-05-12T22:04:24.659Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T22:04:24.663Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T22:04:24.663Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T22:04:34.902Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T22:04:34.902Z] ♻️ Orphan task kurtarıldı: architect-BUG_REPORT-1778622497196.json
+[2026-05-12T22:04:34.912Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T22:04:34.917Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T22:04:34.917Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T22:04:37.948Z] ⏳ [CODER] Streaming... 6762 tokens so far (finish=generating)
+[2026-05-12T22:04:45.146Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T22:04:45.146Z] ♻️ Orphan task kurtarıldı: architect-BUG_REPORT-1778622497196.json
+[2026-05-12T22:04:45.154Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T22:04:45.159Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T22:04:45.159Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T22:04:55.408Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T22:04:55.410Z] ♻️ Orphan task kurtarıldı: architect-BUG_REPORT-1778622497196.json
+[2026-05-12T22:04:55.418Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T22:04:55.422Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T22:04:55.422Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
+[2026-05-12T22:05:05.661Z] 🚀 ARCHITECT başlatıldı.
+[2026-05-12T22:05:05.662Z] ♻️ Orphan task kurtarıldı: architect-BUG_REPORT-1778622497196.json
+[2026-05-12T22:05:05.672Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-12T22:05:05.676Z] 📖 [ARCHITECT] Skill mühürü okundu.
+[2026-05-12T22:05:05.676Z] 🧠 [ARCHITECT] Reasoning budget: low_effort token
