@@ -1,5 +1,5 @@
 # ANF Autonomous System — Live Telemetry Report
-*Last Updated: 2026-05-13T14:43:33.095Z*
+*Last Updated: 2026-05-13T14:45:18.857Z*
 *System Status: **🟢 ONLINE***
 
 ---
@@ -9,8 +9,8 @@
 | Metric | Value | Notes |
 |:---|:---|:---|
 | **GPU** | NVIDIA GB10 | 96% load |
-| **VRAM / KV Cache** | 3.6% | Context usage |
-| **Generation Speed** | 22.1 tps | Model: Nemotron-3 |
+| **VRAM / KV Cache** | 1.8% | Context usage |
+| **Generation Speed** | 13.7 tps | Model: Nemotron-3 |
 
 ## 📊 2. Project Progress
 | Status | Count | Percentage |
