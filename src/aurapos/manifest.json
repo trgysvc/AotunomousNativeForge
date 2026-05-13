@@ -68,7 +68,7 @@
       "depends_on": [
         "S0-1"
       ],
-      "status": "PENDING"
+      "status": "DONE"
     },
     {
       "task_id": "S1-2",
@@ -78,7 +78,34 @@
       "depends_on": [
         "S1-1"
       ],
-      "status": "PENDING"
+      "status": "FAILED",
+      "retry_count": 4,
+      "failure_log": [
+        {
+          "attempt": 1,
+          "timestamp": "2026-05-13T16:10:00.449Z",
+          "error_type": "UNKNOWN",
+          "error": "HATA: Dosya bulunamadı."
+        },
+        {
+          "attempt": 2,
+          "timestamp": "2026-05-13T16:14:22.823Z",
+          "error_type": "SYNTAX",
+          "error": "SENTAKS HATASI: Command failed: npx -y --package typescript tsc --noEmit --target esnext --module esnext --esModuleInterop --skipLibCheck \"/workspaces/AutonomousNativeForge/src/aurapos/apps/api/src/routes/auth.ts\"\n"
+        },
+        {
+          "attempt": 3,
+          "timestamp": "2026-05-13T16:23:13.180Z",
+          "error_type": "SYNTAX",
+          "error": "CODER HATASI: Stream ended but response is empty (tokens=4097, finish=length)"
+        },
+        {
+          "attempt": 4,
+          "timestamp": "2026-05-13T16:29:08.353Z",
+          "error_type": "SYNTAX",
+          "error": "HATA: Dosya bulunamadı."
+        }
+      ]
     },
     {
       "task_id": "S1-4",
@@ -88,7 +115,34 @@
       "depends_on": [
         "S1-1"
       ],
-      "status": "PENDING"
+      "status": "FAILED",
+      "retry_count": 4,
+      "failure_log": [
+        {
+          "attempt": 1,
+          "timestamp": "2026-05-13T16:17:05.708Z",
+          "error_type": "SYNTAX",
+          "error": "SENTAKS HATASI: Command failed: npx -y --package typescript tsc --noEmit --target esnext --module esnext --esModuleInterop --skipLibCheck \"/workspaces/AutonomousNativeForge/src/aurapos/apps/api/src/middleware/rbac.ts\"\n"
+        },
+        {
+          "attempt": 2,
+          "timestamp": "2026-05-13T16:27:31.249Z",
+          "error_type": "SYNTAX",
+          "error": "CODER HATASI: Stream ended but response is empty (tokens=4097, finish=length)"
+        },
+        {
+          "attempt": 3,
+          "timestamp": "2026-05-13T16:35:51.542Z",
+          "error_type": "SYNTAX",
+          "error": "HATA: Dosya bulunamadı."
+        },
+        {
+          "attempt": 4,
+          "timestamp": "2026-05-13T16:42:41.855Z",
+          "error_type": "SYNTAX",
+          "error": "HATA: Dosya bulunamadı."
+        }
+      ]
     },
     {
       "task_id": "S1-0",
@@ -96,7 +150,34 @@
       "desc": "Bölüm 7'deki veritabanı şemasına uyumlu başlangıç migration dosyasını oluştur. Tablolar: businesses, branches, staff, roles, table_areas, tables, categories, products, portions, option_groups, option_items, orders, order_items, order_item_options, payments, cash_registers, ingredients, recipes, stock_movements, tasks, task_logs, warehouses, aggregator_mappings, aggregator_orders, aggregator_order_items, customer_ledgers, semi_products, semi_product_recipes, production_logs, printers, printer_routing_rules, qr_attendance_tokens. Migration dosyası şema tanımından otomatik olarak üretilecek (örneğin Node scripti).",
       "file_path": "supabase/migrations/20260315000000_initial_schema.sql",
       "depends_on": [],
-      "status": "PENDING"
+      "status": "FAILED",
+      "retry_count": 4,
+      "failure_log": [
+        {
+          "attempt": 1,
+          "timestamp": "2026-05-13T15:32:39.171Z",
+          "error_type": "PRD_COMPLIANCE",
+          "error": "PRD UYUMSUZLUĞU: Native Architecture Violation: usage of Supabase-specific storage.create_bucket function, which is not a native PostgreSQL feature."
+        },
+        {
+          "attempt": 2,
+          "timestamp": "2026-05-13T15:39:14.442Z",
+          "error_type": "PRD_COMPLIANCE",
+          "error": "CODER HATASI: Stream ended but response is empty (tokens=4097, finish=length)"
+        },
+        {
+          "attempt": 3,
+          "timestamp": "2026-05-13T15:52:33.510Z",
+          "error_type": "PRD_COMPLIANCE",
+          "error": "CODER HATASI: Stream ended but response is empty (tokens=4097, finish=length)"
+        },
+        {
+          "attempt": 4,
+          "timestamp": "2026-05-13T16:04:12.478Z",
+          "error_type": "PRD_COMPLIANCE",
+          "error": "CODER HATASI: Stream ended but response is empty (tokens=4097, finish=length)"
+        }
+      ]
     },
     {
       "task_id": "S1-3",
@@ -107,7 +188,34 @@
         "S1-1",
         "S1-9"
       ],
-      "status": "PENDING"
+      "status": "FAILED",
+      "retry_count": 4,
+      "failure_log": [
+        {
+          "attempt": 1,
+          "timestamp": "2026-05-13T17:15:02.731Z",
+          "error_type": "SYNTAX",
+          "error": "SENTAKS HATASI: Command failed: npx -y --package typescript tsc --noEmit --target esnext --module esnext --esModuleInterop --skipLibCheck \"/workspaces/AutonomousNativeForge/src/aurapos/apps/branch-server/src/routes/auth/routes.ts\"\n"
+        },
+        {
+          "attempt": 2,
+          "timestamp": "2026-05-13T17:24:03.141Z",
+          "error_type": "SYNTAX",
+          "error": "CODER HATASI: Stream ended but response is empty (tokens=4097, finish=length)"
+        },
+        {
+          "attempt": 3,
+          "timestamp": "2026-05-13T17:26:55.275Z",
+          "error_type": "SYNTAX",
+          "error": "HATA: Dosya bulunamadı."
+        },
+        {
+          "attempt": 4,
+          "timestamp": "2026-05-13T17:29:38.395Z",
+          "error_type": "SYNTAX",
+          "error": "HATA: Dosya bulunamadı."
+        }
+      ]
     },
     {
       "task_id": "S1-5",
@@ -117,7 +225,34 @@
       "depends_on": [
         "S1-1"
       ],
-      "status": "PENDING"
+      "status": "FAILED",
+      "retry_count": 4,
+      "failure_log": [
+        {
+          "attempt": 1,
+          "timestamp": "2026-05-13T16:34:41.515Z",
+          "error_type": "SYNTAX",
+          "error": "SENTAKS HATASI: Command failed: npx -y --package typescript tsc --noEmit --target esnext --module esnext --esModuleInterop --skipLibCheck \"/workspaces/AutonomousNativeForge/src/aurapos/apps/branch-server/src/middleware/auth.ts\"\n"
+        },
+        {
+          "attempt": 2,
+          "timestamp": "2026-05-13T16:38:21.638Z",
+          "error_type": "SYNTAX",
+          "error": "HATA: Dosya bulunamadı."
+        },
+        {
+          "attempt": 3,
+          "timestamp": "2026-05-13T16:41:48.497Z",
+          "error_type": "SYNTAX",
+          "error": "SENTAKS HATASI: Command failed: npx -y --package typescript tsc --noEmit --target esnext --module esnext --esModuleInterop --skipLibCheck \"/workspaces/AutonomousNativeForge/src/aurapos/apps/branch-server/src/middleware/auth.ts\"\n"
+        },
+        {
+          "attempt": 4,
+          "timestamp": "2026-05-13T16:48:52.128Z",
+          "error_type": "SYNTAX",
+          "error": "CODER HATASI: Stream ended but response is empty (tokens=4097, finish=length)"
+        }
+      ]
     },
     {
       "task_id": "S1-6",
@@ -127,7 +262,34 @@
       "depends_on": [
         "S1-1"
       ],
-      "status": "PENDING"
+      "status": "FAILED",
+      "retry_count": 4,
+      "failure_log": [
+        {
+          "attempt": 1,
+          "timestamp": "2026-05-13T16:40:43.469Z",
+          "error_type": "SYNTAX",
+          "error": "SENTAKS HATASI: Command failed: npx -y --package typescript tsc --noEmit --target esnext --module esnext --esModuleInterop --skipLibCheck \"/workspaces/AutonomousNativeForge/src/aurapos/apps/branch-server/src/middleware/auth.ts\"\n"
+        },
+        {
+          "attempt": 2,
+          "timestamp": "2026-05-13T16:46:33.721Z",
+          "error_type": "SYNTAX",
+          "error": "SENTAKS HATASI: Command failed: npx -y --package typescript tsc --noEmit --target esnext --module esnext --esModuleInterop --skipLibCheck \"/workspaces/AutonomousNativeForge/src/aurapos/aurapos/apps/branch-server/src/middleware/auth.ts\"\n"
+        },
+        {
+          "attempt": 3,
+          "timestamp": "2026-05-13T16:53:43.986Z",
+          "error_type": "SYNTAX",
+          "error": "HATA: Dosya bulunamadı."
+        },
+        {
+          "attempt": 4,
+          "timestamp": "2026-05-13T17:03:07.636Z",
+          "error_type": "SYNTAX",
+          "error": "HATA: Dosya bulunamadı."
+        }
+      ]
     },
     {
       "task_id": "S1-7",
@@ -138,7 +300,34 @@
         "S1-1",
         "S1-6"
       ],
-      "status": "PENDING"
+      "status": "FAILED",
+      "retry_count": 4,
+      "failure_log": [
+        {
+          "attempt": 1,
+          "timestamp": "2026-05-13T17:08:14.570Z",
+          "error_type": "UNKNOWN",
+          "error": "HATA: Dosya bulunamadı."
+        },
+        {
+          "attempt": 2,
+          "timestamp": "2026-05-13T17:11:14.709Z",
+          "error_type": "UNKNOWN",
+          "error": "HATA: Dosya bulunamadı."
+        },
+        {
+          "attempt": 3,
+          "timestamp": "2026-05-13T17:18:44.964Z",
+          "error_type": "UNKNOWN",
+          "error": "HATA: Dosya bulunamadı."
+        },
+        {
+          "attempt": 4,
+          "timestamp": "2026-05-13T17:25:05.269Z",
+          "error_type": "UNKNOWN",
+          "error": "HATA: Dosya bulunamadı."
+        }
+      ]
     },
     {
       "task_id": "S1-8",
@@ -149,7 +338,34 @@
         "S1-0",
         "S1-9"
       ],
-      "status": "PENDING"
+      "status": "FAILED",
+      "retry_count": 4,
+      "failure_log": [
+        {
+          "attempt": 1,
+          "timestamp": "2026-05-13T17:18:07.836Z",
+          "error_type": "SYNTAX",
+          "error": "SENTAKS HATASI: Command failed: npx -y --package typescript tsc --noEmit --target esnext --module esnext --esModuleInterop --skipLibCheck \"/workspaces/AutonomousNativeForge/src/aurapos/apps/branch-server/src/utils/health.ts\"\n"
+        },
+        {
+          "attempt": 2,
+          "timestamp": "2026-05-13T17:22:50.172Z",
+          "error_type": "SYNTAX",
+          "error": "HATA: Dosya bulunamadı."
+        },
+        {
+          "attempt": 3,
+          "timestamp": "2026-05-13T17:28:43.386Z",
+          "error_type": "SYNTAX",
+          "error": "SENTAKS HATASI: Command failed: npx -y --package typescript tsc --noEmit --target esnext --module esnext --esModuleInterop --skipLibCheck \"/workspaces/AutonomousNativeForge/src/aurapos/apps/branch-server/src/utils/health.ts\"\n"
+        },
+        {
+          "attempt": 4,
+          "timestamp": "2026-05-13T17:34:30.681Z",
+          "error_type": "SYNTAX",
+          "error": "CODER HATASI: Stream ended but response is empty (tokens=4097, finish=length)"
+        }
+      ]
     },
     {
       "task_id": "S1-9",
@@ -159,7 +375,34 @@
       "depends_on": [
         "S1-0"
       ],
-      "status": "PENDING"
+      "status": "FAILED",
+      "retry_count": 4,
+      "failure_log": [
+        {
+          "attempt": 1,
+          "timestamp": "2026-05-13T16:52:38.977Z",
+          "error_type": "SYNTAX",
+          "error": "SENTAKS HATASI: Command failed: npx -y --package typescript tsc --noEmit --target esnext --module esnext --esModuleInterop --skipLibCheck \"/workspaces/AutonomousNativeForge/src/aurapos/apps/branch-server/src/lib/db.ts\"\n"
+        },
+        {
+          "attempt": 2,
+          "timestamp": "2026-05-13T16:57:47.374Z",
+          "error_type": "SYNTAX",
+          "error": "HATA: Dosya bulunamadı."
+        },
+        {
+          "attempt": 3,
+          "timestamp": "2026-05-13T17:05:09.506Z",
+          "error_type": "SYNTAX",
+          "error": "CODER HATASI: Stream ended but response is empty (tokens=4097, finish=length)"
+        },
+        {
+          "attempt": 4,
+          "timestamp": "2026-05-13T17:13:09.764Z",
+          "error_type": "SYNTAX",
+          "error": "CODER HATASI: Stream ended but response is empty (tokens=4097, finish=length)"
+        }
+      ]
     },
     {
       "task_id": "S1-10",
@@ -169,7 +412,34 @@
       "depends_on": [
         "S1-1"
       ],
-      "status": "PENDING"
+      "status": "FAILED",
+      "retry_count": 4,
+      "failure_log": [
+        {
+          "attempt": 1,
+          "timestamp": "2026-05-13T16:49:28.827Z",
+          "error_type": "SYNTAX",
+          "error": "SENTAKS HATASI: Command failed: npx -y --package typescript tsc --noEmit --target esnext --module esnext --esModuleInterop --skipLibCheck \"/workspaces/AutonomousNativeForge/src/aurapos/apps/branch-server/src/lib/jwt.ts\"\n"
+        },
+        {
+          "attempt": 2,
+          "timestamp": "2026-05-13T16:58:44.215Z",
+          "error_type": "SYNTAX",
+          "error": "CODER HATASI: Stream ended but response is empty (tokens=4097, finish=length)"
+        },
+        {
+          "attempt": 3,
+          "timestamp": "2026-05-13T17:03:49.473Z",
+          "error_type": "SYNTAX",
+          "error": "HATA: Dosya bulunamadı."
+        },
+        {
+          "attempt": 4,
+          "timestamp": "2026-05-13T17:06:04.524Z",
+          "error_type": "SYNTAX",
+          "error": "SENTAKS HATASI: Command failed: npx -y --package typescript tsc --noEmit --target esnext --module esnext --esModuleInterop --skipLibCheck \"/workspaces/AutonomousNativeForge/src/aurapos/apps/branch-server/src/lib/jwt.ts\"\n"
+        }
+      ]
     },
     {
       "task_id": "S0-2",
@@ -1211,8 +1481,8 @@
       "depends_on": [
         "S0-5.1"
       ],
-      "status": "FIXING",
-      "retry_count": 2,
+      "status": "FAILED",
+      "retry_count": 4,
       "failure_log": [
         {
           "attempt": 1,
@@ -1225,6 +1495,18 @@
           "timestamp": "2026-05-13T14:51:07.285Z",
           "error_type": "SYNTAX",
           "error": "SENTAKS HATASI: Command failed: npx -y --package typescript tsc --noEmit --target esnext --module esnext --esModuleInterop --skipLibCheck \"/workspaces/AutonomousNativeForge/src/aurapos/scripts/test-all-mocks.ts\"\n"
+        },
+        {
+          "attempt": 3,
+          "timestamp": "2026-05-13T14:56:27.537Z",
+          "error_type": "SYNTAX",
+          "error": "SENTAKS HATASI: Command failed: npx -y --package typescript tsc --noEmit --target esnext --module esnext --esModuleInterop --skipLibCheck \"/workspaces/AutonomousNativeForge/src/aurapos/aurapos/scripts/test-all-mocks.ts\"\n"
+        },
+        {
+          "attempt": 4,
+          "timestamp": "2026-05-13T15:02:22.812Z",
+          "error_type": "SYNTAX",
+          "error": "CODER HATASI: Stream ended but response is empty (tokens=4097, finish=length)"
         }
       ]
     },
@@ -1236,7 +1518,34 @@
       "depends_on": [
         "S0-6.1"
       ],
-      "status": "PENDING"
+      "status": "FAILED",
+      "retry_count": 4,
+      "failure_log": [
+        {
+          "attempt": 1,
+          "timestamp": "2026-05-13T15:07:08.002Z",
+          "error_type": "SYNTAX",
+          "error": "SENTAKS HATASI: Command failed: npx -y --package typescript tsc --noEmit --target esnext --module esnext --esModuleInterop --skipLibCheck \"/workspaces/AutonomousNativeForge/src/aurapos/apps/pos/app/layout.tsx\"\n"
+        },
+        {
+          "attempt": 2,
+          "timestamp": "2026-05-13T15:12:48.262Z",
+          "error_type": "SYNTAX",
+          "error": "CODER HATASI: Stream ended but response is empty (tokens=4097, finish=length)"
+        },
+        {
+          "attempt": 3,
+          "timestamp": "2026-05-13T15:18:28.545Z",
+          "error_type": "SYNTAX",
+          "error": "CODER HATASI: Stream ended but response is empty (tokens=4097, finish=length)"
+        },
+        {
+          "attempt": 4,
+          "timestamp": "2026-05-13T15:24:03.792Z",
+          "error_type": "SYNTAX",
+          "error": "CODER HATASI: Stream ended but response is empty (tokens=4097, finish=length)"
+        }
+      ]
     },
     {
       "task_id": "S2-0",
@@ -1465,7 +1774,22 @@
       "desc": "Add insight cards for daily/weekly/monthly revenue change, low‑performing products, and forecasted rush hours.",
       "file_path": "/packages/backend/src/services/aiInsightEngine.ts",
       "depends_on": [],
-      "status": "PENDING"
+      "status": "FIXING",
+      "retry_count": 2,
+      "failure_log": [
+        {
+          "attempt": 1,
+          "timestamp": "2026-05-13T17:36:43.705Z",
+          "error_type": "UNKNOWN",
+          "error": "CODER HATASI: 🛡️ GÜVENLİK İHLALİ: Geçersiz dosya yolu (Dizin dışına çıkma denemesi): /packages/backend/src/services/aiInsightEngine.ts"
+        },
+        {
+          "attempt": 2,
+          "timestamp": "2026-05-13T17:43:54.025Z",
+          "error_type": "UNKNOWN",
+          "error": "CODER HATASI: 🛡️ GÜVENLİK İHLALİ: Geçersiz dosya yolu (Dizin dışına çıkma denemesi): /packages/backend/src/services/aiInsightEngine.ts"
+        }
+      ]
     },
     {
       "task_id": "S10-2",
@@ -1473,7 +1797,22 @@
       "desc": "Frontend components to render AI Insight cards in a responsive grid.",
       "file_path": "/apps/dashboard/src/components/AIInsightGrid.tsx",
       "depends_on": [],
-      "status": "PENDING"
+      "status": "FIXING",
+      "retry_count": 2,
+      "failure_log": [
+        {
+          "attempt": 1,
+          "timestamp": "2026-05-13T17:36:30.694Z",
+          "error_type": "UNKNOWN",
+          "error": "CODER HATASI: 🛡️ GÜVENLİK İHLALİ: Geçersiz dosya yolu (Dizin dışına çıkma denemesi): /apps/dashboard/src/components/AIInsightGrid.tsx"
+        },
+        {
+          "attempt": 2,
+          "timestamp": "2026-05-13T17:44:06.030Z",
+          "error_type": "UNKNOWN",
+          "error": "CODER HATASI: 🛡️ GÜVENLİK İHLALİ: Geçersiz dosya yolu (Dizin dışına çıkma denemesi): /apps/dashboard/src/components/AIInsightGrid.tsx"
+        }
+      ]
     },
     {
       "task_id": "S10-3",
@@ -1481,7 +1820,16 @@
       "desc": "Realtime updates of insight cards when new data arrives via Redis pub/sub.",
       "file_path": "/apps/dashboard/src/hooks/useAIInsight.ts",
       "depends_on": [],
-      "status": "PENDING"
+      "status": "FIXING",
+      "retry_count": 1,
+      "failure_log": [
+        {
+          "attempt": 1,
+          "timestamp": "2026-05-13T17:42:13.984Z",
+          "error_type": "UNKNOWN",
+          "error": "CODER HATASI: Stream ended but response is empty (tokens=4097, finish=length)"
+        }
+      ]
     },
     {
       "task_id": "S10-4",
@@ -1489,7 +1837,16 @@
       "desc": "Vitest suite covering all insight triggers and edge cases.",
       "file_path": "/packages/backend/src/services/__tests__/aiInsightEngine.test.ts",
       "depends_on": [],
-      "status": "PENDING"
+      "status": "FIXING",
+      "retry_count": 1,
+      "failure_log": [
+        {
+          "attempt": 1,
+          "timestamp": "2026-05-13T17:42:30.995Z",
+          "error_type": "UNKNOWN",
+          "error": "CODER HATASI: 🛡️ GÜVENLİK İHLALİ: Geçersiz dosya yolu (Dizin dışına çıkma denemesi): /packages/backend/src/services/__tests__/aiInsightEngine.test.ts"
+        }
+      ]
     },
     {
       "task_id": "S11-1",
@@ -1640,21 +1997,108 @@
       "desc": "Implement visual floor‑plan UI with drag‑drop table assignment, status colors, and context‑menu for split/merge.",
       "file_path": "/workspace/aurapos/apps/pos/components/MasaPlanı.tsx",
       "depends_on": [],
-      "status": "PENDING"
+      "status": "FAILED",
+      "retry_count": 5,
+      "failure_log": [
+        {
+          "attempt": 1,
+          "timestamp": "2026-05-13T15:34:09.215Z",
+          "error_type": "SYNTAX",
+          "error": "SENTAKS HATASI: Command failed: npx -y --package typescript tsc --noEmit --target esnext --module esnext --esModuleInterop --skipLibCheck \"/workspaces/AutonomousNativeForge/src/aurapos/aurapos/apps/pos/components/MasaPlanı.tsx\"\n"
+        },
+        {
+          "attempt": 2,
+          "timestamp": "2026-05-13T15:44:19.020Z",
+          "error_type": "SYNTAX",
+          "error": "SENTAKS HATASI: Command failed: npx -y --package typescript tsc --noEmit --target esnext --module esnext --esModuleInterop --skipLibCheck \"/workspaces/AutonomousNativeForge/src/aurapos/aurapos/aurapos/apps/pos/components/MasaPlanı.tsx\"\n"
+        },
+        {
+          "attempt": 3,
+          "timestamp": "2026-05-13T15:44:26.527Z",
+          "error_type": "SYNTAX",
+          "error": "SENTAKS HATASI: Command failed: npx -y --package typescript tsc --noEmit --target esnext --module esnext --esModuleInterop --skipLibCheck \"/workspaces/AutonomousNativeForge/src/aurapos/aurapos/aurapos/apps/pos/components/MasaPlanı.tsx\"\n"
+        },
+        {
+          "attempt": 4,
+          "timestamp": "2026-05-13T15:56:30.305Z",
+          "error_type": "SYNTAX",
+          "error": "SENTAKS HATASI: Command failed: npx -y --package typescript tsc --noEmit --target esnext --module esnext --esModuleInterop --skipLibCheck \"/workspaces/AutonomousNativeForge/src/aurapos/aurapos/aurapos/aurapos/apps/pos/components/MasaPlanı.tsx\"\n"
+        },
+        {
+          "attempt": 5,
+          "timestamp": "2026-05-13T16:00:02.341Z",
+          "error_type": "SYNTAX",
+          "error": "HATA: Dosya bulunamadı."
+        }
+      ]
     },
     {
       "task_id": "S1-12",
       "desc": "Build the order panel UI: product search, quantity/portion selection, option groups, notes, and real‑time total.",
       "file_path": "/workspace/aurapos/apps/pos/components/AdisyonPanelı.tsx",
       "depends_on": [],
-      "status": "PENDING"
+      "status": "FAILED",
+      "retry_count": 4,
+      "failure_log": [
+        {
+          "attempt": 1,
+          "timestamp": "2026-05-13T16:07:42.491Z",
+          "error_type": "UNKNOWN",
+          "error": "CODER HATASI: Stream ended but response is empty (tokens=4097, finish=length)"
+        },
+        {
+          "attempt": 2,
+          "timestamp": "2026-05-13T16:13:55.585Z",
+          "error_type": "UNKNOWN",
+          "error": "HATA: Dosya bulunamadı."
+        },
+        {
+          "attempt": 3,
+          "timestamp": "2026-05-13T16:19:03.027Z",
+          "error_type": "UNKNOWN",
+          "error": "HATA: Dosya bulunamadı."
+        },
+        {
+          "attempt": 4,
+          "timestamp": "2026-05-13T16:25:53.306Z",
+          "error_type": "SYNTAX",
+          "error": "SENTAKS HATASI: Command failed: npx -y --package typescript tsc --noEmit --target esnext --module esnext --esModuleInterop --skipLibCheck \"/workspaces/AutonomousNativeForge/src/aurapos/apps/pos/components/AdisyonPanelı.tsx\"\n"
+        }
+      ]
     },
     {
       "task_id": "S1-13",
       "desc": "Implement Order Service API client wrapping endpoints from PRD §6.1 with optimistic UI updates.",
       "file_path": "/workspace/aurapos/apps/pos/services/orderService.ts",
       "depends_on": [],
-      "status": "PENDING"
+      "status": "FAILED",
+      "retry_count": 4,
+      "failure_log": [
+        {
+          "attempt": 1,
+          "timestamp": "2026-05-13T16:11:20.483Z",
+          "error_type": "UNKNOWN",
+          "error": "CODER HATASI: Stream ended but response is empty (tokens=4097, finish=length)"
+        },
+        {
+          "attempt": 2,
+          "timestamp": "2026-05-13T16:15:55.671Z",
+          "error_type": "UNKNOWN",
+          "error": "HATA: Dosya bulunamadı."
+        },
+        {
+          "attempt": 3,
+          "timestamp": "2026-05-13T16:21:18.116Z",
+          "error_type": "UNKNOWN",
+          "error": "HATA: Dosya bulunamadı."
+        },
+        {
+          "attempt": 4,
+          "timestamp": "2026-05-13T16:32:16.475Z",
+          "error_type": "SYNTAX",
+          "error": "SENTAKS HATASI: Command failed: npx -y --package typescript tsc --noEmit --target esnext --module esnext --esModuleInterop --skipLibCheck \"/workspaces/AutonomousNativeForge/src/aurapos/apps/pos/services/orderService.ts\"\n"
+        }
+      ]
     },
     {
       "task_id": "S2-4",
@@ -3296,840 +3740,840 @@
     {
       "task_id": "S31-1",
       "desc": "PIN giriş ekranı UI ve form logicini implement et",
-      "file_path": "aurapos/apps/pos/app/(auth)/pin/page.tsx",
+      "file_path": "apps/pos/app/(auth)/pin/page.tsx",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-2",
       "desc": "Masa planı sayfası için masa seçimi ve durumu gösterimi",
-      "file_path": "aurapos/apps/pos/app/(pos)/tables/page.tsx",
+      "file_path": "apps/pos/app/(pos)/tables/page.tsx",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-3",
       "desc": "Sipariş detay sayfası: ürün listeleme, quantity kontrolü, not ekleme",
-      "file_path": "aurapos/apps/pos/app/(pos)/order/[id]/page.tsx",
+      "file_path": "apps/pos/app/(pos)/order/[id]/page.tsx",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-4",
       "desc": "Ödeme sayfası: ödeme yöntemi seçimi, kart entegrasyonu, iptal/tamamla",
-      "file_path": "aurapos/apps/pos/app/(pos)/payment/[id]/page.tsx",
+      "file_path": "apps/pos/app/(pos)/payment/[id]/page.tsx",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-5",
       "desc": "POS uygulaması için root layout: sağ üst menü, offline indicator, PWA meta",
-      "file_path": "aurapos/apps/pos/app/layout.tsx",
+      "file_path": "apps/pos/app/layout.tsx",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-6",
       "desc": "Masa kartı bileşeni: durum rengi, masa numarası, rezervasyon ikonu",
-      "file_path": "aurapos/apps/pos/components/tables/TableItem.tsx",
+      "file_path": "apps/pos/components/tables/TableItem.tsx",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-7",
       "desc": "Masa düzeni ızgara: sürükle‑bırak masa düzenleme, zoom",
-      "file_path": "aurapos/apps/pos/components/tables/TableGrid.tsx",
+      "file_path": "apps/pos/components/tables/TableGrid.tsx",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-8",
       "desc": "Aktif siparişler listesi: filtre, sıralama, hızlı ekle",
-      "file_path": "aurapos/apps/pos/components/order/OrderList.tsx",
+      "file_path": "apps/pos/components/order/OrderList.tsx",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-9",
       "desc": "Tek sipariş kalemi: ürün adı, miktar, birim fiyat, sil/düzenle",
-      "file_path": "aurapos/apps/pos/components/order/OrderItem.tsx",
+      "file_path": "apps/pos/components/order/OrderItem.tsx",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-10",
       "desc": "Ödeme yöntemi seçici: nakit, kart, ticket, split payment",
-      "file_path": "aurapos/apps/pos/components/payment/PaymentMethodSelector.tsx",
+      "file_path": "apps/pos/components/payment/PaymentMethodSelector.tsx",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-11",
       "desc": "KDS OrderCard: ürün listesi, hazırlık süresi, tamamla butonu",
-      "file_path": "aurapos/apps/pos/components/kds/OrderCard.tsx",
+      "file_path": "apps/pos/components/kds/OrderCard.tsx",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-12",
       "desc": "KDS istasyon filtresi: mutfak, bar, soğuk büfe seçimi",
-      "file_path": "aurapos/apps/pos/components/kds/StationFilter.tsx",
+      "file_path": "apps/pos/components/kds/StationFilter.tsx",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-13",
       "desc": "KDS TimerBadge: geçen süre, renk kodlaması (yeşil/sarı/kırmızı)",
-      "file_path": "aurapos/apps/pos/components/kds/TimerBadge.tsx",
+      "file_path": "apps/pos/components/kds/TimerBadge.tsx",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-14",
       "desc": "ElectricSQL client başlatma: schema, sync shapes, error handling",
-      "file_path": "aurapos/apps/pos/lib/electric.ts",
+      "file_path": "apps/pos/lib/electric.ts",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-15",
       "desc": "Supabase istemci (anon key) yapılandırması ve yeniden deneme mantığı",
-      "file_path": "aurapos/apps/pos/lib/supabase.ts",
+      "file_path": "apps/pos/lib/supabase.ts",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-16",
       "desc": "Hardware Bridge API çağrıları: ödeme terminali, yazıcı, çekmece",
-      "file_path": "aurapos/apps/pos/lib/hardware.ts",
+      "file_path": "apps/pos/lib/hardware.ts",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-17",
       "desc": "Service Worker (Workbox) önbellek stratejileri ve background sync",
-      "file_path": "aurapos/apps/pos/public/sw.js",
+      "file_path": "apps/pos/public/sw.js",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-18",
       "desc": "PWA yapılandırması (next-pwa): manifest, offline fallback, image optimization",
-      "file_path": "aurapos/apps/pos/next.config.js",
+      "file_path": "apps/pos/next.config.js",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-19",
       "desc": "POS uygulaması bağımlılıkları: next, react, electric-sql, @supabase/supabase-js",
-      "file_path": "aurapos/apps/pos/package.json",
+      "file_path": "apps/pos/package.json",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-20",
       "desc": "Dashboard login sayfası: email/şifre, remember me, hata mesajı",
-      "file_path": "aurapos/apps/dashboard/app/(auth)/login/page.tsx",
+      "file_path": "apps/dashboard/app/(auth)/login/page.tsx",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-21",
       "desc": "Ana dashboard / AI insights sayfası: kartlar, tarih filtresi, yenile",
-      "file_path": "aurapos/apps/dashboard/app/(panel)/page.tsx",
+      "file_path": "apps/dashboard/app/(panel)/page.tsx",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-22",
       "desc": "Şube yönetimi: liste, ekle/düzenle/sil, aktif/pasif durumu",
-      "file_path": "aurapos/apps/dashboard/app/(panel)/branches/page.tsx",
+      "file_path": "apps/dashboard/app/(panel)/branches/page.tsx",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-23",
       "desc": "Menü yönetimi: kategori, ürün, porsiyon, seçenek CRUD",
-      "file_path": "aurapos/apps/dashboard/app/(panel)/menu/page.tsx",
+      "file_path": "apps/dashboard/app/(panel)/menu/page.tsx",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-24",
       "desc": "Personel yönetimi: rol, izin, vardiya, aktiflik durumu",
-      "file_path": "aurapos/apps/dashboard/app/(panel)/staff/page.tsx",
+      "file_path": "apps/dashboard/app/(panel)/staff/page.tsx",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-25",
       "desc": "Stok yönetimi: giriş/çıkış, düşük uyarı, transfer talebi",
-      "file_path": "aurapos/apps/dashboard/app/(panel)/stock/page.tsx",
+      "file_path": "apps/dashboard/app/(panel)/stock/page.tsx",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-26",
       "desc": "Raporlar: günlük, haftalık, aylık satış, ödeme tipi dağılımı",
-      "file_path": "aurapos/apps/dashboard/app/(panel)/reports/page.tsx",
+      "file_path": "apps/dashboard/app/(panel)/reports/page.tsx",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-27",
       "desc": "Ayarlar: işletme bilgileri, vergiler, yazıcı/terminal ayarları, yedekleme",
-      "file_path": "aurapos/apps/dashboard/app/(panel)/settings/page.tsx",
+      "file_path": "apps/dashboard/app/(panel)/settings/page.tsx",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-28",
       "desc": "Ödeme raporları: başarılı/başarısız, iade, bakiye rapprou",
-      "file_path": "aurapos/apps/dashboard/app/(panel)/payments/page.tsx",
+      "file_path": "apps/dashboard/app/(panel)/payments/page.tsx",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-29",
       "desc": "Dashboard root layout: yan menü, üst başlık, tema geçişi",
-      "file_path": "aurapos/apps/dashboard/app/layout.tsx",
+      "file_path": "apps/dashboard/app/layout.tsx",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-30",
       "desc": "Paylaşılan Button bileşeni: variant, size, loading state, disabled",
-      "file_path": "aurapos/apps/dashboard/components/ui/Button.tsx",
+      "file_path": "apps/dashboard/components/ui/Button.tsx",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-31",
       "desc": "Paylaşılan Table bileşeni: sıralama, sayfalama, seçenek menüsü",
-      "file_path": "aurapos/apps/dashboard/components/ui/Table.tsx",
+      "file_path": "apps/dashboard/components/ui/Table.tsx",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-32",
       "desc": "Paylaşılan Modal: backdrop, kilitleme, animasyon, dışa tıkla kapat",
-      "file_path": "aurapos/apps/dashboard/components/ui/Modal.tsx",
+      "file_path": "apps/dashboard/components/ui/Modal.tsx",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-33",
       "desc": "AI insight kartı: başlık, açıklama, öneri butonu, renk teması",
-      "file_path": "aurapos/apps/dashboard/components/ai/InsightCard.tsx",
+      "file_path": "apps/dashboard/components/ai/InsightCard.tsx",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-34",
       "desc": "Dashboard Supabase istemcisi: anon key, realtime abonelikleri",
-      "file_path": "aurapos/apps/dashboard/lib/supabase.ts",
+      "file_path": "apps/dashboard/lib/supabase.ts",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-35",
       "desc": "KDS tek sayfa: WebSocket bağlantısı, order listesi render, filtre",
-      "file_path": "aurapos/apps/kds/app/page.tsx",
+      "file_path": "apps/kds/app/page.tsx",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-36",
       "desc": "KDS OrderCard bileşeni (detaylı): ürün, özel istek, hazırlık süresi",
-      "file_path": "aurapos/apps/kds/components/OrderCard.tsx",
+      "file_path": "apps/kds/components/OrderCard.tsx",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-37",
       "desc": "KDS StationFilter: mutfak/bar/soğuk büfe seçimi, aktif durum göstergesi",
-      "file_path": "aurapos/apps/kds/components/StationFilter.tsx",
+      "file_path": "apps/kds/components/StationFilter.tsx",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-38",
       "desc": "KDS TimerBadge: saniye bazlı sayıcı, renk uyarısı",
-      "file_path": "aurapos/apps/kds/components/TimerBadge.tsx",
+      "file_path": "apps/kds/components/TimerBadge.tsx",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-39",
       "desc": "Garson tablet masa ekrani: masa seçimi, sipariş oluşturma, hızlı menü",
-      "file_path": "aurapos/apps/waiter-app/src/screens/TablesScreen.tsx",
+      "file_path": "apps/waiter-app/src/screens/TablesScreen.tsx",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-40",
       "desc": "Garson tablet sipariş ekrani: ürün ekleme, not, bölük ödeme, masa değiştir",
-      "file_path": "aurapos/apps/waiter-app/src/screens/OrderScreen.tsx",
+      "file_path": "apps/waiter-app/src/screens/OrderScreen.tsx",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-41",
       "desc": "Garson tablet profil ekrani: fotoğraf, adı, vardiya, çıkış",
-      "file_path": "aurapos/apps/waiter-app/src/screens/ProfileScreen.tsx",
+      "file_path": "apps/waiter-app/src/screens/ProfileScreen.tsx",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-42",
       "desc": "Garson tablet sipariş kalemi bileşeni: artı/eksi, sil, fiyat gösterimi",
-      "file_path": "aurapos/apps/waiter-app/src/components/OrderItem.tsx",
+      "file_path": "apps/waiter-app/src/components/OrderItem.tsx",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-43",
       "desc": "ElectricSQL React Native client: sync shapes, offline kuyruk",
-      "file_path": "aurapos/apps/waiter-app/src/lib/electric.ts",
+      "file_path": "apps/waiter-app/src/lib/electric.ts",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-44",
       "desc": "Hardware bridge + backend çağrıları: ödeme, yazıcı, çekmece",
-      "file_path": "aurapos/apps/waiter-app/src/lib/api.ts",
+      "file_path": "apps/waiter-app/src/lib/api.ts",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-45",
       "desc": "Android yapılandırma: minSdk, targetSdk, electric-sql react-native bağımlılıkları",
-      "file_path": "aurapos/apps/waiter-app/android/build.gradle",
+      "file_path": "apps/waiter-app/android/build.gradle",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-46",
       "desc": "iOS Podfile: ElectricSQL, React Native core, Hardware bridge podları",
-      "file_path": "aurapos/apps/waiter-app/ios/Podfile",
+      "file_path": "apps/waiter-app/ios/Podfile",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-47",
       "desc": "Waiter-app bağımlılıkları: react-native, @react-navigation, electric-sql",
-      "file_path": "aurapos/apps/waiter-app/package.json",
+      "file_path": "apps/waiter-app/package.json",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-48",
       "desc": "Fastify sunucu başlatma: port, middleware, route kayıtları",
-      "file_path": "aurapos/apps/branch-server/src/index.ts",
+      "file_path": "apps/branch-server/src/index.ts",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-49",
       "desc": "PGlite + ElectricSQL şube sync yapılandırması: shapes, yeniden bağlanma",
-      "file_path": "aurapos/apps/branch-server/src/electric.ts",
+      "file_path": "apps/branch-server/src/electric.ts",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-50",
       "desc": "Sipariş route'ları: oluştur, güncelle, sil, WebSocket yayın",
-      "file_path": "aurapos/apps/branch-server/src/routes/orders.ts",
+      "file_path": "apps/branch-server/src/routes/orders.ts",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-51",
       "desc": "Ödeme route'ları: ödeme alma, iade, webhook bildirimleri",
-      "file_path": "aurapos/apps/branch-server/src/routes/payments.ts",
+      "file_path": "apps/branch-server/src/routes/payments.ts",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-52",
       "desc": "Hardware bridge endpoint'leri: yazdır, çekmece aç, terminal ödeme",
-      "file_path": "aurapos/apps/branch-server/src/routes/hardware.ts",
+      "file_path": "apps/branch-server/src/routes/hardware.ts",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-53",
       "desc": "HARDWARE_DEVICE env'e göre driver yükleme fonksiyonu",
-      "file_path": "aurapos/apps/branch-server/src/hardware/index.ts",
+      "file_path": "apps/branch-server/src/hardware/index.ts",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-54",
       "desc": "ElectricSQL sync yöneticisi: başlatma, durdurma, konflikt tetikleyicisi",
-      "file_path": "aurapos/apps/branch-server/src/sync/engine.ts",
+      "file_path": "apps/branch-server/src/sync/engine.ts",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-55",
       "desc": "Conflict resolution kuralları: son yazan wins, özel birleştirme fonksiyonları",
-      "file_path": "aurapos/apps/branch-server/src/sync/conflict.ts",
+      "file_path": "apps/branch-server/src/sync/conflict.ts",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-56",
       "desc": "Şube SQLite (PGlite) dosyası oluşturma ve başlangıç şeması",
-      "file_path": "aurapos/apps/branch-server/data/branch.db",
+      "file_path": "apps/branch-server/data/branch.db",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-57",
       "desc": "Branch-server bağımlılıkları: fastify, @electric-sql/pglite, ts-node",
-      "file_path": "aurapos/apps/branch-server/package.json",
+      "file_path": "apps/branch-server/package.json",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-58",
       "desc": "Order, OrderItem, OrderStatus tipleri ve enum tanımları",
-      "file_path": "aurapos/packages/shared-types/src/order.ts",
+      "file_path": "packages/shared-types/src/order.ts",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-59",
       "desc": "Payment, PaymentMethod, PaymentStatus tipleri",
-      "file_path": "aurapos/packages/shared-types/src/payment.ts",
+      "file_path": "packages/shared-types/src/payment.ts",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-60",
       "desc": "Category, Product, Portion, Option tipleri ve ilişkileri",
-      "file_path": "aurapos/packages/shared-types/src/menu.ts",
+      "file_path": "packages/shared-types/src/menu.ts",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-61",
       "desc": "Staff, Role, Permission tipleri ve yetki kontrolü yardımcıları",
-      "file_path": "aurapos/packages/shared-types/src/staff.ts",
+      "file_path": "packages/shared-types/src/staff.ts",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-62",
       "desc": "ReceiptObject, ApprovalResponse, cihaz yanıt tipleri",
-      "file_path": "aurapos/packages/shared-types/src/hardware.ts",
+      "file_path": "packages/shared-types/src/hardware.ts",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-63",
       "desc": "Tüm paylaşılan tipleri dışa aktarma barrel dosyası",
-      "file_path": "aurapos/packages/shared-types/src/index.ts",
+      "file_path": "packages/shared-types/src/index.ts",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-64",
       "desc": "Mock ödeme terminali driverı: başarılı/başarısız yanıt simülasyonu",
-      "file_path": "aurapos/packages/hardware/payment-terminal/mock-driver.ts",
+      "file_path": "packages/hardware/payment-terminal/mock-driver.ts",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-65",
       "desc": "Ingenico A910 gerçek driverı: seri port üzerinden EMV akışı",
-      "file_path": "aurapos/packages/hardware/payment-terminal/real-driver-ingenico-a910.ts",
+      "file_path": "packages/hardware/payment-terminal/real-driver-ingenico-a910.ts",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-66",
       "desc": "Ingenico Move5000 gerçek driverı: BluetoothLE üzerinden ödeme",
-      "file_path": "aurapos/packages/hardware/payment-terminal/real-driver-ingenico-move5000.ts",
+      "file_path": "packages/hardware/payment-terminal/real-driver-ingenico-move5000.ts",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-67",
       "desc": "Beko ödeme terminali driverı: USB HID üzerinden kart okuma",
-      "file_path": "aurapos/packages/hardware/payment-terminal/real-driver-beko.ts",
+      "file_path": "packages/hardware/payment-terminal/real-driver-beko.ts",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-68",
       "desc": "HARDWARE_DEVICE env'e göre ödeme terminali driver yükleyici",
-      "file_path": "aurapos/packages/hardware/payment-terminal/index.ts",
+      "file_path": "packages/hardware/payment-terminal/index.ts",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-69",
       "desc": "Mock yazıcı driverı: basit metin çıktı simülasyonu",
-      "file_path": "aurapos/packages/hardware/printer/mock-driver.ts",
+      "file_path": "packages/hardware/printer/mock-driver.ts",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-70",
       "desc": "USB üzerinden ESC/POS gerçek yazıcı driverı",
-      "file_path": "aurapos/packages/hardware/printer/real-driver-usb.ts",
+      "file_path": "packages/hardware/printer/real-driver-usb.ts",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-71",
       "desc": "Ethernet/WiFi üzerinden ESC/POS gerçek yazıcı driverı",
-      "file_path": "aurapos/packages/hardware/printer/real-driver-network.ts",
+      "file_path": "packages/hardware/printer/real-driver-network.ts",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-72",
       "desc": "PRINTER_MODE env'e göre yazıcı driver yükleyici",
-      "file_path": "aurapos/packages/hardware/printer/index.ts",
+      "file_path": "packages/hardware/printer/index.ts",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-73",
       "desc": "Mock çekmece driverı: komut alıp hemen tamamla simülasyonu",
-      "file_path": "aurapos/packages/hardware/drawer/mock-driver.ts",
+      "file_path": "packages/hardware/drawer/mock-driver.ts",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-74",
       "desc": "Yazıcı üzerinden ESC/POS komutla çekmece açma driverı",
-      "file_path": "aurapos/packages/hardware/drawer/real-driver-escpos.ts",
+      "file_path": "packages/hardware/drawer/real-driver-escpos.ts",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-75",
       "desc": "Doğrudan seri port üzerinden çekmece sürücüsü",
-      "file_path": "aurapos/packages/hardware/drawer/real-driver-serial.ts",
+      "file_path": "packages/hardware/drawer/real-driver-serial.ts",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-76",
       "desc": "DRAWER_MODE env'e göre çekmece driver yükleyici",
-      "file_path": "aurapos/packages/hardware/drawer/index.ts",
+      "file_path": "packages/hardware/drawer/index.ts",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-77",
       "desc": "Mock müşteri ekranı driverı: basit metin gösterimi",
-      "file_path": "aurapos/packages/hardware/display/mock-driver.ts",
+      "file_path": "packages/hardware/display/mock-driver.ts",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-78",
       "desc": "Seri port üzerinden gerçek müşteri ekranı driverı (VFD/LCD)",
-      "file_path": "aurapos/packages/hardware/display/real-driver-serial.ts",
+      "file_path": "packages/hardware/display/real-driver-serial.ts",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-79",
       "desc": "DISPLAY_MODE env'e göre müşteri ekranı driver yükleyici",
-      "file_path": "aurapos/packages/hardware/display/index.ts",
+      "file_path": "packages/hardware/display/index.ts",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-80",
       "desc": "Mock barkod okuyucu driverı: rastgele kod üretimi",
-      "file_path": "aurapos/packages/hardware/barcode/mock-driver.ts",
+      "file_path": "packages/hardware/barcode/mock-driver.ts",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-81",
       "desc": "BARKOD_MODE env'e göre barkod okuyucu driver yükleyici",
-      "file_path": "aurapos/packages/hardware/barcode/index.ts",
+      "file_path": "packages/hardware/barcode/index.ts",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-82",
       "desc": "Mock terazi driverı: sabit ağırlık döndürme",
-      "file_path": "aurapos/packages/hardware/scale/mock-driver.ts",
+      "file_path": "packages/hardware/scale/mock-driver.ts",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-83",
       "desc": "SCALE_MODE env'e göre terazi driver yükleyici",
-      "file_path": "aurapos/packages/hardware/scale/index.ts",
+      "file_path": "packages/hardware/scale/index.ts",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-84",
       "desc": "Tüm donanım driver'larının implement etmesi gereken arayüz: init, send, dispose",
-      "file_path": "aurapos/packages/hardware/IHardwareDriver.ts",
+      "file_path": "packages/hardware/IHardwareDriver.ts",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-85",
       "desc": "Paylaşılan UI Button bileşeni: variant, size, loading, disabled",
-      "file_path": "aurapos/packages/ui/src/Button.tsx",
+      "file_path": "packages/ui/src/Button.tsx",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-86",
       "desc": "Paylaşılan UI Table bileşeni: header, rows, actions column",
-      "file_path": "aurapos/packages/ui/src/Table.tsx",
+      "file_path": "packages/ui/src/Table.tsx",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-87",
       "desc": "Paylaşılan UI Modal bileşeni: overlay, body, footer, esc kapatma",
-      "file_path": "aurapos/packages/ui/src/Modal.tsx",
+      "file_path": "packages/ui/src/Modal.tsx",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-88",
       "desc": "AI insight kartı: başlık, açıklama, öneri butonu, renk teması",
-      "file_path": "aurapos/packages/ui/src/InsightCard.tsx",
+      "file_path": "packages/ui/src/InsightCard.tsx",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-89",
       "desc": "UI paketi barrel dosyası: tüm bileşenleri dışa aktar",
-      "file_path": "aurapos/packages/ui/src/index.ts",
+      "file_path": "packages/ui/src/index.ts",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-90",
       "desc": "ElectricSQL sync şekilleri: hangi tablolar/kolonlar senkronize edilecek",
-      "file_path": "aurapos/packages/electric-config/src/shapes.ts",
+      "file_path": "packages/electric-config/src/shapes.ts",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-91",
       "desc": "PGlite + Electric istemci factory: client oluşturma ve yeniden bağlanma",
-      "file_path": "aurapos/packages/electric-config/src/client.ts",
+      "file_path": "packages/electric-config/src/client.ts",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-92",
       "desc": "DeepSeek R1 orchestrator: ajan yönetimi, görev kuyruğu, sonuç toplama",
-      "file_path": "aurapos/packages/ai/src/orchestrator.ts",
+      "file_path": "packages/ai/src/orchestrator.ts",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-93",
       "desc": "Dashboard uyarı üretici ajanı: veri analizi, öneri üretimi",
-      "file_path": "aurapos/packages/ai/src/agents/insight.ts",
+      "file_path": "packages/ai/src/agents/insight.ts",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-94",
       "desc": "Stok tahmin ajanı: geçmiş satışlar, trend, yeniden sıralama önerisi",
-      "file_path": "aurapos/packages/ai/src/agents/stock.ts",
+      "file_path": "packages/ai/src/agents/stock.ts",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-95",
       "desc": "Hata tespit ajanı: log analizi, exception pattern matching, bildirim",
-      "file_path": "aurapos/packages/ai/src/agents/tester.ts",
+      "file_path": "packages/ai/src/agents/tester.ts",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-96",
       "desc": "Fix üretici ajanı (V2.0+): hata önerisi, kod parçası üretimi, PR oluşturma",
-      "file_path": "aurapos/packages/ai/src/agents/coder.ts",
+      "file_path": "packages/ai/src/agents/coder.ts",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-97",
       "desc": "Insight ajanı için sistem promptu: ton, format, çıktı sınırları",
-      "file_path": "aurapos/packages/ai/src/prompts/insight.prompt",
+      "file_path": "packages/ai/src/prompts/insight.prompt",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-98",
       "desc": "Stock ajanı için sistem promptu: veri kaynakları, tahmin metodu",
-      "file_path": "aurapos/packages/ai/src/prompts/stock.prompt",
+      "file_path": "packages/ai/src/prompts/stock.prompt",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-99",
       "desc": "Tester ajanı için sistem promptu: hata türleri, öncelik sıralaması",
-      "file_path": "aurapos/packages/ai/src/prompts/tester.prompt",
+      "file_path": "packages/ai/src/prompts/tester.prompt",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-100",
       "desc": "Coder ajanı için sistem promptu: still guide, test kapsamı, dokümantasyon",
-      "file_path": "aurapos/packages/ai/src/prompts/coder.prompt",
+      "file_path": "packages/ai/src/prompts/coder.prompt",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-101",
       "desc": "AI paketi bağımlılıkları: @huggingface/inference, langchain, zod",
-      "file_path": "aurapos/packages/ai/package.json",
+      "file_path": "packages/ai/package.json",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-102",
       "desc": "Tablolar: branches, staff, menu, orders, order_items, payments, hardware_events",
-      "file_path": "aurapos/supabase/migrations/001_init_schema.sql",
+      "file_path": "supabase/migrations/001_init_schema.sql",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-103",
       "desc": "Row Level Security politikaları: her tablo için select/insert/update/delete",
-      "file_path": "aurapos/supabase/migrations/002_rls_policies.sql",
+      "file_path": "supabase/migrations/002_rls_policies.sql",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-104",
       "desc": "Supabase fonksiyonları: sipariş toplamı, stok düşürme, webhook hazırlayıcı",
-      "file_path": "aurapos/supabase/migrations/003_functions.sql",
+      "file_path": "supabase/migrations/003_functions.sql",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-105",
       "desc": "Seed data: örnek şube, personel, menü ürünleri, başlangıç stoğu",
-      "file_path": "aurapos/supabase/migrations/004_seed_data.sql",
+      "file_path": "supabase/migrations/004_seed_data.sql",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-106",
       "desc": "AI insight hesaplama Edge Function: veri toplama, DeepSeek çağrısı, sonuç kaydı",
-      "file_path": "aurapos/supabase/functions/ai-insights/index.ts",
+      "file_path": "supabase/functions/ai-insights/index.ts",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-107",
       "desc": "e-Fatura webhook callback: GİB yanıtını işleme, fatura durumu güncelleme",
-      "file_path": "aurapos/supabase/functions/efatura-webhook/index.ts",
+      "file_path": "supabase/functions/efatura-webhook/index.ts",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-108",
       "desc": "Supabase proje yapılandırması: storage bucket'ları, fonksiyon ayarları",
-      "file_path": "aurapos/supabase/config.toml",
+      "file_path": "supabase/config.toml",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-109",
       "desc": "Tüm mock donanım driver'larını çalıştırıp başarılı/başarısız raporu",
-      "file_path": "aurapos/scripts/test-all-mocks.ts",
+      "file_path": "scripts/test-all-mocks.ts",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-110",
       "desc": "Demo verileri yükleme scripti: şube, personel, menü, örnek siparişler",
-      "file_path": "aurapos/scripts/seed-demo-data.ts",
+      "file_path": "scripts/seed-demo-data.ts",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-111",
       "desc": "HARDWARE_DEVICE değişkenini değiştirip ilgili servisleri yeniden başlatma",
-      "file_path": "aurapos/scripts/switch-hardware.ts",
+      "file_path": "scripts/switch-hardware.ts",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-112",
       "desc": "ElectricSQL sync durumu kontrol scripti: pending, error, last sync zamanları",
-      "file_path": "aurapos/scripts/check-sync-status.ts",
+      "file_path": "scripts/check-sync-status.ts",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-113",
       "desc": "Tüm servislerin (next apps, branch-server, supabase-studio) tanımı",
-      "file_path": "aurapos/docker/docker-compose.yml",
+      "file_path": "docker/docker-compose.yml",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-114",
       "desc": "Staging ortamı için ekstra servisler ve ortam değişkenleri",
-      "file_path": "aurapos/docker/docker-compose.staging.yml",
+      "file_path": "docker/docker-compose.staging.yml",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-115",
       "desc": "Şube sunucu imajı: node base, derleme, çalıştırma komutları",
-      "file_path": "aurapos/docker/Dockerfile.branch-server",
+      "file_path": "docker/Dockerfile.branch-server",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-116",
       "desc": "CI workflow: lint, test, build, mock testleri her PR'de",
-      "file_path": "aurapos/.github/workflows/ci.yml",
+      "file_path": ".github/workflows/ci.yml",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-117",
       "desc": "Deploy workflow: staging/prod promotion, db migrate, cache temizliği",
-      "file_path": "aurapos/.github/workflows/deploy.yml",
+      "file_path": ".github/workflows/deploy.yml",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-118",
       "desc": "Turborepo pipeline önbellek ve bağımlılık tanımları: build, test, lint",
-      "file_path": "aurapos/turbo.json",
+      "file_path": "turbo.json",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-119",
       "desc": "pnpm workspace tanımları: paket dizinleri, versiyon bağımlılıkları",
-      "file_path": "aurapos/pnpm-workspace.yaml",
+      "file_path": "pnpm-workspace.yaml",
       "depends_on": [],
       "status": "PENDING"
     },
     {
       "task_id": "S31-120",
       "desc": "Root package.json: workspaces, devDependencies, postinstall scripts",
-      "file_path": "aurapos/package.json",
+      "file_path": "package.json",
       "depends_on": [],
       "status": "PENDING"
     },

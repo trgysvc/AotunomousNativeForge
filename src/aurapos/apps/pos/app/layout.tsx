@@ -1,18 +1,19 @@
-import './globals.css';
 import type { ReactNode } from 'react';
-import { AuthProvider } from '@/context/AuthContext';
-import { ElectricSQLProvider } from '@/providers/ElectricSQLProvider';
-import { ordersRoutes, tablesRoutes, paymentsRoutes } from './routes';
+import './globals.css';
 
-export default function Layout({ children }: { children: ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: ReactNode;
+}) {
   return (
-    <AuthProvider>
-      <ElectricSQLProvider>
-        {ordersRoutes}
-        {tablesRoutes}
-        {paymentsRoutes}
-        <>{children}</>
-      </ElectricSQLProvider>
-    </AuthProvider>
+    <html lang="en">
+      <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="manifest" href="/manifest.json" />
+      </head>
+      <body>{children}</body>
+    </html>
   );
 }

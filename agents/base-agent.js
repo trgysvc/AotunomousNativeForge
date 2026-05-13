@@ -115,7 +115,6 @@ function getAuthorizedPath(projectPath, targetRelativePath) {
     let cleanPath = targetRelativePath;
     
     // AI Hallucination Correction: Gereksiz mutlak yolları temizle
-    // Ajanlar bazen /workspace/ veya /workspaces/ gibi ön ekler ekleyebiliyor.
     const prefixesToRemove = [
         '/workspaces/AutonomousNativeForge/src/',
         '/workspaces/AutonomousNativeForge/',
@@ -128,6 +127,15 @@ function getAuthorizedPath(projectPath, targetRelativePath) {
         if (cleanPath.startsWith(prefix)) {
             cleanPath = cleanPath.substring(prefix.length);
         }
+    }
+
+    // PROJECT ID REDUNDANCY FIX: Eğer yol proje ID'si ile başlıyorsa temizle
+    // Örn: aurapos/packages/shared/... -> packages/shared/...
+    const projectDirName = path.basename(projectPath); // Örn: 'aurapos'
+    if (cleanPath.startsWith(projectDirName + '/')) {
+        cleanPath = cleanPath.substring(projectDirName.length + 1);
+    } else if (cleanPath === projectDirName) {
+        cleanPath = '.';
     }
 
     const resolvedPath = path.resolve(projectPath, cleanPath);
@@ -320,16 +328,16 @@ async function ask(agentName, prompt, agentDir = __dirname) {
 
                 // --- LLM RESPONSE LOGGING ---
                 const respTimestamp = new Date().toISOString();
+                const llmRawResponse = contentBuffer || reasoningBuffer;
+                const clean = cleanResponse(llmRawResponse);
                 const summary = `[stream] tokens=${tokenCount}, finish=${finishReason}, content_len=${contentBuffer.length}`;
-                fs.appendFileSync(LLM_COMM_LOG, `\n\n[${respTimestamp}] <<< RESPONSE [${agentName}] <<<\n${summary}`, 'utf8');
+                fs.appendFileSync(LLM_COMM_LOG, `\n\n[${respTimestamp}] <<< RESPONSE [${agentName}] <<<\n${summary}\n\nCONTENT:\n${clean}`, 'utf8');
 
-                // Prefer content; fall back to reasoning_content (thinking-only models)
-                const raw = contentBuffer || reasoningBuffer;
-                if (!raw || raw.trim().length < 5) {
+                if (!llmRawResponse || llmRawResponse.trim().length < 5) {
                     reject(new Error(`Stream ended but response is empty (tokens=${tokenCount}, finish=${finishReason})`));
                     return;
                 }
-                resolve(cleanResponse(raw));
+                resolve(cleanResponse(llmRawResponse));
             });
 
             res.on('error', (err) => {

@@ -542,6 +542,250 @@
       ],
       "rule": "Always run TypeScript type-check (tsc --noEmit) on all TypeScript files, including test scripts, to catch syntax errors before committing.",
       "severity": "CRITICAL"
+    },
+    {
+      "id": "S0-6.1_1778684207841",
+      "context": [
+        "typescript",
+        "testing"
+      ],
+      "rule": "Always ensure TypeScript test files are syntactically valid before running tsc; fix any syntax errors in mock files.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S0-7.1_1778685191180",
+      "context": [
+        "token_limit"
+      ],
+      "rule": "Ensure that LLM responses do not exceed the model's token limit; if a task may produce long output, break it into smaller subtasks or request continuation.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S0-7.1_1778685532380",
+      "context": [
+        "token_limit",
+        "stream_end"
+      ],
+      "rule": "When delegating tasks to the Coder, keep the prompt well within the model's token limit to ensure space for a non‑empty response; if the prompt nears the limit, split the task or reduce context before sending.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S1-0_1778686789350",
+      "context": [
+        "token_limit",
+        "stream_empty"
+      ],
+      "rule": "Always ensure generated responses stay within the model's token limit; if a task may exceed, split into multiple calls or request continuation.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S1-11_1778687127385",
+      "context": [
+        "typescript"
+      ],
+      "rule": "Use only ASCII characters in identifiers and file names; avoid Turkish or other non-ASCII characters that can cause syntax errors.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S1-0_1778687590024",
+      "context": [
+        "token_limit"
+      ],
+      "rule": "Always ensure generated responses stay within the model's token limit; if a response may exceed the limit, request a continuation or split the task into smaller parts to avoid empty streams.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S1-12_1778688867400",
+      "context": [
+        "file_path",
+        "naming"
+      ],
+      "rule": "Always specify a complete file_path with the correct extension and ensure the directory structure matches the official framework layout; create any missing parent directories before attempting to write the file.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S1-2_1778688898069",
+      "context": [
+        "typescript",
+        "syntax"
+      ],
+      "rule": "Always verify TypeScript files compile without errors (run `tsc --noEmit`) before considering a task complete; fix any syntax errors reported by the compiler.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S1-13_1778688981669",
+      "context": [
+        "file-system"
+      ],
+      "rule": "Always ensure the target directory exists before attempting to create or write a file; if the directory is missing, create it (or adjust the file path) to prevent 'File not found' errors.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S1-12_1778689165156",
+      "context": [
+        "file-creation"
+      ],
+      "rule": "Always ensure that the parent directory of a target file exists before attempting to write the file (e.g., using fs.mkdirSync with recursive:true or equivalent) to prevent 'File not found' errors.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S1-13_1778689302731",
+      "context": [
+        "file-system"
+      ],
+      "rule": "Always verify and create parent directories before file operations to avoid 'File not found' errors.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S1-2_1778689419079",
+      "context": [
+        "token_limit"
+      ],
+      "rule": "Always ensure the LLM's response stays within the token limit; if a response is being cut off (finish=length), break the task into smaller pieces or reduce prompt size to avoid empty outputs.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S1-4_1778689681503",
+      "context": [
+        "token_limit",
+        "response_empty"
+      ],
+      "rule": "Always keep the prompt and expected response within the model's token limit; if the request approaches the limit, truncate or split the task into multiple calls to avoid empty stream endings.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S1-4_1778690190113",
+      "context": [
+        "file-system"
+      ],
+      "rule": "Always ensure parent directories exist before creating or writing a file; use fs.mkdirSync or equivalent to avoid 'File not found' errors.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S1-5_1778690330076",
+      "context": [
+        "file_path",
+        "naming"
+      ],
+      "rule": "Always specify a complete file_path with the correct extension and adhere to the official folder structure of the target framework; never use task IDs or placeholder names as filenames.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S1-5_1778690544051",
+      "context": [
+        "typescript",
+        "syntax"
+      ],
+      "rule": "Always run TypeScript type-check (tsc --noEmit) after code changes and resolve any syntax errors before marking a task as done.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S1-6_1778690835237",
+      "context": [
+        "typescript"
+      ],
+      "rule": "Always run TypeScript type‑checking (tsc --noEmit) on new or changed files to catch syntax errors early; fix any reported TS errors before proceeding.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S1-6_1778691245882",
+      "context": [
+        "file-system"
+      ],
+      "rule": "Always ensure the target directory exists before writing a file; create parent directories if needed.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S1-9_1778691492859",
+      "context": [
+        "file-path"
+      ],
+      "rule": "Always verify that referenced files exist before attempting to read or import them; create any missing files in preceding tasks or ensure the correct path is used.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S1-10_1778691545252",
+      "context": [
+        "token_limit"
+      ],
+      "rule": "When generating responses, ensure the output does not exceed the model's token limit; truncate or stream appropriately to avoid empty responses caused by hitting the limit.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S1-10_1778691865793",
+      "context": [
+        "file-system"
+      ],
+      "rule": "Always ensure the target file path exists (create parent directories if needed) before attempting to read or write a file.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S1-9_1778691944317",
+      "context": [
+        "token_limit",
+        "stream_empty"
+      ],
+      "rule": "When delegating tasks to the Coder, keep the prompt within the model's token limit to avoid empty responses due to length truncation; if the context is large, split the task or summarize before sending.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S1-7_1778692302604",
+      "context": [
+        "file-system"
+      ],
+      "rule": "Before writing a file, ensure its parent directory exists; create missing directories automatically.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S1-7_1778692755143",
+      "context": [
+        "file-system"
+      ],
+      "rule": "Always ensure the target directory exists before attempting to create or write a file; use mkdir -p or equivalent to prevent 'File not found' errors.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S1-8_1778692990668",
+      "context": [
+        "file-system"
+      ],
+      "rule": "Always ensure that the parent directory of a target file exists before attempting to create or write the file; if missing, create the directory structure first.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S1-3_1778693075393",
+      "context": [
+        "token_limit",
+        "prompt_size"
+      ],
+      "rule": "When delegating tasks to the Coder, keep the provided context minimal and ensure the total prompt stays well below the model's token limit. If the Coder returns an empty response due to hitting the length limit, reduce the context size or split the task into smaller subtasks before retrying.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S1-3_1778693242700",
+      "context": [
+        "file-system"
+      ],
+      "rule": "Always ensure the target directory exists before attempting to create or write a file; create missing parent directories as needed.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S10-1_1778694270109",
+      "context": [
+        "security",
+        "file-path"
+      ],
+      "rule": "Always use relative file paths from the project root; never use absolute paths or paths that attempt directory traversal (e.g., starting with '/' or containing '..').",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S10-2_1778694276953",
+      "context": [
+        "path-validation",
+        "security"
+      ],
+      "rule": "Always specify file paths relative to the project root; never use absolute paths that could traverse outside the allowed directory.",
+      "severity": "CRITICAL"
     }
   ]
 }

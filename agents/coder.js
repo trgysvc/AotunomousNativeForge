@@ -149,9 +149,9 @@ async function handleMessage(msg) {
     try {
         const code = await ask('CODER', prompt, __dirname);
         const filePath = getAuthorizedPath(projectPath, file_path || `${task_id}${ext}`);
-        
         await safeWriteFile(filePath, code);
-        sendMessage('ARCHITECT', 'CODE_FINISHED', { ...msg, file_path: filePath });
+        const relativePath = path.relative(projectPath, filePath);
+        sendMessage('ARCHITECT', 'CODE_FINISHED', { ...msg, file_path: relativePath });
     } catch (err) {
         log(`❌ CODER HATASI: ${err.message}`);
         sendMessage('ARCHITECT', 'BUG_REPORT', { ...msg, description: `CODER HATASI: ${err.message}` });
