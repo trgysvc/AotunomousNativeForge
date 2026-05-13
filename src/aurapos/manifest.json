@@ -2499,12 +2499,30 @@
       "desc": "Implement payment screen integrating hardware driver via lib/hardware.ts",
       "file_path": "apps/pos/app/(pos)/payment/[id]/page.tsx",
       "depends_on": [],
-      "status": "FIXING",
-      "retry_count": 1,
+      "status": "FAILED",
+      "retry_count": 4,
       "failure_log": [
         {
           "attempt": 1,
           "timestamp": "2026-05-13T19:35:35.682Z",
+          "error_type": "UNKNOWN",
+          "error": "CODER HATASI: Stream ended but response is empty (tokens=4097, finish=length)"
+        },
+        {
+          "attempt": 2,
+          "timestamp": "2026-05-13T19:43:31.025Z",
+          "error_type": "UNKNOWN",
+          "error": "CODER HATASI: Stream ended but response is empty (tokens=4097, finish=length)"
+        },
+        {
+          "attempt": 3,
+          "timestamp": "2026-05-13T19:49:56.246Z",
+          "error_type": "UNKNOWN",
+          "error": "HATA: Dosya bulunamadı."
+        },
+        {
+          "attempt": 4,
+          "timestamp": "2026-05-13T20:00:59.784Z",
           "error_type": "UNKNOWN",
           "error": "CODER HATASI: Stream ended but response is empty (tokens=4097, finish=length)"
         }
@@ -2515,14 +2533,32 @@
       "desc": "Reusable component for a single table with status coloring and tooltip",
       "file_path": "apps/pos/components/tables/TableItem.tsx",
       "depends_on": [],
-      "status": "FIXING",
-      "retry_count": 1,
+      "status": "FAILED",
+      "retry_count": 4,
       "failure_log": [
         {
           "attempt": 1,
           "timestamp": "2026-05-13T19:35:48.720Z",
           "error_type": "UNKNOWN",
           "error": "HATA: Dosya bulunamadı."
+        },
+        {
+          "attempt": 2,
+          "timestamp": "2026-05-13T19:42:54.054Z",
+          "error_type": "UNKNOWN",
+          "error": "CODER HATASI: Stream ended but response is empty (tokens=4097, finish=length)"
+        },
+        {
+          "attempt": 3,
+          "timestamp": "2026-05-13T19:46:56.116Z",
+          "error_type": "UNKNOWN",
+          "error": "HATA: Dosya bulunamadı."
+        },
+        {
+          "attempt": 4,
+          "timestamp": "2026-05-13T19:56:06.571Z",
+          "error_type": "UNKNOWN",
+          "error": "CODER HATASI: Stream ended but response is empty (tokens=4097, finish=length)"
         }
       ]
     },
@@ -2531,14 +2567,32 @@
       "desc": "List current open orders with summary and quick actions",
       "file_path": "apps/pos/components/order/OrderList.tsx",
       "depends_on": [],
-      "status": "FIXING",
-      "retry_count": 1,
+      "status": "FAILED",
+      "retry_count": 4,
       "failure_log": [
         {
           "attempt": 1,
           "timestamp": "2026-05-13T19:37:53.801Z",
           "error_type": "SYNTAX",
           "error": "SENTAKS HATASI: Command failed: npx -y --package typescript tsc --noEmit --target esnext --module esnext --esModuleInterop --skipLibCheck \"/workspaces/AutonomousNativeForge/src/aurapos/apps/pos/components/order/OrderList.tsx\"\n"
+        },
+        {
+          "attempt": 2,
+          "timestamp": "2026-05-13T19:49:34.322Z",
+          "error_type": "SYNTAX",
+          "error": "CODER HATASI: Stream ended but response is empty (tokens=4097, finish=length)"
+        },
+        {
+          "attempt": 3,
+          "timestamp": "2026-05-13T19:54:44.500Z",
+          "error_type": "SYNTAX",
+          "error": "SENTAKS HATASI: Command failed: npx -y --package typescript tsc --noEmit --target esnext --module esnext --esModuleInterop --skipLibCheck \"/workspaces/AutonomousNativeForge/src/aurapos/aurapos/apps/pos/components/order/OrderList.tsx\"\n"
+        },
+        {
+          "attempt": 4,
+          "timestamp": "2026-05-13T20:07:06.973Z",
+          "error_type": "SYNTAX",
+          "error": "CODER HATASI: Stream ended but response is empty (tokens=4097, finish=length)"
         }
       ]
     },
@@ -2547,14 +2601,32 @@
       "desc": "UI for selecting cash, card, meal voucher, mobile payment methods",
       "file_path": "apps/pos/components/payment/PaymentMethodSelector.tsx",
       "depends_on": [],
-      "status": "FIXING",
-      "retry_count": 1,
+      "status": "FAILED",
+      "retry_count": 4,
       "failure_log": [
         {
           "attempt": 1,
           "timestamp": "2026-05-13T19:37:20.718Z",
           "error_type": "UNKNOWN",
           "error": "HATA: Dosya bulunamadı."
+        },
+        {
+          "attempt": 2,
+          "timestamp": "2026-05-13T19:45:51.092Z",
+          "error_type": "UNKNOWN",
+          "error": "HATA: Dosya bulunamadı."
+        },
+        {
+          "attempt": 3,
+          "timestamp": "2026-05-13T19:51:09.361Z",
+          "error_type": "SYNTAX",
+          "error": "SENTAKS HATASI: Command failed: npx -y --package typescript tsc --noEmit --target esnext --module esnext --esModuleInterop --skipLibCheck \"/workspaces/AutonomousNativeForge/src/aurapos/apps/pos/components/payment/PaymentMethodSelector.tsx\"\n"
+        },
+        {
+          "attempt": 4,
+          "timestamp": "2026-05-13T20:02:36.793Z",
+          "error_type": "SYNTAX",
+          "error": "CODER HATASI: Stream ended but response is empty (tokens=4097, finish=length)"
         }
       ]
     },
@@ -2563,28 +2635,156 @@
       "desc": "KDS order card showing item name, quantity, station, and timer badge",
       "file_path": "apps/pos/components/kds/KdsOrderCard.tsx",
       "depends_on": [],
-      "status": "IN_PROGRESS"
+      "status": "FAILED",
+      "retry_count": 4,
+      "failure_log": [
+        {
+          "attempt": 1,
+          "timestamp": "2026-05-13T20:08:20.024Z",
+          "error_type": "UNKNOWN",
+          "error": "HATA: Dosya bulunamadı."
+        },
+        {
+          "attempt": 2,
+          "timestamp": "2026-05-13T20:15:05.294Z",
+          "error_type": "SYNTAX",
+          "error": "SENTAKS HATASI: Command failed: npx -y --package typescript tsc --noEmit --target esnext --module esnext --esModuleInterop --skipLibCheck \"/workspaces/AutonomousNativeForge/src/aurapos/apps/pos/components/kds/KdsOrderCard.tsx\"\n"
+        },
+        {
+          "attempt": 3,
+          "timestamp": "2026-05-13T20:20:32.211Z",
+          "error_type": "SYNTAX",
+          "error": "HATA: Dosya bulunamadı."
+        },
+        {
+          "attempt": 4,
+          "timestamp": "2026-05-13T20:29:20.858Z",
+          "error_type": "SYNTAX",
+          "error": "SENTAKS HATASI: Command failed: npx -y --package typescript tsc --noEmit --target esnext --module esnext --esModuleInterop --skipLibCheck \"/workspaces/AutonomousNativeForge/src/aurapos/apps/pos/components/kds/KdsOrderCard.tsx\"\n"
+        }
+      ]
     },
     {
       "task_id": "S13-10",
       "desc": "Initialize ElectricSQL client using getElectricClient from electric-config",
       "file_path": "apps/pos/lib/electric.ts",
       "depends_on": [],
-      "status": "IN_PROGRESS"
+      "status": "FAILED",
+      "retry_count": 4,
+      "failure_log": [
+        {
+          "attempt": 1,
+          "timestamp": "2026-05-13T20:11:10.162Z",
+          "error_type": "SYNTAX",
+          "error": "SENTAKS HATASI: Command failed: npx -y --package typescript tsc --noEmit --target esnext --module esnext --esModuleInterop --skipLibCheck \"/workspaces/AutonomousNativeForge/src/aurapos/apps/pos/lib/electric.ts\"\n"
+        },
+        {
+          "attempt": 2,
+          "timestamp": "2026-05-13T20:16:12.077Z",
+          "error_type": "SYNTAX",
+          "error": "SENTAKS HATASI: Command failed: npx -y --package typescript tsc --noEmit --target esnext --module esnext --esModuleInterop --skipLibCheck \"/workspaces/AutonomousNativeForge/src/aurapos/aurapos/apps/pos/lib/electric.ts\"\n"
+        },
+        {
+          "attempt": 3,
+          "timestamp": "2026-05-13T20:25:00.690Z",
+          "error_type": "SYNTAX",
+          "error": "CODER HATASI: Stream ended but response is empty (tokens=4097, finish=length)"
+        },
+        {
+          "attempt": 4,
+          "timestamp": "2026-05-13T20:35:18.003Z",
+          "error_type": "SYNTAX",
+          "error": "CODER HATASI: Stream ended but response is empty (tokens=4097, finish=length)"
+        }
+      ]
     },
     {
       "task_id": "S13-11",
       "desc": "Create Supabase client with anon key and helper functions for auth",
       "file_path": "apps/pos/lib/supabase.ts",
       "depends_on": [],
-      "status": "IN_PROGRESS"
+      "status": "TESTING",
+      "retry_count": 8,
+      "failure_log": [
+        {
+          "attempt": 1,
+          "timestamp": "2026-05-13T20:12:10.173Z",
+          "error_type": "UNKNOWN",
+          "error": "HATA: Dosya bulunamadı."
+        },
+        {
+          "attempt": 2,
+          "timestamp": "2026-05-13T20:19:12.185Z",
+          "error_type": "SYNTAX",
+          "error": "SENTAKS HATASI: Command failed: npx -y --package typescript tsc --noEmit --target esnext --module esnext --esModuleInterop --skipLibCheck \"/workspaces/AutonomousNativeForge/src/aurapos/apps/pos/lib/supabase.ts\"\n"
+        },
+        {
+          "attempt": 3,
+          "timestamp": "2026-05-13T20:27:25.793Z",
+          "error_type": "SYNTAX",
+          "error": "CODER HATASI: Stream ended but response is empty (tokens=4097, finish=length)"
+        },
+        {
+          "attempt": 4,
+          "timestamp": "2026-05-13T20:37:41.194Z",
+          "error_type": "SYNTAX",
+          "error": "HATA: Dosya bulunamadı."
+        },
+        {
+          "attempt": 5,
+          "timestamp": "2026-05-13T20:39:43.147Z",
+          "error_type": "SYNTAX",
+          "error": "SENTAKS HATASI: Command failed: npx -y --package typescript tsc --noEmit --target esnext --module esnext --esModuleInterop --skipLibCheck \"/workspaces/AutonomousNativeForge/src/aurapos/aurapos/apps/pos/lib/supabase.ts\"\n"
+        },
+        {
+          "attempt": 6,
+          "timestamp": "2026-05-13T20:43:53.301Z",
+          "error_type": "SYNTAX",
+          "error": "CODER HATASI: Stream ended but response is empty (tokens=4097, finish=length)"
+        },
+        {
+          "attempt": 7,
+          "timestamp": "2026-05-13T20:45:46.512Z",
+          "error_type": "SYNTAX",
+          "error": "SENTAKS HATASI: Command failed: npx -y --package typescript tsc --noEmit --target esnext --module esnext --esModuleInterop --skipLibCheck \"/workspaces/AutonomousNativeForge/src/aurapos/aurapos/apps/pos/lib/supabase.ts\"\n"
+        },
+        {
+          "attempt": 8,
+          "timestamp": "2026-05-13T20:49:58.523Z",
+          "error_type": "SYNTAX",
+          "error": "CODER HATASI: Stream ended but response is empty (tokens=4097, finish=length)"
+        }
+      ],
+      "recovery_count": 1,
+      "last_recovery": "2026-05-13T20:35:18.076Z"
     },
     {
       "task_id": "S13-12",
       "desc": "Wrap IHardwareDriver implementations and expose async functions for POS",
       "file_path": "apps/pos/lib/hardware.ts",
       "depends_on": [],
-      "status": "IN_PROGRESS"
+      "status": "FIXING",
+      "retry_count": 3,
+      "failure_log": [
+        {
+          "attempt": 1,
+          "timestamp": "2026-05-13T20:18:30.405Z",
+          "error_type": "UNKNOWN",
+          "error": "CODER HATASI: Stream ended but response is empty (tokens=4097, finish=length)"
+        },
+        {
+          "attempt": 2,
+          "timestamp": "2026-05-13T20:21:45.541Z",
+          "error_type": "UNKNOWN",
+          "error": "HATA: Dosya bulunamadı."
+        },
+        {
+          "attempt": 3,
+          "timestamp": "2026-05-13T20:33:25.987Z",
+          "error_type": "UNKNOWN",
+          "error": "CODER HATASI: Stream ended but response is empty (tokens=4097, finish=length)"
+        }
+      ]
     },
     {
       "task_id": "S13-13",

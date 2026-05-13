@@ -31,6 +31,7 @@ const INBOX = path.join(QUEUE, 'inbox');
 const PROCESSING = path.join(QUEUE, 'processing');
 const DONE = path.join(QUEUE, 'done');
 const ERROR = path.join(QUEUE, 'error');
+const HEARTBEATS = path.join(QUEUE, 'heartbeats');
 
 const SYS_LOG = path.join(__dirname, '..', 'sys.log');
 const LLM_COMM_LOG = path.join(__dirname, '..', 'llm_communication.log');
@@ -533,6 +534,18 @@ async function start(agentName, processTask) {
     const runTask = async (processingPath) => {
         activeCount++;
         const dest = path.basename(processingPath);
+        const taskId = dest.replace('.json', '');
+        const heartbeatFile = path.join(HEARTBEATS, `${taskId}.heartbeat`);
+        
+        if (!fs.existsSync(HEARTBEATS)) fs.mkdirSync(HEARTBEATS, { recursive: true });
+
+        // Heartbeat updater
+        const heartbeatInterval = setInterval(() => {
+            try {
+                fs.writeFileSync(heartbeatFile, JSON.stringify({ pid: process.pid, timestamp: Date.now() }));
+            } catch (e) { /* ignore */ }
+        }, 30000); // Update every 30s
+
         try {
             const task = JSON.parse(fs.readFileSync(processingPath, 'utf-8'));
             await processTask(task);
@@ -543,6 +556,8 @@ async function start(agentName, processTask) {
             if (!fs.existsSync(ERROR)) fs.mkdirSync(ERROR, { recursive: true });
             try { fs.renameSync(processingPath, path.join(ERROR, dest)); } catch (_) {}
         } finally {
+            clearInterval(heartbeatInterval);
+            try { if (fs.existsSync(heartbeatFile)) fs.unlinkSync(heartbeatFile); } catch (_) {}
             activeCount--;
         }
     };

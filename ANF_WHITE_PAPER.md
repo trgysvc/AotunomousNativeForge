@@ -20,6 +20,8 @@ Unlike cloud-dependent agents, ANF is optimized for local deployment on enterpri
 In the production of the AuraPOS enterprise suite, ANF demonstrated the following performance metrics:
 - **Context Ingestion:** Processed **88.5 pages** (~66,363 tokens) of technical requirements including PRDs, SQL schemas, and monorepo standards.
 - **Autonomous Planning:** Synthesized the entire context into **542 atomic, inter-dependent tasks** in just **3.8 minutes**.
+- **Self-Healing & Recovery:** Implemented an active **Watchdog** protocol that autonomously detects and recovers frozen tasks (Orphan Recovery) with a <1 minute MTTR (Mean Time To Recovery).
+- **Infinite Loop Protection:** Automated circuit breakers (MAX_RECOVERY) prevent resource exhaustion from problematic task branches.
 - **Net Coding Speed:** Sustained delivery of **QA-approved** code with an ETA reduction from 6 weeks (human team) to **35.1 hours** (ANF).
 
 ### 4. ROI & Value Proposition

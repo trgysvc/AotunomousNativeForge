@@ -1,52 +1,68 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 type PaymentMethod = 'cash' | 'card' | 'mealVoucher' | 'mobile';
 
 interface PaymentMethodSelectorProps {
   onSelect: (method: PaymentMethod) => void;
-  defaultSelected?: PaymentMethod;
 }
 
-export default function PaymentMethodSelector({ onSelect, defaultSelected }: PaymentMethodSelectorProps) {
-  const [selected, setSelected] = useState<PaymentMethod | null>(defaultSelected ?? null);
-
+const PaymentMethodSelector: React.FC<PaymentMethodSelectorProps> = ({ onSelect }) => {
   const handleSelect = (method: PaymentMethod) => {
-    setSelected(method);
     onSelect(method);
   };
 
   return (
-    <div className="flex flex-wrap gap-2">
-      {['cash', 'card', 'mealVoucher', 'mobile'].map(method => (
-        <button
-          key={method}
-          onClick={() => handleSelect(method as PaymentMethod)}
-          className={`
-            flex items-center justify-center px-4 py-2 border rounded
-            ${selected === method
-              ? 'bg-primary-600 text-white'
-              : 'bg-gray-200 hover:bg-gray-300'}
-          `}
-        >
-          {getLabel(method)}
-          {getIcon(method)}
-        </button>
-      ))}
+    <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+      <button
+        onClick={() => handleSelect('cash')}
+        style={{
+          padding: '12px 16px',
+          border: '1px solid #ccc',
+          borderRadius: '4px',
+          backgroundColor: '#f9f9f9',
+          cursor: 'pointer',
+        }}
+      >
+        Nakit
+      </button>
+      <button
+        onClick={() => handleSelect('card')}
+        style={{
+          padding: '12px 16px',
+          border: '1px solid #ccc',
+          borderRadius: '4px',
+          backgroundColor: '#f9f9f9',
+          cursor: 'pointer',
+        }}
+      >
+        Kart
+      </button>
+      <button
+        onClick={() => handleSelect('mealVoucher')}
+        style={{
+          padding: '12px 16px',
+          border: '1px solid #ccc',
+          borderRadius: '4px',
+          backgroundColor: '#f9f9f9',
+          cursor: 'pointer',
+        }}
+      >
+        Yemek Kuponu
+      </button>
+      <button
+        onClick={() => handleSelect('mobile')}
+        style={{
+          padding: '12px 16px',
+          border: '1px solid #ccc',
+          borderRadius: '4px',
+          backgroundColor: '#f9f9f9',
+          cursor: 'pointer',
+        }}
+      >
+        Mobil Ödeme
+      </button>
     </div>
   );
-}
+};
 
-function getLabel(method: PaymentMethod): string {
-  switch (method) {
-    case 'cash': return 'Nakit';
-    case 'card': return 'Kart';
-    case 'mealVoucher': return 'Yemek Kartı';
-    case 'mobile': return 'Mobil Ödeme';
-    default: return '';
-  }
-}
-
-function getIcon(method: PaymentMethod): JSX.Element | null {
-  // Placeholder for icons; can be replaced with actual icon components
-  return null;
-}
+export default PaymentMethodSelector;

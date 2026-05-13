@@ -1002,6 +1002,115 @@
       ],
       "rule": "Always keep the model's response within its token limit; if the prompt or expected output approaches the limit, truncate, summarize, or split the request into multiple calls to avoid empty streams due to length finish.",
       "severity": "CRITICAL"
+    },
+    {
+      "id": "S13-6_1778701401265",
+      "context": [
+        "token_limit"
+      ],
+      "rule": "Always limit the expected output length and monitor token usage to prevent the model from hitting the length limit and returning empty responses.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S13-5_1778701443866",
+      "context": [
+        "token_limit",
+        "stream_empty"
+      ],
+      "rule": "Keep the prompt token count well within the model's maximum output limit (e.g., <75% of the context window) to avoid the stream ending with an empty response; truncate, summarize, or split overly large context before sending it to the Coder.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S13-8_1778701570894",
+      "context": [
+        "file-system"
+      ],
+      "rule": "Always ensure that the parent directory of a target file exists before attempting to create or write the file; if missing, create the directory structure first.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S13-6_1778701636687",
+      "context": [
+        "file-system"
+      ],
+      "rule": "Always ensure that the parent directory of a target file exists before attempting to create or write the file; create missing directories as part of the task.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S13-7_1778701810449",
+      "context": [
+        "token_limit",
+        "stream_truncation"
+      ],
+      "rule": "Always monitor the token budget for LLM responses. If a request is likely to exceed the model's limit (e.g., >75% of the 8192‑token capacity), split the task into smaller sub‑tasks or ask for a continuation rather than allowing the stream to finish with an empty response.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S13-5_1778701821624",
+      "context": [
+        "file-system"
+      ],
+      "rule": "Always ensure that the parent directory of a target file exists before attempting to create or write the file; create missing directories as part of the task.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S13-9_1778703345025",
+      "context": [
+        "typescript",
+        "tsx"
+      ],
+      "rule": "Always run TypeScript type-check (tsc --noEmit) on TSX files after changes to catch syntax errors early.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S13-10_1778703424068",
+      "context": [
+        "typescript"
+      ],
+      "rule": "Always validate TypeScript syntax with `tsc --noEmit` (or equivalent lint/type-check) before marking a task as done; treat any TS syntax error as a blocking issue that must be fixed.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S13-9_1778703650622",
+      "context": [
+        "file_creation"
+      ],
+      "rule": "Always ensure that the target directory exists before attempting to create or write a file; create missing parent directories as needed.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S13-12_1778703730743",
+      "context": [
+        "file-system",
+        "path"
+      ],
+      "rule": "Always ensure the target directory exists before attempting to create or write a file; create missing directories as part of the task.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S13-10_1778703927031",
+      "context": [
+        "token_limit"
+      ],
+      "rule": "Ensure generated responses stay within the model's token limit; if approaching the limit, truncate or split the output into multiple responses to avoid empty streams.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S13-11_1778704085575",
+      "context": [
+        "token_limit"
+      ],
+      "rule": "Always ensure LLM responses stay within the model's token limit; if a request may exceed, increase max_tokens or split the task into smaller chunks.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S13-12_1778704440715",
+      "context": [
+        "token_limit",
+        "prompt_length"
+      ],
+      "rule": "Always ensure that the prompt and expected response stay within the model's token limit; if a task risks exceeding it, break the task into smaller subtasks or increase the max_tokens setting.",
+      "severity": "CRITICAL"
     }
   ]
 }

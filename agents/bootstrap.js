@@ -54,6 +54,7 @@ const CONFIG = {
         'queue/processing',
         'queue/done',
         'queue/error',
+        'queue/heartbeats',
         'docs/reference',
         'src',
         'logs'
@@ -203,7 +204,8 @@ function spawnAgents() {
         { name: 'CODER',     script: 'coder.js'     },
         { name: 'TESTER',    script: 'tester.js'    },
         { name: 'DOCS',      script: 'docs.js'      },
-        { name: 'TELEMETRY', script: 'telemetry.js' }
+        { name: 'TELEMETRY', script: 'telemetry.js' },
+        { name: 'WATCHDOG',  script: 'watchdog.js'  }
     ];
 
     const isMac = process.platform === 'darwin';
