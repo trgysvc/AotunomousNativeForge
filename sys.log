@@ -11647,3 +11647,26 @@
 [2026-05-13T22:49:17.916Z] ✅ Watchdog döngüsü tamamlandı. Bir sonraki kontrol 60s sonra.
 [2026-05-13T22:49:22.238Z] ⏳ [CODER] Streaming... 1139 tokens so far (finish=generating)
 [2026-05-13T22:49:52.247Z] ⏳ [CODER] Streaming... 1556 tokens so far (finish=generating)
+[2026-05-13T22:50:17.935Z] ✅ Watchdog döngüsü tamamlandı. Bir sonraki kontrol 60s sonra.
+[2026-05-13T22:50:22.250Z] ⏳ [CODER] Streaming... 1964 tokens so far (finish=generating)
+[2026-05-13T22:50:39.838Z] 💾 Dosya mühürlendi (2554 bytes): page.tsx
+[2026-05-13T22:50:42.054Z] 🧭 STEERING: [aurapos] S14-4 yönlendirme ile düzeltiliyor...
+[2026-05-13T22:50:42.055Z] 📖 [CODER] Skill mühürü okundu: coder.md
+[2026-05-13T22:50:42.055Z] 🧠 [CODER] Reasoning budget: 2048 tokens | Max Output: 4096
+[2026-05-13T22:50:43.111Z] [aurapos]  Kod yazımı bitti. Test ajanı devralıyor: S14-3
+[2026-05-13T22:50:43.806Z] 🧐 QA GUARDRAIL: [aurapos] S14-3 denetleniyor...
+[2026-05-13T22:50:48.127Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-13T22:50:48.175Z] 📖 [ARCHITECT] Skill mühürü okundu: architect.md
+[2026-05-13T22:50:48.175Z] 🧠 [ARCHITECT] Reasoning budget: 4096 tokens | Max Output: 6144
+[2026-05-13T22:51:12.065Z] ⏳ [CODER] Streaming... 336 tokens so far (finish=generating)
+[2026-05-13T22:51:18.200Z] ✅ Watchdog döngüsü tamamlandı. Bir sonraki kontrol 60s sonra.
+[2026-05-13T22:51:18.222Z] ⏳ [ARCHITECT] Streaming... 347 tokens so far (finish=generating)
+[2026-05-13T22:51:42.081Z] ⏳ [CODER] Streaming... 696 tokens so far (finish=generating)
+[2026-05-13T22:51:48.275Z] ⏳ [ARCHITECT] Streaming... 706 tokens so far (finish=generating)
+[2026-05-13T22:51:50.449Z] [aurapos]  📝 RCA Raporu oluşturuldu: S14-3_RCA.md. Diğer görevlere geçiliyor...
+[2026-05-13T22:52:12.085Z] ⏳ [CODER] Streaming... 1092 tokens so far (finish=generating)
+[2026-05-13T22:52:18.273Z] ✅ Watchdog döngüsü tamamlandı. Bir sonraki kontrol 60s sonra.
+[2026-05-13T22:52:42.129Z] ⏳ [CODER] Streaming... 1508 tokens so far (finish=generating)
+[2026-05-13T22:53:12.199Z] ⏳ [CODER] Streaming... 1926 tokens so far (finish=generating)
+[2026-05-13T22:53:18.073Z] ✅ Watchdog döngüsü tamamlandı. Bir sonraki kontrol 60s sonra.
+[2026-05-13T22:53:42.207Z] ⏳ [CODER] Streaming... 2343 tokens so far (finish=generating)

@@ -3036,8 +3036,8 @@
       "desc": "Main dashboard showing AI insights cards and quick metrics",
       "file_path": "apps/dashboard/app/(panel)/page.tsx",
       "depends_on": [],
-      "status": "FIXING",
-      "retry_count": 3,
+      "status": "FAILED",
+      "retry_count": 4,
       "failure_log": [
         {
           "attempt": 1,
@@ -3054,6 +3054,12 @@
         {
           "attempt": 3,
           "timestamp": "2026-05-13T22:43:12.784Z",
+          "error_type": "UNKNOWN",
+          "error": "HATA: Dosya bulunamadı."
+        },
+        {
+          "attempt": 4,
+          "timestamp": "2026-05-13T22:50:48.123Z",
           "error_type": "UNKNOWN",
           "error": "HATA: Dosya bulunamadı."
         }
