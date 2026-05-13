@@ -10658,3 +10658,59 @@
 [2026-05-13T20:51:31.833Z] 📖 [ARCHITECT] Skill mühürü okundu: architect.md
 [2026-05-13T20:51:31.833Z] 🧠 [ARCHITECT] Reasoning budget: 4096 tokens | Max Output: 6144
 [2026-05-13T20:51:32.625Z] ⏳ [CODER] Streaming... 860 tokens so far (finish=generating)
+[2026-05-13T20:51:58.375Z] ⏳ [CODER] Streaming... 255 tokens so far (finish=generating)
+[2026-05-13T20:52:01.942Z] ⏳ [ARCHITECT] Streaming... 259 tokens so far (finish=generating)
+[2026-05-13T20:52:02.722Z] ⏳ [CODER] Streaming... 1125 tokens so far (finish=generating)
+[2026-05-13T20:52:18.761Z] ⚠️ [WATCHDOG] Donma tespit edildi: coder-STEER_CODE-1778704087500.json. Sebep: Heartbeat bulunamadı ve işlem dosyası eski.
+[2026-05-13T20:52:18.761Z] 🔍 [WATCHDOG] Kurtarma başlatılıyor: coder-STEER_CODE-1778704087500.json
+[2026-05-13T20:52:18.767Z] ✅ [WATCHDOG] Başarıyla kurtarıldı: coder-STEER_CODE-1778704087500.json -> coder/inbox
+[2026-05-13T20:52:28.450Z] ⏳ [CODER] Streaming... 526 tokens so far (finish=generating)
+[2026-05-13T20:52:31.975Z] ⏳ [ARCHITECT] Streaming... 529 tokens so far (finish=generating)
+[2026-05-13T20:52:32.747Z] ⏳ [CODER] Streaming... 1396 tokens so far (finish=generating)
+[2026-05-13T20:52:41.104Z] [aurapos]  📝 RCA Raporu oluşturuldu: S13-11_RCA.md. Diğer görevlere geçiliyor...
+[2026-05-13T20:52:58.471Z] ⏳ [CODER] Streaming... 843 tokens so far (finish=generating)
+[2026-05-13T20:53:02.762Z] ⏳ [CODER] Streaming... 1725 tokens so far (finish=generating)
+[2026-05-13T20:53:28.509Z] ⏳ [CODER] Streaming... 1197 tokens so far (finish=generating)
+[2026-05-13T20:53:32.844Z] ⏳ [CODER] Streaming... 2079 tokens so far (finish=generating)
+[2026-05-13T20:53:58.522Z] ⏳ [CODER] Streaming... 1549 tokens so far (finish=generating)
+[2026-05-13T20:54:02.868Z] ⏳ [CODER] Streaming... 2431 tokens so far (finish=generating)
+[2026-05-13T20:54:28.603Z] ⏳ [CODER] Streaming... 1902 tokens so far (finish=generating)
+[2026-05-13T20:54:32.929Z] ⏳ [CODER] Streaming... 2784 tokens so far (finish=generating)
+[2026-05-13T20:54:58.644Z] ⏳ [CODER] Streaming... 2255 tokens so far (finish=generating)
+[2026-05-13T20:55:02.996Z] ⏳ [CODER] Streaming... 3136 tokens so far (finish=generating)
+[2026-05-13T20:55:17.960Z] 💾 Dosya mühürlendi (1091 bytes): supabase.ts
+[2026-05-13T20:55:17.963Z] ❌ Hata: ENOENT: no such file or directory, rename '/workspaces/AutonomousNativeForge/queue/processing/coder-STEER_CODE-1778704087500.json' -> '/workspaces/AutonomousNativeForge/queue/done/coder-STEER_CODE-1778704087500.json'
+[2026-05-13T20:55:18.716Z] [aurapos]  Kod yazımı bitti. Test ajanı devralıyor: S13-11
+[2026-05-13T20:55:19.078Z] 🧐 QA GUARDRAIL: [aurapos] S13-11 denetleniyor...
+[2026-05-13T20:55:21.899Z] 🧭 STEERING: [aurapos] S13-11 yönlendirme ile düzeltiliyor...
+[2026-05-13T20:55:21.900Z] 📖 [CODER] Skill mühürü okundu: coder.md
+[2026-05-13T20:55:21.900Z] 🧠 [CODER] Reasoning budget: 2048 tokens | Max Output: 4096
+[2026-05-13T20:55:21.924Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-13T20:55:21.980Z] 📖 [ARCHITECT] Skill mühürü okundu: architect.md
+[2026-05-13T20:55:21.980Z] 🧠 [ARCHITECT] Reasoning budget: 4096 tokens | Max Output: 6144
+[2026-05-13T20:55:28.723Z] ⏳ [CODER] Streaming... 2578 tokens so far (finish=generating)
+[2026-05-13T20:55:51.915Z] ⏳ [CODER] Streaming... 250 tokens so far (finish=generating)
+[2026-05-13T20:55:52.026Z] ⏳ [ARCHITECT] Streaming... 250 tokens so far (finish=generating)
+[2026-05-13T20:55:58.831Z] ⏳ [CODER] Streaming... 2848 tokens so far (finish=generating)
+[2026-05-13T20:56:18.933Z] ⚠️ [WATCHDOG] Donma tespit edildi: coder-STEER_CODE-1778704087500.json. Sebep: Heartbeat bulunamadı ve işlem dosyası eski.
+[2026-05-13T20:56:18.933Z] 🔍 [WATCHDOG] Kurtarma başlatılıyor: coder-STEER_CODE-1778704087500.json
+[2026-05-13T20:56:18.938Z] ✅ [WATCHDOG] Başarıyla kurtarıldı: coder-STEER_CODE-1778704087500.json -> coder/inbox
+[2026-05-13T20:56:22.007Z] ⏳ [CODER] Streaming... 521 tokens so far (finish=generating)
+[2026-05-13T20:56:22.116Z] ⏳ [ARCHITECT] Streaming... 521 tokens so far (finish=generating)
+[2026-05-13T20:56:28.933Z] ⏳ [CODER] Streaming... 3119 tokens so far (finish=generating)
+[2026-05-13T20:56:52.034Z] ⏳ [CODER] Streaming... 799 tokens so far (finish=generating)
+[2026-05-13T20:56:52.133Z] ⏳ [ARCHITECT] Streaming... 798 tokens so far (finish=generating)
+[2026-05-13T20:56:58.993Z] ⏳ [CODER] Streaming... 3400 tokens so far (finish=generating)
+[2026-05-13T20:57:17.511Z] [aurapos]  📝 RCA Raporu oluşturuldu: S13-11_RCA.md. Diğer görevlere geçiliyor...
+[2026-05-13T20:57:19.885Z] 💾 Dosya mühürlendi (1177 bytes): supabase.ts
+[2026-05-13T20:57:19.887Z] ❌ Hata: ENOENT: no such file or directory, rename '/workspaces/AutonomousNativeForge/queue/processing/coder-STEER_CODE-1778704087500.json' -> '/workspaces/AutonomousNativeForge/queue/done/coder-STEER_CODE-1778704087500.json'
+[2026-05-13T20:57:21.929Z] [aurapos]  Kod yazımı bitti. Test ajanı devralıyor: S13-11
+[2026-05-13T20:57:22.065Z] ⏳ [CODER] Streaming... 1104 tokens so far (finish=generating)
+[2026-05-13T20:57:23.395Z] 🧭 STEERING: [aurapos] S13-11 yönlendirme ile düzeltiliyor...
+[2026-05-13T20:57:23.395Z] 📖 [CODER] Skill mühürü okundu: coder.md
+[2026-05-13T20:57:23.396Z] 🧠 [CODER] Reasoning budget: 2048 tokens | Max Output: 4096
+[2026-05-13T20:57:24.196Z] 🧐 QA GUARDRAIL: [aurapos] S13-11 denetleniyor...
+[2026-05-13T20:57:25.111Z] ❌ SYNC FAIL: supabase.ts
+[2026-05-13T20:57:26.939Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-13T20:57:26.970Z] 📖 [ARCHITECT] Skill mühürü okundu: architect.md
+[2026-05-13T20:57:26.970Z] 🧠 [ARCHITECT] Reasoning budget: 4096 tokens | Max Output: 6144

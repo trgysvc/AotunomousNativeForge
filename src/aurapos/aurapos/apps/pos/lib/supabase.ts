@@ -18,8 +18,12 @@ export const signOut = async () => {
 }
 
 export const getUser = async () => {
-  const { data: { user } } = await supabase.auth.getUser()
-  return user
+  const { data, error } = await supabase.auth.getUser()
+  if (error) {
+    console.error('Error fetching user:', error)
+    return null
+  }
+  return data.user
 }
 
 export const resetPassword = async (email: string) => {

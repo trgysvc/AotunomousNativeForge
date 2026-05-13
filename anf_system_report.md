@@ -1,5 +1,5 @@
 # ANF Autonomous System — Live Telemetry Report
-*Last Updated: 2026-05-13T20:51:22.494Z*
+*Last Updated: 2026-05-13T20:59:24.358Z*
 *System Status: **🟢 ONLINE***
 
 ---
@@ -20,11 +20,11 @@
 |:---|:---|:---|
 | **GPU** | NVIDIA GB10 | Real-time sensor data |
 | **GPU Compute Load** | 96% | During active inference |
-| **GPU Power Draw** | 43.8 W | Instantaneous |
+| **GPU Power Draw** | 40.0 W | Instantaneous |
 | **GPU Temperature** | 69°C | Thermal limit: 85°C |
 | **Thermal Throttling** | 🟢 NONE | — |
-| **System RAM** | 100580 / 124547 MB | Memory pressure |
-| **CPU Load Average (1m)** | 2.6 | Agent process pressure |
+| **System RAM** | 99869 / 124547 MB | Memory pressure |
+| **CPU Load Average (1m)** | 3.09 | Agent process pressure |
 
 ---
 
@@ -32,8 +32,8 @@
 
 | Metric | Value | Description |
 |:---|:---|:---|
-| **Generation Speed (TPS)** | **28.5 tokens/sec** | NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4 |
-| **Active Requests** | 3 Running / 0 Waiting | Parallel capacity |
+| **Generation Speed (TPS)** | **23.6 tokens/sec** | NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4 |
+| **Active Requests** | 2 Running / 0 Waiting | Parallel capacity |
 | **Prefix Cache Hit Rate** | 0% | Prompt caching efficiency |
 | **Self-Healing (STEER)** | 1 corrections | Agent autonomously fixed |
 | **QA-Approved Deliveries** | 19 tasks | Passed all quality gates |
@@ -44,20 +44,33 @@
 
 | Metric | Value |
 |:---|:---|
-| **Retry Rate** | 297.4% | Avg attempts per task: 2.97 |
+| **Retry Rate** | 301.3% | Avg attempts per task: 3.01 |
 | **Total Failures** | 57 | Max retry exceeded |
 
 **Error Classification (failure_log):**
 
 | Error Type | Count |
 |:---|:---|
-| SYNTAX | 124 |
+| SYNTAX | 127 |
 | UNKNOWN | 88 |
 | PRD_COMPLIANCE | 16 |
+| **MAX_RECOVERY_EXCEEDED** | 57 |
 
 ---
 
-## 📊 5. Project Progress (Task Telemetry)
+## 🛡️ 5. Industrial Failure & Reliability Analysis (IFRA)
+
+| Metric | Value | Impact |
+|:---|:---|:---|
+| **MTTR (Mean Time To Recovery)** | **< 1 Minute** | Watchdog Autonomous MTTR |
+| **Autonomous Recovery Count** | 1 interventions | Watchdog active detection |
+| **Recovery Success Rate** | 0.0% | System self-stabilization |
+| **Circuit Breaker Status** | 🟢 ACTIVE | MAX_RECOVERY limit active |
+| **System Reliability (Uptime)** | 89.48% | Production Readiness |
+
+---
+
+## 📊 6. Project Progress (Task Telemetry)
 
 | Status | Count | Percentage | Progress Bar |
 |:---|:---:|:---|:---|
@@ -67,28 +80,30 @@
 | ❌ **FAILED** | 57 | — | ❌ |
 | **TOTAL** | **542** | **100%** | **Master Plan: aurapos** |
 
-**Total Code Produced:** 3481 Lines (LoC)  
+**Total Code Produced:** 3488 Lines (LoC)  
 **Estimated Time to Completion (ETA):** ~31.5 hours
 
 ---
 
-## 💰 6. Operational Cost & Efficiency
+## 💰 7. Operational Cost & Efficiency
 
 | Metric | Value | Notes |
 |:---|:---|:---|
-| **Est. Energy Cost / Task** | $0.0003 | Based on 43.8W draw |
+| **Est. Energy Cost / Task** | $0.0002 | Based on 40.0W draw |
 | **Human vs. ANF** | 4–6 Weeks → ~31.5 Hours | AI Efficiency Advantage |
+
+| **Hardware Alignment** | GB10 Blackwell Optimized | Max utilization of NVFP4/KV |
 
 ---
 
-## 🏢 7. Corporate & Industrial Metrics (B2B/Partnership)
+## 🏢 8. Corporate & Industrial Metrics (B2B/Partnership)
 
 | Metric | Value | Impact |
 |:---|:---|:---|
 | **Context Processing Volume** | 88.5 Pages / 66,363 Tokens | High-fidelity PRD ingestion |
 | **Planning Efficiency** | 3.8 min (Full Plan) | ~150x faster than humans |
 | **Architecture Fidelity** | 542 Atomic Tasks | Zero-gap requirements coverage |
-| **Compute-to-Code Ratio** | 43.8W Peak / 3481 LoC | Eco-efficient production |
+| **Compute-to-Code Ratio** | 40.0W Peak / 3488 LoC | Eco-efficient production |
 | **Hardware Alignment** | GB10 Blackwell Optimized | Max utilization of NVFP4/KV |
 
 ---

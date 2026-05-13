@@ -2704,7 +2704,7 @@
       "file_path": "apps/pos/lib/supabase.ts",
       "depends_on": [],
       "status": "FAILED",
-      "retry_count": 9,
+      "retry_count": 11,
       "failure_log": [
         {
           "attempt": 1,
@@ -2757,6 +2757,18 @@
         {
           "attempt": 9,
           "timestamp": "2026-05-13T20:51:31.772Z",
+          "error_type": "SYNTAX",
+          "error": "SENTAKS HATASI: Command failed: npx -y --package typescript tsc --noEmit --target esnext --module esnext --esModuleInterop --skipLibCheck \"/workspaces/AutonomousNativeForge/src/aurapos/aurapos/apps/pos/lib/supabase.ts\"\n"
+        },
+        {
+          "attempt": 10,
+          "timestamp": "2026-05-13T20:55:21.920Z",
+          "error_type": "SYNTAX",
+          "error": "HATA: Dosya bulunamadı."
+        },
+        {
+          "attempt": 11,
+          "timestamp": "2026-05-13T20:57:26.935Z",
           "error_type": "SYNTAX",
           "error": "SENTAKS HATASI: Command failed: npx -y --package typescript tsc --noEmit --target esnext --module esnext --esModuleInterop --skipLibCheck \"/workspaces/AutonomousNativeForge/src/aurapos/aurapos/apps/pos/lib/supabase.ts\"\n"
         }
