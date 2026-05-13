@@ -533,6 +533,15 @@
       ],
       "rule": "Never configure CORS middleware with origin: true; always specify an explicit list of allowed origins or use a validation function that restricts origins to trusted domains.",
       "severity": "CRITICAL"
+    },
+    {
+      "id": "S0-6.1_1778683896984",
+      "context": [
+        "typescript",
+        "testing"
+      ],
+      "rule": "Always run TypeScript type-check (tsc --noEmit) on all TypeScript files, including test scripts, to catch syntax errors before committing.",
+      "severity": "CRITICAL"
     }
   ]
 }

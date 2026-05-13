@@ -7386,3 +7386,43 @@
 [2026-05-13T14:44:45.709Z] ⏳ [CODER] Streaming... 1035 tokens so far (finish=generating)
 [2026-05-13T14:45:01.397Z] [aurapos]  📝 RCA Raporu oluşturuldu: S0-5.1_RCA.md. Diğer görevlere geçiliyor...
 [2026-05-13T14:45:15.739Z] ⏳ [CODER] Streaming... 1414 tokens so far (finish=generating)
+[2026-05-13T14:45:45.747Z] ⏳ [CODER] Streaming... 1822 tokens so far (finish=generating)
+[2026-05-13T14:46:15.752Z] ⏳ [CODER] Streaming... 2234 tokens so far (finish=generating)
+[2026-05-13T14:46:45.790Z] ⏳ [CODER] Streaming... 2647 tokens so far (finish=generating)
+[2026-05-13T14:47:15.845Z] ⏳ [CODER] Streaming... 3045 tokens so far (finish=generating)
+[2026-05-13T14:47:45.861Z] ⏳ [CODER] Streaming... 3440 tokens so far (finish=generating)
+[2026-05-13T14:48:15.903Z] ⏳ [CODER] Streaming... 3841 tokens so far (finish=generating)
+[2026-05-13T14:48:35.024Z] ❌ CODER HATASI: Stream ended but response is empty (tokens=4097, finish=length)
+[2026-05-13T14:48:37.186Z] [aurapos]  🧭 STEERING: Hata analizi ve yönlendirme yapılıyor (1/3)
+[2026-05-13T14:48:37.206Z] 📖 [ARCHITECT] Skill mühürü okundu: architect.md
+[2026-05-13T14:48:37.206Z] 🧠 [ARCHITECT] Reasoning budget: 4096 tokens | Max Output: 6144
+[2026-05-13T14:49:07.243Z] ⏳ [ARCHITECT] Streaming... 386 tokens so far (finish=generating)
+[2026-05-13T14:49:10.615Z] 🧭 STEERING: [aurapos] S0-6.1 yönlendirme ile düzeltiliyor...
+[2026-05-13T14:49:10.615Z] 📖 [CODER] Skill mühürü okundu: coder.md
+[2026-05-13T14:49:10.615Z] 🧠 [CODER] Reasoning budget: 2048 tokens | Max Output: 4096
+[2026-05-13T14:49:40.645Z] ⏳ [CODER] Streaming... 379 tokens so far (finish=generating)
+[2026-05-13T14:50:10.698Z] ⏳ [CODER] Streaming... 783 tokens so far (finish=generating)
+[2026-05-13T14:50:40.714Z] ⏳ [CODER] Streaming... 1178 tokens so far (finish=generating)
+[2026-05-13T14:50:59.076Z] 💾 Dosya mühürlendi (2542 bytes): test-all-mocks.ts
+[2026-05-13T14:51:02.280Z] [aurapos]  Kod yazımı bitti. Test ajanı devralıyor: S0-6.1
+[2026-05-13T14:51:06.235Z] 🧐 QA GUARDRAIL: [aurapos] S0-6.1 denetleniyor...
+[2026-05-13T14:51:06.809Z] ❌ SYNC FAIL: test-all-mocks.ts
+[2026-05-13T14:51:07.288Z] [aurapos]  🧭 STEERING: Hata analizi ve yönlendirme yapılıyor (2/3)
+[2026-05-13T14:51:07.291Z] 📖 [ARCHITECT] Skill mühürü okundu: architect.md
+[2026-05-13T14:51:07.291Z] 🧠 [ARCHITECT] Reasoning budget: 4096 tokens | Max Output: 6144
+[2026-05-13T14:51:07.292Z] 📖 [ARCHITECT] Skill mühürü okundu: architect.md
+[2026-05-13T14:51:07.292Z] 🧠 [ARCHITECT] Reasoning budget: 4096 tokens | Max Output: 6144
+[2026-05-13T14:51:36.985Z] 🧠 BELLEK GÜNCELLENDİ: Global dersi işlendi.
+[2026-05-13T14:51:37.301Z] ⏳ [ARCHITECT] Streaming... 323 tokens so far (finish=generating)
+[2026-05-13T14:51:45.658Z] 🧭 STEERING: [aurapos] S0-6.1 yönlendirme ile düzeltiliyor...
+[2026-05-13T14:51:45.659Z] 📖 [CODER] Skill mühürü okundu: coder.md
+[2026-05-13T14:51:45.659Z] 🧠 [CODER] Reasoning budget: 2048 tokens | Max Output: 4096
+[2026-05-13T14:52:15.728Z] ⏳ [CODER] Streaming... 377 tokens so far (finish=generating)
+[2026-05-13T14:52:45.789Z] ⏳ [CODER] Streaming... 781 tokens so far (finish=generating)
+[2026-05-13T14:53:15.826Z] ⏳ [CODER] Streaming... 1185 tokens so far (finish=generating)
+[2026-05-13T14:53:45.851Z] ⏳ [CODER] Streaming... 1586 tokens so far (finish=generating)
+[2026-05-13T14:54:15.871Z] ⏳ [CODER] Streaming... 1991 tokens so far (finish=generating)
+[2026-05-13T14:54:45.914Z] ⏳ [CODER] Streaming... 2394 tokens so far (finish=generating)
+[2026-05-13T14:55:15.941Z] ⏳ [CODER] Streaming... 2796 tokens so far (finish=generating)
+[2026-05-13T14:55:45.965Z] ⏳ [CODER] Streaming... 3196 tokens so far (finish=generating)
+[2026-05-13T14:56:16.014Z] ⏳ [CODER] Streaming... 3590 tokens so far (finish=generating)
