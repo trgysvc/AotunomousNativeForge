@@ -11673,3 +11673,26 @@
 [2026-05-13T22:54:12.270Z] ⏳ [CODER] Streaming... 2748 tokens so far (finish=generating)
 [2026-05-13T22:54:18.082Z] ✅ Watchdog döngüsü tamamlandı. Bir sonraki kontrol 60s sonra.
 [2026-05-13T22:54:42.303Z] ⏳ [CODER] Streaming... 3169 tokens so far (finish=generating)
+[2026-05-13T22:55:12.326Z] ⏳ [CODER] Streaming... 3583 tokens so far (finish=generating)
+[2026-05-13T22:55:18.142Z] ✅ Watchdog döngüsü tamamlandı. Bir sonraki kontrol 60s sonra.
+[2026-05-13T22:55:42.359Z] ⏳ [CODER] Streaming... 4001 tokens so far (finish=generating)
+[2026-05-13T22:55:48.941Z] 💾 Dosya mühürlendi (6171 bytes): page.tsx
+[2026-05-13T22:55:52.068Z] ✍️ CODER: [aurapos] S14-4 yazılıyor...
+[2026-05-13T22:55:52.068Z] 📖 [CODER] Skill mühürü okundu: coder.md
+[2026-05-13T22:55:52.069Z] 🧠 [CODER] Reasoning budget: 2048 tokens | Max Output: 4096
+[2026-05-13T22:55:53.335Z] [aurapos]  Kod yazımı bitti. Test ajanı devralıyor: S14-4
+[2026-05-13T22:55:54.092Z] 🧐 QA GUARDRAIL: [aurapos] S14-4 denetleniyor...
+[2026-05-13T22:55:58.348Z] [aurapos]  🧭 STEERING: Hata analizi ve yönlendirme yapılıyor (2/3)
+[2026-05-13T22:55:58.353Z] 📖 [ARCHITECT] Skill mühürü okundu: architect.md
+[2026-05-13T22:55:58.353Z] 🧠 [ARCHITECT] Reasoning budget: 4096 tokens | Max Output: 6144
+[2026-05-13T22:55:58.354Z] 📖 [ARCHITECT] Skill mühürü okundu: architect.md
+[2026-05-13T22:55:58.354Z] 🧠 [ARCHITECT] Reasoning budget: 4096 tokens | Max Output: 6144
+[2026-05-13T22:56:18.391Z] ⚠️ [WATCHDOG] Donma tespit edildi: coder-WRITE_CODE-1778708595712.json. Sebep: Heartbeat bulunamadı ve işlem dosyası eski.
+[2026-05-13T22:56:18.391Z] 🔍 [WATCHDOG] Kurtarma başlatılıyor: coder-WRITE_CODE-1778708595712.json
+[2026-05-13T22:56:18.397Z] 🔄 [WATCHDOG] Manifest durumu sıfırlandı: S14-4 (aurapos) [Kurtarma: 2/3]
+[2026-05-13T22:56:18.401Z] ✅ [WATCHDOG] Başarıyla kurtarıldı: coder-WRITE_CODE-1778708595712.json -> coder/inbox
+[2026-05-13T22:56:18.401Z] ✅ Watchdog döngüsü tamamlandı. Bir sonraki kontrol 60s sonra.
+[2026-05-13T22:56:22.129Z] ⏳ [CODER] Streaming... 259 tokens so far (finish=generating)
+[2026-05-13T22:56:28.455Z] ⏳ [ARCHITECT] Streaming... 253 tokens so far (finish=generating)
+[2026-05-13T22:56:28.455Z] ⏳ [ARCHITECT] Streaming... 253 tokens so far (finish=generating)
+[2026-05-13T22:56:29.999Z] 🧠 BELLEK GÜNCELLENDİ: Global dersi işlendi.
