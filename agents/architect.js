@@ -2,7 +2,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const { jsonrepair } = require('jsonrepair');
-const { log, start, sendMessage, ask, pushToGithub, NIM_CONFIG, ensureBranch, createPullRequest } = require('./base-agent');
+const { log, start, sendMessage, ask, pushToGithub, NIM_CONFIG, ensureBranch, createPullRequest, withLock } = require('./base-agent');
 const { notify } = require('./notifier');
 const { research } = require('./researcher');
 
@@ -33,22 +33,29 @@ function estimateTokens(text) {
     return Math.ceil(text.length / 4);
 }
 
+// Manifest Lock: Removed local lock in favor of global withLock in base-agent.js
+
 /**
  * Manifest Management: Tracks project state and task dependencies
+ * Uses Global File Lock to prevent inter-process race conditions.
  */
-function getManifest(projectId) {
-    const manifestPath = path.join(__dirname, '..', 'src', projectId, 'manifest.json');
-    if (!fs.existsSync(path.dirname(manifestPath))) fs.mkdirSync(path.dirname(manifestPath), { recursive: true });
-    
-    if (!fs.existsSync(manifestPath)) {
-        fs.writeFileSync(manifestPath, JSON.stringify({ project_id: projectId, tasks: [] }, null, 2));
-    }
-    return JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+async function getManifest(projectId) {
+    return await withLock(`manifest-${projectId}`, async () => {
+        const manifestPath = path.join(__dirname, '..', 'src', projectId, 'manifest.json');
+        if (!fs.existsSync(path.dirname(manifestPath))) fs.mkdirSync(path.dirname(manifestPath), { recursive: true });
+        
+        if (!fs.existsSync(manifestPath)) {
+            fs.writeFileSync(manifestPath, JSON.stringify({ project_id: projectId, tasks: [] }, null, 2));
+        }
+        return JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+    });
 }
 
-function saveManifest(projectId, manifest) {
-    const manifestPath = path.join(__dirname, '..', 'src', projectId, 'manifest.json');
-    fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2));
+async function saveManifest(projectId, manifest) {
+    return await withLock(`manifest-${projectId}`, async () => {
+        const manifestPath = path.join(__dirname, '..', 'src', projectId, 'manifest.json');
+        fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2));
+    });
 }
 
 /**
@@ -92,25 +99,33 @@ async function recordLesson(projectId, taskId, description) {
     }
 }
 
-function updateTaskStatus(projectId, taskId, status, extra = {}) {
-    const manifest = getManifest(projectId);
-    const task = manifest.tasks.find(t => t.task_id === taskId);
-    if (task) {
-        task.status = status;
-        Object.assign(task, extra);
-        saveManifest(projectId, manifest);
-        
-        // Dependency Trigger: Check if any pending tasks can now start
-        if (status === 'DONE' || status === 'FAILED') {
-            dispatchNextTasks(projectId);
+async function updateTaskStatus(projectId, taskId, status, extra = {}) {
+    await withLock(`manifest-${projectId}`, async () => {
+        try {
+            const manifestPath = path.join(__dirname, '..', 'src', projectId, 'manifest.json');
+            const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+            const task = manifest.tasks.find(t => t.task_id === taskId);
+            if (task) {
+                task.status = status;
+                Object.assign(task, extra);
+                fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2));
+            } else {
+                log(`⚠️ updateTaskStatus: Task ${taskId} not found in manifest of ${projectId}`);
+            }
+        } catch (err) {
+            log(`❌ Manifest Update Error: ${err.message}`);
         }
-    } else {
-        log(`⚠️ updateTaskStatus: Task ${taskId} not found in manifest of ${projectId}`);
+    });
+
+    // Dispatching must happen AFTER the lock is released to avoid deadlock
+    if (status === 'DONE' || status === 'FAILED' || status === 'ERROR') {
+        await dispatchNextTasks(projectId);
     }
 }
 
 async function dispatchNextTasks(projectId) {
-    const manifest = getManifest(projectId);
+    const manifest = await getManifest(projectId);
+    let dispatchedAny = false;
     const pendingTasks = manifest.tasks.filter(t => t.status === 'PENDING');
     
     // Sprint Gate: Get the hierarchy of current tasks (SAFE PARSING)
@@ -127,7 +142,7 @@ async function dispatchNextTasks(projectId) {
             const previousSprints = sprints.slice(0, sprintIndex);
             const unfinishedInPrevious = manifest.tasks.filter(t => {
                 const checkId = String(t.task_id || t.id || 'S0-0');
-                return previousSprints.includes(checkId.split('-')[0]) && t.status !== 'DONE' && t.status !== 'FAILED';
+                return previousSprints.includes(checkId.split('-')[0]) && t.status !== 'DONE' && t.status !== 'FAILED' && t.status !== 'ERROR';
             });
 
             if (unfinishedInPrevious.length > 0) {
@@ -138,12 +153,12 @@ async function dispatchNextTasks(projectId) {
 
         const dependenciesMet = !task.depends_on || task.depends_on.every(depId => {
             const dep = manifest.tasks.find(t => t.task_id === depId);
-            return dep && (dep.status === 'DONE' || dep.status === 'FAILED');
+            return dep && (dep.status === 'DONE' || dep.status === 'FAILED' || dep.status === 'ERROR');
         });
 
         if (dependenciesMet) {
             log(`🎯 [${projectId}] Bağımlılıklar tamam, görev başlatılıyor: ${task.title}`);
-            updateTaskStatus(projectId, task.task_id, 'IN_PROGRESS');
+            await updateTaskStatus(projectId, task.task_id, 'IN_PROGRESS');
 
             // Context Files: Planlamada belirtilen + tamamlanan bağımlılıkların çıktı dosyaları
             // Coder bu dosyaların içeriğini okuyarak mevcut kod tabanıyla uyumlu yazar.
@@ -167,7 +182,7 @@ async function dispatchNextTasks(projectId) {
     // If no tasks were dispatched and no tasks are currently active, check if we need to enter Recovery Phase
     const activeTasks = manifest.tasks.filter(t => ['IN_PROGRESS', 'TESTING', 'FIXING'].includes(t.status));
     if (!dispatchedAny && activeTasks.length === 0) {
-        checkRecoveryPhase(projectId);
+        await checkRecoveryPhase(projectId);
     }
 }
 
@@ -175,7 +190,7 @@ async function dispatchNextTasks(projectId) {
  * Recovery Phase: If no PENDING tasks are left or can start, revisit FAILED ones.
  */
 async function checkRecoveryPhase(projectId) {
-    const manifest = getManifest(projectId);
+    const manifest = await getManifest(projectId);
     const failedTasks = manifest.tasks.filter(t => t.status === 'FAILED');
     const pendingTasks = manifest.tasks.filter(t => t.status === 'PENDING');
 
@@ -184,7 +199,7 @@ async function checkRecoveryPhase(projectId) {
         for (const task of failedTasks) {
             log(`🧐 [${projectId}] ${task.task_id} için yeni strateji geliştiriliyor...`);
             // Reset task for a final deep attempt
-            updateTaskStatus(projectId, task.task_id, 'PENDING', { 
+            await updateTaskStatus(projectId, task.task_id, 'PENDING', { 
                 retry_count: 0, 
                 status: 'PENDING',
                 recovery_mode: true 
@@ -200,7 +215,7 @@ async function checkRecoveryPhase(projectId) {
  * Tüm sprint görevleri DONE değilse sessizce çıkar.
  */
 async function checkSprintCompletion(projectId, sprintId, branchName) {
-    const manifest = getManifest(projectId);
+    const manifest = await getManifest(projectId);
     const sprintTasks = manifest.tasks.filter(t => t.task_id.split('-')[0] === sprintId);
     if (sprintTasks.length === 0 || !sprintTasks.every(t => t.status === 'DONE')) return;
 
@@ -243,7 +258,7 @@ async function handleMessage(msg) {
             for (const file of files) {
                 log(`${prefix} 🔍 Analiz ediliyor: ${file}`);
                 const content = fs.readFileSync(path.join(refDir, file), 'utf8');
-                const manifest_cur = getManifest(project_id);
+                const manifest_cur = await getManifest(project_id);
                 const currentTaskIds = manifest_cur.tasks.map(t => t.task_id);
 
                 const prompt_exp = `Sen AuraPOS projesinin baş mimarısın. Mevcut referans dökümanını inceleyerek EKSİK görevleri plana ekle.
@@ -270,7 +285,7 @@ async function handleMessage(msg) {
                                 });
                             }
                         });
-                        saveManifest(project_id, manifest_cur);
+                        await saveManifest(project_id, manifest_cur);
                         log(`${prefix} ✅ ${file} analiz edildi. +${newTasks.length} yeni görev eklendi.`);
                     }
                 } catch (e) {
@@ -278,27 +293,27 @@ async function handleMessage(msg) {
                 }
             }
             log(`${prefix} 🏁 TAM KAPSAMLI PLANLAMA BİTTİ. Toplam görev sayısını manifestodan kontrol edebilirsiniz.`);
-            dispatchNextTasks(project_id);
+            await dispatchNextTasks(project_id);
             break;
         }
 
         case 'TASK_READY':
             // Yeni görev geldiğinde manifest'e ekle (zaten yoksa)
-            const manifest = getManifest(project_id);
+            const manifest = await getManifest(project_id);
             if (!manifest.tasks.find(t => t.task_id === task_id)) {
                 manifest.tasks.push({
                     task_id, title, desc: msg.desc, file_path, 
                     depends_on: msg.depends_on || [], 
                     status: 'PENDING'
                 });
-                saveManifest(project_id, manifest);
+                await saveManifest(project_id, manifest);
             }
-            dispatchNextTasks(project_id);
+            await dispatchNextTasks(project_id);
             break;
 
         case 'CODE_FINISHED':
             log(`${prefix} Kod yazımı bitti. Test ajanı devralıyor: ${task_id}`);
-            updateTaskStatus(project_id, task_id, 'TESTING');
+            await updateTaskStatus(project_id, task_id, 'TESTING');
             sendMessage('TESTER', 'RUN_TEST', msg);
             break;
 
@@ -317,21 +332,20 @@ async function handleMessage(msg) {
                 } catch (gitErr) {
                     log(`${prefix} ⚠️ GitHub push atlandı: ${gitErr.message}`);
                 }
-
-                updateTaskStatus(project_id, task_id, 'DONE');
+                await updateTaskStatus(project_id, task_id, 'DONE');
                 // retry_count is tracked in manifest.json — no in-memory variable needed
                 await notify('TASK_DONE', { project_id, task_id, title, file_path });
                 sendMessage('DOCS', 'WRITE_DOCS', msg);
                 await checkSprintCompletion(project_id, sprintId, branchName);
             } catch (e) {
                 log(`${prefix} ❌ Kritik Hata: ${e.message}`);
-                updateTaskStatus(project_id, task_id, 'ERROR', { error: e.message });
+                await updateTaskStatus(project_id, task_id, 'ERROR', { error: e.message });
             }
             break;
 
         case 'BUG_REPORT': {
             // Read retry_count from manifest (persistent across restarts)
-            const manifest_br = getManifest(project_id);
+            const manifest_br = await getManifest(project_id);
             const taskObj_br = manifest_br.tasks.find(t => t.task_id === task_id);
             const currentRetry = (taskObj_br?.retry_count || 0) + 1;
 
@@ -346,25 +360,31 @@ async function handleMessage(msg) {
             const failure_log = [...existingLog, failureEntry];
 
             // Write incremented retry_count + failure_log back to manifest immediately
-            updateTaskStatus(project_id, task_id, taskObj_br?.status || 'FIXING', { retry_count: currentRetry, failure_log });
+            await updateTaskStatus(project_id, task_id, taskObj_br?.status || 'FIXING', { retry_count: currentRetry, failure_log });
 
             if (currentRetry > MAX_RETRIES) {
                 log(`${prefix} ⛔ MAX RETRY (${MAX_RETRIES}) AŞILDI. Re-planning başlatılıyor.`);
-                updateTaskStatus(project_id, task_id, 'FAILED', { retry_count: currentRetry, failure_log });
+                await updateTaskStatus(project_id, task_id, 'FAILED', { retry_count: currentRetry, failure_log });
                 await notify('TASK_FAILED', { project_id, task_id, title, description, retries: MAX_RETRIES });
 
                 // Cap to last 3 entries — prevents context overflow from 200+ failure history
                 const recentLog = failure_log.slice(-3);
                 const planPrompt = `GÖREV BAŞARISIZ OLDU: ${task_id}\nToplam ${failure_log.length} deneme yapıldı. Son 3 hata:\n${recentLog.map(f => `- Deneme ${f.attempt} [${f.error_type}]: ${f.error}`).join('\n')}\nLütfen mimariyi ve PRD kurallarını tekrar gözden geçirerek görevi revise et.`;
+                
+                // Actual re-planning call to LLM
+                const rca = await ask('ARCHITECT', planPrompt, __dirname);
+                
                 const rcaPath = path.join(__dirname, '..', 'queue', 'error', `${task_id}_RCA.md`);
                 fs.writeFileSync(rcaPath, `# RE-PLANNING REPORT: ${task_id}\n\n${rca}`);
                 
+                log(`${prefix} 📝 RCA Raporu oluşturuldu: ${task_id}_RCA.md. Diğer görevlere geçiliyor...`);
+                
                 // Wake up the factory after re-planning
-                dispatchNextTasks(project_id);
+                await dispatchNextTasks(project_id);
             } else {
                 // Forge V3: Steering Protocol
                 log(`${prefix} 🧭 STEERING: Hata analizi ve yönlendirme yapılıyor (${currentRetry}/${MAX_RETRIES})`);
-                updateTaskStatus(project_id, task_id, 'FIXING', { retry_count: currentRetry });
+                await updateTaskStatus(project_id, task_id, 'FIXING', { retry_count: currentRetry });
 
                 // Active Recall: Check if this should be a lesson
                 if (currentRetry >= 2) {

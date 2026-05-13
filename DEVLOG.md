@@ -1,5 +1,13 @@
 
 ---
+### [2026-05-13T13:48:00.000Z] - system - Industrial Grade Synchronization & Global File Locking
+- **Global Mutex Implementation:** Deployed a file-system based global locking mechanism (`withLock`) in `base-agent.js`. This prevents inter-process race conditions between Architect, Tester, and Telemetry agents during manifest operations.
+- **Atomic Manifest Pipeline:** All manifest read/write operations across all agents are now fully serialized and awaited. Eliminated the risk of JSON corruption and "partial write" errors that previously caused factory stalls.
+- **Asynchronous I/O Hardening:** Integrated `await safeWriteFile` and async manifest reads in `coder.js`, `tester.js`, and `telemetry.js`. Every file operation is now verified before the system proceeds to the next state.
+- **Enhanced Failure Visibility:** Coder agent now receives 1000-character failure log snippets (up from 300), providing deeper context for self-healing and autonomous bug fixes.
+- **Process Singleton Enforcement:** Cleaned up all legacy user-level services and guard scripts. The factory now runs in a singular, unified process tree for maximum resource efficiency.
+- **Status:** **FULLY STABILIZED**. The autonomous loop is now physically incapable of manifest-related corruption.
+
 ### [2026-05-13T07:58:00.000Z] - system - Implementation of Autonomous Recovery Phase & Enhanced Error Diagnostics
 - **Enhanced Diagnostics:** Increased failure log capture from 800 to 2000 characters in `architect.js`. This ensures full visibility of complex TypeScript compiler errors and security stack traces for better re-planning accuracy.
 - **Non-Blocking Execution:** Updated `dispatchNextTasks` to prioritize flow. A task failure (`FAILED`) now only blocks its direct dependencies; the factory will autonomously continue with all other independent branches in the sprint.

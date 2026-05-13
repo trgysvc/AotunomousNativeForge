@@ -9,37 +9,38 @@ type Category = {
 type Product = {
   id: string;
   name: string;
-  price: number;
   categoryId: string;
+  price: number;
 };
 
-const API_BASE = process.env.NEXT_PUBLIC_MENU_API_URL || '/api/menu';
-
-export default function ProductSearch() {
+const ProductSearch = () => {
   const [categories, setCategories] = useState<Category[]>([]);
+  const [products, setProducts] = useState<Product[]>([]);
   const [selectedCategoryId, setSelectedCategoryId] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [debouncedSearch, setDebouncedSearch] = useState('');
-  const [products, setProducts] = useState<Product[]>([]);
-  const [loading, setLoading] = useState<boolean>(false);
-  const [error, setError] = useState<string | null>(null);
 
   // Fetch categories on mount
   useEffect(() => {
-    async function loadCategories() {
-      try {
-        const res = await fetch(`${API_BASE}/categories`);
-        if (!res.ok) throw new Error('Failed to fetch categories');
-        const data: Category[] = await res.json();
-        setCategories(data);
-      } catch (err) {
-        setError(err instanceof Error ? err.message : 'Unknown error');
-      }
-    }
-    loadCategories();
+    fetch('/api/menu/categories')
+      .then(res => res.json())
+      .then(data => setCategories(data))
+      .catch(console.error);
   }, []);
 
-  // Debounce search term (300ms)
+  // Fetch products when selected category changes
+  useEffect(() => {
+    let url = '/api/menu/products';
+    if (selectedCategoryId) {
+      url += `?categoryId=${selectedCategoryId}`;
+    }
+    fetch(url)
+      .then(res => res.json())
+      .then(data => setProducts(data))
+      .catch(console.error);
+  }, [selectedCategoryId]);
+
+  // Debounce search input (300ms)
   useEffect(() => {
     const handler = setTimeout(() => {
       setDebouncedSearch(searchTerm);
@@ -47,107 +48,73 @@ export default function ProductSearch() {
     return () => clearTimeout(handler);
   }, [searchTerm]);
 
-  // Fetch products when category or debounced search changes
-  useEffect(() => {
-    async function loadProducts() {
-      if (!selectedCategoryId) {
-        setProducts([]);
-        return;
-      }
-      setLoading(true);
-      setError(null);
-      try {
-        const query = new URLSearchParams({
-          categoryId: selectedCategoryId,
-          search: debouncedSearch,
-        });
-        const res = await fetch(`${API_BASE}/products?${query}`);
-        if (!res.ok) throw new Error('Failed to fetch products');
-        const data: Product[] = await res.json();
-        setProducts(data);
-      } catch (err) {
-        setError(err instanceof Error ? err.message : 'Unknown error');
-        setProducts([]);
-      } finally {
-        setLoading(false);
-      }
-    }
-    loadProducts();
-  }, [selectedCategoryId, debouncedSearch]);
+  const filteredProducts = products.filter(p =>
+    p.name.toLowerCase().includes(debouncedSearch.toLowerCase())
+  );
 
-  // Flatten category tree for simple select
-  const flattenCategories = (cats: Category[]): { id: string; name: string }[] => {
-    const result: { id: string; name: string }[] = [];
-    const walk = (c: Category[]) => {
-      c.forEach((cat) => {
-        result.push({ id: cat.id, name: cat.name });
-        if (cat.children) walk(cat.children);
-      });
-    };
-    walk(cats);
-    return result;
+  const handleCategorySelect = (id: string | null) => {
+    setSelectedCategoryId(id);
   };
-
-  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(e.target.value);
-  };
-
-  if (error) return <div className="p-4 text-red-600">Error: {error}</div>;
 
   return (
-    <div className="p-6 space-y-4">
-      <div className="flex flex-col sm:flex-row sm:space-x-3 items-end">
-        <label htmlFor="category-select" className="block mb-1">
-          Category
-        </label>
-        <select
-          id="category-select"
-          value={selectedCategoryId ?? ''}
-          onChange={(e) => setSelectedCategoryId(e.target.value || null)}
-          className="w-full max-w-xs p-2 border rounded"
-        >
-          <option value="">All Categories</option>
-          {flattenCategories(categories).map((cat) => (
-            <option key={cat.id} value={cat.id}>
-              {cat.name}
-            </option>
-          ))}
-        </select>
+    <div className="flex gap-4 p-4">
+      {/* Category Tree */}
+      <nav className="w-64">
+        <h2 className="font-semibold mb-2">Kategoriler</h2>
+        <ul>
+          {renderCategoryTree(categories, handleCategorySelect, selectedCategoryId)}
+        </ul>
+      </nav>
 
-        <label htmlFor="search-input" className="block mb-1">
-          Search
-        </label>
-        <input
-          id="search-input"
-          type="text"
-          placeholder="Type to search..."
-          value={searchTerm}
-          onChange={handleSearchChange}
-          className="w-full max-w-xs p-2 border rounded"
-        />
-      </div>
-
-      {loading && <div className="text-center py-4">Loading...</div>}
-
-      {!loading && products.length === 0 && !error && (
-        <div className="text-center text-gray-500 py-4">
-          No products found.
+      {/* Product List */}
+      <section className="flex-1">
+        <div className="mb-2">
+          <input
+            type="text"
+            placeholder="Ürün ara..."
+            value={searchTerm}
+            onChange={e => setSearchTerm(e.target.value)}
+            className="border rounded px-3 py-1 w-full"
+          />
         </div>
-      )}
-
-      {!loading && products.length > 0 && (
-        <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {products.map((p) => (
-            <li
-              key={p.id}
-              className="border p-4 rounded shadow hover:shadow-lg transition-shadow"
-            >
-              <h3 className="font-semibold">{p.name}</h3>
-              <p className="text-gray-600">Price: {p.price.toFixed(2)}</p>
+        <ul className="space-y-2">
+          {filteredProducts.map(p => (
+            <li key={p.id} className="border p-2">
+              <strong>{p.name}</strong> - {p.price} TL
             </li>
           ))}
+          {filteredProducts.length === 0 && (
+            <li className="text-gray-500">Ürün bulunamadı.</li>
+          )}
         </ul>
-      )}
+      </section>
     </div>
   );
-}
+};
+
+function renderCategoryTree(
+  cats: Category[],
+  onSelect: (id: string | null) => void,
+  selectedId: string | null
+) {
+  return cats.map(cat => (
+    <li key={cat.id} className="flex items-start">
+      <label>
+        <input
+          type="radio"
+          name="category"
+          value={cat.id}
+          checked={selectedId === cat.id}
+          onChange={() => onSelect(cat.id)}
+          className="mr-2"
+        />
+        {cat.name}
+      </label>
+      {cat.children && cat.children.length > 0 && (
+        <ul className="ml-4 mt-1">{renderCategoryTree(cat.children, onSelect, selectedId)}</ul>
+      )}
+    </li>
+  ));
+};
+
+export default ProductSearch;

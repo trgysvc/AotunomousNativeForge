@@ -1,4 +1,118 @@
-{
-  "file_path": "apps/kds/src/components/OrderList.tsx",
-  "content": "import React, { useEffect, useState } from 'react';\nimport { Order } from '@/types';\n\nconst OrderList: React.FC<{ station: 'kitchen' | 'bar' | 'cold_buffet' }> = ({ station }) => {\n  const [orders, setOrders] = useState<Order[]>([]);\n\n  useEffect(() => {\n    const wsUrl = process.env.NEXT_PUBLIC_KDS_WS_URL;\n    if (!wsUrl) {\n      console.error('WebSocket URL not configured');\n      return;\n    }\n\n    const ws = new WebSocket(wsUrl);\n\n    ws.onopen = () => {\n      console.log('WebSocket connected');\n      ws.send(JSON.stringify({ type: 'SUBSCRIBE_STATION', station }));\n    };\n\n    ws.onmessage = (event) => {\n      const data = JSON.parse(event.data);\n      switch (data.type) {\n        case 'NEW_ORDER':\n          setOrders(prev => [\n            ...prev.filter(order => order.id !== data.order.id),\n            data.order\n          ]);\n          break;\n        case 'ORDER_UPDATE':\n          setOrders(prev => prev.map(order =>\n            order.id === data.orderId\n              ? { ...order, status: data.status }\n              : order\n          ));\n          break;\n        case 'ORDER_CANCELLED':\n          setOrders(prev => prev.filter(order => order.id !== data.orderId));\n          break;\n        default:\n          break;\n      }\n    };\n\n    ws.onerror = (error) => {\n      console.error('WebSocket error:', error);\n    };\n\n    ws.onclose = () => {\n      console.log('WebSocket disconnected');\n      setTimeout(() => {\n        // Attempt reconnect after 3 seconds\n        const newWs = new WebSocket(wsUrl);\n        // Reuse same handlers\n        newWs.onopen = ws.onopen;\n        newWs.onmessage = ws.onmessage;\n        newWs.onerror = ws.onerror;\n        newWs.onclose = ws.onclose;\n      }, 3000);\n    };\n\n    return () => {\n      ws.close();\n    };\n  }, [station]);\n\n  return (\n    <div className=\"space-y-4\">\n      {orders.map(order => (\n        <div key={order.id} className=\"p-4 border rounded-lg shadow-sm\">\n          <h3 className=\"font-bold text-lg\">Order #{order.id}</h3>\n          <p className=\"text-sm text-gray-600\">Items: {order.items.map(i => i.name).join(', ')}</p>\n          <div className=\"mt-2 flex items-center\">\n            <span className={`px-2 py-1 text-xs rounded-full ${getStatusClass(order.status)}`}>\n              {order.status}\n            </span>\n          </div>\n        </div>\n      ))}\n    </div>\n  );\n}\n\nfunction getStatusClass(status: string): string {\n  switch (status) {\n    case 'ready':\n      return 'bg-green-100 text-green-800';\n    case 'completed':\n      return 'bg-blue-100 text-blue-800';\n    case 'cancelled':\n      return 'bg-red-100 text-red-800';\n    default:\n      return 'bg-yellow-100 text-yellow-800';\n  }\n}\n\nexport default OrderList;\n";
+"use client";
+import { useEffect, useState } from 'react';
+
+type Order = {
+  id: string;
+  items: { name: string; quantity: number }[];
+  station: 'kitchen' | 'bar' | 'cold_buffet';
+  status: 'pending' | 'preparing' | 'ready' | 'completed' | 'cancelled';
+  createdAt: string;
+  updatedAt: string;
+};
+
+interface OrderListProps {
+  station?: 'kitchen' | 'bar' | 'cold_buffet' | 'all';
+}
+
+export default function OrderList({ station = 'all' }: OrderListProps) {
+  const [orders, setOrders] = useState<Order[]>([]);
+  const [filter, setFilter] = useState<'kitchen' | 'bar' | 'cold_buffet' | 'all'>(
+    station as any
+  );
+
+  useEffect(() => {
+    const wsUrl = `${process.env.NEXT_PUBLIC_WS_URL ?? ''}/orders?station=${filter}`;
+    const ws = new WebSocket(wsUrl);
+
+    ws.onopen = () => {
+      console.log('WebSocket connected to', wsUrl);
+    };
+
+    ws.onmessage = (event) => {
+      try {
+        const data = JSON.parse(event.data);
+        if (data.type === 'order_added') {
+          setOrders((prev) => {
+            const exists = prev.some((o) => o.id === data.order.id);
+            return exists ? prev : [...prev, data.order];
+          });
+        } else if (data.type === 'order_updated') {
+          setOrders((prev) =>
+            prev.map((o) => (o.id === data.order.id ? data.order : o))
+          );
+        } else if (data.type === 'order_removed') {
+          setOrders((prev) => prev.filter((o) => o.id !== data.order.id));
+        }
+      } catch (e) {
+        console.error('Invalid WS message', event.data, e);
+      }
+    };
+
+    ws.onerror = (error) => {
+      console.error('WebSocket error:', error);
+    };
+
+    ws.onclose = () => {
+      console.log('WebSocket closed');
+    };
+
+    return () => {
+      ws.close();
+    };
+  }, [filter]);
+
+  const filteredOrders =
+    filter === 'all'
+      ? orders
+      : orders.filter((o) => o.station === filter);
+
+  return (
+    <div className="p-4">
+      <h2 className="text-xl font-bold mb-4">
+        {filter === 'all' ? 'Tüm Siparişler' : `${filter} Siparişleri`}
+      </h2>
+      {filteredOrders.length === 0 ? (
+        <p className="text-gray-500">Sipariş bulunamadı.</p>
+      ) : (
+        <ul className="space-y-2">
+          {filteredOrders.map((order) => (
+            <li
+              key={order.id}
+              className={`p-3 border rounded ${
+                order.status === 'completed'
+                  ? 'bg-green-50'
+                  : order.status === 'cancelled'
+                  ? 'bg-red-50'
+                  : order.status === 'ready'
+                  ? 'bg-yellow-50'
+                  : ''
+              }`}
+            >
+              <div className="flex justify-between">
+                <div>
+                  <h3 className="font-medium">{order.items.map((i) => i.name).join(', ')}</h3>
+                  <p className="text-sm text-gray-500">
+                    {order.station} • {new Date(order.createdAt).toLocaleTimeString()}
+                  </p>
+                </div>
+                <span className={`px-2 py-1 text-xs rounded ${
+                  order.status === 'completed'
+                    ? 'bg-green-100 text-green-800'
+                    : order.status === 'cancelled'
+                    ? 'bg-red-100 text-red-800'
+                    : order.status === 'ready'
+                    ? 'bg-yellow-100 text-yellow-800'
+                    : order.status === 'preparing'
+                    ? 'bg-blue-100 text-blue-800'
+                    : 'bg-gray-100 text-gray-800'
+                }`}>
+                  {order.status}
+                </span>
+              </div>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
 }

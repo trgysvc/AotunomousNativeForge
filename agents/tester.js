@@ -3,7 +3,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { exec } = require('node:child_process');
 const { promisify } = require('node:util');
-const { ask, start, log, sendMessage, NIM_CONFIG } = require('./base-agent');
+const { ask, start, log, sendMessage, NIM_CONFIG, withLock } = require('./base-agent');
 const { scanCode } = require('./security_guardrail');
 const { runInSandbox } = require('./docker_sandbox');
 const SILENT_REPLY_TOKEN = 'HEARTBEAT_OK'; // Forge V3 Standard
@@ -20,20 +20,22 @@ const SRC = NIM_CONFIG.workspace_dir || path.join(__dirname, '..', 'src');
  *   Her proje farklı bir stack kullanır. ANF bir proje tipi varsaymaz.
  *   Kısıtlamalar PRD'den gelir; PRD yoksa kısıtlama da yoktur.
  */
-function loadStackRules(projectId) {
-    try {
-        const manifestPath = path.join(__dirname, '..', 'src', projectId, 'manifest.json');
-        if (fs.existsSync(manifestPath)) {
-            const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
-            if (manifest.stack_rules) return manifest.stack_rules;
-        }
-    } catch (e) { /* manifest okunamazsa vault'a bak */ }
+async function loadStackRules(projectId) {
+    return await withLock(`manifest-${projectId}`, async () => {
+        try {
+            const manifestPath = path.join(__dirname, '..', 'src', projectId, 'manifest.json');
+            if (fs.existsSync(manifestPath)) {
+                const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+                if (manifest.stack_rules) return manifest.stack_rules;
+            }
+        } catch (e) { /* manifest okunamazsa vault'a bak */ }
 
-    // Vault global default (opsiyonel — vault.json'da tanımlıysa kullan)
-    return {
-        forbidden_libs: NIM_CONFIG.forbidden_libs || [],
-        monorepo_roots: NIM_CONFIG.monorepo_roots || []
-    };
+        // Vault global default (opsiyonel — vault.json'da tanımlıysa kullan)
+        return {
+            forbidden_libs: NIM_CONFIG.forbidden_libs || [],
+            monorepo_roots: NIM_CONFIG.monorepo_roots || []
+        };
+    });
 }
 
 /**
@@ -46,8 +48,8 @@ function loadStackRules(projectId) {
  * Bu sayede Node.js, Python, Rust, Swift, .NET — her proje tipi
  * kendi PRD kurallarıyla denetlenir, AuraPOS varsayımları taşınmaz.
  */
-function checkArchitectureGuardrails(code, filePath, projectId) {
-    const stackRules = loadStackRules(projectId);
+async function checkArchitectureGuardrails(code, filePath, projectId) {
+    const stackRules = await loadStackRules(projectId);
     const forbidden = stackRules.forbidden_libs || [];
     const monorepoRoots = stackRules.monorepo_roots || [];
 
@@ -147,7 +149,7 @@ async function handleMessage(msg) {
     }
 
     // 2. ADIM: Governance (PRD Guardrails — manifest.stack_rules tabanlı)
-    const guardrailIssues = checkArchitectureGuardrails(code, file_path, project_id);
+    const guardrailIssues = await checkArchitectureGuardrails(code, file_path, project_id);
     if (guardrailIssues.length > 0) {
         log(`🛡️ GUARDRAIL FAIL: [${project_id}] Mimari İhlal!`);
         return sendMessage('ARCHITECT', 'BUG_REPORT', { ...msg, error_type: 'GUARDRAIL', description: guardrailIssues.join('\n') });

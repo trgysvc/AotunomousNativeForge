@@ -142,7 +142,7 @@ function getAuthorizedPath(projectPath, targetRelativePath) {
 /**
  * Action-Observation Loop: Verify file after writing with physical check
  */
-function safeWriteFile(filePath, content) {
+async function safeWriteFile(filePath, content) {
     // 1. EISDIR Check
     if (fs.existsSync(filePath) && fs.statSync(filePath).isDirectory()) {
         throw new Error(`❌ EISDIR: '${filePath}' bir dizindir, dosya değil! Lütfen geçerli bir dosya adı ekleyin.`);
@@ -169,11 +169,14 @@ function safeWriteFile(filePath, content) {
 }
 
 async function ask(agentName, prompt, agentDir = __dirname) {
+    // Skills are located directly in the agent's directory as {agent}.md
     const skillPath = path.join(agentDir, `${agentName.toLowerCase()}.md`);
     let skillContent = '';
     if (fs.existsSync(skillPath)) {
         skillContent = fs.readFileSync(skillPath, 'utf8');
-        log(`📖 [${agentName}] Skill mühürü okundu.`);
+        log(`📖 [${agentName}] Skill mühürü okundu: ${path.basename(skillPath)}`);
+    } else {
+        log(`⚠️ [${agentName}] Skill dökümanı bulunamadı: ${skillPath}`);
     }
     const finalPrompt = `SYSTEM RULES (MANDATORY):\n${skillContent}\n\nUSER TASK:\n${prompt}`;
 
@@ -558,4 +561,41 @@ async function start(agentName, processTask) {
     }
 }
 
-module.exports = { ask, start, log, sendMessage, pushToGithub, safeWriteFile, getAuthorizedPath, cleanResponse, NIM_CONFIG, ensureBranch, createPullRequest };
+/**
+ * Global File Lock: Prevents inter-process race conditions on shared files (like manifest.json)
+ * Uses atomic directory creation as a mutex.
+ */
+async function withLock(lockName, fn) {
+    const lockDir = path.join(__dirname, '..', 'queue', `${lockName}.lock`);
+    const STALE_MS = 30000; // 30s timeout for stale locks
+    
+    const acquire = async () => {
+        while (true) {
+            try {
+                fs.mkdirSync(lockDir);
+                // Lock acquired! Record timestamp for stale check
+                fs.writeFileSync(path.join(lockDir, 'timestamp'), Date.now().toString());
+                return;
+            } catch (e) {
+                if (fs.existsSync(lockDir)) {
+                    const ts = parseInt(fs.readFileSync(path.join(lockDir, 'timestamp'), 'utf8') || '0');
+                    if (Date.now() - ts > STALE_MS) {
+                        log(`⚠️ Stale lock detected (${lockName}), breaking it...`);
+                        try { fs.rmSync(lockDir, { recursive: true, force: true }); } catch (_) {}
+                        continue;
+                    }
+                }
+                await new Promise(r => setTimeout(r, 100)); // wait and retry
+            }
+        }
+    };
+
+    await acquire();
+    try {
+        return await fn();
+    } finally {
+        try { fs.rmSync(lockDir, { recursive: true, force: true }); } catch (_) {}
+    }
+}
+
+module.exports = { ask, start, log, sendMessage, pushToGithub, safeWriteFile, getAuthorizedPath, cleanResponse, NIM_CONFIG, ensureBranch, createPullRequest, withLock };

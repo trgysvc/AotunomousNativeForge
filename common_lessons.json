@@ -272,6 +272,267 @@
       ],
       "rule": "Ensure LLM responses stay within the model's token limit; if the response would be truncated, either request a continuation with increased max_tokens or truncate gracefully and ask for the next chunk to avoid empty outputs.",
       "severity": "CRITICAL"
+    },
+    {
+      "id": "S0-19_1778661603309",
+      "context": [
+        "token_limit"
+      ],
+      "rule": "Keep the combined size of the prompt and the expected completion within the model's token limit to avoid empty stream endings; if needed, split the task into smaller chunks or reduce context.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S0-6_TestMocks_1778661673562",
+      "context": [
+        "typescript",
+        "mock"
+      ],
+      "rule": "Always validate generated mock TypeScript files with `tsc --noEmit` before executing tests to catch syntax errors early.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S0-19_1778662273283",
+      "context": [
+        "typescript"
+      ],
+      "rule": "Always run `tsc --noEmit` (or equivalent type-check) to catch syntax errors before marking a task as done; treat any TypeScript compilation failure as a blocking error.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S0-6_TestMocks_1778662567988",
+      "context": [
+        "token_limit",
+        "coder_delegation"
+      ],
+      "rule": "When delegating tasks to the Coder agent, keep the provided context minimal and well under the model's token limit (e.g., <2000 tokens) to avoid the stream ending with an empty response due to length truncation.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S0-9_DashboardPage_1778662876729",
+      "context": [
+        "typescript",
+        "nextjs"
+      ],
+      "rule": "Always run TypeScript type-check (tsc --noEmit) on new or modified .tsx/.ts files to catch syntax errors before marking a task as done.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S0-9_DashboardPage_1778663644865",
+      "context": [
+        "token_limit"
+      ],
+      "rule": "Ensure that LLM responses stay within the model's token limit; if a task may produce long output, break it into smaller subtasks or increase the allowed max_output_tokens to avoid empty streams due to length truncation.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S0-16_1778664506939",
+      "context": [
+        "token_limit"
+      ],
+      "rule": "Never exceed the model's maximum token limit; ensure generated responses stay within the allowed token count and handle truncation or streaming errors gracefully.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S0-16_1778664910737",
+      "context": [
+        "typescript"
+      ],
+      "rule": "Always verify TypeScript syntax with `tsc --noEmit` before marking a task as complete; fix any syntax errors.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S0-17_1778665176651",
+      "context": [
+        "typescript"
+      ],
+      "rule": "Always run `tsc --noEmit` to verify TypeScript syntax before considering a task complete.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S0-17_1778665507575",
+      "context": [
+        "token_limit"
+      ],
+      "rule": "Keep prompts within the model's token limit to avoid empty responses; break large tasks into smaller chunks.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S0-7_1778666151413",
+      "context": [
+        "token_limit",
+        "stream_empty"
+      ],
+      "rule": "Always ensure the model's response stays within the token limit; if the prompt or expected output approaches the limit, truncate, summarize, or split the request into smaller calls to avoid empty stream endings.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S0-7_1778666353285",
+      "context": [
+        "typescript",
+        "tsx",
+        "nextjs"
+      ],
+      "rule": "Ensure all files containing JSX use the .tsx extension and have valid TypeScript JSX syntax; run `tsc --noEmit` on individual files to catch syntax errors early.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S0-9_1778666642949",
+      "context": [
+        "token_limit",
+        "stream_handling"
+      ],
+      "rule": "Always keep the total token count of the prompt well below the model's limit (e.g., <7000 tokens for an 8192-token window) to prevent the stream from ending with an empty response. If the context is large, truncate or summarize it, or split the request into smaller chunks before sending to the Coder.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S0-9_1778666865185",
+      "context": [
+        "typescript"
+      ],
+      "rule": "All .tsx files must contain valid JSX/TypeScript syntax; run `tsc --noEmit` as a gate to catch syntax errors before proceeding.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S0-10_1778667614761",
+      "context": [
+        "typescript",
+        "react"
+      ],
+      "rule": "When compiling .tsx files with tsc, ensure tsconfig.json includes the appropriate JSX setting (e.g., \"jsx\": \"react-jsx\" or \"react\") and that React is imported in any file using JSX syntax. Missing JSX configuration or React import leads to syntax errors during type checking.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S0-10_1778668192867",
+      "context": [
+        "token_limit",
+        "streaming",
+        "coder"
+      ],
+      "rule": "When delegating a task to the Coder, ensure the expected output size stays within the model's token limit (e.g., < 6000 tokens for safe completion). If a task would require a larger file or response, break it into smaller atomic sub‑tasks or request incremental generation (e.g., generate file in chunks) to avoid the stream ending with an empty response due to length cutoff.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S0-13_1778668480149",
+      "context": [
+        "token_limit"
+      ],
+      "rule": "Always ensure that LLM responses stay within the model's token limit; truncate or split outputs to prevent empty streams caused by hitting the limit.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S0-13_1778668869983",
+      "context": [
+        "typescript"
+      ],
+      "rule": "Run `tsc --noEmit` (or equivalent type‑check) to validate syntax before marking a task as done.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S0-18_1778669592859",
+      "context": [
+        "typescript",
+        "syntax"
+      ],
+      "rule": "Run `tsc --noEmit` to verify TypeScript syntax before marking a task as done.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S0-18_1778669920892",
+      "context": [
+        "token_limit"
+      ],
+      "rule": "Always monitor token usage; if a response approaches the model's limit (e.g., >75% of 8192 tokens), truncate the output or split the task into smaller calls to avoid empty streams due to length finish.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S0-10_CheckSync_1778670220805",
+      "context": [
+        "token_limit",
+        "stream"
+      ],
+      "rule": "Always keep generated output within the model's token limit; if a response would exceed it, truncate early and request a continuation or split the task into smaller parts to avoid empty streams.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S0-10_CheckSync_1778670648690",
+      "context": [
+        "typescript",
+        "build"
+      ],
+      "rule": "Always run TypeScript type-check (tsc --noEmit) on new or modified .ts files before marking a task as complete to catch syntax errors early.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S0-20_1778671525434",
+      "context": [
+        "token_limit"
+      ],
+      "rule": "Ensure generated responses stay within the model's token limit; if approaching the limit, truncate or split the response into multiple parts to avoid empty outputs.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S0-20_1778671841315",
+      "context": [
+        "token_limit",
+        "stream_empty"
+      ],
+      "rule": "Always keep the model's output within its token limit; if a response is approaching the limit, truncate it or split the request into multiple calls to avoid empty streams caused by hitting the max token threshold.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S0-2.2_1778681325422",
+      "context": [
+        "streaming",
+        "token_limit"
+      ],
+      "rule": "Ensure that the model's response is not truncated by setting a sufficient max_tokens limit and properly handling stream completion (e.g., checking for finish reason and not treating length cutoff as a valid response).",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S0-2.2_1778681646685",
+      "context": [
+        "supabase",
+        "migration",
+        "storage"
+      ],
+      "rule": "Supabase migration scripts must include storage bucket creation commands as part of the setup.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S0-3.1_1778682195138",
+      "context": [
+        "docker",
+        "healthcheck"
+      ],
+      "rule": "Healthcheck configurations must target the same port that the service actually exposes/listens on; otherwise the check will fail even if the service is healthy.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S0-3.1_1778682347730",
+      "context": [
+        "docker",
+        "healthcheck"
+      ],
+      "rule": "Healthcheck commands must only use utilities that are guaranteed to exist in the container image; if a required tool (e.g., nc, curl) might be missing, either install it in the Dockerfile or replace the check with a portable alternative (e.g., using /bin/true, wget, or a built‑in TCP check).",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S0-5.1_1778682979695",
+      "context": [
+        "cors",
+        "security"
+      ],
+      "rule": "Do not configure CORS middleware with origin: true (which reflects any request origin). Instead, explicitly define a whitelist of allowed origins or use a validation function that returns only trusted origins.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S0-5.1_1778683073952",
+      "context": [
+        "security",
+        "cors"
+      ],
+      "rule": "Never configure CORS middleware with origin: true; always specify an explicit list of allowed origins or use a validation function that restricts origins to trusted domains.",
+      "severity": "CRITICAL"
     }
   ]
 }

@@ -1,96 +1,89 @@
-import React, { useState, useCallback } from 'react';
-
-type TableStatus = 'empty' | 'occupied' | 'waiting';
+import React, { useState, useRef } from 'react';
 
 interface Table {
-  id: number;
+  id: string;
   x: number; // left position in px
   y: number; // top position in px
-  status: TableStatus;
-  width?: number;
-  height?: number;
+  width: number; // width in px
+  height: number; // height in px
+  status: 'empty' | 'occupied' | 'waiting';
 }
 
-const FloorPlan: React.FC = () => {
-  const [tables, setTables] = useState<Table[]>([
-    { id: 1, x: 50, y: 50, status: 'empty', width: 80, height: 80 },
-    { id: 2, x: 200, y: 50, status: 'occupied', width: 80, height: 80 },
-    { id: 3, x: 350, y: 50, status: 'waiting', width: 80, height: 80 },
-    { id: 4, x: 50, y: 200, status: 'empty', width: 80, height: 80 },
-    { id: 5, x: 200, y: 200, status: 'occupied', width: 80, height: 80 },
-  ]);
-
-  const handleDragStart = useCallback((e: React.DragEvent<HTMLDivElement>, id: number) => {
-    e.dataTransfer.setAttribute('text/plain', id.toString());
-    // Optionally add a visual cue while dragging
-    e.currentTarget.style.opacity = '0.5';
-  }, []);
-
-  const handleDragEnd = useCallback((e: React.DragEvent<HTMLDivElement>) => {
-    e.currentTarget.style.opacity = '1';
-  }, []);
-
-  const handleDragOver = useCallback((e: React.DragEvent<HTMLDivElement>) => {
-    e.preventDefault(); // allow drop
-  }, []);
-
-  const handleDrop = useCallback(
-    (e: React.DragEvent<HTMLDivElement>, containerRef: React.RefObject<HTMLDivElement>) => {
-      e.preventDefault();
-      const draggedId = Number(e.dataTransfer.getAttribute('text/plain'));
-      if (isNaN(draggedId)) return;
-
-      const container = containerRef.current;
-      if (!container) return;
-
-      const rect = container.getBoundingClientRect();
-      const offsetX = e.clientX - rect.left;
-      const offsetY = e.clientY - rect.top;
-
-      setTables(prev =>
-        prev.map(t =>
-          t.id === draggedId ? { ...t, x: offsetX, y: offsetY } : t
-        )
-      );
-    },
-    []
-  );
-
-  const getStatusColor = (status: TableStatus): string => {
-    switch (status) {
-      case 'empty': return '#4CAF50'; // green
-      case 'occupied': return '#F44336'; // red
-      case 'waiting': return '#FF9800'; // orange
-      default: return '#9E9E9E';
-    }
-  };
-
-  return (
-    <div
-      style={{
-        position: 'relative',
-        width: '100%',
-        height: '600px',
-        backgroundColor: '#f5f5f5',
-        border: '1px solid #ddd',
-        overflow: 'hidden',
-      }}
-      ref={/* container ref will be created below */}
-    >
-      <div
-        ref={(ref) => {
-          // We need to pass ref to drop handler; we can store in a variable via useRef,
-          // but for minimal code we'll just use a closure.
-          // We'll create a ref using useState to avoid extra hook.
-          // Simpler: use a callback ref and store in a variable via useRef.
-          // However to keep code short, we'll use useRef.
-        }}
-      >
-        {/* We'll create a ref using useState hook */}
-      </div>
-      {/* Actually easier: create ref with useState and spread */}
-    </div>
-  );
+type FloorPlanProps = {
+  tables: Table[];
+  onTableUpdate?: (updatedTables: Table[]) => void;
 };
 
-export default FloorPlan;
+export default function FloorPlan({ tables, onTableUpdate }: FloorPlanProps) {
+  const [tableState, setTableState] = useState<Table[]>(tables);
+  const draggedId = useRef<string | null>(null);
+
+  const handleDragStart = (e: React.DragEvent<HTMLDivElement>, id: string) => {
+    draggedId.current = id;
+    e.dataTransfer.setData('text/plain', id);
+    // optional: add a class for dragging feedback
+    e.currentTarget.classList.add('opacity-50');
+  };
+
+  const handleDragEnd = (e: React.DragEvent<HTMLDivElement>) => {
+    e.currentTarget.classList.remove('opacity-50');
+    draggedId.current = null;
+  };
+
+  const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault(); // allow drop
+  };
+
+  const handleDrop = (e: React.DragEvent<HTMLDivElement>, targetId: string) => {
+    e.preventDefault();
+    const id = e.dataTransfer.getData('text/plain');
+    if (!id || id === targetId || !draggedId.current) return;
+
+    setTableState((prev) => {
+      const dragged = prev.find((t) => t.id === draggedId.current);
+      const target = prev.find((t) => t.id === targetId);
+      if (!dragged || !target) return prev;
+
+      return prev.map((t) => {
+        if (t.id === dragged.id) {
+          return { ...t, x: target.x, y: target.y };
+        }
+        if (t.id === target.id) {
+          return { ...t, x: dragged.x, y: dragged.y };
+        }
+        return t;
+      });
+    });
+  };
+
+  // If we want to propagate changes upward
+  React.useEffect(() => {
+    if (onTableUpdate) {
+      onTableUpdate(tableState);
+    }
+  }, [tableState, onTableUpdate]);
+
+  return (
+    <div className="relative w-full h-[600px] bg-gray-100 border-2 border-gray-300 rounded">
+      {tableState.map((table) => (
+        <div
+          key={table.id}
+          className={`absolute left-[${table.x}px] top-[${table.y}px] w-[${table.width}px] h-[${table.height}px] flex items-center justify-center text-center font-medium rounded border-2 ${
+            table.status === 'empty'
+              ? 'bg-green-200 border-green-500'
+              : table.status === 'occupied'
+              ? 'bg-red-200 border-red-500'
+              : 'bg-yellow-200 border-yellow-500'
+          }`}
+          draggable
+          onDragStart={(e) => handleDragStart(e, table.id)}
+          onDragEnd={handleDragEnd}
+          onDragOver={handleDragOver}
+          onDrop={(e) => handleDrop(e, table.id)}
+        >
+          <div className="text-xs">{table.id.slice(0, 4)}</div>
+        </div>
+      ))}
+    </div>
+  );
+}

@@ -130,7 +130,7 @@ async function handleMessage(msg) {
     if (failureLog.length > 0) {
         prompt += `\n\n⚠️ BAŞARISIZ DENEME GEÇMİŞİ — BU HATALARI TEKRAR YAPMA:\n`;
         failureLog.forEach(f => {
-            prompt += `- Deneme ${f.attempt} [${f.error_type}] (${f.timestamp.substring(0, 10)}): ${f.error.substring(0, 300)}\n`;
+            prompt += `- Deneme ${f.attempt} [${f.error_type}] (${f.timestamp.substring(0, 10)}): ${f.error.substring(0, 1000)}\n`;
         });
         prompt += `\nYukarıdaki hataları analiz et ve farklı bir strateji uygula.`;
     }
@@ -150,7 +150,7 @@ async function handleMessage(msg) {
         const code = await ask('CODER', prompt, __dirname);
         const filePath = getAuthorizedPath(projectPath, file_path || `${task_id}${ext}`);
         
-        safeWriteFile(filePath, code);
+        await safeWriteFile(filePath, code);
         sendMessage('ARCHITECT', 'CODE_FINISHED', { ...msg, file_path: filePath });
     } catch (err) {
         log(`❌ CODER HATASI: ${err.message}`);

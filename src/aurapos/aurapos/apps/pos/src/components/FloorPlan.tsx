@@ -1,6 +1,4 @@
-import React, { useState, useCallback } from 'react';
-
-type TableStatus = 'empty' | 'occupied' | 'waiting';
+import React, { useState, useRef } from 'react';
 
 interface Table {
   id: string;
@@ -8,130 +6,110 @@ interface Table {
   y: number;
   width: number;
   height: number;
-  status: TableStatus;
+  status: 'empty' | 'occupied' | 'waiting';
 }
 
-const FloorPlan: React.FC = () => {
-  const [tables, setTables] = useState<Table[]>([
-    { id: '1', x: 50, y: 50, width: 80, height: 80, status: 'empty' },
-    { id: '2', x: 200, y: 50, width: 80, height: 80, status: 'occupied' },
-    { id: '3', x: 350, y: 50, width: 80, height: 80, status: 'waiting' },
-    { id: '4', x: 50, y: 200, width: 80, height: 80, status: 'empty' },
-    { id: '5', x: 200, y: 200, width: 80, height: 80, status: 'occupied' },
-  ]);
+type FloorPlanProps = {
+  tables: Table[];
+  onTableUpdate?: (updatedTables: Table[]) => void;
+};
 
-  const getColor = (status: TableStatus) => {
-    switch (status) {
-      case 'empty': return '#4caf50'; // green
-      case 'occupied': return '#f44336'; // red
-      case 'waiting': return '#ff9800'; // orange
-      default: return '#9e9e9e';
-    }
+export default function FloorPlan({ tables, onTableUpdate }: FloorPlanProps) {
+  const [tableState, setTableState] = useState<Table[]>(tables);
+  const draggedId = useRef<string | null>(null);
+
+  const handleDragStart = (e: React.DragEvent<HTMLDivElement>, id: string) => {
+    draggedId.current = id;
+    e.dataTransfer.setData('text/plain', id);
+    e.currentTarget.classList.add('opacity-50');
   };
 
-  const handleDragStart = useCallback((e: React.DragEvent<HTMLDivElement>, id: string) => {
-    e.dataTransfer.setData('text/plain', id);
-    // optionally add a visual indicator
-    e.currentTarget.style.opacity = '0.5';
-  }, []);
+  const handleDragEnd = (e: React.DragEvent<HTMLDivElement>) => {
+    e.currentTarget.classList.remove('opacity-50');
+    draggedId.current = null;
+  };
 
-  const handleDragEnd = useCallback((e: React.DragEvent<HTMLDivElement>) => {
-    e.currentTarget.style.opacity = '1';
-  }, []);
-
-  const handleDragOver = useCallback((e: React.DragEvent<HTMLDivElement>) => {
+  const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
-  }, []);
+  };
 
-  const handleDrop = useCallback((e: React.DragEvent<HTMLDivElement>, targetId: string) => {
+  const handleDrop = (e: React.DragEvent<HTMLDivElement>, targetId: string) => {
     e.preventDefault();
-    const draggedId = e.dataTransfer.getData('text/plain');
-    if (draggedId === '' || draggedId === targetId) return;
+    const id = e.dataTransfer.getData('text/plain');
+    if (!id || id === targetId || !draggedId.current) return;
 
-    setTables(prev => {
-      const dragged = prev.find(t => t.id === draggedId);
-      const target = prev.find(t => t.id === targetId);
+    setTableState((prev) => {
+      const dragged = prev.find((t) => t.id === draggedId.current);
+      const target = prev.find((t) => t.id === targetId);
       if (!dragged || !target) return prev;
 
-      // If dropping onto another table, attempt to merge (simple: increase width)
-      // For split, we could implement a separate action; here we just move.
-      const newTables = prev.map(t => {
-        if (t.id === draggedId) {
-          // Move to target's position (simple snap)
-          return { ...t, x: target.x, y: target.y };
-        }
+      if (e.altKey) {
+        // Merge: combine widths, keep max height, position at dragged
+        const merged = {
+          ...dragged,
+          width: dragged.width + target.width,
+          height: Math.max(dragged.height, target.height),
+        };
+        return prev
+          .filter((t) => t.id !== dragged.id && t.id !== target.id)
+          .concat(merged);
+      }
+
+      if (e.ctrlKey) {
+        // Split: two halves horizontally
+        const halfWidth = dragged.width / 2;
+        const left = {
+          ...dragged,
+          width: halfWidth,
+          id: `${dragged.id}-left-${Date.now()}`,
+        };
+        const right = {
+          ...dragged,
+          width: halfWidth,
+          x: dragged.x + halfWidth,
+          id: `${dragged.id}-right-${Date.now()}`,
+        };
+        return prev
+          .filter((t) => t.id !== dragged.id)
+          .concat(left, right);
+      }
+
+      // Default: swap positions
+      return prev.map((t) => {
+        if (t.id === dragged.id) return { ...t, x: target.x, y: target.y };
+        if (t.id === target.id) return { ...t, x: dragged.x, y: dragged.y };
         return t;
       });
-      return newTables;
     });
-  }, []);
+  };
 
-  const handleTableClick = useCallback((id: string) => {
-    // Placeholder for merge/split logic via click (e.g., right-click menu could be added)
-    setTables(prev =>
-      prev.map(t =>
-        t.id === id
-          ? { ...t, status: t.status === 'empty' ? 'occupied' : t.status === 'occupied' ? 'waiting' : 'empty' }
-          : t
-      )
-    );
-  }, []);
+  React.useEffect(() => {
+    if (onTableUpdate) {
+      onTableUpdate(tableState);
+    }
+  }, [tableState, onTableUpdate]);
 
   return (
-    <div
-      style={{
-        position: 'relative',
-        width: '100%',
-        height: '600px',
-        backgroundColor: '#f5f5f5',
-        border: '1px solid #ddd',
-        overflow: 'hidden',
-      }}
-    >
-      {tables.map(table => (
+    <div className="relative w-full h-[600px] bg-gray-100 border-2 border-gray-300 rounded">
+      {tableState.map((table) => (
         <div
           key={table.id}
-          id={`table-${table.id}`}
+          className={`absolute left-[${table.x}px] top-[${table.y}px] w-[${table.width}px] h-[${table.height}px] flex items-center justify-center text-center font-medium rounded border-2 ${
+            table.status === 'empty'
+              ? 'bg-green-200 border-green-500'
+              : table.status === 'occupied'
+              ? 'bg-red-200 border-red-500'
+              : 'bg-yellow-200 border-yellow-500'
+          }`}
           draggable
-          onDragStart={e => handleDragStart(e, table.id)}
+          onDragStart={(e) => handleDragStart(e, table.id)}
           onDragEnd={handleDragEnd}
           onDragOver={handleDragOver}
-          onDrop={e => handleDrop(e, table.id)}
-          onClick={() => handleTableClick(table.id)}
-          style={{
-            position: 'absolute',
-            left: table.x,
-            top: table.y,
-            width: table.width,
-            height: table.height,
-            backgroundColor: getColor(table.status),
-            border: '2px solid #fff',
-            borderRadius: '4px',
-            cursor: 'grab',
-            userSelect: 'none',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            color: '#fff',
-            fontWeight: 'bold',
-            boxShadow: '0 2px 4px rgba(0,0,0,0.2)',
-            transition: 'transform 0.1s ease',
-          }}
-          onMouseDown={() => {
-            // Change cursor while dragging
-            const el = document.getElementById(`table-${table.id}`);
-            if (el) el.style.cursor = 'grabbing';
-          }}
-          onMouseUp={() => {
-            const el = document.getElementById(`table-${table.id}`);
-            if (el) el.style.cursor = 'grab';
-          }}
+          onDrop={(e) => handleDrop(e, table.id)}
         >
-          {table.id}
+          <div className="text-xs">{table.id.slice(0, 4)}</div>
         </div>
       ))}
     </div>
   );
-};
-
-export default FloorPlan;
+}

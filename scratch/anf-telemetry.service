@@ -1,0 +1,16 @@
+[Unit]
+Description=ANF Telemetry Daemon
+After=network.target
+
+[Service]
+Type=simple
+User=nvidia
+WorkingDirectory=/workspaces/AutonomousNativeForge
+ExecStart=/usr/bin/node /workspaces/AutonomousNativeForge/agents/telemetry.js
+Restart=always
+RestartSec=10
+StandardOutput=append:/workspaces/AutonomousNativeForge/logs/telemetry.log
+StandardError=append:/workspaces/AutonomousNativeForge/logs/telemetry.log
+
+[Install]
+WantedBy=multi-user.target

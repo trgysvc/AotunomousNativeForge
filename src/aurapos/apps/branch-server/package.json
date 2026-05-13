@@ -1,28 +1,65 @@
+// apps/branch-server/package.json
 {
-  "name": "@aurapos/branch-server",
-  "version": "1.0.0",
-  "description": "Branch server for AuroraPOS",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "name": "branch-server",
+  "version": "0.1.0",
+  "private": true,
+  "main": "src/index.ts",
   "scripts": {
+    "dev": "tsx watch src/index.ts",
     "build": "tsc",
-    "start": "node dist/index.js",
-    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
-    "lint": "eslint src --ext .ts",
-    "test": "jest"
+    "start": "node dist/index.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "fastify": "^4.24.0",
+    "fastify-cors": "^8.2.0"
+  },
   "devDependencies": {
-    "@types/node": "^20.8.4",
-    "@typescript-eslint/eslint-plugin": "^6.7.0",
-    "@typescript-eslint/parser": "^6.7.0",
-    "eslint": "^8.49.0",
-    "jest": "^29.6.2",
-    "ts-jest": "^29.1.1",
-    "ts-node-dev": "^2.0.0",
-    "typescript": "^5.2.2"
+    "@types/node": "^20.0.0",
+    "tsx": "^3.12.0",
+    "typescript": "^5.0.0"
   }
+}
+
+// apps/branch-server/src/index.ts
+import Fastify from 'fastify';
+import cors from '@fastify/cors';
+import { hardwareRoutes } from './routes/hardware';
+// import orderRoutes from './routes/order'; // placeholder
+
+const server = Fastify({ logger: true });
+
+server.register(cors, {
+  origin: true,
+});
+
+server.register(hardwareRoutes, { prefix: '/hardware' });
+// server.register(orderRoutes, { prefix: '/order' });
+
+server.get('/health', async (req, reply) => {
+  return { status: 'ok' });
+});
+
+const start = async () => {
+  try {
+    await server.listen({ port: 3000, host: '0.0.0.0' });
+    server.log.info(`Server listening on ${server.server.address()}`);
+  } catch (err) {
+    server.log.error(err);
+    process.exit(1);
+  }
+};
+
+start();
+
+// apps/branch-server/src/routes/hardware.ts
+import { FastifyInstance } from 'fastify';
+
+export async function hardwareRoutes(fastify: FastifyInstance) {
+  fastify.get('/', async () => {
+    return { message: 'Hardware endpoint' };
+  });
+
+  fastify.get('/status', async () => {
+    return { status: 'ok', timestamp: new Date().toISOString() };
+  });
 }
