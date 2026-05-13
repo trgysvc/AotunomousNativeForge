@@ -1,5 +1,5 @@
 # ANF Autonomous System — Live Telemetry Report
-*Last Updated: 2026-05-13T22:06:34.423Z*
+*Last Updated: 2026-05-13T22:34:47.308Z*
 *System Status: **🟢 ONLINE***
 
 ---
@@ -20,11 +20,11 @@
 |:---|:---|:---|
 | **GPU** | NVIDIA GB10 | Real-time sensor data |
 | **GPU Compute Load** | 96% | During active inference |
-| **GPU Power Draw** | 43.1 W | Instantaneous |
-| **GPU Temperature** | 70°C | Thermal limit: 85°C |
+| **GPU Power Draw** | 38.2 W | Instantaneous |
+| **GPU Temperature** | 67°C | Thermal limit: 85°C |
 | **Thermal Throttling** | 🟢 NONE | — |
-| **System RAM** | 100370 / 124547 MB | Memory pressure |
-| **CPU Load Average (1m)** | 4.08 | Agent process pressure |
+| **System RAM** | 100640 / 124547 MB | Memory pressure |
+| **CPU Load Average (1m)** | 3.91 | Agent process pressure |
 
 ---
 
@@ -32,8 +32,8 @@
 
 | Metric | Value | Description |
 |:---|:---|:---|
-| **Generation Speed (TPS)** | **36.4 tokens/sec** | NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4 |
-| **Active Requests** | 4 Running / 0 Waiting | Parallel capacity |
+| **Generation Speed (TPS)** | **13.9 tokens/sec** | NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4 |
+| **Active Requests** | 1 Running / 0 Waiting | Parallel capacity |
 | **Prefix Cache Hit Rate** | 0% | Prompt caching efficiency |
 | **Self-Healing (STEER)** | 2 corrections | Agent autonomously fixed |
 | **QA-Approved Deliveries** | 21 tasks | Passed all quality gates |
@@ -44,18 +44,18 @@
 
 | Metric | Value |
 |:---|:---|
-| **Retry Rate** | 302.4% | Avg attempts per task: 3.02 |
-| **Total Failures** | 59 | Max retry exceeded |
+| **Retry Rate** | 307.2% | Avg attempts per task: 3.07 |
+| **Total Failures** | 60 | Max retry exceeded |
 
 **Error Classification (failure_log):**
 
 | Error Type | Count |
 |:---|:---|
 | SYNTAX | 132 |
-| UNKNOWN | 98 |
+| UNKNOWN | 105 |
 | PRD_COMPLIANCE | 17 |
-| SYSTEM_RECOVERY | 5 |
-| **MAX_RECOVERY_EXCEEDED** | 59 |
+| SYSTEM_RECOVERY | 6 |
+| **MAX_RECOVERY_EXCEEDED** | 60 |
 
 ---
 
@@ -64,10 +64,10 @@
 | Metric | Value | Impact |
 |:---|:---|:---|
 | **MTTR (Mean Time To Recovery)** | **< 1 Minute** | Watchdog Autonomous MTTR |
-| **Autonomous Recovery Count** | 6 interventions | Watchdog active detection |
+| **Autonomous Recovery Count** | 7 interventions | Watchdog active detection |
 | **Recovery Success Rate** | 0.0% | System self-stabilization |
 | **Circuit Breaker Status** | 🟢 ACTIVE | MAX_RECOVERY limit active |
-| **System Reliability (Uptime)** | 89.11% | Production Readiness |
+| **System Reliability (Uptime)** | 88.93% | Production Readiness |
 
 ---
 
@@ -77,12 +77,12 @@
 |:---|:---:|:---|:---|
 | ✅ **DONE** | 21 | 3.9% | █░░░░░░░░░░░░░░░░░░░ |
 | 🛠️ **IN_PROGRESS** | 21 | — | 🔄 |
-| ⏳ **PENDING** | 441 | — | ⏳ |
-| ❌ **FAILED** | 59 | — | ❌ |
+| ⏳ **PENDING** | 440 | — | ⏳ |
+| ❌ **FAILED** | 60 | — | ❌ |
 | **TOTAL** | **542** | **100%** | **Master Plan: aurapos** |
 
-**Total Code Produced:** 3656 Lines (LoC)  
-**Estimated Time to Completion (ETA):** ~30.6 hours
+**Total Code Produced:** 3832 Lines (LoC)  
+**Estimated Time to Completion (ETA):** ~30.5 hours
 
 ---
 
@@ -90,8 +90,8 @@
 
 | Metric | Value | Notes |
 |:---|:---|:---|
-| **Est. Energy Cost / Task** | $0.0002 | Based on 43.1W draw |
-| **Human vs. ANF** | 4–6 Weeks → ~30.6 Hours | AI Efficiency Advantage |
+| **Est. Energy Cost / Task** | $0.0002 | Based on 38.2W draw |
+| **Human vs. ANF** | 4–6 Weeks → ~30.5 Hours | AI Efficiency Advantage |
 
 | **Hardware Alignment** | GB10 Blackwell Optimized | Max utilization of NVFP4/KV |
 
@@ -104,7 +104,7 @@
 | **Context Processing Volume** | 88.5 Pages / 66,363 Tokens | High-fidelity PRD ingestion |
 | **Planning Efficiency** | 3.8 min (Full Plan) | ~150x faster than humans |
 | **Architecture Fidelity** | 542 Atomic Tasks | Zero-gap requirements coverage |
-| **Compute-to-Code Ratio** | 43.1W Peak / 3656 LoC | Eco-efficient production |
+| **Compute-to-Code Ratio** | 38.2W Peak / 3832 LoC | Eco-efficient production |
 | **Hardware Alignment** | GB10 Blackwell Optimized | Max utilization of NVFP4/KV |
 
 ---

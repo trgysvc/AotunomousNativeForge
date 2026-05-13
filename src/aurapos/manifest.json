@@ -2922,7 +2922,7 @@
       "desc": "Root layout for dashboard with auth guard and sidebar navigation",
       "file_path": "apps/dashboard/app/layout.tsx",
       "depends_on": [],
-      "status": "PENDING",
+      "status": "FAILED",
       "failure_log": [
         {
           "attempt": 1,
@@ -2953,11 +2953,35 @@
           "timestamp": "2026-05-13T22:06:16.462Z",
           "error_type": "SYSTEM_RECOVERY",
           "error": "WATCHDOG_ACTION: Heartbeat bulunamadı ve işlem dosyası eski."
+        },
+        {
+          "attempt": 4,
+          "timestamp": "2026-05-13T22:11:56.498Z",
+          "error_type": "UNKNOWN",
+          "error": "CODER HATASI: Stream ended but response is empty (tokens=4097, finish=length)"
+        },
+        {
+          "attempt": 5,
+          "timestamp": "2026-05-13T22:17:12.106Z",
+          "error_type": "UNKNOWN",
+          "error": "CODER HATASI: Stream ended but response is empty (tokens=4097, finish=length)"
+        },
+        {
+          "attempt": 6,
+          "timestamp": "2026-05-13T22:17:21.905Z",
+          "error_type": "UNKNOWN",
+          "error": "CODER HATASI: Stream ended but response is empty (tokens=4097, finish=length)"
+        },
+        {
+          "attempt": 7,
+          "timestamp": "2026-05-13T22:22:17.023Z",
+          "error_type": "UNKNOWN",
+          "error": "CODER HATASI: Stream ended but response is empty (tokens=4097, finish=length)"
         }
       ],
       "recovery_count": 2,
       "last_recovery": "2026-05-13T22:06:16.462Z",
-      "retry_count": 3
+      "retry_count": 7
     },
     {
       "task_id": "S14-2",
@@ -2977,18 +3001,45 @@
           "timestamp": "2026-05-13T22:06:11.373Z",
           "error_type": "UNKNOWN",
           "error": "HATA: Dosya bulunamadı."
+        },
+        {
+          "attempt": 2,
+          "timestamp": "2026-05-13T22:17:16.909Z",
+          "error_type": "SYSTEM_RECOVERY",
+          "error": "WATCHDOG_ACTION: Heartbeat bulunamadı ve işlem dosyası eski."
+        },
+        {
+          "attempt": 2,
+          "timestamp": "2026-05-13T22:25:12.038Z",
+          "error_type": "UNKNOWN",
+          "error": "HATA: Dosya bulunamadı."
+        },
+        {
+          "attempt": 3,
+          "timestamp": "2026-05-13T22:32:47.353Z",
+          "error_type": "UNKNOWN",
+          "error": "HATA: Dosya bulunamadı."
         }
       ],
-      "recovery_count": 1,
-      "last_recovery": "2026-05-13T21:51:15.803Z",
-      "retry_count": 1
+      "recovery_count": 2,
+      "last_recovery": "2026-05-13T22:17:16.909Z",
+      "retry_count": 3
     },
     {
       "task_id": "S14-3",
       "desc": "Main dashboard showing AI insights cards and quick metrics",
       "file_path": "apps/dashboard/app/(panel)/page.tsx",
       "depends_on": [],
-      "status": "IN_PROGRESS"
+      "status": "FIXING",
+      "retry_count": 1,
+      "failure_log": [
+        {
+          "attempt": 1,
+          "timestamp": "2026-05-13T22:27:57.139Z",
+          "error_type": "UNKNOWN",
+          "error": "HATA: Dosya bulunamadı."
+        }
+      ]
     },
     {
       "task_id": "S14-4",

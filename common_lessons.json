@@ -1146,6 +1146,23 @@
       ],
       "rule": "Always verify that the target file path exists and conforms to the official framework structure before referencing it; use semantically correct names derived from task logic, not raw task IDs.",
       "severity": "CRITICAL"
+    },
+    {
+      "id": "S14-2_1778711154295",
+      "context": [
+        "file-management"
+      ],
+      "rule": "Always verify that any file referenced in a task exists or is created as a prerequisite; missing files must be created before they are referenced to avoid 'File not found' errors.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S14-2_1778711595727",
+      "context": [
+        "file-not-found",
+        "path-verification"
+      ],
+      "rule": "Before referencing a file in a task, verify that the file exists or will be created by a prior task; otherwise, create the file first or adjust the task to handle missing files gracefully.",
+      "severity": "CRITICAL"
     }
   ]
 }
