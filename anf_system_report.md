@@ -1,5 +1,5 @@
 # ANF Autonomous System — Live Telemetry Report
-*Last Updated: 2026-05-13T22:53:41.124Z*
+*Last Updated: 2026-05-13T22:54:56.691Z*
 *System Status: **🟢 ONLINE***
 
 ---
@@ -23,8 +23,8 @@
 | **GPU Power Draw** | 38.8 W | Instantaneous |
 | **GPU Temperature** | 67°C | Thermal limit: 85°C |
 | **Thermal Throttling** | 🟢 NONE | — |
-| **System RAM** | 100417 / 124547 MB | Memory pressure |
-| **CPU Load Average (1m)** | 1.91 | Agent process pressure |
+| **System RAM** | 100356 / 124547 MB | Memory pressure |
+| **CPU Load Average (1m)** | 1.52 | Agent process pressure |
 
 ---
 
@@ -32,7 +32,7 @@
 
 | Metric | Value | Description |
 |:---|:---|:---|
-| **Generation Speed (TPS)** | **14 tokens/sec** | NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4 |
+| **Generation Speed (TPS)** | **13.8 tokens/sec** | NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4 |
 | **Active Requests** | 1 Running / 0 Waiting | Parallel capacity |
 | **Prefix Cache Hit Rate** | 0% | Prompt caching efficiency |
 | **Self-Healing (STEER)** | 2 corrections | Agent autonomously fixed |
