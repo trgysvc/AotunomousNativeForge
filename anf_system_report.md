@@ -1,5 +1,5 @@
 # ANF Autonomous System — Live Telemetry Report
-*Last Updated: 2026-05-13T18:49:24.043Z*
+*Last Updated: 2026-05-13T18:49:54.261Z*
 *System Status: **🟢 ONLINE***
 
 ---
@@ -20,11 +20,11 @@
 |:---|:---|:---|
 | **GPU** | NVIDIA GB10 | Real-time sensor data |
 | **GPU Compute Load** | 96% | During active inference |
-| **GPU Power Draw** | 39.5 W | Instantaneous |
-| **GPU Temperature** | 66°C | Thermal limit: 85°C |
+| **GPU Power Draw** | 39.3 W | Instantaneous |
+| **GPU Temperature** | 67°C | Thermal limit: 85°C |
 | **Thermal Throttling** | 🟢 NONE | — |
-| **System RAM** | 99352 / 124547 MB | Memory pressure |
-| **CPU Load Average (1m)** | 1.27 | Agent process pressure |
+| **System RAM** | 99437 / 124547 MB | Memory pressure |
+| **CPU Load Average (1m)** | 1.88 | Agent process pressure |
 
 ---
 
@@ -32,7 +32,7 @@
 
 | Metric | Value | Description |
 |:---|:---|:---|
-| **Generation Speed (TPS)** | **14.8 tokens/sec** | NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4 |
+| **Generation Speed (TPS)** | **13.8 tokens/sec** | NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4 |
 | **Active Requests** | 1 Running / 0 Waiting | Parallel capacity |
 | **Prefix Cache Hit Rate** | 0% | Prompt caching efficiency |
 | **Self-Healing (STEER)** | 0 corrections | Agent autonomously fixed |
@@ -76,7 +76,7 @@
 
 | Metric | Value | Notes |
 |:---|:---|:---|
-| **Est. Energy Cost / Task** | $0.0004 | Based on 39.5W draw |
+| **Est. Energy Cost / Task** | $0.0004 | Based on 39.3W draw |
 | **Human vs. ANF** | 4–6 Weeks → ~34.4 Hours | AI Efficiency Advantage |
 
 ---
