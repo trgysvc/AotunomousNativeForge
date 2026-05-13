@@ -2703,8 +2703,8 @@
       "desc": "Create Supabase client with anon key and helper functions for auth",
       "file_path": "apps/pos/lib/supabase.ts",
       "depends_on": [],
-      "status": "TESTING",
-      "retry_count": 8,
+      "status": "FAILED",
+      "retry_count": 9,
       "failure_log": [
         {
           "attempt": 1,
@@ -2753,6 +2753,12 @@
           "timestamp": "2026-05-13T20:49:58.523Z",
           "error_type": "SYNTAX",
           "error": "CODER HATASI: Stream ended but response is empty (tokens=4097, finish=length)"
+        },
+        {
+          "attempt": 9,
+          "timestamp": "2026-05-13T20:51:31.772Z",
+          "error_type": "SYNTAX",
+          "error": "SENTAKS HATASI: Command failed: npx -y --package typescript tsc --noEmit --target esnext --module esnext --esModuleInterop --skipLibCheck \"/workspaces/AutonomousNativeForge/src/aurapos/aurapos/apps/pos/lib/supabase.ts\"\n"
         }
       ],
       "recovery_count": 1,

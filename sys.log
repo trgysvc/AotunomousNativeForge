@@ -10654,3 +10654,7 @@
 [2026-05-13T20:51:28.374Z] 🧠 [CODER] Reasoning budget: 2048 tokens | Max Output: 4096
 [2026-05-13T20:51:28.848Z] 🧐 QA GUARDRAIL: [aurapos] S13-11 denetleniyor...
 [2026-05-13T20:51:29.803Z] ❌ SYNC FAIL: supabase.ts
+[2026-05-13T20:51:31.777Z] [aurapos]  ⛔ MAX RETRY (3) AŞILDI. Re-planning başlatılıyor.
+[2026-05-13T20:51:31.833Z] 📖 [ARCHITECT] Skill mühürü okundu: architect.md
+[2026-05-13T20:51:31.833Z] 🧠 [ARCHITECT] Reasoning budget: 4096 tokens | Max Output: 6144
+[2026-05-13T20:51:32.625Z] ⏳ [CODER] Streaming... 860 tokens so far (finish=generating)
