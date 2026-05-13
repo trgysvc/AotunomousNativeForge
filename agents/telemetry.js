@@ -203,7 +203,7 @@ async function generateReport() {
 | Metric | Value | Description |
 |:---|:---|:---|
 | **Master Plan Generation** | ${sys.planTime} | Time spent atomizing PRDs |
-| **Architect Reasoning Load** | High | DeepSeek-R1 / Nemotron Steering |
+| **Architect Reasoning Load** | High | Nemotron Steering |
 | **Strategy Drift** | 0.02% | Alignment with PRD constraints |
 
 ---

@@ -9689,3 +9689,35 @@
 [2026-05-13T19:12:29.749Z] 🧠 [ARCHITECT] Reasoning budget: 4096 tokens | Max Output: 6144
 [2026-05-13T19:12:29.750Z] 📖 [ARCHITECT] Skill mühürü okundu: architect.md
 [2026-05-13T19:12:29.750Z] 🧠 [ARCHITECT] Reasoning budget: 4096 tokens | Max Output: 6144
+[2026-05-13T19:12:51.661Z] ⏳ [CODER] Streaming... 1657 tokens so far (finish=generating)
+[2026-05-13T19:12:57.991Z] ⏳ [CODER] Streaming... 260 tokens so far (finish=generating)
+[2026-05-13T19:12:59.854Z] ⏳ [ARCHITECT] Streaming... 265 tokens so far (finish=generating)
+[2026-05-13T19:12:59.855Z] ⏳ [ARCHITECT] Streaming... 266 tokens so far (finish=generating)
+[2026-05-13T19:13:16.266Z] 🧠 BELLEK GÜNCELLENDİ: Global dersi işlendi.
+[2026-05-13T19:13:21.684Z] ⏳ [CODER] Streaming... 1966 tokens so far (finish=generating)
+[2026-05-13T19:13:28.054Z] ⏳ [CODER] Streaming... 593 tokens so far (finish=generating)
+[2026-05-13T19:13:51.724Z] ⏳ [CODER] Streaming... 2351 tokens so far (finish=generating)
+[2026-05-13T19:13:58.102Z] ⏳ [CODER] Streaming... 974 tokens so far (finish=generating)
+[2026-05-13T19:14:02.173Z] 💾 Dosya mühürlendi (1846 bytes): page.tsx
+[2026-05-13T19:14:02.945Z] 🧭 STEERING: [aurapos] S13-3 yönlendirme ile düzeltiliyor...
+[2026-05-13T19:14:02.945Z] 📖 [CODER] Skill mühürü okundu: coder.md
+[2026-05-13T19:14:02.945Z] 🧠 [CODER] Reasoning budget: 2048 tokens | Max Output: 4096
+[2026-05-13T19:14:03.008Z] [aurapos]  Kod yazımı bitti. Test ajanı devralıyor: S13-4
+[2026-05-13T19:14:03.479Z] 🧐 QA GUARDRAIL: [aurapos] S13-4 denetleniyor...
+[2026-05-13T19:14:04.358Z] ❌ SYNC FAIL: page.tsx
+[2026-05-13T19:14:04.794Z] [aurapos]  🧭 STEERING: Hata analizi ve yönlendirme yapılıyor (2/3)
+[2026-05-13T19:14:04.798Z] 📖 [ARCHITECT] Skill mühürü okundu: architect.md
+[2026-05-13T19:14:04.798Z] 🧠 [ARCHITECT] Reasoning budget: 4096 tokens | Max Output: 6144
+[2026-05-13T19:14:04.798Z] 📖 [ARCHITECT] Skill mühürü okundu: architect.md
+[2026-05-13T19:14:04.799Z] 🧠 [ARCHITECT] Reasoning budget: 4096 tokens | Max Output: 6144
+[2026-05-13T19:14:21.811Z] ⏳ [CODER] Streaming... 2649 tokens so far (finish=generating)
+[2026-05-13T19:14:33.029Z] ⏳ [CODER] Streaming... 270 tokens so far (finish=generating)
+[2026-05-13T19:14:34.811Z] ⏳ [ARCHITECT] Streaming... 276 tokens so far (finish=generating)
+[2026-05-13T19:14:34.920Z] ⏳ [ARCHITECT] Streaming... 277 tokens so far (finish=generating)
+[2026-05-13T19:14:51.915Z] ⏳ [CODER] Streaming... 2944 tokens so far (finish=generating)
+[2026-05-13T19:15:03.074Z] ⏳ [CODER] Streaming... 560 tokens so far (finish=generating)
+[2026-05-13T19:15:04.898Z] ⏳ [ARCHITECT] Streaming... 566 tokens so far (finish=generating)
+[2026-05-13T19:15:21.926Z] ⏳ [CODER] Streaming... 3229 tokens so far (finish=generating)
+[2026-05-13T19:15:33.121Z] ⏳ [CODER] Streaming... 874 tokens so far (finish=generating)
+[2026-05-13T19:15:51.992Z] ⏳ [CODER] Streaming... 3609 tokens so far (finish=generating)
+[2026-05-13T19:16:03.138Z] ⏳ [CODER] Streaming... 1260 tokens so far (finish=generating)

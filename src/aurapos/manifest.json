@@ -2430,13 +2430,19 @@
       "file_path": "apps/pos/app/(pos)/order/[id]/page.tsx",
       "depends_on": [],
       "status": "FIXING",
-      "retry_count": 1,
+      "retry_count": 2,
       "failure_log": [
         {
           "attempt": 1,
           "timestamp": "2026-05-13T19:08:42.756Z",
           "error_type": "UNKNOWN",
           "error": "CODER HATASI: Stream ended but response is empty (tokens=4097, finish=length)"
+        },
+        {
+          "attempt": 2,
+          "timestamp": "2026-05-13T19:14:04.790Z",
+          "error_type": "SYNTAX",
+          "error": "SENTAKS HATASI: Command failed: npx -y --package typescript tsc --noEmit --target esnext --module esnext --esModuleInterop --skipLibCheck \"/workspaces/AutonomousNativeForge/src/aurapos/apps/pos/app/(pos)/order/[id]/page.tsx\"\n"
         }
       ]
     },

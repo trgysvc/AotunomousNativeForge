@@ -1,5 +1,5 @@
 # ANF Autonomous System — Live Telemetry Report
-*Last Updated: 2026-05-13T19:12:35.720Z*
+*Last Updated: 2026-05-13T19:16:08.237Z*
 *System Status: **🟢 ONLINE***
 
 ---
@@ -9,7 +9,7 @@
 | Metric | Value | Description |
 |:---|:---|:---|
 | **Master Plan Generation** | 3.8 min | Time spent atomizing PRDs |
-| **Architect Reasoning Load** | High | DeepSeek-R1 / Nemotron Steering |
+| **Architect Reasoning Load** | High | Nemotron Steering |
 | **Strategy Drift** | 0.02% | Alignment with PRD constraints |
 
 ---
@@ -20,11 +20,11 @@
 |:---|:---|:---|
 | **GPU** | NVIDIA GB10 | Real-time sensor data |
 | **GPU Compute Load** | 96% | During active inference |
-| **GPU Power Draw** | 44.1 W | Instantaneous |
-| **GPU Temperature** | 69°C | Thermal limit: 85°C |
+| **GPU Power Draw** | 41.1 W | Instantaneous |
+| **GPU Temperature** | 68°C | Thermal limit: 85°C |
 | **Thermal Throttling** | 🟢 NONE | — |
-| **System RAM** | 99547 / 124547 MB | Memory pressure |
-| **CPU Load Average (1m)** | 2.75 | Agent process pressure |
+| **System RAM** | 99534 / 124547 MB | Memory pressure |
+| **CPU Load Average (1m)** | 1.89 | Agent process pressure |
 
 ---
 
@@ -32,8 +32,8 @@
 
 | Metric | Value | Description |
 |:---|:---|:---|
-| **Generation Speed (TPS)** | **22.8 tokens/sec** | NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4 |
-| **Active Requests** | 1 Running / 0 Waiting | Parallel capacity |
+| **Generation Speed (TPS)** | **25.2 tokens/sec** | NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4 |
+| **Active Requests** | 2 Running / 0 Waiting | Parallel capacity |
 | **Prefix Cache Hit Rate** | 0% | Prompt caching efficiency |
 | **Self-Healing (STEER)** | 1 corrections | Agent autonomously fixed |
 | **QA-Approved Deliveries** | 19 tasks | Passed all quality gates |
@@ -44,14 +44,14 @@
 
 | Metric | Value |
 |:---|:---|
-| **Retry Rate** | 268.1% | Avg attempts per task: 2.68 |
+| **Retry Rate** | 269.6% | Avg attempts per task: 2.70 |
 | **Total Failures** | 46 | Max retry exceeded |
 
 **Error Classification (failure_log):**
 
 | Error Type | Count |
 |:---|:---|
-| SYNTAX | 95 |
+| SYNTAX | 96 |
 | UNKNOWN | 73 |
 | PRD_COMPLIANCE | 16 |
 
@@ -67,7 +67,7 @@
 | ❌ **FAILED** | 46 | — | ❌ |
 | **TOTAL** | **542** | **100%** | **Master Plan: aurapos** |
 
-**Total Code Produced:** 2948 Lines (LoC)  
+**Total Code Produced:** 2999 Lines (LoC)  
 **Estimated Time to Completion (ETA):** ~34.0 hours
 
 ---
@@ -76,7 +76,7 @@
 
 | Metric | Value | Notes |
 |:---|:---|:---|
-| **Est. Energy Cost / Task** | $0.0003 | Based on 44.1W draw |
+| **Est. Energy Cost / Task** | $0.0003 | Based on 41.1W draw |
 | **Human vs. ANF** | 4–6 Weeks → ~34.0 Hours | AI Efficiency Advantage |
 
 ---
@@ -88,7 +88,7 @@
 | **Context Processing Volume** | 88.5 Pages / 66,363 Tokens | High-fidelity PRD ingestion |
 | **Planning Efficiency** | 3.8 min (Full Plan) | ~150x faster than humans |
 | **Architecture Fidelity** | 542 Atomic Tasks | Zero-gap requirements coverage |
-| **Compute-to-Code Ratio** | 44.1W Peak / 2948 LoC | Eco-efficient production |
+| **Compute-to-Code Ratio** | 41.1W Peak / 2999 LoC | Eco-efficient production |
 | **Hardware Alignment** | GB10 Blackwell Optimized | Max utilization of NVFP4/KV |
 
 ---

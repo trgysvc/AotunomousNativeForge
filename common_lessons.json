@@ -967,6 +967,16 @@
       ],
       "rule": "Always ensure that the parent directory of a target file exists before attempting to create or write the file; create missing directories programmatically or verify the path beforehand to avoid 'File not found' errors.",
       "severity": "CRITICAL"
+    },
+    {
+      "id": "S13-2_1778699596265",
+      "context": [
+        "typescript",
+        "nextjs",
+        "file-naming"
+      ],
+      "rule": "Avoid using parentheses or other special characters in file or directory names that are part of the module path; use only alphanumeric characters, hyphens, and underscores to ensure compatibility with TypeScript and bundlers.",
+      "severity": "CRITICAL"
     }
   ]
 }
