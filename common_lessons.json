@@ -948,6 +948,16 @@
       ],
       "rule": "Always verify that file paths exist and that required files are created before they are referenced in subsequent tasks.",
       "severity": "CRITICAL"
+    },
+    {
+      "id": "S13-1_1778699224613",
+      "context": [
+        "typescript",
+        "nextjs",
+        "app-router"
+      ],
+      "rule": "All .tsx files must contain valid TypeScript JSX: top-level JSX must be wrapped inside a function component that is exported as default, and the project's tsconfig must have JSX configured (e.g., \"react-jsx\" or \"preserve\") with appropriate module and target settings (esnext). Failing to do so results in a TS syntax error during tsc compilation.",
+      "severity": "CRITICAL"
     }
   ]
 }

@@ -1,18 +1,28 @@
-import type { ReactNode } from 'react';
 import './globals.css';
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+
+const inter = Inter({ subsets: ['latin'] });
+
+export const metadata: Metadata = {
+  title: 'POS Uygulaması',
+  description: 'Point of Sale uygulaması',
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+  },
+  manifest: '/manifest.json',
+  themeColor: '#ffffff',
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: ReactNode;
+  children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="manifest" href="/manifest.json" />
-      </head>
+    <html lang="tr" className={inter.className}>
       <body>{children}</body>
     </html>
   );

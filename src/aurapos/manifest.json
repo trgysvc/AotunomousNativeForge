@@ -2363,28 +2363,76 @@
       "desc": "Create root layout for POS Next.js app with PWA metadata and global styles",
       "file_path": "apps/pos/app/layout.tsx",
       "depends_on": [],
-      "status": "IN_PROGRESS"
+      "status": "FIXING",
+      "retry_count": 2,
+      "failure_log": [
+        {
+          "attempt": 1,
+          "timestamp": "2026-05-13T19:02:29.355Z",
+          "error_type": "UNKNOWN",
+          "error": "CODER HATASI: Stream ended but response is empty (tokens=4097, finish=length)"
+        },
+        {
+          "attempt": 2,
+          "timestamp": "2026-05-13T19:06:14.490Z",
+          "error_type": "SYNTAX",
+          "error": "SENTAKS HATASI: Command failed: npx -y --package typescript tsc --noEmit --target esnext --module esnext --esModuleInterop --skipLibCheck \"/workspaces/AutonomousNativeForge/src/aurapos/apps/pos/app/layout.tsx\"\n"
+        }
+      ]
     },
     {
       "task_id": "S13-2",
       "desc": "Implement PIN entry screen with form validation and Supabase auth call",
       "file_path": "apps/pos/app/(auth)/pin/page.tsx",
       "depends_on": [],
-      "status": "IN_PROGRESS"
+      "status": "FIXING",
+      "retry_count": 1,
+      "failure_log": [
+        {
+          "attempt": 1,
+          "timestamp": "2026-05-13T19:02:42.446Z",
+          "error_type": "UNKNOWN",
+          "error": "HATA: Dosya bulunamadı."
+        }
+      ]
     },
     {
       "task_id": "S13-3",
       "desc": "Build table map UI using react‑flow or custom drag‑drop to show table statuses",
       "file_path": "apps/pos/app/(pos)/tables/page.tsx",
       "depends_on": [],
-      "status": "IN_PROGRESS"
+      "status": "FIXING",
+      "retry_count": 2,
+      "failure_log": [
+        {
+          "attempt": 1,
+          "timestamp": "2026-05-13T19:05:09.473Z",
+          "error_type": "SYNTAX",
+          "error": "SENTAKS HATASI: Command failed: npx -y --package typescript tsc --noEmit --target esnext --module esnext --esModuleInterop --skipLibCheck \"/workspaces/AutonomousNativeForge/src/aurapos/apps/pos/app/(pos)/tables/page.tsx\"\n"
+        },
+        {
+          "attempt": 2,
+          "timestamp": "2026-05-13T19:10:24.663Z",
+          "error_type": "SYNTAX",
+          "error": "HATA: Dosya bulunamadı."
+        }
+      ]
     },
     {
       "task_id": "S13-4",
       "desc": "Create order detail page showing items, modifiers, and KDS status",
       "file_path": "apps/pos/app/(pos)/order/[id]/page.tsx",
       "depends_on": [],
-      "status": "IN_PROGRESS"
+      "status": "FIXING",
+      "retry_count": 1,
+      "failure_log": [
+        {
+          "attempt": 1,
+          "timestamp": "2026-05-13T19:08:42.756Z",
+          "error_type": "UNKNOWN",
+          "error": "CODER HATASI: Stream ended but response is empty (tokens=4097, finish=length)"
+        }
+      ]
     },
     {
       "task_id": "S13-5",
