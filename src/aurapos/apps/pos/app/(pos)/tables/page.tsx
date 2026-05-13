@@ -1,89 +1,90 @@
-"use client";
-import React, { useState } from 'react';
+import { ReactFlow, ReactFlowProvider, Node, Edge, Background, Controls, MiniMap, Position } from '@xyflow/react';
+import { useEffect, useState } from 'react';
 
-type TableStatus = 'free' | 'occupied' | 'reserved';
-
-interface Table {
-  id: string;
-  name: string;
-  status: TableStatus;
-  x: number;
-  y: number;
+interface TableNodeData {
+  label: string;
+  status: 'free' | 'occupied' | 'cleaning';
 }
 
-const TableMap: React.FC = () => {
-  const [tables, setTables] = useState<Table[]>([
-    { id: '1', name: 'Table 1', status: 'free', x: 100, y: 100 },
-    { id: '2', name: 'Table 2', status: 'occupied', x: 250, y: 100 },
-    { id: '3', name: 'Table 3', status: 'reserved', x: 400, y: 100 },
-    { id: '4', name: 'Table 4', status: 'free', x: 100, y: 250 },
-    { id: '5', name: 'Table 5', status: 'occupied', x: 250, y: 250 },
-    { id: '6', name: 'Table 6', status: 'reserved', x: 400, y: 250 },
-  ]);
+export default function TablesPage() {
+  const [nodes, setNodes] = useState<Node<TableNodeData>[]>([]);
+  const [edges, setEdges] = useState<Edge<unknown>[]>([]);
 
-  const handleDragStart = (e: React.DragEvent<HTMLDivElement>, id: string) => {
-    e.dataTransfer.setData('text/plain', id);
-  };
+  useEffect(() => {
+    const tableData = [
+      { id: '1', label: 'Table 1', status: 'free', position: { x: 100, y: 100 } },
+      { id: '2', label: 'Table 2', status: 'occupied', position: { x: 300, y: 100 } },
+      { id: '3', label: 'Table 3', status: 'cleaning', position: { x: 200, y: 300 } },
+    ];
 
-  const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
-    e.preventDefault();
-  };
+    const initialNodes = tableData.map(t => ({
+      id: t.id,
+      type: 'tableNode',
+      data: { label: t.label, status: t.status },
+      position: t.position,
+    }));
 
-  const handleDrop = (e: React.DragEvent<HTMLDivElement>, targetId: string) => {
-    e.preventDefault();
-    const sourceId = e.dataTransfer.getData('text/plain');
-    if (sourceId === targetId) return;
-    setTables(prev => {
-      const source = prev.find(t => t.id === sourceId)!;
-      const target = prev.find(t => t.id === targetId)!;
-      return prev.map(t => {
-        if (t.id === sourceId) return { ...t, x: target.x, y: target.y };
-        if (t.id === targetId) return { ...t, x: source.x, y: source.y };
-        return t;
-      });
-    });
-  };
+    setNodes(initialNodes);
+    setEdges([]);
+  }, []);
 
-  const getStatusColor = (status: TableStatus) => {
-    switch (status) {
-      case 'free': return '#4caf50';
-      case 'occupied': return '#f44336';
-      case 'reserved': return '#ff9800';
-      default: return '#9e9e9e';
-    }
-  };
-
-  return (
-    <div style={{ position: 'relative', width: '100%', height: '600px', background: '#f5f5f5' }}>
-      {tables.map(table => (
+  const nodeTypes = {
+    tableNode: ({ data, selected }: { data: TableNodeData; selected: boolean }) => {
+      const bgColor =
+        data.status === 'free'
+          ? '#4caf50'
+          : data.status === 'occupied'
+          ? '#f44336'
+          : '#ff9800';
+      return (
         <div
-          key={table.id}
-          draggable
-          onDragStart={(e) => handleDragStart(e, table.id)}
-          onDragOver={handleDragOver}
-          onDrop={(e) => handleDrop(e, table.id)}
           style={{
-            position: 'absolute',
-            left: table.x,
-            top: table.y,
-            width: '80px',
-            height: '80px',
-            backgroundColor: getStatusColor(table.status),
-            borderRadius: '8px',
+            width: 120,
+            height: 60,
+            background: bgColor,
+            color: '#fff',
+            borderRadius: 8,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            color: '#fff',
-            fontWeight: 'bold',
-            cursor: 'grab',
+            cursor: 'move',
             userSelect: 'none',
           }}
         >
-          {table.name}
+          <div>{data.label}</div>
         </div>
-      ))}
+      );
+    },
+  };
+
+  return (
+    <div style={{ padding: '20px' }}>
+      <h2>Table Map</h2>
+      <ReactFlowProvider>
+        <ReactFlow
+          nodes={nodes}
+          edges={edges}
+          nodeTypes={nodeTypes}
+          onNodesChange={(changes) =>
+            setNodes(nds =>
+              nds.map(node => {
+                const change = changes.find(c => c.id === node.id);
+                if (!change) return node;
+                if (change.type === 'position') {
+                  return { ...node, position: change.position };
+                }
+                return node;
+              })
+            )
+          }
+          zoomOnWheel
+          panOnDrag
+        >
+          <Background />
+          <Controls />
+          <MiniMap />
+        </ReactFlow>
+      </ReactFlowProvider>
     </div>
   );
-};
-
-export default TableMap;
+}

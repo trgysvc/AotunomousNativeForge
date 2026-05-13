@@ -977,6 +977,31 @@
       ],
       "rule": "Avoid using parentheses or other special characters in file or directory names that are part of the module path; use only alphanumeric characters, hyphens, and underscores to ensure compatibility with TypeScript and bundlers.",
       "severity": "CRITICAL"
+    },
+    {
+      "id": "S13-1_1778699817530",
+      "context": [
+        "token_limit"
+      ],
+      "rule": "Always ensure that the generated response stays within the model's token limit; if the output would exceed the limit, truncate, summarize, or split the response into multiple parts to avoid empty streams.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S13-2_1778700113865",
+      "context": [
+        "file-system",
+        "path-validation"
+      ],
+      "rule": "Always ensure that the parent directory of a target file exists before attempting to write the file; validate the file path and create missing directories as needed to prevent 'File not found' errors.",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "S13-4_1778700200976",
+      "context": [
+        "token_limit"
+      ],
+      "rule": "Always keep the model's response within its token limit; if the prompt or expected output approaches the limit, truncate, summarize, or split the request into multiple calls to avoid empty streams due to length finish.",
+      "severity": "CRITICAL"
     }
   ]
 }

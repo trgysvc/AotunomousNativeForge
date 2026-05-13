@@ -7,11 +7,10 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: 'POS Uygulaması',
   description: 'Point of Sale uygulaması',
-  icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon.ico',
-    apple: '/apple-touch-icon.png',
-  },
+  icons: [
+    { url: '/favicon.ico', sizes: 'any' },
+    { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+  ],
   manifest: '/manifest.json',
   themeColor: '#ffffff',
 };

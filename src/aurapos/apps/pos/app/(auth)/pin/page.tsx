@@ -111,4 +111,12 @@ const styles = {
     fontSize: "0.875rem",
   },
   button: {
-    padding: "0.
+    padding: "0.75rem",
+    fontSize: "1rem",
+    backgroundColor: "#1976d2",
+    color: "white",
+    border: "none",
+    borderRadius: "4px",
+    cursor: "pointer",
+  },
+};

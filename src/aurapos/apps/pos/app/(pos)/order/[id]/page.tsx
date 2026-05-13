@@ -13,16 +13,16 @@ export default async function OrderDetailPage({ params }: { params: { id: string
     <div className="p-6">
       <h1 className="text-2xl font-bold mb-4">Order #{order.id}</h1>
       <div className="space-y-4">
-        {order.items.map((item: any) => (
+        {order.items.map((item) => (
           <div key={item.id} className="border p-4 rounded-lg">
             <h2 className="text-lg font-medium">{item.name} × {item.quantity}</h2>
-            {item.modifiers && item.modifiers.length > 0 ? (
+            {item.modifiers?.length > 0 ? (
               <div className="mt-2">
                 <h3 className="font-semibold">Modifiers:</h3>
                 <ul className="list-disc pl-5 space-y-1">
-                  {item.modifiers.map((mod: any) => (
+                  {item.modifiers?.map((mod) => (
                     <li key={mod.id}>
-                      {mod.name} {mod.price ? `(+${mod.price})` : ''}
+                      {mod.name} {mod.price !== undefined ? `(+${mod.price})` : ''}
                     </li>
                   ))}
                 </ul>
