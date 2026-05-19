@@ -247,39 +247,35 @@ else
     CUDA_VERSION="13.2"
 fi
 
-# HuggingFace CLI yükle (sistem paket çakışmalarını önle)
-echo "HuggingFace CLI yükleniyor..."
-sudo pip3 install --upgrade --force-reinstall --no-deps huggingface_hub --break-system-packages
-sudo pip3 install --upgrade tqdm filelock requests --break-system-packages
-echo "✅ HuggingFace CLI kuruldu"
+# huggingface_hub bağımlılık kurulumu.
+# Doğrulanan komutlar (sistemde test edildi):
+#   pip3 install --upgrade --no-deps huggingface_hub  → core paket, çakışmasız
+#   pip3 install httpx fsspec hf-xet                 → snapshot_download için gerekli, çakışmasız
+#   pip3 install --no-deps typer                     → rich upgrade tetiklemez (Debian rich 13.7.1 korunur)
+# NOT: huggingface-cli deprecated, 'hf' doğru komut (v1.15.0)
+echo "HuggingFace Hub bağımlılıkları yükleniyor..."
+sudo pip3 install --upgrade --no-deps huggingface_hub --break-system-packages
+sudo pip3 install --upgrade httpx fsspec hf-xet --break-system-packages
+sudo pip3 install --upgrade --no-deps typer --break-system-packages
+echo "✅ HuggingFace Hub kuruldu"
 
 export HF_TOKEN="${HF_TOKEN:-}"
 
 if [ ! -d "$MODEL_DIR" ] || [ -z "$(ls -A "$MODEL_DIR" 2>/dev/null)" ]; then
-    hash -r 2>/dev/null
     mkdir -p "$MODEL_DIR"
-    echo "🚀 HuggingFace CLI ile model indirme başlıyor..."
-    # NOT: --include filtresi KULLANILMAZ. Bu SafeTensors modelidir (GGUF/llama.cpp değil).
-    # vLLM tüm shard dosyalarına ihtiyaç duyar.
-    # huggingface-cli kullan (eski 'hf' komutu güvenilir değil)
-    HF_CLI=$(which huggingface-cli 2>/dev/null || which hf 2>/dev/null || echo "")
-    if [ -z "$HF_CLI" ]; then
-        # PATH'i yenile ve tekrar dene
-        export PATH="$HOME/.local/bin:/usr/local/bin:$PATH"
-        hash -r
-        HF_CLI=$(which huggingface-cli 2>/dev/null || which hf 2>/dev/null || echo "")
-    fi
-    if [ -z "$HF_CLI" ]; then
-        echo "❌ huggingface-cli bulunamadı. Yeniden yükleniyor..."
-        sudo pip3 install --upgrade huggingface_hub --break-system-packages
-        export PATH="$HOME/.local/bin:/usr/local/bin:$PATH"
-        hash -r
-        HF_CLI=$(which huggingface-cli 2>/dev/null || echo "huggingface-cli")
-    fi
-    echo "HuggingFace CLI: $HF_CLI"
-    "$HF_CLI" download "$MODEL_ID" \
-        --local-dir "$MODEL_DIR" \
-        --token "$HF_TOKEN"
+    echo "🚀 snapshot_download() ile model indirme başlıyor (~60GB SafeTensors)..."
+    # snapshot_download: resmi Python API, tüm shardları indirir.
+    # Kaynak: huggingface.co/docs/huggingface_hub/guides/download
+    python3 - <<PYEOF
+from huggingface_hub import snapshot_download
+print("Bağlanıyor: $MODEL_ID")
+path = snapshot_download(
+    repo_id="$MODEL_ID",
+    local_dir="$MODEL_DIR",
+    token="$HF_TOKEN",
+)
+print(f"Model indirildi: {path}")
+PYEOF
 else
     echo "✅ Model dizini mevcut ve dolu."
 fi
