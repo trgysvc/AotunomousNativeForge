@@ -13,6 +13,17 @@ echo "========================================================"
 # --- UBUNTU SİSTEM GÜNCELLEMESİ (KURULUMDAN ÖNCE) ---
 echo ">>> [PRE] Ubuntu sistem güncellemesi yapılıyor..."
 
+# APT update öncesi CUDA kaynak listesi çakışmasını gider.
+# Sistem bazen hem .list hem .sources formatında çakışan CUDA kaynakları barındırır.
+# .list dosyası eski keyring'i (cuda-archive-keyring.gpg) kullanır,
+# .sources dosyası yeni keyring'i (cuda_debian_prod.gpg) kullanır — ikisi çakışır.
+if [ -f /etc/apt/sources.list.d/cuda-ubuntu2404-sbsa.list ] && \
+   [ -f /etc/apt/sources.list.d/cuda-compute-repo.sources ]; then
+    echo "⚠️ Çakışan CUDA kaynak listesi tespit edildi, temizleniyor..."
+    sudo rm -f /etc/apt/sources.list.d/cuda-ubuntu2404-sbsa.list
+    echo "✅ cuda-ubuntu2404-sbsa.list silindi."
+fi
+
 # Paket yöneticisi serbest olana kadar bekle
 while sudo fuser /var/lib/dpkg/lock-frontend >/dev/null 2>&1 || \
       ps aux | grep -v grep | grep -E "apt-get|dpkg" >/dev/null 2>&1; do
@@ -119,12 +130,20 @@ if [ "$CUDA_INSTALLED" = false ]; then
 
     echo "Repository: cuda.network/$REPO_VER/$CUDA_ARCH kullanılıyor"
 
-    # NVIDIA GPG anahtarını ve repository'i doğru mimari ile ekle (aarch64 → sbsa)
-    KEYRING_URL="https://developer.download.nvidia.com/compute/cuda/repos/${REPO_VER}/${CUDA_ARCH}/cuda-keyring_1.1-1_all.deb"
-    echo "Keyring indiriliyor: $KEYRING_URL"
-    wget -q "$KEYRING_URL" -O /tmp/cuda-keyring.deb || \
-        wget -q "https://developer.download.nvidia.com/compute/cuda/repos/${REPO_VER}/${CUDA_ARCH}/cuda-keyring_1.0-1_all.deb" -O /tmp/cuda-keyring.deb
-    sudo dpkg -i /tmp/cuda-keyring.deb
+    # Önce cuda-toolkit-13-2 apt-cache'de erişilebilir mi kontrol et.
+    # Erişilebiliyorsa repo zaten kurulu demektir — keyring tekrar eklenmez (çakışma önleme).
+    if ! apt-cache show cuda-toolkit-13-2 &>/dev/null; then
+        # Çakışan eski source list'i temizle, sonra yeni keyring ekle
+        sudo rm -f /etc/apt/sources.list.d/*cuda*.list /etc/apt/sources.list.d/*cuda*.sources 2>/dev/null || true
+
+        KEYRING_URL="https://developer.download.nvidia.com/compute/cuda/repos/${REPO_VER}/${CUDA_ARCH}/cuda-keyring_1.1-1_all.deb"
+        echo "Keyring indiriliyor: $KEYRING_URL"
+        wget -q "$KEYRING_URL" -O /tmp/cuda-keyring.deb || \
+            wget -q "https://developer.download.nvidia.com/compute/cuda/repos/${REPO_VER}/${CUDA_ARCH}/cuda-keyring_1.0-1_all.deb" -O /tmp/cuda-keyring.deb
+        sudo dpkg -i /tmp/cuda-keyring.deb
+    else
+        echo "✅ CUDA repo zaten yapılandırılmış (cuda-toolkit-13-2 erişilebilir), keyring atlanıyor."
+    fi
 
     sudo apt-get update
 
